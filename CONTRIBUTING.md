@@ -3,14 +3,15 @@
 **Who may Contribute?** Contributors to [this repository](https://github.com/oasis-tcs/codelist-genericode/) must be 
 [Members](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms#dMember) of the 
 [OASIS Universal Business Language (UBL) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl) for any 
-substantive contributions.  Anyone wishing to [participate](https://www.oasis-open.org/org/faq#committee-participation) in 
+substantive contributions.  Anyone wishing to participate in 
 the TC's technical activity is invited to [join](https://www.oasis-open.org/committees/join) as a TC Member.
 *Member* in this context means any TC role or office other than OASIS TC Observer, per the 
 [TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#membership). 
 
 Persons who are not TC members are invited to open issues and provide comments using this repository's 
 [GitHub Issues](https://github.com/oasis-tcs/codelist-genericode/issues/new) tracking facility or using the 
-TC's [comment facility](<https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl/>). All such content created in GitHub Issues and/or posted to the TC's 
+TC's [comment facility](<https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl/>).  
+All such content created in GitHub Issues and/or posted to the TC's 
 [archived comment list](https://lists.oasis-open.org/archives/ubl-comment/) is governed by the terms of the 
 [OASIS Feedback License](https://www.oasis-open.org/policies-guidelines/ipr#appendixa).
 
