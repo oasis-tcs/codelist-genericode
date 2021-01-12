@@ -1,7 +1,7 @@
 # Repository Contributions, Participation, and Public Access
 
 **Who may Contribute?** Contributors to [this repository](https://github.com/oasis-tcs/codelist-genericode/) must be 
-[Members](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dMember) of the 
+[Members](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms#dMember) of the 
 [OASIS Universal Business Language (UBL) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl) for any 
 substantive contributions.  Anyone wishing to [participate](https://www.oasis-open.org/org/faq#committee-participation) in 
 the TC's technical activity is invited to [join](https://www.oasis-open.org/committees/join) as a TC Member.
