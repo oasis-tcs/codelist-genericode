@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+   <Identification>
+      <ShortName></ShortName>
+      <LongName xml:lang="en"></LongName>
+      <LongName Identifier="listID"></LongName>
+      <Version></Version>
+      <CanonicalUri></CanonicalUri>
+      <CanonicalVersionUri></CanonicalVersionUri>
+      <LocationUri></LocationUri>
+      <AlternateFormatLocationUri></AlternateFormatLocationUri>
+      <Agency>
+         <LongName xml:lang="en"></LongName>
+         <Identifier Identifier="http://www.unece.org/trade/untdid/d11a/tred/tred3055.htm"></Identifier>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="xyz" Use="optional">
+         <ShortName>XYZ</ShortName>
+         <LongName xml:lang="en">X Y Z</LongName>
+         <Data Type="normalizedString"/>
+      </Column>
+      <Key Id="xyzKey">
+         <ShortName>CodeKey</ShortName>
+         <ColumnRef Ref="xyz"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="xyz">
+            <SimpleValue></SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>
