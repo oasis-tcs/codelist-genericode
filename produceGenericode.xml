@@ -1,0 +1,273 @@
+<project default="make" xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+
+<target name="make">
+  <condition property="is-dos">
+    <os family="windows"/>
+  </condition>
+  <!--documentation-->
+  <echo message="package=${package}"/>
+  <echo message="stage=${stage}"/>
+  <echo message="prevStage=${prevStage}"/>
+  <echo message="version=${label}"/>
+  <echo message="datetimelocal=${datetimelocal}"/>
+
+  <delete  dir="${dir}/${package}-${stage}-${label}"/>
+  <mkdir   dir="${dir}/${package}-${stage}-${label}"/>
+
+  <!--copy the authored content to the target directory-->
+  <delete dir="${dir}/doc"/>
+  <copy todir="${dir}/doc">
+    <fileset dir="doc">
+      <include name="genericode.xml"/>
+      <include name="art/**"/>
+      <include name="htmlart/**"/>
+      <include name="realta-user-parameters.xml"/>
+    </fileset>
+  </copy>
+  <delete dir="${dir}/xsd"/>
+  <copy todir="${dir}/xsd">
+    <fileset dir="xsd">
+      <include name="**"/>
+    </fileset>
+  </copy>
+  <delete dir="${dir}/sch"/>
+  <copy todir="${dir}/sch">
+    <fileset dir="sch">
+      <include name="**"/>
+    </fileset>
+  </copy>
+  <move file="${dir}/doc/genericode.xml"
+        tofile="${dir}/doc/${package}-${stage}.xml"/>
+  <!--validate that the authored content is acceptable-->
+  <antcallback target="-validate" return="validatedInputs">
+    <param name="source" value="${dir}/doc/${package}-${stage}.xml"/>
+  </antcallback>
+  <delete file="output.txt"/>
+  
+  <antcall target="-make-docs" if:set="validatedInputs"/>
+ 
+  <antcall target="-package-docs"/>
+
+  <!--At this point all of the documentation has been zipped up in its own
+      package, ready to use. The artefacts are assumed to have been zipped
+      up already before this process has run-->
+
+  <antcall target="-package-distribution"/>
+</target>
+
+<target name="-validate" depends="-validate-shell,-validate-dos">
+  <condition property="validatedInputs">
+    <equals arg1="${validateResult}" arg2="0"/>
+  </condition>
+</target>
+
+<target name="-validate-shell" unless="${is-dos}">
+  <exec resultproperty="validateResult" executable="sh">
+    <arg value="doc/db/spec-0.8/validate/validate.sh"/>
+    <arg value="${source}"/>
+  </exec>
+</target>
+
+<target name="-validate-dos" if="${is-dos}">
+  <exec resultproperty="validateResult" executable="cmd.exe">
+    <arg value="/c"/>
+    <arg value="doc\db\spec-0.8\validate\validate.bat"/>
+    <arg value="${source}"/>
+  </exec>
+</target>
+
+<target name="-delete-results-not-being-produced" 
+        if="not-attempting-to-produce-necessary-results">
+  <delete file="${dir}/doc/${package}-${stage}.html"/>
+  <delete file="${dir}/doc/${package}-${stage}.pdf"/>
+  <delete file="${dir}/doc/iso-iec-00000-draft.pdf"/>
+  <delete file="${dir}/doc/${package}-${stage}-pub.zip"/>
+</target>
+
+<target name="-check-docs">
+  <uptodate targetfile="${dir}/doc/${package}-${stage}.html"
+            property=  "docs-gc-html-okay">
+    <srcfiles dir="${dir}">
+      <include name="genericode.xml"/>
+    </srcfiles>
+  </uptodate>  
+  <uptodate targetfile="${dir}/doc/${package}-${stage}.pdf"
+            property=  "docs-gc-pdf-okay">
+    <srcfiles dir="${dir}">
+      <include name="genericode.xml"/>
+    </srcfiles>
+  </uptodate>
+  <uptodate targetfile="${dir}/doc/iso-iec-00000-draft.pdf"
+            property=  "docs-gc-iso-okay">
+    <srcfiles dir="${dir}">
+      <include name="genericode.xml"/>
+    </srcfiles>
+  </uptodate>
+  <condition property="docs-gc-okay">
+    <and>
+      <istrue value="${docs-gc-xml-okay}"/>
+      <istrue value="${docs-gc-html-okay}"/>
+      <istrue value="${docs-gc-pdf-okay}"/>
+      <istrue value="${docs-gc-iso-okay}"/>
+    </and>
+  </condition>
+</target>
+
+<target name="-make-docs" depends="-check-docs" unless="docs-gc-okay">
+  <!--remove old results-->
+  <delete file="${dir}/doc/${package}-${stage}.html"/>
+  <delete file="${dir}/doc/${package}-${stage}.pdf"/>
+  <delete file="${dir}/doc/iso-iec-00000-draft.pdf"/>
+  <delete file="${dir}/doc/${package}-${stage}-pub.zip"/>
+  <!--package inputs to the publishing process-->
+  <zip destfile="${dir}/doc/${package}-${stage}-pub.zip">
+    <fileset dir="${dir}/doc">
+      <include name="${package}-${stage}.xml"/>
+      <include name="art/**"/>
+      <include name="realta-user-parameters.xml"/>
+    </fileset>
+  </zip>
+  <!--create publishing outputs-->
+  <echo message="Submitting print job..."/>
+  <property name="serverScript" location="RealtaServerAnt.xml"/> 
+  <ant antfile="${serverScript}" dir="${dir}/doc">
+    <property name="entrypoint" value="OASIS-spec2pdfhtml-ISO-pdf"/>
+    <property name="fileupload"
+              value="${package}-${stage}-pub.zip"/>
+    <property name="dateprefix" value="genericode 1.0"/>
+  </ant>
+  <echo message="Check and cleanup..."/>
+  <available property="ready-pdf" file="${dir}/doc/${package}-${stage}.oasis.pdf"/>
+  <echo unless:set="ready-pdf" message="PDF not created"/>
+  <echo if:set="ready-pdf" message="PDF created"/>
+  <available property="ready-iso" file="${dir}/doc/${package}-${stage}.iso.pdf"/>
+  <echo unless:set="ready-iso" message="ISO PDF not created"/>
+  <echo if:set="ready-iso" message="ISO PDF created"/>
+  <available property="ready-html" file="${dir}/doc/${package}-${stage}.oasis.html"/>
+  <echo unless:set="ready-html" message="HTML not created"/>
+  <echo if:set="ready-html" message="HTML created"/>
+  <!--these touches are necessary because unzip doesn't preserve time of day-->
+<!--  <touch file="${dir}/doc/${package}-${stage}.oasis.pdf"/>
+  <touch file="${dir}/doc/${package}-${stage}.iso.pdf"/>
+  <touch file="${dir}/doc/${package}-${stage}.oasis.html"/>-->
+  <!--the names needed are not the names created-->
+  <move preservelastmodified="true" file="${dir}/doc/${package}-${stage}.oasis.pdf"
+        tofile="${dir}/doc/${package}-${stage}.pdf"/>
+  <move preservelastmodified="true" file="${dir}/doc/${package}-${stage}.oasis.html"
+        tofile="${dir}/doc/${package}-${stage}.html"/>
+  <move preservelastmodified="true" file="${dir}/doc/${package}-${stage}.iso.pdf"
+        tofile="${dir}/doc/iso-iec-00000-draft.pdf"/>
+  <!--intermediate file no longer needed-->
+  <delete file="${dir}/${package}-${stage}-pub.zip"/>
+</target>
+
+<target name="-package-supplemental-other" if="other-supplemental-needed">
+  <mkdir dir="${dir}/${package}-${stage}-${label}/art/artpdf"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/${package}-${stage}-${label}/art/artpdf">
+    <fileset dir="art">
+     <include name="*"/>
+    </fileset>
+  </copy>
+</target>
+
+<target name="-package-docs">
+  <echo message="Checking existence of results..."/>
+  <available property="xml-made" file="${dir}/doc/${package}-${stage}.xml"/>
+  <available property="html-made" file="${dir}/doc/${package}-${stage}.html"/>
+  <available property="pdf-made" file="${dir}/doc/${package}-${stage}.pdf"/>
+  <available property="iso-made" file="${dir}/doc/iso-iec-00000-draft.pdf"/>
+  <condition property="docs-not-made">
+    <not>
+      <and>
+        <istrue value="${xml-made}"/>
+        <or>
+          <isset property="not-attempting-to-produce-necessary-results"/>
+          <and>
+            <istrue value="${html-made}"/>
+            <istrue value="${pdf-made}"/>
+            <istrue value="${iso-made}"/>
+          </and>
+        </or>
+      </and>
+    </not>
+  </condition>
+  <property name="xml-made" value="false"/>
+  <property name="html-made" value="false"/>
+  <property name="pdf-made" value="false"/>
+  <property name="iso-made" value="false"/>
+
+  <delete dir="${dir}/${package}-${stage}-${label}"/>
+  <mkdir dir="${dir}/${package}-${stage}-${label}"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/${package}-${stage}-${label}">
+    <fileset dir="${dir}">
+      <include name="doc/*"/>
+      <exclude name="doc/*.zip"/>
+      <exclude name="doc/htmlart"/>
+      <exclude name="doc/art"/>
+      <include name="xsd/**"/>
+      <include name="sch/**"/>
+    </fileset>
+  </copy>
+  <mkdir dir="${dir}/${package}-${stage}-${label}/doc/art"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/${package}-${stage}-${label}/doc/art">
+    <fileset dir="doc/htmlart">
+      <include name="*"/>
+    </fileset>
+  </copy>
+  <copy preservelastmodified="true"
+        todir="${dir}/${package}-${stage}-${label}/doc/art/pdfart">
+    <fileset dir="doc/art">
+      <include name="*"/>
+    </fileset>
+  </copy>
+  <mkdir dir="${dir}/${package}-${stage}-${label}/doc/db"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/${package}-${stage}-${label}/doc/db">
+    <fileset dir="doc/db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+  <copy preservelastmodified="true"
+        todir="${dir}/${package}-${stage}-${label}/doc/db/spec-0.8/docbook">
+    <fileset dir="doc/db/spec-0.8/docbook">
+     <include name="**"/>
+    </fileset>
+  </copy>
+</target>
+
+<target name="-package-distribution">
+  <echo message="Packaging results with artefacts..."/>
+  
+  <!--old results no longer helpful-->
+  <delete  dir="${dir}/${package}-${stage}-${label}-archive-only"/>
+  <mkdir   dir="${dir}/${package}-${stage}-${label}-archive-only"/>
+  <delete file="${dir}/${package}-${stage}-${label}.zip"/>
+  <delete file="${dir}/${package}-${stage}-${label}-archive-only.zip"/>
+  
+  <zip destfile="${dir}/${package}-${stage}-${label}-archive-only.zip"
+       basedir="${dir}" includes="${package}-${stage}-${label}-archive-only/**"/>
+  <delete dir="${dir}/${package}-${stage}-${label}-archive-only"/>
+  <unzip src="${dir}/${package}-${stage}-${label}-archive-only.zip" 
+         dest="${dir}"/>
+  <zip destfile="${dir}/${package}-${stage}-${label}.zip"
+       basedir="${dir}" includes="${package}-${stage}-${label}/**"/>
+  <delete dir="${dir}/${package}-${stage}-${label}"/>
+  <unzip src="${dir}/${package}-${stage}-${label}.zip" 
+         dest="${dir}"/>
+
+  <!--okay to stamp the ZIP files-->
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}">
+      <include name="${package}-${stage}-${label}.zip"/>
+      <include name="${package}-${stage}-${label}-archive-only.zip"/>
+    </fileset>
+  </touch>
+
+</target>
+
+</project>

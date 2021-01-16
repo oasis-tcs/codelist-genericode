@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="19.1" xml:space="preserve">
+<serialized xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -9,7 +9,7 @@
 						<null/>
 					</field>
 					<field name="name">
-						<String>OASIS genericode 1.0</String>
+						<String>OASIS genericode 1.0 Development</String>
 					</field>
 					<field name="schemaDescriptor">
 						<docTypeSchema>
@@ -149,9 +149,7 @@
 						<String-array/>
 					</field>
 					<field name="description">
-						<String>Framework version: 20171105-1420z
-The OASIS genericode 1.0 specification and schema can be found at http://docs.oasis-open.org/codelist/cs-genericode-1.0/
-The Schematron checks and balances are included to enforce non-schema constraints.</String>
+						<String>An in-development version of the OASIS genericode artefacts being worked on in https://github.com/oasis-tcs/codelist-genericode</String>
 					</field>
 					<field name="doctypeRules">
 						<documentTypeRule-array>
@@ -286,7 +284,7 @@ The Schematron checks and balances are included to enforce non-schema constraint
 														<Integer>7</Integer>
 													</field>
 													<field name="uri">
-														<String>${framework}/1.0/sch/oasis-genericode.sch</String>
+														<String>${framework}/1.0/sch/genericode.sch</String>
 													</field>
 												</validationUnitSchema>
 											</field>
@@ -342,7 +340,7 @@ The Schematron checks and balances are included to enforce non-schema constraint
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>
