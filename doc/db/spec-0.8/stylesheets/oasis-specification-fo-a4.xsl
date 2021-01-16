@@ -16,7 +16,7 @@
                 exclude-result-prefixes="saxon lxslt xalanredirect exsl axf"
                 extension-element-prefixes="saxon xalanredirect lxslt exsl"
                 version="1.0">
-<!-- $Id: oasis-specification-fo-a4.xsl,v 1.57 2020/09/03 17:19:33 admin Exp $ -->
+<!-- $Id: oasis-specification-fo-a4.xsl,v 1.56 2020/03/28 15:11:14 admin Exp $ -->
 
 <!-- This stylesheet is a customization of the DocBook XSL Stylesheets -->
 <!-- from http://www.oasis-open.org/spectools/stylesheets/oasis-docbook-fo.xsl
@@ -46,6 +46,9 @@
 <xsl:param name="paper.type" select="'A4'"/>
 <xsl:param name="body.start.indent" select="'0pt'"/>
 <xsl:param name="linenumbering.extension" select="'1'"/>
+<xsl:param name="body.font.family" select="'Arial,Helvetica,sans-serif'"/>
+<xsl:param name="body.fontset" select="'Arial,Helvetica,sans-serif'"/>
+<xsl:param name="title.fontset" select="'Arial,Helvetica,sans-serif'"/>
 <xsl:param name="toc.section.depth">3</xsl:param>
 <xsl:param name="variablelist.as.blocks">1</xsl:param>
 <xsl:param name="footer.rule">0</xsl:param>
@@ -53,12 +56,6 @@
 <xsl:param name="ulink.show">0</xsl:param>
 <xsl:param name="xep.extensions">1</xsl:param>
 <xsl:param name="axf.extensions">1</xsl:param>
-  
-<xsl:variable name="oasis.fontset"
-              select="'Arial,Helvetica,sans-serif,serif,Symbol,ZapfDingbats'"/>
-<xsl:param name="body.font.family" select="$oasis.fontset"/>
-<xsl:param name="body.fontset"     select="$oasis.fontset"/>
-<xsl:param name="title.fontset"    select="$oasis.fontset"/>
   
 <xsl:param name="local.l10n.xml" select="document('')"/>
 <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
@@ -717,13 +714,6 @@
   <xsl:if test="@role='informative'">
     <xsl:text> (Informative)</xsl:text>
   </xsl:if>
-</xsl:template>
-
-<!-- ============================================================ -->
-<!-- AXF support needs a definition for the title for document metadata -->
-
-<xsl:template match="/article" mode="title.markup">
-  <xsl:value-of select="articleinfo/title"/>
 </xsl:template>
 
 <!-- ============================================================ -->

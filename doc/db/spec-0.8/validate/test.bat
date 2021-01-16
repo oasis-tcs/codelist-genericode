@@ -1,4 +1,1 @@
-@echo off
-call validate.bat good.xml
-call validate.bat syntaxbad.xml
-call validate.bat rulesbad.xml
+call validate.bat ..\oasis-specification-0.8-wd08.xml

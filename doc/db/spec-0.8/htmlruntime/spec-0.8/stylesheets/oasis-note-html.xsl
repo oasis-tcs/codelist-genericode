@@ -13,7 +13,7 @@
                 xmlns:exsl="http://exslt.org/common"
                 extension-element-prefixes="saxon xalanredirect lxslt exsl"
                 version="1.0">
-<!-- $Id: oasis-note-html.xsl,v 1.15 2020/09/03 17:22:58 admin Exp $ -->
+<!-- $Id: oasis-note-html.xsl,v 1.14 2020/03/28 15:11:10 admin Exp $ -->
 
 <!-- This stylesheet is a customization of the DocBook XSL Stylesheets -->
 <!-- from http://docs.oasis-open.org/templates/ -->
@@ -138,9 +138,6 @@
 <!-- ============================================================ -->
 <!-- HTML META -->
 
-<xsl:template name="user.head.content.extension">
-</xsl:template>
-
 <xsl:template name="user.head.content">
   <xsl:param name="node" select="."/>
   <xsl:if test="$oasis-base='yes'">
@@ -153,7 +150,6 @@
   <xsl:apply-templates select="/*/articleinfo/releaseinfo[@role='cvs']"
                        mode="head.meta.content"/>
   <xsl:call-template name="oasis.head.mathml"/>
-  <xsl:call-template name="user.head.content.extension"/>
 </xsl:template>
 
 <xsl:template match="releaseinfo" mode="head.meta.content">

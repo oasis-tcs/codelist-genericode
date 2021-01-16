@@ -2,7 +2,7 @@
 #
 # Syntax: validate.sh docbook-file
 
-DP0=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+DP0=$( cd "$(dirname "$0")" ; pwd -P )
 
 echo
 echo "############################################################"

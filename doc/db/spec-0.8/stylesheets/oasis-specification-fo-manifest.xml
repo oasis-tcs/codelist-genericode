@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<signed on="3-Sep-2020 5:15:39 PM">
+<signed on="5-Apr-2020 7:40:21 PM">
   <stylesheets>
     <stylesheet name="oasis-specification-fo-us.xsl" md5="h8LEH9gorOrAPG30K9r9oQ=="/>
-    <stylesheet name="oasis-specification-fo-a4.xsl" md5="N8uz/fh8gIpzFDEgs3w5CQ=="/>
+    <stylesheet name="oasis-specification-fo-a4.xsl" md5="4XhAWcs4xXfYlci/AuBBAg=="/>
     <stylesheet name="../../spec-0.8/docbook/xsl/fo/docbook.xsl" md5="HTM7LhUiJnjQ9pBLYQvvtQ=="/>
     <stylesheet name="../../spec-0.8/docbook/xsl/VERSION.xsl" md5="2cwpOvxW0Kf4kLbyyObdfw=="/>
     <stylesheet name="../../spec-0.8/docbook/xsl/fo/param.xsl" md5="uFzsyMdGO0ov2zbbaDODsA=="/>
@@ -67,6 +67,6 @@
     <stylesheet name="titlepage-fo.xsl" md5="3CW1vvMhl2jY7kRnTm/GJQ=="/>
     <stylesheet name="oasis-mathml-fo.xsl" md5="qGgNUQTl42qBSWF4KZh/ng=="/>
   </stylesheets>
-  <sig md5="nTbZUhxnR5DLHD05UmxJ5w==" signature="MCwCFHKuDrCEf8tW9jO029Mg8WNDjvedAhQeSSjnWxT1mzNC+Lv/maDqwF3fRQ==">
+  <sig md5="g6ttyG50dqjsth0xUY2vpg==" signature="MCwCFDTSYgyxsQx/ym23IDnAgK5U84fPAhQ3YniH91vWVGuA7HItgR1bzgkhMg==">
   </sig>
 </signed>
