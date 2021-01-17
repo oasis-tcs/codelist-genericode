@@ -241,19 +241,17 @@
 </target>
 
 <target name="-package-distribution">
-  <echo message="Packaging results with artefacts..."/>
+  <echo message="Packaging results with artefacts and archive..."/>
+  <delete file="${dir}/${package}-${stage}-${label}.zip"/>  
   
-  <!--old results no longer helpful-->
-  <delete  dir="${dir}/${package}-${stage}-${label}-archive-only"/>
-  <mkdir   dir="${dir}/${package}-${stage}-${label}-archive-only"/>
-  <delete file="${dir}/${package}-${stage}-${label}.zip"/>
-  <delete file="${dir}/${package}-${stage}-${label}-archive-only.zip"/>
+  <copy todir="${dir}/${package}-${stage}-${label}/archive-only-not-in-final-distribution">
+    <fileset dir=".">
+      <include name="produceGenericode.*"/>
+      <include name="RealtaServerAnt.xml"/>
+      <include name="realta-user-parameters.xml"/>
+    </fileset>
+  </copy>
   
-  <zip destfile="${dir}/${package}-${stage}-${label}-archive-only.zip"
-       basedir="${dir}" includes="${package}-${stage}-${label}-archive-only/**"/>
-  <delete dir="${dir}/${package}-${stage}-${label}-archive-only"/>
-  <unzip src="${dir}/${package}-${stage}-${label}-archive-only.zip" 
-         dest="${dir}"/>
   <zip destfile="${dir}/${package}-${stage}-${label}.zip"
        basedir="${dir}" includes="${package}-${stage}-${label}/**"/>
   <delete dir="${dir}/${package}-${stage}-${label}"/>
@@ -264,7 +262,6 @@
   <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
     <fileset dir="${dir}">
       <include name="${package}-${stage}-${label}.zip"/>
-      <include name="${package}-${stage}-${label}-archive-only.zip"/>
     </fileset>
   </touch>
 

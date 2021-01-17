@@ -14,7 +14,7 @@ exit /B 1
 if exist "hub.console.%~3.txt" del "hub.console.%~3.txt"
 
 set package=genericode-1.0-v1.0
-set thisStage=csd04
+set thisStage=csdXXwdYY
 set prevStage=csd03
 set label=%~3
 

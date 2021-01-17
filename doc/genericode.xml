@@ -10,8 +10,8 @@
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd03">
 	<!ENTITY PSTAGE "CSD03">
-	<!ENTITY stage "csd04">
-	<!ENTITY STAGE "CSD04">
+	<!ENTITY stage "csd04wd01"><!--this line is formatted for grep retrieval-->
+	<!ENTITY STAGE "CSD04WD01">
 	<!ENTITY isostage "WD">
 	<!ENTITY standard "Committee Specification Draft 04 / Working Draft 01">
 	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 01">
@@ -20,7 +20,7 @@
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&directory;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
-	<!ENTITY pubdate "16 January 2021">
+	<!ENTITY pubdate "17 January 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -4367,8 +4367,8 @@
         </thead>
         <tbody>
           <row>
-            <entry>csd04</entry>
-            <entry>16 January 2021</entry>
+            <entry>csd04wd01</entry>
+            <entry>17 January 2021</entry>
             <entry>GKH</entry>
             <entry>First raw conversion of CS01 Word format into DocBook XML</entry>
           </row>

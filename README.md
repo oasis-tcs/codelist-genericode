@@ -22,12 +22,14 @@ Directories:
 - `xsd` - W3C XML Schema structural constraints
 
 Files:
-- `produceGenericode.*` - publishing process files converting XML to 
+- `produceGenericode.*` - publishing and packaging process files converting XML to end-user PDF and HTML documents
 - `realta*` - publishing support files
 
 ## Published results
 
-See the [Actions tab](actions) for the results of publishing processes. At particular milestones, these files are archived in the [committee Kavi documentation (members only)](https://www.oasis-open.org/apps/org/workgroup/codelist/documents.php) [(Public access)](https://www.oasis-open.org/committees/documents.php).
+See the [Actions tab](https://github.com/oasis-tcs/codelist-genericode/actions) for the results of publishing processes. At particular milestones, these files are archived in the [committee Kavi documentation (members only)](https://www.oasis-open.org/apps/org/workgroup/codelist/documents.php) [(Public access)](https://www.oasis-open.org/committees/documents.php?wg_abbrev=codelist&show_descriptions=yes).
+
+Each downloaded result is doubly-zipped: the outer zip for GitHub extraction purposes and the inner zip for posting to Kavi and distribution. The `archive-only-not-in-final-distribution/` subdirectory is not meant for inclusion in the final home in the [OASIS document server](https://docs.oasis-open.org/codelist), only for archive purposes in Kavi.
 
 ## Contributions
 

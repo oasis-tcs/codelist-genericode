@@ -5,14 +5,20 @@ if [ -f hub.console.$3.txt ]; then rm hub.console.$3.txt ; fi
 if [ "$4" = "" ] || ( [ "$5" != "" ] && [ "$6" = "" ] ); then echo Missing results directory, platform, label, date-stamp, user, and password arguments ; exit 1 ; fi
 
 package=genericode-1.0-v1.0
-thisStage=csd04
 prevStage=csd03
 label=$3
+
+#extract the stage from the expected entity declaration in the source file
+thisStage=`grep "^\\s*..ENTITY.stage " doc/genericode.xml | sed -E "s/.*stage..([^\"]+)\".*/\\1/"`
+#reflect the stage in the publishing parameter file
+sed -E "s/REPLACE_THIS_WITH_STAGE_STRING/$thisStage/" <raw-realta-user-parameters.xml >realta-user-parameters.xml
 
 echo Building package for $package $thisStage...
 java -Dant.home=utilities/ant -classpath db/spec-0.8/validate/xjparse.jar:utilities/ant/lib/ant-launcher.jar:db/spec-0.8/validate/saxon9he.jar:. org.apache.tools.ant.launch.Launcher -buildfile produceGenericode.xml -Ddir=$1 -Dstage=$thisStage -DprevStage=$prevStage -Dpackage=$package -Dlabel=$label -Ddatetimelocal=$4 -Drealtauser=$5 -Drealtapass=$6 | tee hub.console.$3.txt
 serverReturn=${PIPESTATUS[0]}
 echo $serverReturn >hub.exitcode.$3.txt
+
+rm realta-user-parameters.xml
 
 if [ -f $1/$package-$thisStage-$label-archive-only.zip ]
 then
