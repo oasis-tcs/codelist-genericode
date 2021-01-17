@@ -5,7 +5,6 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "db/spec-0.8/docbook/docbookx.dtd" [
 	<!ENTITY name "genericode">
-	<!ENTITY directory "genericode-1.0-v&version;">
 	<!ENTITY pversion "NONE">
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd03">
@@ -17,7 +16,9 @@
 	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 01">
 	<!ENTITY standard "Committee Specification Draft 04">
 	<!ENTITY stagetext "Committee Specification Draft 04">
-	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&directory;">
+	<!ENTITY dirname  "genericode-1.0/v&version;/&stage;">
+	<!ENTITY filename "genericode-1.0-v&version;-&stage;">
+	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
 	<!ENTITY pubdate "17 January 2021">
@@ -119,7 +120,7 @@
       <itemizedlist>
         <listitem>
           <para>
-            <ulink url="&this-loc;/&directory;.zip">&this-loc;/&directory;.zip</ulink>
+            <ulink url="&this-loc;/&dirname;/&filename;.zip">&this-loc;/&dirname;/&filename;.zip</ulink>
           </para>
         </listitem>
       </itemizedlist>
@@ -4233,8 +4234,8 @@
     </section>
     <section id="S-PACKAGE-STRUCTURE">
       <title>Package Structure</title>
-      <para>The genericode specification is published as a zip archive in the release directory. Unzipping this archive creates a directory named &directory; containing a “<literal>doc/</literal>” directory with documentation. The authoritative source of the documentation is a master DocBook XML file
-        (&directory;.xml), a generated hypertext version of this file (&directory;.html), and a generated PDF version of this file (&directory;.pdf). The files in other subdirectories, linked to from &directory;.xml, &directory;.html, and &directory;.pdf, contain the various normative and informational pieces of the genericode release. A description of each subdirectory is given below. Note that while the genericode.xml file is the “original” of this specification, it may not be viewable in all currently available web browsers.</para>
+      <para>The genericode specification is published as a zip archive in the release directory. Unzipping this archive creates a directory named &dirname; containing a “<literal>doc/</literal>” directory with documentation. The authoritative source of the documentation is a master DocBook XML file
+        (&filename;.xml), a generated hypertext version of this file (&filename;.html), and a generated PDF version of this file (&filename;.pdf). The files in other subdirectories, linked to from &filename;.xml, &filename;.html, and &filename;.pdf, contain the various normative and informational pieces of the genericode release. A description of each subdirectory is given below. Note that while the genericode.xml file is the “original” of this specification, it may not be viewable in all currently available web browsers.</para>
       <blockquote>
         <para>
           <emphasis role="bold">
