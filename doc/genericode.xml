@@ -120,7 +120,7 @@
       <itemizedlist>
         <listitem>
           <para>
-            <ulink url="&this-loc;/&dirname;/&filename;.zip">&this-loc;/&dirname;/&filename;.zip</ulink>
+            <ulink url="&this-loc;/&filename;.zip">&this-loc;/&filename;.zip</ulink>
           </para>
         </listitem>
       </itemizedlist>

@@ -243,7 +243,19 @@
 <target name="-package-distribution">
   <echo message="Packaging results with artefacts and archive..."/>
   <delete file="${dir}/${package}-${stage}-${label}.zip"/>  
-  
+
+  <!--create the ZIP users download from OASIS-->
+  <delete dir="${dir}/${package}-${stage}"/>
+  <copy todir="${dir}/${package}-${stage}">
+    <fileset dir="${dir}/${package}-${stage}-${label}">
+      <include name="**"/>
+    </fileset>
+  </copy>
+  <zip destfile="${dir}/${package}-${stage}-${label}/${package}-${stage}.zip"
+       basedir="${dir}/${package}-${stage}" includes="**"/>
+  <delete dir="${dir}/${package}-${stage}"/>
+
+  <!--add the files that are only to be archived-->
   <copy todir="${dir}/${package}-${stage}-${label}/archive-only-not-in-final-distribution">
     <fileset dir=".">
       <include name="produceGenericode.*"/>
@@ -251,7 +263,7 @@
       <include name="realta-user-parameters.xml"/>
     </fileset>
   </copy>
-  
+
   <zip destfile="${dir}/${package}-${stage}-${label}.zip"
        basedir="${dir}" includes="${package}-${stage}-${label}/**"/>
   <delete dir="${dir}/${package}-${stage}-${label}"/>
