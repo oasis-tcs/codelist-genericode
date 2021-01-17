@@ -1,5 +1,3 @@
-# README
-
 Members of the [OASIS Code List Representation TC](https://www.oasis-open.org/committees/codelist/) create and manage technical content in this TC GitHub repository (https://github.com/oasis-tcs/codelist-genericode/) as part of the TC's chartered work (the program of work and deliverables described in its [charter](https://www.oasis-open.org/committees/codelist/charter.php).
 
 OASIS TC GitHub repositories, as described in [GitHub Repositories for OASIS TC Members' Chartered Work](https://www.oasis-open.org/resources/tcadmin/github-repositories-for-oasis-tc-members-chartered-work), are governed by the OASIS [TC Process](https://www.oasis-open.org/policies-guidelines/tc-process), [IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), and other policies. While they make use of public GitHub repositories, these repositories are distinct from [OASIS Open Repositories](https://www.oasis-open.org/resources/open-repositories), which are used for development of open source [licensed](https://www.oasis-open.org/resources/open-repositories/licenses) content.
@@ -11,6 +9,25 @@ The purpose of this repository is The OASIS genericode specification incorporate
 The documentation is to be authored in XML and published in two layouts: the OASIS specification layout and the ISO/IEC Directives Part 2 layout (the latter for potential PAS submission to JTC 1 for international standardization).
 
 Various artefacts, existing and identified to be developed, will be incorporated into the repository for inclusion in the final deliverable.
+
+## Contents
+
+Directories:
+- `.github/workflows` - the automated publishing and packaging process triggers performed for every check-in
+- `cs01` - the results of publication of the Committee Specification 01 - 28 December 2007
+- `doc` - documentation inputs
+- `oXygen-frameworks` - document authoring support for the oXygen XML tool (see the directory README file)
+- `sch` - Schematron value constraints
+- `utilities/ant` - publishing process support
+- `xsd` - W3C XML Schema structural constraints
+
+Files:
+- `produceGenericode.*` - publishing process files converting XML to 
+- `realta*` - publishing support files
+
+## Published results
+
+See the [Actions tab](actions) for the results of publishing processes. At particular milestones, these files are archived in the [committee Kavi documentation (members only)](https://www.oasis-open.org/apps/org/workgroup/codelist/documents.php) [(Public access)](https://www.oasis-open.org/committees/documents.php).
 
 ## Contributions
 
