@@ -32,9 +32,9 @@
     <productname>&name;</productname>
     <productnumber>&version;</productnumber>
     <releaseinfo role="track">Standards Track Work Product</releaseinfo>
-    <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&version;.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-this" lang="none">&this-loc;/&name;-&version;.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-this-authoritative" lang="none">&this-loc;/&name;-&version;.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">&this-loc;/&filename;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-this" lang="none">&this-loc;/&filename;.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-this-authoritative" lang="none">&this-loc;/&filename;.xml</releaseinfo>
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-previous"
          >&previous-loc;/&name;-&version;.html</releaseinfo>
@@ -157,7 +157,7 @@
           <date>&pubdate;. </date>
           <releaseinfo>&standard;. </releaseinfo>
           <bibliomisc>
-            <ulink url="&this-loc;/&name;-&version;.html">&this-loc;/&name;-&version;.html</ulink>. Latest version: <ulink url="https://docs.oasis-open.org/codelist/genericode/doc/genericode.html">https://docs.oasis-open.org/codelist/genericode/doc/genericode.html</ulink>. </bibliomisc>
+            <ulink url="&this-loc;/&filename;.html">&this-loc;/&filename;.html</ulink>. Latest version: <ulink url="https://docs.oasis-open.org/codelist/genericode/doc/genericode.html">https://docs.oasis-open.org/codelist/genericode/doc/genericode.html</ulink>. </bibliomisc>
         </bibliomixed>
       </bibliolist>
     </legalnotice>
