@@ -4,7 +4,7 @@ OASIS TC GitHub repositories, as described in [GitHub Repositories for OASIS TC 
 
 ## Description
 
-The purpose of this repository is The OASIS genericode specification incorporates documentation and a number of supporting machine-readable artefacts for the representation and IT-enablement of coded domains populated by "a set of codes representing X". This will satisfy an implementation of the Functional Services View of code lists where the Business Operational View is documented in ISO/IEC 15944-10.
+The OASIS genericode specification incorporates documentation and a number of supporting machine-readable artefacts for the representation and IT-enablement of coded domains populated by "a set of codes representing X". Per the [ISO/IEC 14662 Open-edi Reference Model](https://standards.iso.org/ittf/PubliclyAvailableStandards/) this will satisfy an implementation of the Functional Services View of code lists where the Business Operational View is documented in [ISO/IEC 15944-10 IT-enabled coded domains as semantic components in business transactions](https://standards.iso.org/ittf/PubliclyAvailableStandards/).
 
 The documentation is to be authored in XML and published in two layouts: the OASIS specification layout and the ISO/IEC Directives Part 2 layout (the latter for potential PAS submission to JTC 1 for international standardization).
 
@@ -14,8 +14,8 @@ Various artefacts, existing and identified to be developed, will be incorporated
 
 Maintainers are asked not to check in any changes to the `main` and `review` branches:
 
-`main` - this is content that has been reviewed by committee members and considered acceptable to be distributed for its intended purpose (which may be for testing or for production use, not necessarily for final use)
-`review` - this is content from the editor that has not been reviewed by committee members yet, and so is not considered agreed upon for its intended purpose, but the editor has incorporated input from other sources into a package for review; when there is consensus about the content of the `review` branch, it is snapshot in the `main` branch
+- `main` - this is content that has been reviewed by committee members and considered acceptable to be distributed for its intended purpose (which may be for testing or for production use, not necessarily for final use)
+- `review` - this is content from the editor that has not been reviewed by committee members yet, and so is not considered agreed upon for its intended purpose, but the editor has incorporated input from other sources into a package for review; when there is consensus about the content of the `review` branch, it is snapshot in the `main` branch
 
 Contributions are requested to be submitted by pull requests against the `review` branch to be incorporated by the editor. Maintainers can create and delete any number of their own branches as they see fit. The act of checking in will automatically trigger the publishing of the authored XML into OASIS layout PDF, OASIS layout HTML, and ISO Directives Part 2 layout PDF. See "[Published results](#Published-results)" below.
 
