@@ -39,13 +39,17 @@ Files:
 
 The published results are not stored in the GitHub repository, _per se_.
 
-See the [Actions tab](https://github.com/oasis-tcs/codelist-genericode/actions) for the results of publishing processes and distribution packaging, being careful to note the branch indicated. At particular milestones (typically when the `main` branch is updated) these files are archived in the [committee Kavi documentation (members only)](https://www.oasis-open.org/apps/org/workgroup/codelist/documents.php) [(Public access)](https://www.oasis-open.org/committees/documents.php?wg_abbrev=codelist&show_descriptions=yes).
+See the [Actions tab](https://github.com/oasis-tcs/codelist-genericode/actions) for the results of publishing processes and distribution packaging, being careful to note the branch indicated for the desired commit message. As branches are merged the commit message is inherited in the merged branch.
 
-Each downloaded result is doubly-zipped: the outer zip for GitHub extraction purposes and the inner zip for posting to Kavi and distribution. Moreover, the actual content is copied in the distribution in its own third ZIP for posting. The `archive-only-not-in-final-distribution/` subdirectory is not meant for inclusion in the final home in the [OASIS document server](https://docs.oasis-open.org/codelist), only for archive purposes in Kavi.
+You must be signed in to GitHub in order to download the results from the "Artifacts" section on the action's build result page.
 
-For genericode v1.0 cs02, the chain of package ZIP files begins [here for OASIS members](https://www.oasis-open.org/apps/org/workgroup/codelist/document.php?document_id=68158) and [here for the general public](https://www.oasis-open.org/committees/document.php?document_id=68158), but be careful to note the links are to the _start_ of the chain. See the top of the document revision history below the metadata for the most current package in the chain of uploaded revisions.
+Each downloaded result is doubly-zipped: the outer zip for GitHub extraction purposes and the inner zip for posting to Kavi and distribution. Moreover, the actual content is copied in the distribution in its own third ZIP file for posting. The `archive-only-not-in-final-distribution/` subdirectory is not meant for inclusion in the final home in the [OASIS document server](https://docs.oasis-open.org/codelist), only for archive purposes in Kavi.
 
-The results in the Actions tab eventually are deleted automatically by GitHub, but if you have no need for a particular build result, you can delete it to save space, because of the multiple ZIPs the downloads are quite large (>50Mb).
+At particular milestones (typically when the `main` branch is updated) these files are archived in the [committee Kavi documentation (members only)](https://www.oasis-open.org/apps/org/workgroup/codelist/documents.php) [(Public access)](https://www.oasis-open.org/committees/documents.php?wg_abbrev=codelist&show_descriptions=yes).
+
+For genericode v1.0 cs02, the chain of package ZIP files begins [here for OASIS members](https://www.oasis-open.org/apps/org/workgroup/codelist/document.php?document_id=68158) and [here for the general public](https://www.oasis-open.org/committees/document.php?document_id=68158), but be careful to note these links are to the _start_ of the chain. See the top of the document revision history below the metadata for the most current package in the chain of uploaded revisions.
+
+The results in the Actions tab eventually are deleted automatically by GitHub, but if you have no need for a particular build result, you can delete it to save space because of the multiple ZIPs the downloads are quite large (>50Mb).
 
 ## Contributions
 
