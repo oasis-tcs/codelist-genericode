@@ -626,6 +626,17 @@
       <title>Column Sets – Columns and Keys</title>
       <para>A column set is a set of definitions of genericode columns and/or keys. A column defines a particular metadata value that can be defined for each distinct entry in a code list. A key defines a set of one or more columns.</para>
       <para>It is not necessary to use separate column set documents. A genericode code list document can contain all of the required column and key definitions. Column set documents are provided as a convenience mechanism for sharing column and/or key definitions between multiple code lists.</para>
+    <figure id="F-UML-RELATIONSHIPS-OF-KEYS-AND-COLUMNS">
+      <title>UML relationships of keys and columns</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/uml-column-set-key.png"/>
+        </imageobject>
+        <textobject>
+          <phrase>[UML relationships of keys an columns]</phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
       <para>This figure is in UML notation. Each column set must have a unique ID. For a column set defined within a code list document, the code list document's unique identifier is used. A column set can define any number of columns. It can also reference any number of columns from other column
         sets (in column set documents or code list documents). A column set can also define any number of keys. Each key is defined by one or more of the columns in the column set (either defined or imported). Keys are used to uniquely identify the rows (distinct entries) of code lists. Columns and
         keys are uniquely named within the column set that defines them, and each can also be uniquely identified using a specific URI if required additionally.</para>
