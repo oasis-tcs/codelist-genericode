@@ -4,7 +4,7 @@ if [ -f hub.console.$3.txt ]; then rm hub.console.$3.txt ; fi
 
 if [ "$4" = "" ] || ( [ "$5" != "" ] && [ "$6" = "" ] ); then echo Missing results directory, platform, label, date-stamp, user, and password arguments ; exit 1 ; fi
 
-package=genericode-1.0-v1.0
+package=genericode-v1.0
 prevStage=csd03
 label=$3
 

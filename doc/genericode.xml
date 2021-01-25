@@ -9,19 +9,19 @@
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd03">
 	<!ENTITY PSTAGE "CSD03">
-	<!ENTITY stage "csd04wd01"><!--this line is formatted for grep retrieval-->
-	<!ENTITY STAGE "CSD04WD01">
+	<!ENTITY stage "csd04wd02"><!--this line is formatted for grep retrieval-->
+	<!ENTITY STAGE "CSD04WD02">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard "Committee Specification Draft 04 / Working Draft 01">
-	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 01">
-	<!ENTITY standard "Committee Specification Draft 04">
+	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 02">
+	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 02">
+	<!ENTITY standard  "Committee Specification Draft 04">
 	<!ENTITY stagetext "Committee Specification Draft 04">
 	<!ENTITY dirname  "genericode-1.0/v&version;/&stage;">
 	<!ENTITY filename "genericode-1.0-v&version;-&stage;">
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
-	<!ENTITY pubdate "17 January 2021">
+	<!ENTITY pubdate "24 January 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -668,6 +668,17 @@
         and (optionally) a set of rows, where each row defines a <emphasis role="italic">distinct entry</emphasis> in the code list.</para>
       <para>A code list document that contains only information (metadata) about the code list as a whole is known as a <emphasis role="italic">CodeList Metadata</emphasis> document. If the code list document defines (zero or more) row, it is a <emphasis role="italic">Simple CodeList</emphasis>.
         These are the only kinds of code list that are supported in this version of the specification.</para>
+    <figure id="F-UML-FOR-CODE-LISTS">
+      <title>UML for code lists</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/uml-code-list.png"/>
+        </imageobject>
+        <textobject>
+          <phrase>[UML for code lists]</phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
       <para>There is an important difference between a <emphasis role="italic">CodeList Metadata</emphasis> document and <emphasis role="italic">Simple CodeList</emphasis> that contains zero rows (zero distinct entries). The former does not provide information on how many <emphasis role="italic"
           >distinct entries</emphasis> are contained in the code list. The latter explicitly indicates that a particular version of the code list contains zero distinct entries, i.e. the particular version of the code list is empty. A CodeList Metadata document does not provide any indication about
         whether a code list is empty or not.</para>
@@ -675,6 +686,17 @@
         <title>Simple CodeLists and CodeList Metadata</title>
         <para>A <emphasis role="italic">CodeList Metadata</emphasis> document is a special case of a <emphasis role="italic">Simple CodeList</emphasis> document. The differences will be discussed explicitly where appropriate.</para>
         <para>A <emphasis role="italic">Simple CodeList</emphasis> is modeled as follows:</para>
+    <figure id="F-UML-FOR-SIMPLE-CODE-LISTS">
+      <title>UML for simple code lists</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/uml-simple-code-list.png"/>
+        </imageobject>
+        <textobject>
+          <phrase>[UML for simple code lists]</phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
         <para>A <emphasis role="italic">Simple CodeList</emphasis> contains zero or more rows (it is necessary to support empty code lists to allow for code lists that are empty now, but will be populated in future versions). Each <emphasis role="italic">Row</emphasis> defines a single <emphasis
             role="italic">distinct entry</emphasis> in the code list.</para>
         <para>A <emphasis role="italic">Row</emphasis> contains one or more <emphasis role="italic">Values</emphasis>, where each of those values corresponds to a distinct column in the code list. At least one value is required, because a code list has to have at least one key, and each key requires
@@ -4378,6 +4400,12 @@
           </row>
         </thead>
         <tbody>
+          <row>
+            <entry>csd04wd02</entry>
+            <entry>24 January 2021</entry>
+            <entry>GKH</entry>
+            <entry>Restore UML diagrams</entry>
+          </row>
           <row>
             <entry>csd04wd01</entry>
             <entry>17 January 2021</entry>
