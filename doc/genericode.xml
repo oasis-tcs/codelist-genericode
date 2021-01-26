@@ -16,12 +16,12 @@
 	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 02">
 	<!ENTITY standard  "Committee Specification Draft 04">
 	<!ENTITY stagetext "Committee Specification Draft 04">
-	<!ENTITY dirname  "genericode-1.0/v&version;/&stage;">
-	<!ENTITY filename "genericode-1.0-v&version;-&stage;">
+	<!ENTITY dirname  "genericode/v&version;/&stage;">
+	<!ENTITY filename "genericode-v&version;-&stage;">
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
-	<!ENTITY pubdate "24 January 2021">
+	<!ENTITY pubdate "26 January 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
