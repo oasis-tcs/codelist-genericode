@@ -23,6 +23,10 @@
       <include name="genericode.xml"/>
       <include name="art/**"/>
       <include name="htmlart/**"/>
+    </fileset>
+  </copy>
+  <copy todir="${dir}">
+    <fileset dir=".">
       <include name="realta-user-parameters.xml"/>
     </fileset>
   </copy>
@@ -126,6 +130,8 @@
     <fileset dir="${dir}/doc">
       <include name="${package}-${stage}.xml"/>
       <include name="art/**"/>
+    </fileset>
+    <fileset dir="${dir}">
       <include name="realta-user-parameters.xml"/>
     </fileset>
   </zip>
@@ -206,6 +212,7 @@
     <fileset dir="${dir}">
       <include name="doc/*"/>
       <exclude name="doc/*.zip"/>
+      <exclude name="doc/*.console.txt"/>
       <exclude name="doc/htmlart"/>
       <exclude name="doc/art"/>
       <include name="xsd/**"/>
@@ -244,25 +251,36 @@
   <echo message="Packaging results with artefacts and archive..."/>
   <delete file="${dir}/${package}-${stage}-${label}.zip"/>  
 
+  <!--move around the files that are only to be archived-->
+  <copy todir="${dir}/${package}-${stage}-${label}/archive-only-not-in-final-distribution">
+    <fileset dir=".">
+      <include name="produceGenericode.*"/>
+      <include name="RealtaServerAnt.xml"/>
+    </fileset>
+    <fileset dir="${dir}">
+      <include name="realta-user-parameters.xml"/>
+    </fileset>
+    <fileset dir="${dir}/doc">
+      <include name="*.warnings.txt"/>
+    </fileset>
+  </copy>
+  <move todir="${dir}/${package}-${stage}-${label}/archive-only-not-in-final-distribution">
+    <fileset dir="${dir}/doc">
+      <include name="*.console.txt"/>
+    </fileset>
+  </move>
+
   <!--create the ZIP users download from OASIS-->
   <delete dir="${dir}/${package}-${stage}"/>
   <copy todir="${dir}/${package}-${stage}">
     <fileset dir="${dir}/${package}-${stage}-${label}">
       <include name="**"/>
+      <exclude name="archive-only-not-in-final-distribution/**"/>
     </fileset>
   </copy>
   <zip destfile="${dir}/${package}-${stage}-${label}/${package}-${stage}.zip"
        basedir="${dir}/${package}-${stage}" includes="**"/>
   <delete dir="${dir}/${package}-${stage}"/>
-
-  <!--add the files that are only to be archived-->
-  <copy todir="${dir}/${package}-${stage}-${label}/archive-only-not-in-final-distribution">
-    <fileset dir=".">
-      <include name="produceGenericode.*"/>
-      <include name="RealtaServerAnt.xml"/>
-      <include name="realta-user-parameters.xml"/>
-    </fileset>
-  </copy>
 
   <zip destfile="${dir}/${package}-${stage}-${label}.zip"
        basedir="${dir}" includes="${package}-${stage}-${label}/**"/>

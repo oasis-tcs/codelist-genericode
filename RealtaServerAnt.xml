@@ -1,7 +1,7 @@
 <project default="-realta" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <!--
-  2021-01-05 16:30z
+  2021-01-27 16:40z
   
   This Ant project interacts with the Realta Server API using curl.
   
@@ -17,65 +17,40 @@
   ${realtapass} = server password
 
   Optional parameters for remote API submission:
-  ${servername} = server name (use "run.setaresolutions.com" for API version 1)
+  ${servername} = server name (default "api.realtaonline.com/v2")
   ${dateprefix} = identifier for the job (automatically suffixed with date)
   ${skipunpack} = set this to "true" to keep results zipped and not unpacked
   
   These steps never signal an Ant fail as this inhibits its use in GitHub
   actions that will not return intermediate results when a script fails.
+  
+  Note that the former API Version 1 no longer is supported by this script.
 -->
 
 <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
 <target name="-realta">
-  <property name="servername"
-            value="api.setaresolutions.com/v2"/>
-  <property name="servername"
-            value="run.setaresolutions.com"/>
+  <property name="servername" value="api.realtaonline.com/v2"/>
   <property name="dateprefix" value=""/>
   
-  <condition property="doAPIv1">
-    <equals arg1="${servername}" arg2="run.setaresolutions.com"/>
-  </condition>
-  <condition property="doAPIv2">
-    <equals arg1="${servername}"
-            arg2="api.setaresolutions.com/v2"/>
-  </condition>
   <echo message="Realta server access initiated"/>
-  <sequential if:set="doAPIv1">
-    <echo message="Invoking API version 1 - ${servername}"/>
-    <antcallback target="-realta-authenticate-v1" return="got-token, token"/>
-    <sequential if:set="got-token">
-      <antcallback target="-realta-submit-v1"   return="got-job-id, joburi"/>
-      <sequential if:set="got-job-id">
-        <antcallback target="-realta-retrieve-v1" return="fetch-okay"/>
-          <sequential if:set="fetch-okay">
-            <antcallback target="-realta-unpack-v1"  />
-            <antcallback target="-realta-cleanup-v1" return="no-problems"/>
-          </sequential>
+  <echo message="Invoking API version 2 - ${servername}"/>
+  <antcallback target="-realta-authenticate-v2" return="got-token, token"/>
+  <sequential if:set="got-token">
+    <antcallback target="-realta-submit-v2" return="got-job-id, jobid"/>
+    <sequential if:set="got-job-id">
+      <antcallback target="-realta-retrieve-v2" return="fetch-okay"/>
+      <sequential if:set="fetch-okay">
+        <antcallback target="-realta-unpack-v2"/>
+        <antcallback target="-realta-cleanup-v2" return="no-problems"/>
       </sequential>
     </sequential>
-    <antcallback target="-realta-complete-v1"/>
   </sequential>
-  <sequential if:set="doAPIv2">
-    <echo message="Invoking API version 2 - ${servername}"/>
-    <antcallback target="-realta-authenticate-v2" return="got-token, token"/>
-    <sequential if:set="got-token">
-      <antcallback target="-realta-submit-v2" return="got-job-id, jobid"/>
-      <sequential if:set="got-job-id">
-        <antcallback target="-realta-retrieve-v2" return="fetch-okay"/>
-        <sequential if:set="fetch-okay">
-          <antcallback target="-realta-unpack-v2"/>
-          <antcallback target="-realta-cleanup-v2" return="no-problems"/>
-        </sequential>
-      </sequential>
-    </sequential>
-    <antcallback target="-realta-complete-v2"/>
-  </sequential>
+  <antcallback target="-realta-complete-v2"/>
 </target>
 
 <!--========================================================================-->
-<!--version 2 on https://api.setaresolutions.com/v2-->
+<!--version 2 on https://api.realtaonline.com/v2-->
 
 <target name="-realta-complete-v2">
   <echo if:set="no-problems" message="Realta server access ended without error"/>
@@ -229,13 +204,8 @@
 <target name="-realta-unpack-v2" unless="skipunpack">
   <echo message="Unzipping ${fileupload}.realta.zip PDF/HTML results..."/>
   <dirname property="targetdir" file="${fileupload}"/>
-  <unzip src="${fileupload}.realta.zip" dest="${targetdir}">
-    <patternset>
-      <include name="*.pdf"/>
-      <include name="*.html"/>
-    </patternset>
-  </unzip>
-  <echo message="Disposing of temporary ${fileupload}.realta.zip submission..."/>
+  <unzip src="${fileupload}.realta.zip" dest="${targetdir}"/>
+  <echo message="Disposing of temporary ${fileupload}.realta.zip results..."/>
   <delete file="${fileupload}.realta.zip"/>
 </target>
   
@@ -329,206 +299,6 @@
     </exec>
     <echo message="${statusReturn}"/>
   </sequential>
-</target>
-
-<!--========================================================================-->
-<!--version 1 on run.setaresolutions.com-->
-
-<target name="-realta-complete-v1">
-  <echo if:set="no-problems" message="Realta server access ended without error"/>
-  <echo unless:set="no-problems" message="Realta server access ended with error"/>
-</target>
-
-<target name="-realta-authenticate-v1">
-  <echo message="Authenticating..."/>
-  <exec executable="curl" errorproperty="errAuthenticate" 
-        resultproperty="returnAuthenticate"
-        outputproperty="token">
-    <arg value="--request"/><arg value="POST"/>
-    <arg value="https://${servername}/Publishing/pubapi/Authenticate"/>
-    <arg value="--output"/><arg value="-"/>
-    <arg value="--header"/><arg value="pubName:${realtauser}"/>
-    <arg value="--header"/><arg value="pubPwd:${realtapass}"/>
-    <arg value="--data-raw"/><arg value="''"/>
-  </exec>
-  <condition property="got-token">
-    <and>
-      <equals arg1="${returnAuthenticate}" arg2="0"/>
-      <not>
-        <equals arg1="${token}" arg2=""/>
-      </not>
-    </and>
-  </condition>
-  <echo if:set="got-token" message="Returned token: ${token}"/>
-  <echo unless:set="got-token" message="Token was not returned from server"/>
-</target>
-
-<target name="-realta-submit-v1">
-  <tstamp>
-    <format property="submitTime" pattern="YYYY-MM-dd HH:mm:ssZ"/>
-  </tstamp>
-  <echo message='Submitting "${dateprefix} ${submitTime}" to "${entrypoint}" ...'/>
-  <exec executable="curl" errorproperty="errSubmit"
-        resultproperty="returnSubmit"
-        outputproperty="joburi">
-    <arg value="--request"/><arg value="POST"/>
-    <arg value="https://${servername}/Publishing/pubapi/CreateJob"/>
-    <arg value="--output"/><arg value="-"/>
-    <arg value="--header"/><arg value="pubAuthToken:${token}"/>
-    <arg value="--header"/><arg value="pubJobName:${dateprefix} ${submitTime}"/>
-    <arg value="--header"/><arg value="pubParams:flow-name=${entrypoint}"/>
-    <arg value="--form"/><arg value="In-Job-Xml=@${fileupload}"/>
-  </exec>
-  <condition property="got-job-id">
-    <and>
-      <equals arg1="${returnSubmit}" arg2="0"/>
-      <not>
-        <equals arg1="${joburi}" arg2=""/>
-      </not>
-    </and>
-  </condition>
-  <echo unless:set="got-job-id" message="Job URI was not returned from server"/>
-  <echo if:set="got-job-id" message="Returned job URI: ${joburi}"/>
-</target>
-
-<target name="-realta-retrieve-v1">
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-realta-fetch-v1" unless:set="fetch-okay"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.realta.zip" when="greater" length="45"/>
-  </condition>
-  <echo unless:set="fetch-okay" 
-        message="Giving up on the fetch; check ${fileupload}.realta.zip in clear text for the last message from the server"/>
-  <echo if:set="fetch-okay" message="Successful retrieval of ${fileupload}.realta.zip"/>
-</target>
-
-<target name="-realta-fetch-v1" unless="${fetch-okay}">
-  <echo message="Sleeping for 10 seconds..."/>
-  <sleep seconds="10"/>
-  <echo message="Fetching file ${fileupload}.realta.zip"/>
-  <exec executable="curl" errorproperty="errReturn"
-        resultproperty="returnFetch"
-        output="${fileupload}.realta.zip">
-    <arg value="--request"/><arg value="GET"/>
-    <arg value="https://${servername}/Publishing/pubapi/GetJobResult"/>
-    <arg value="--output"/><arg value="-"/>
-    <arg value="--header"/><arg value="pubAuthToken:${token}"/>
-    <arg value="--header"/><arg value="pubJobUri:${joburi}"/>
-  </exec>
-</target>
-
-<target name="-realta-unpack-v1" unless="skipunpack">
-  <echo message="Unzipping ${fileupload}.realta.zip PDF/HTML results..."/>
-  <dirname property="targetdir" file="${fileupload}"/>
-  <unzip src="${fileupload}.realta.zip" dest="${targetdir}">
-    <patternset>
-      <include name="errors.txt"/>
-      <include name="*.pdf"/>
-      <include name="*.html"/>
-      <exclude name="joblog.html"/>
-    </patternset>
-  </unzip>
-  <echo message="Disposing of temporary ${fileupload}.realta.zip submission..."/>
-  <delete file="${fileupload}.realta.zip"/>
-</target>
-  
-<target name="-realta-cleanup-v1">
-  <echo message="Deleting job from server..."/>
-  <exec executable="curl" errorproperty="errDelete"
-        resultproperty="returnDelete"
-        outputproperty="clear">
-    <arg value="--request"/><arg value="Post"/>
-    <arg value="https://${servername}/Publishing/pubapi/Clearjob"/>
-    <arg value="--output"/><arg value="-"/>
-    <arg value="--header"/><arg value="pubAuthToken:${token}"/>
-    <arg value="--header"/><arg value="pubJobUri:${joburi}"/>
-  </exec>
-  <condition property="no-problems">
-    <equals arg1="${returnDelete}" arg2="0"/>
-  </condition>
 </target>
 
 </project>
