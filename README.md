@@ -10,30 +10,60 @@ The documentation is authored in XML and published in two layouts: the OASIS spe
 
 Various artefacts, existing and identified to be developed, will be incorporated into the repository for inclusion in the final deliverable.
 
-## Branches and protocol for contributions
+## Roles, branches, and protocol for contributions
 
-Maintainers are asked not to check in any changes to the `main` and `review` branches:
+Two roles are identified. The editors are responsible for incorporating into review copies (for committee consideration) and main copies (already accepted by the committee) the suggestions made by the maintainers. A "main" copy is not necessarily the final copy, but simply a copy of a "review" copy whose review has been completed.
+
+Maintainers create and maintain their own branches and are asked not to check in any changes to the `main` and `review` branches reserved for editors:
 
 - `main` - this is content that has been reviewed by committee members and considered acceptable to be distributed for its intended purpose (which may be for testing or for production use, not necessarily for final use)
-- `review` - this is content from the editor that has not been reviewed by committee members yet, and so is not considered agreed upon for its intended purpose, but the editor has incorporated input from other sources into a package for review; when there is consensus about the content of the `review` branch, it is snapshot in the `main` branch
+- `review` - this is content from the editor that has not been reviewed by committee members yet, and so is not considered agreed-upon for its intended purpose, but the editor has incorporated input from other sources into a package for review; when there is consensus about the content of the `review` branch, it is snapshot in the `main` branch
 
-Contributions are requested to be submitted by pull requests against the `review` branch to be incorporated by the editor. Maintainers can create and delete any number of their own branches as they see fit. The act of checking in will automatically trigger the publishing of the authored XML into OASIS layout PDF, OASIS layout HTML, and ISO Directives Part 2 layout PDF. See "[Published results](#Published-results)" below.
+Contributions are requested to be submitted by pull requests against the `review` branch to be incorporated by the editor. Maintainers can create and delete any number of their own branches as they see fit. Maintainers are reminded to pull the review changes frequently so as not to diverge far from the work currently under review.
+
+Maintainers can use any XML editing tool to make their changes to the specification document. See "[Preview results](#Preview-results)" below regarding how they can preview their XML edits locally.
+
+Other files and directories can change however needed by the maintainer.
+
+The act of checking a committed branch to GitHub automatically triggers the publishing of the authored XML into OASIS layout PDF, OASIS layout HTML, and ISO Directives Part 2 layout PDF. See "[Published results](#Published-results)" below.
 
 
 ## Repository contents
 
 Directories:
 - `.github/workflows` - the automated publishing and packaging process triggers performed for every check-in
-- `cs01` - the results of publication of the Committee Specification 01 - 28 December 2007
+- `cs01` - the results of publication of the Committee Specification 01 dated 28 December 2007
 - `doc` - documentation inputs
-- `oXygen-frameworks` - document authoring support for the oXygen XML tool (see the directory README file)
+  - `doc/genericode.xml` - the specification file being edited
+  - `doc/art/*.png` - PDF artwork (maximum width 5.5"/140mm, minimum resolution 300dpi/11.8dpmm)
+  - `doc/htmlart/*.png` - HTML artwork (maximum width 750px, resolution irrelevant but one could use 72dpi or 96dpi)
+  - `doc/db` - OASIS DocBook library required for HTML presentation and XML presentation 
+- `oXygen-frameworks` - document-authoring support for the oXygen XML tool ([see the directory README file](oXygen-frameworks#readme))
 - `sch` - Schematron value constraints
 - `utilities/ant` - publishing process support
 - `xsd` - W3C XML Schema structural constraints
 
-Files:
+Support files:
 - `produceGenericode.*` - publishing and packaging process files converting XML to end-user PDF and HTML documents
 - `realta*` - publishing support files
+
+## Preview results
+
+Intermediate edits saved to the `doc/genercode.xml` file can be previewed instantly in a browser on your local computer. It is recommended that one do this to establish their edits are satisfactory before checking in to GitHub to trigger the published results.
+
+Note that the preview HTML presents the PDF images and so the images are dramatically oversized. This is not the case for the published HTML returned from GitHub.
+
+Once the XML has been opened in the browser, it is necessary only to refresh the browser window after each save of the XML edits. It is not necessary to go through the drag-and-drop or open requests.
+
+Opening the XML in Windows:
+- drag and drop the XML source onto Internet Explorer, or "right-click, Open with..., Internet Explorer"
+- use Ctrl-R or F5 to refresh the browser after editing the file
+- this does not work with Firefox, Chrome, or Edge browsers
+
+Opening the XML in Mac OSX:
+- drag and drop the XML source onto Safari, or "right-click, Open With, Safari"
+- use Cmd-R to refresh the browser after editing the file
+- this does not work with Firefox or Chrome browsers
 
 ## Published results
 
