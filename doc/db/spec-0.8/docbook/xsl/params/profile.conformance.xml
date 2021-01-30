@@ -1,38 +1,33 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="profile.conformance">
+<refentry id="profile.conformance">
 <refmeta>
 <refentrytitle>profile.conformance</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>profile.conformance</refname>
-<refpurpose>Target profile for <tag class="attribute">conformance</tag>
+<refpurpose>Target profile for <sgmltag class="attribute">conformance</sgmltag>
 attribute</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="profile.conformance.frag">
-<xsl:param name="profile.conformance"></xsl:param>
+<src:fragment id='profile.conformance.frag'>
+<xsl:param name="profile.conformance" select="''"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>The value of this parameter specifies profiles which should be
+<para>Value of this parameter specifies profiles which should be
 included in the output. You can specify multiple profiles by
 separating them by semicolon. You can change separator character by
-<parameter>profile.separator</parameter>
+<link linkend="profile.separator"><parameter>profile.separator</parameter></link>
 parameter.</para>
 
 <para>This parameter has effect only when you are using profiling
 stylesheets (<filename>profile-docbook.xsl</filename>,
-<filename>profile-chunk.xsl</filename>, …) instead of normal
+<filename>profile-chunk.xsl</filename>, &#x2026;) instead of normal
 ones (<filename>docbook.xsl</filename>,
-<filename>chunk.xsl</filename>, …).</para>
+<filename>chunk.xsl</filename>, &#x2026;).</para>
 
-</refsection>
+</refsect1>
 </refentry>

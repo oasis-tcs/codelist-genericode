@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="linenumbering.width">
+<refentry id="linenumbering.width">
 <refmeta>
 <refentrytitle>linenumbering.width</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">integer</refmiscinfo>
+<refmiscinfo role="type">integer</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>linenumbering.width</refname>
@@ -14,16 +9,14 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="linenumbering.width.frag">
-<xsl:param name="linenumbering.width">3</xsl:param>
-</src:fragment>
+<src:fragment id='linenumbering.width.frag'><xsl:param name="linenumbering.width" select="'3'"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If line numbering is enabled, line numbers will appear right
 justified in a field "width" characters wide.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

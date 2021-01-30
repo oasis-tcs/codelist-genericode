@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="linenumbering.separator">
+<refentry id="linenumbering.separator">
 <refmeta>
 <refentrytitle>linenumbering.separator</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>linenumbering.separator</refname>
@@ -14,17 +9,14 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="linenumbering.separator.frag">
-<xsl:param name="linenumbering.separator"><xsl:text> </xsl:text></xsl:param>
-</src:fragment>
+<src:fragment id='linenumbering.separator.frag'><xsl:param name="linenumbering.separator" select="' '"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>The separator is inserted between line numbers and lines in the
-verbatim environment. The default value is a single white space.
- Note the interaction with <parameter>linenumbering.width</parameter>
+<para>The separator is inserted between line numbers and lines in
+the verbatim environment.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

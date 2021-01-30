@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="refentry.version.suppress">
+<refentry id="refentry.version.suppress">
 <refmeta>
 <refentrytitle>refentry.version.suppress</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>refentry.version.suppress</refname>
@@ -14,11 +9,11 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="refentry.version.suppress.frag">
+<src:fragment id='refentry.version.suppress.frag'>
 <xsl:param name="refentry.version.suppress">0</xsl:param></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If the value of <parameter>refentry.version.suppress</parameter>
 is non-zero, then during <tag>refentry</tag> metadata gathering, no
@@ -39,5 +34,5 @@ special meanings in this context. For details, see the documentation
 for the <parameter>refentry.source.name.profile</parameter>
 parameter.</para>
 
-</refsection>
+</refsect1>
 </refentry>

@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="autotoc.label.separator">
+<refentry id="autotoc.label.separator">
 <refmeta>
 <refentrytitle>autotoc.label.separator</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>autotoc.label.separator</refname>
@@ -14,14 +9,12 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="autotoc.label.separator.frag">
-<xsl:param name="autotoc.label.separator">. </xsl:param>
-</src:fragment>
+<src:fragment id='autotoc.label.separator.frag'><xsl:param name="autotoc.label.separator" select="'. '"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>String used to separate labels and titles in a table of contents.</para>
+<para>String to use to seperate labels and title in a table of contents.</para>
 
-</refsection>
+</refsect1>
 </refentry>

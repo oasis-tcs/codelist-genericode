@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="passivetex.extensions">
+<refentry id="passivetex.extensions">
 <refmeta>
 <refentrytitle>passivetex.extensions</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>passivetex.extensions</refname>
@@ -14,17 +9,18 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="passivetex.extensions.frag"><xsl:param name="passivetex.extensions" select="0"/></src:fragment>
+<src:fragment id='passivetex.extensions.frag'><xsl:param name="passivetex.extensions" select="0"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<important><para>The PassiveTeX XSL-FO processor is
-no longer supported by DocBook XSL, beginning with version 1.78.</para></important>
+<para>If non-zero,
+<ulink url="http://users.ox.ac.uk/~rahtz/passivetex/">PassiveTeX</ulink>
+extensions will be used. At present, this consists of PDF bookmarks
+and sorted index terms.
+</para>
 
-<para>PassiveTeX was never a complete implementation of
-XSL-FO, and development has ceased. Setting this parameter will
-have no effect on the output.</para>
-
-</refsection>
+<para>This parameter can also affect which graphics file formats
+are supported</para>
+</refsect1>
 </refentry>

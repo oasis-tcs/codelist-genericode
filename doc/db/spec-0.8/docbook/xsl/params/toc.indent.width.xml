@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="toc.indent.width">
+<refentry id="toc.indent.width">
 <refmeta>
 <refentrytitle>toc.indent.width</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">float</refmiscinfo>
+<refmiscinfo role="type">float</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>toc.indent.width</refname>
@@ -14,13 +9,12 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="toc.indent.width.frag">
-<xsl:param name="toc.indent.width">24</xsl:param>
-<!-- inconsistant point specification? -->
+<src:fragment id='toc.indent.width.frag'>
+<xsl:param name="toc.indent.width" select="24"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Specifies, in points, the distance by which each level of the
 TOC is indented from its parent.</para>
@@ -30,5 +24,5 @@ a unit (in other words, it is a bare number). Using a bare number allows the sty
 to perform calculations that would otherwise have to be performed by the FO processor
 because not all processors support expressions.</para>
 
-</refsection>
+</refsect1>
 </refentry>

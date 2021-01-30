@@ -1,27 +1,18 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="olink.doctitle"> 
+<refentry id="olink.doctitle"> 
 <refmeta> 
 <refentrytitle>olink.doctitle</refentrytitle> 
-<refmiscinfo class="other" otherclass="datatype">list</refmiscinfo> 
-<refmiscinfo class="other" otherclass="value">no</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">yes</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">maybe</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo> 
 </refmeta> 
 <refnamediv> 
 <refname>olink.doctitle</refname> 
 <refpurpose>show the document title for external olinks?</refpurpose>
 
 </refnamediv> 
-<refsynopsisdiv> <src:fragment xml:id="olink.doctitle.frag">
-<xsl:param name="olink.doctitle">no</xsl:param> 
-</src:fragment> 
+<refsynopsisdiv> <src:fragment id="olink.doctitle.frag">
+<xsl:param name="olink.doctitle" select="no"/> </src:fragment> 
 </refsynopsisdiv> 
-<refsection><info><title>Description</title></info> 
- 
+<refsect1> 
+<title>Description</title> 
 <para>When olinks between documents are resolved, the generated text
 may not make it clear that the reference is to another document.
 It is possible for the stylesheets to append the other document's
@@ -50,9 +41,9 @@ append the target document's
 title to the generated olink text. </para> 
 
 <para>The text for the target document's title is copied from the
-olink database from the <tag>ttl</tag> element
-of the top-level <tag>div</tag> for that document.
-If that <tag>ttl</tag> element is missing or empty,
+olink database from the <sgmltag>ttl</sgmltag> element
+of the top-level <sgmltag>div</sgmltag> for that document.
+If that <sgmltag>ttl</sgmltag> element is missing or empty,
 no title is output.
 </para>
 
@@ -73,7 +64,7 @@ the current document.
 <listitem>
 <para>
 Never insert the title to the target document, even if requested
-in an <tag class="attribute">xrefstyle</tag> attribute.
+in an <sgmltag class="attribute">xrefstyle</sgmltag> attribute.
 </para>
 </listitem>
 </varlistentry>
@@ -82,15 +73,15 @@ in an <tag class="attribute">xrefstyle</tag> attribute.
 <listitem>
 <para>
 Only insert the title to the target document, if requested
-in an <tag class="attribute">xrefstyle</tag> attribute.
+in an <sgmltag class="attribute">xrefstyle</sgmltag> attribute.
 </para>
 </listitem>
 </varlistentry>
 </variablelist>
-<para>An <tag class="attribute">xrefstyle</tag> attribute
+<para>An <sgmltag class="attribute">xrefstyle</sgmltag> attribute
 may override the global setting for individual olinks.
 The following values are supported in an
-<tag class="attribute">xrefstyle</tag>
+<sgmltag class="attribute">xrefstyle</sgmltag>
 attribute using the <literal>select:</literal> syntax:
 </para>
 
@@ -130,7 +121,7 @@ is <literal>yes</literal>.
 </variablelist>
 <para>Another way of inserting the target document name 
 for a single olink is to employ an
-<tag class="attribute">xrefstyle</tag>
+<sgmltag class="attribute">xrefstyle</sgmltag>
 attribute using the <literal>template:</literal> syntax.
 The <literal>%o</literal> placeholder (the letter o, not zero)
 in such a template
@@ -142,5 +133,5 @@ the value of <parameter>olink.doctitle</parameter>.
 the allowed values for this parameter were 0 and 1.  Those
 values are still supported and mapped to 'no' and 'yes', respectively.
 </para>
-</refsection> 
-</refentry>
+</refsect1> 
+</refentry> 

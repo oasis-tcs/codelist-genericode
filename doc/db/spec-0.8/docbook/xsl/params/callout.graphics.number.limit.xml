@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="callout.graphics.number.limit">
+<refentry id="callout.graphics.number.limit">
 <refmeta>
 <refentrytitle>callout.graphics.number.limit</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">integer</refmiscinfo>
+<refmiscinfo role="type">integer</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>callout.graphics.number.limit</refname>
@@ -14,21 +9,20 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="callout.graphics.number.limit.frag">
-<xsl:param condition="html" name="callout.graphics.number.limit">15</xsl:param>
-<xsl:param condition="fo" name="callout.graphics.number.limit">30</xsl:param>
-</src:fragment>
+<src:fragment id='callout.graphics.number.limit.frag'><xsl:param name="callout.graphics.number.limit" select="'15'"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>If <parameter>callout.graphics</parameter> is non-zero, graphics
-are used to represent callout numbers instead of plain text. The value
-of <parameter>callout.graphics.number.limit</parameter> is the largest
-number for which a graphic exists. If the callout number exceeds this
-limit, the default presentation "(plain text instead of a graphic)"
-will  be used.
+<para>If <parameter>callout.graphics</parameter>
+is non-zero, graphics are used to represent
+callout numbers. The value of
+<parameter>callout.graphics.number.limit</parameter>
+is
+the largest number for which a graphic exists. If the callout number
+exceeds this limit, the default presentation "(nnn)" will always
+be used.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

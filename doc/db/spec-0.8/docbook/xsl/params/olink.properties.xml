@@ -1,13 +1,4 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="olink.properties">
-<refmeta>
-<refentrytitle>olink.properties</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">attribute set</refmiscinfo>
-</refmeta>
+<refentry id="olink.properties">
 <refnamediv>
 <refname>olink.properties</refname>
 <refpurpose>Properties associated with the cross-reference 
@@ -15,19 +6,18 @@ text of an olink.</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="olink.properties.frag">
+<src:fragment id='olink.properties.frag'>
 <xsl:attribute-set name="olink.properties">
-  <xsl:attribute name="show-destination">replace</xsl:attribute>
 </xsl:attribute-set>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>This <literal>attribute set</literal> is applied to the
-<literal>fo:basic-link</literal> element of an olink. It is not applied to the
-optional page number or optional title of the external
-document.</para>
+<para>This attribute set is used on cross reference text
+from an olink. It is not applied to the
+optional page number or 
+optional title of the external document.</para>
 
-</refsection>
+</refsect1>
 </refentry>

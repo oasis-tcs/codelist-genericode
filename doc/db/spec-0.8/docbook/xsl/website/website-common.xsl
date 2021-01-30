@@ -6,20 +6,20 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: website-common.xsl 9396 2012-06-02 21:56:19Z bobstayton $
+     $Id: website-common.xsl,v 1.22 2005/04/15 19:09:43 nwalsh Exp $
      ********************************************************************
 
      This file is part of the WebSite distribution.
      See ../README or http://nwalsh.com/website/ for copyright
-     copyright and other information.
+     and other information.
 
      ******************************************************************** -->
 
 <!-- ==================================================================== -->
 
-<xsl:import href="../html/docbook.xsl"/>
+<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl"/>
 <xsl:import href="xbel.xsl"/>
-<xsl:include href="../VERSION.xsl"/>
+<xsl:include href="../VERSION"/>
 <xsl:include href="param.xsl"/>
 <xsl:include href="head.xsl"/>
 <xsl:include href="rss.xsl"/>
@@ -802,14 +802,6 @@ node.</para>
     </l:context>
   </l:l10n>
   <l:l10n language="fr">
-    <l:context name="title">
-      <l:template name="webpage" text="%t"/>
-    </l:context>
-    <l:context name="xref">
-      <l:template name="webpage" text="%t"/>
-    </l:context>
-  </l:l10n>
-  <l:l10n language="es">
     <l:context name="title">
       <l:template name="webpage" text="%t"/>
     </l:context>

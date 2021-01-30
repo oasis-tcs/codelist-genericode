@@ -6,19 +6,19 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: ebnf.xsl 9664 2012-11-07 20:02:17Z bobstayton $
+     $Id: ebnf.xsl,v 1.6 2005/08/09 09:30:43 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://docbook.sf.net/release/xsl/current/ for
-     copyright and other information.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
 
      ******************************************************************** -->
 
 <doc:reference xmlns="">
 <referenceinfo>
 <releaseinfo role="meta">
-$Id: ebnf.xsl 9664 2012-11-07 20:02:17Z bobstayton $
+$Id: ebnf.xsl,v 1.6 2005/08/09 09:30:43 bobstayton Exp $
 </releaseinfo>
 <author><surname>Walsh</surname>
 <firstname>Norman</firstname></author>
@@ -99,7 +99,7 @@ to be incomplete. Don't forget to read the source, too :-)</para>
     <fo:table-cell>
       <fo:block text-align="start">
         <xsl:text>[</xsl:text>
-        <xsl:apply-templates select="." mode="label.markup"/>
+        <xsl:number count="production" level="any"/>
         <xsl:text>]</xsl:text>
       </fo:block>
     </fo:table-cell>

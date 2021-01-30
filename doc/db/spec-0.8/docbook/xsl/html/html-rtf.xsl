@@ -6,12 +6,12 @@
                 version="1.0">
 
 <!-- ********************************************************************
-     $Id: html-rtf.xsl 8345 2009-03-16 06:44:07Z bobstayton $
+     $Id: html-rtf.xsl,v 1.11 2003/11/30 19:42:23 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://docbook.sf.net/release/xsl/current/ for
-     copyright and other information.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
 
      ******************************************************************** -->
 
@@ -108,7 +108,7 @@
 <xsl:template name="unwrap.p">
   <xsl:param name="p"/>
   <xsl:choose>
-    <xsl:when test="$exsl.node.set.available != 0
+    <xsl:when test="function-available('exsl:node-set')
                     and function-available('set:leading')
                     and function-available('set:trailing')">
       <xsl:apply-templates select="exsl:node-set($p)" mode="unwrap.p"/>
@@ -123,7 +123,7 @@
               match="html:p|p" mode="unwrap.p">
   <!-- xmlns:html is necessary for the xhtml stylesheet case -->
   <xsl:variable name="blocks" xmlns:html="http://www.w3.org/1999/xhtml"
-                select="address|blockquote|child::div|hr|h1|h2|h3|h4|h5|h6
+                select="address|blockquote|div|hr|h1|h2|h3|h4|h5|h6
                         |layer|p|pre|table|dl|menu|ol|ul|form
                         |html:address|html:blockquote|html:div|html:hr
                         |html:h1|html:h2|html:h3|html:h4|html:h5|html:h6
@@ -175,8 +175,7 @@
         <xsl:variable name="leading" select="set:leading($nodes,$block)"/>
         <xsl:variable name="trailing" select="set:trailing($nodes,$block)"/>
 
-        <xsl:if test="(($wrap/@id or $wrap/@xml:id) 
-                        and $first = 1) or $leading">
+        <xsl:if test="($wrap/@id and $first = 1) or $leading">
           <xsl:element name="{local-name($wrap)}" namespace="{namespace-uri($wrap)}">
             <xsl:for-each select="$wrap/@*">
               <xsl:if test="$first != 0 or local-name(.) != 'id'">
@@ -199,7 +198,7 @@
       </xsl:when>
 
       <xsl:otherwise>
-        <xsl:if test="(($wrap/@id or $wrap/@xml:id) and $first = 1) or $nodes">
+        <xsl:if test="($wrap/@id and $first = 1) or $nodes">
           <xsl:element name="{local-name($wrap)}" namespace="{namespace-uri($wrap)}">
             <xsl:for-each select="$wrap/@*">
               <xsl:if test="$first != 0 or local-name(.) != 'id'">
@@ -301,7 +300,7 @@
 <xsl:template name="remove.empty.div">
   <xsl:param name="div"/>
   <xsl:choose>
-    <xsl:when test="$exsl.node.set.available != 0">
+    <xsl:when test="function-available('exsl:node-set')">
       <xsl:apply-templates select="exsl:node-set($div)" mode="remove.empty.div"/>
     </xsl:when>
     <xsl:otherwise>

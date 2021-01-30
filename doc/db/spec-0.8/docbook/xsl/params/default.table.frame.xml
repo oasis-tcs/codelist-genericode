@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="default.table.frame">
+<refentry id="default.table.frame">
 <refmeta>
 <refentrytitle>default.table.frame</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>default.table.frame</refname>
@@ -14,15 +9,12 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="default.table.frame.frag">
-<xsl:param name="default.table.frame">all</xsl:param>
-</src:fragment>
+<src:fragment id='default.table.frame.frag'><xsl:param name="default.table.frame" select="'all'"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>This value will be used when there is no frame attribute on the
-table. </para>
+<para>This value will be used when there is no frame attribute on the table.</para>
 
-</refsection>
+</refsect1>
 </refentry>

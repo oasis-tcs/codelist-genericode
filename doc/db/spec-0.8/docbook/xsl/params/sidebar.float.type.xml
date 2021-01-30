@@ -1,20 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="sidebar.float.type">
+<refentry id="sidebar.float.type">
 <refmeta>
 <refentrytitle>sidebar.float.type</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">list</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">none</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">before</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">left</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">start</refmiscinfo> 
-<refmiscinfo class="other" otherclass="value">right</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">end</refmiscinfo>     
-<refmiscinfo class="other" otherclass="value">inside</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">outside</refmiscinfo> 
+<refmiscinfo role="type">list</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>sidebar.float.type</refname>
@@ -22,12 +9,12 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="sidebar.float.type.frag">
-<xsl:param name="sidebar.float.type">none</xsl:param>
+<src:fragment id='sidebar.float.type.frag'>
+<xsl:param name="sidebar.float.type" select="'none'"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Selects the type of float for sidebar elements.
 </para>
@@ -45,37 +32,20 @@ the float appears at the top of the page.  On some processors,
 that may be the next page rather than the current page.
 </para>
 </listitem>
-
 <listitem>
 <para>If <parameter>sidebar.float.type</parameter> is
-<quote><literal>left</literal></quote>,
-then a left side float is used.
+<quote><literal>left</literal></quote> or
+<quote><literal>start</literal></quote>, then 
+a left side float is used.
 </para>
 </listitem>
-
 <listitem>
 <para>If <parameter>sidebar.float.type</parameter> is
-<quote><literal>start</literal></quote>,
-then when the text direction is left-to-right a left side float is used.
-When the text direction is right-to-left, a right side float is used.
+<quote><literal>right</literal></quote> or
+<quote><literal>end</literal></quote>, then 
+a right side float is used.
 </para>
 </listitem>
-
-<listitem>
-<para>If <parameter>sidebar.float.type</parameter> is
-<quote><literal>right</literal></quote>,
-then a right side float is used.
-</para>
-</listitem>
-
-<listitem>
-<para>If <parameter>sidebar.float.type</parameter> is
-<quote><literal>end</literal></quote>,
-then when the text direction is left-to-right a right side float is used.
-When the text direction is right-to-left, a left side float is used.
-</para>
-</listitem>
-
 <listitem>
 <para>If your XSL-FO processor supports floats positioned on the
 <quote><literal>inside</literal></quote> or
@@ -86,5 +56,5 @@ options for side floats as well.
 </listitem>
 </itemizedlist>
 
-</refsection>
+</refsect1>
 </refentry>

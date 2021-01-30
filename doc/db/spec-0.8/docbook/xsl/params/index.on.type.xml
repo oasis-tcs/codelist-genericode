@@ -1,52 +1,47 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="index.on.type">
+<refentry id="index.on.type">
 <refmeta>
 <refentrytitle>index.on.type</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>index.on.type</refname>
-<refpurpose>Select indexterms based on <tag class="attribute">type</tag>
+<refpurpose>Select indexterms based on <sgmltag>type</sgmltag>
 attribute value</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="index.on.type.frag">
+<src:fragment id='index.on.type.frag'>
 <xsl:param name="index.on.type" select="0"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>
 If non-zero, 
-then an <tag>index</tag> element that has a
-<tag class="attribute">type</tag> attribute
-value will contain only those <tag>indexterm</tag>
-elements with a matching <tag class="attribute">type</tag> attribute value.
-If an <tag>index</tag> has no <tag class="attribute">type</tag>
+then an <sgmltag>index</sgmltag> element that has a
+<sgmltag>type</sgmltag> attribute
+value will contain only those <sgmltag>indexterm</sgmltag>
+elements with a matching <sgmltag>type</sgmltag> attribute value.
+If an <sgmltag>index</sgmltag> has no <sgmltag>type</sgmltag>
 attribute or it is blank, then the index will contain
-all <tag>indexterm</tag>s in the current scope.
+all <sgmltag>indexterm</sgmltag>s in the current scope.
 </para>
 
 <para>
 If <literal>index.on.type</literal> is zero, then the
-<tag class="attribute">type</tag> attribute has no effect
+<sgmltag>type</sgmltag> attribute has no effect
 on selecting indexterms for an index.
 </para>
 
 <para>For those using DocBook version 4.2 or earlier,
-the <tag class="attribute">type</tag> attribute is not available
+the <sgmltag>type</sgmltag> attribute is not available
 for index terms.  However, you can achieve the same
-effect by using the <tag class="attribute">role</tag> attribute
-in the same manner on <tag>indexterm</tag>
-and <tag>index</tag>, and setting the stylesheet parameter 
+effect by using the <sgmltag>role</sgmltag> attribute
+in the same manner on <sgmltag>indexterm</sgmltag>
+and <sgmltag>index</sgmltag>, and setting the stylesheet parameter 
 <parameter>index.on.role</parameter> to a nonzero value.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

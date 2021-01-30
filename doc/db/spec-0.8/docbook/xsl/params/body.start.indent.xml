@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="body.start.indent">
+<refentry id="body.start.indent">
 <refmeta>
 <refentrytitle>body.start.indent</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">length</refmiscinfo>
+
 </refmeta>
 <refnamediv>
 <refname>body.start.indent</refname>
@@ -14,7 +9,7 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="body.start.indent.frag">
+<src:fragment id='body.start.indent.frag'>
 <xsl:param name="body.start.indent">
   <xsl:choose>
     <xsl:when test="$fop.extensions != 0">0pt</xsl:when>
@@ -25,16 +20,14 @@
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>This parameter provides
-the means of indenting the body text relative to
-section titles.
-For left-to-right text direction, it indents the left side.
-For right-to-left text direction, it indents the right side.
+one means of indenting the body text relative to
+the left page margin.
 It is used in place of the 
 <parameter>title.margin.left</parameter> for
-all XSL-FO processors except FOP 0.25.
+all XSL-FO processors except FOP.
 It enables support for side floats to appear
 in the indented margin area.
 </para>
@@ -60,5 +53,5 @@ parameter to the negative value of the desired indent.
 <parameter>title.margin.left</parameter>.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

@@ -1,20 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="margin.note.float.type">
+<refentry id="margin.note.float.type">
 <refmeta>
 <refentrytitle>margin.note.float.type</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">list</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">none</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">before</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">left</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">start</refmiscinfo> 
-<refmiscinfo class="other" otherclass="value">right</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">end</refmiscinfo>     
-<refmiscinfo class="other" otherclass="value">inside</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">outside</refmiscinfo> 
+<refmiscinfo role="type">list</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>margin.note.float.type</refname>
@@ -22,12 +9,12 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="margin.note.float.type.frag">
-<xsl:param name="margin.note.float.type">none</xsl:param>
+<src:fragment id='margin.note.float.type.frag'>
+<xsl:param name="margin.note.float.type" select="'none'"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Selects the type of float for margin notes.
 DocBook does not define a margin note element, so this
@@ -73,5 +60,5 @@ options for side floats as well.
 </listitem>
 </itemizedlist>
 
-</refsection>
+</refsect1>
 </refentry>

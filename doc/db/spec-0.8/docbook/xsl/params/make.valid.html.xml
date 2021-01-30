@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="make.valid.html">
+<refentry id="make.valid.html">
 <refmeta>
 <refentrytitle>make.valid.html</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>make.valid.html</refname>
@@ -14,16 +9,16 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="make.valid.html.frag">
+<src:fragment id='make.valid.html.frag'>
 <xsl:param name="make.valid.html" select="0"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If <parameter>make.valid.html</parameter> is true, the stylesheets take
 extra effort to ensure that the resulting HTML is valid. This may mean that some
-<tag>para</tag> tags are translated into HTML <tag>div</tag>s or
+<sgmltag>para</sgmltag> tags are translated into HTML <sgmltag>div</sgmltag>s or
 that other substitutions occur.</para>
 
 <para>This parameter is different from <parameter>html.cleanup</parameter>
@@ -31,5 +26,5 @@ because it changes the resulting markup; it does not use extension functions
 to manipulate result-tree-fragments and is therefore applicable to any
 XSLT processor.</para>
 
-</refsection>
+</refsect1>
 </refentry>

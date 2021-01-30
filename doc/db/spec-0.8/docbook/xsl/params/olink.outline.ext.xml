@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="olink.outline.ext">
+<refentry id="olink.outline.ext">
 <refmeta>
 <refentrytitle>olink.outline.ext</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>olink.outline.ext</refname>
@@ -14,15 +9,12 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="olink.outline.ext.frag">
-<xsl:param name="olink.outline.ext">.olink</xsl:param>
-</src:fragment>
+<src:fragment id='olink.outline.ext.frag'><xsl:param name="olink.outline.ext" select="'.olink'"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>The extension to be expected for  OLink outline files</para>
-<para>Bob has this parameter as dead. Please don't use</para>
+<para>FIXME:</para>
 
-</refsection>
+</refsect1>
 </refentry>

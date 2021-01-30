@@ -1,27 +1,23 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="htmlhelp.alias.file">
+<refentry id="htmlhelp.alias.file">
 <refmeta>
 <refentrytitle>htmlhelp.alias.file</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>htmlhelp.alias.file</refname>
-<refpurpose>Filename of alias file.</refpurpose>
+<refpurpose>Filename of map file.</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="htmlhelp.alias.file.frag">
-<xsl:param name="htmlhelp.alias.file">alias.h</xsl:param>
+<src:fragment id='htmlhelp.alias.file.frag'>
+<xsl:param name="htmlhelp.alias.file" select="'alias.h'"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>Specifies the filename of the alias file (used for context-sensitive help).</para>
+<para>Change this parameter if you want different name of map file
+than <filename>alias.h</filename>.</para>
 
-</refsection>
+</refsect1>
 </refentry>

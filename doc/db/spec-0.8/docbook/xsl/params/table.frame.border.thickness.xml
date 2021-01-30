@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="table.frame.border.thickness">
+<refentry id="table.frame.border.thickness">
 <refmeta>
 <refentrytitle>table.frame.border.thickness</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">length</refmiscinfo>
+<refmiscinfo role="type"></refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>table.frame.border.thickness</refname>
@@ -14,19 +9,14 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="table.frame.border.thickness.frag">
-<xsl:param name="table.frame.border.thickness">
-  <xsl:choose>
-    <xsl:when test="contains($stylesheet.result.type,'html')">1px</xsl:when>
-    <xsl:otherwise>0.5pt</xsl:otherwise>
-  </xsl:choose>
-</xsl:param>
+<src:fragment id='table.frame.border.thickness.frag'>
+<xsl:param name="table.frame.border.thickness" select="'0.5pt'"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Specifies the thickness of the border on the table's frame.</para>
 
-</refsection>
+</refsect1>
 </refentry>

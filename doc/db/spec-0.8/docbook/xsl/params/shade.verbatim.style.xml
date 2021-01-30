@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="shade.verbatim.style">
+<refentry id="shade.verbatim.style">
 <refmeta>
 <refentrytitle>shade.verbatim.style</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">attribute set</refmiscinfo>
+<refmiscinfo role="type"></refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>shade.verbatim.style</refname>
@@ -14,7 +9,7 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="shade.verbatim.style.frag">
+<src:fragment id='shade.verbatim.style.frag'>
 <xsl:attribute-set condition="html" name="shade.verbatim.style">
   <xsl:attribute name="border">0</xsl:attribute>
   <xsl:attribute name="bgcolor">#E0E0E0</xsl:attribute>
@@ -25,12 +20,9 @@
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>Properties that specify the style of shaded verbatim listings. The
-parameters specified (the border and background color) are added to
-the styling of the xsl-fo output. A border might be specified as "thin
-black solid" for example. See <link xlink:href="http://www.w3.org/TR/2004/WD-xsl11-20041216/#border">xsl-fo</link></para>
+<para>FIXME:</para>
 
-</refsection>
+</refsect1>
 </refentry>

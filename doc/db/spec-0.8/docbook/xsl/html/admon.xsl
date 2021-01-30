@@ -3,12 +3,12 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: admon.xsl 9728 2013-03-08 00:16:41Z bobstayton $
+     $Id: admon.xsl,v 1.11 2004/12/08 20:43:51 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://docbook.sf.net/release/xsl/current/ for
-     copyright and other information.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
 
      ******************************************************************** -->
 
@@ -60,26 +60,21 @@
     </xsl:call-template>
   </xsl:variable>
 
-  <div>
-    <xsl:call-template name="common.html.attributes"/>
-    <xsl:call-template name="id.attribute"/>
-    <xsl:if test="$admon.style != '' and $make.clean.html = 0">
+  <div class="{name(.)}">
+    <xsl:if test="$admon.style != ''">
       <xsl:attribute name="style">
         <xsl:value-of select="$admon.style"/>
       </xsl:attribute>
     </xsl:if>
 
-    <table border="{$table.border.off}">
-      <!-- omit summary attribute in html5 output -->
-      <xsl:if test="$div.element != 'section'">
-        <xsl:attribute name="summary">
-          <xsl:value-of select="$admon.type"/>
-          <xsl:if test="title|info/title">
-            <xsl:text>: </xsl:text>
-            <xsl:value-of select="(title|info/title)[1]"/>
-          </xsl:if>
-        </xsl:attribute>
-      </xsl:if>
+    <table border="0">
+      <xsl:attribute name="summary">
+        <xsl:value-of select="$admon.type"/>
+        <xsl:if test="title">
+          <xsl:text>: </xsl:text>
+          <xsl:value-of select="title"/>
+        </xsl:if>
+      </xsl:attribute>
       <tr>
         <td rowspan="2" align="center" valign="top">
           <xsl:attribute name="width">
@@ -91,15 +86,15 @@
             </xsl:attribute>
           </img>
         </td>
-        <th align="{$direction.align.start}">
+        <th align="left">
           <xsl:call-template name="anchor"/>
-          <xsl:if test="$admon.textlabel != 0 or title or info/title">
+          <xsl:if test="$admon.textlabel != 0 or title">
             <xsl:apply-templates select="." mode="object.title.markup"/>
           </xsl:if>
         </th>
       </tr>
       <tr>
-        <td align="{$direction.align.start}" valign="top">
+        <td align="left" valign="top">
           <xsl:apply-templates/>
         </td>
       </tr>
@@ -108,23 +103,19 @@
 </xsl:template>
 
 <xsl:template name="nongraphical.admonition">
-  <div>
-    <xsl:call-template name="common.html.attributes">
-      <xsl:with-param name="inherit" select="1"/>
-    </xsl:call-template>
-    <xsl:call-template name="id.attribute"/>
-    <xsl:if test="$admon.style != '' and $make.clean.html = 0">
+  <div class="{name(.)}">
+    <xsl:if test="$admon.style">
       <xsl:attribute name="style">
         <xsl:value-of select="$admon.style"/>
       </xsl:attribute>
     </xsl:if>
 
-    <xsl:if test="$admon.textlabel != 0 or title or info/title">
-      <h3 class="title">
-        <xsl:call-template name="anchor"/>
+    <h3 class="title">
+      <xsl:call-template name="anchor"/>
+      <xsl:if test="$admon.textlabel != 0 or title">
         <xsl:apply-templates select="." mode="object.title.markup"/>
-      </h3>
-    </xsl:if>
+      </xsl:if>
+    </h3>
 
     <xsl:apply-templates/>
   </div>

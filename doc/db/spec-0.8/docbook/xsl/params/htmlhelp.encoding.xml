@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="htmlhelp.encoding">
+<refentry id="htmlhelp.encoding">
 <refmeta>
 <refentrytitle>htmlhelp.encoding</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>htmlhelp.encoding</refname>
@@ -14,16 +9,15 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="htmlhelp.encoding.frag">
-<xsl:param name="htmlhelp.encoding">iso-8859-1</xsl:param>
+<src:fragment id='htmlhelp.encoding.frag'>
+<xsl:param name="htmlhelp.encoding" select="'iso-8859-1'"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>The HTML Help Compiler is not UTF-8 aware, so you should always use an
-appropriate single-byte encoding here. See also <link xlink:href="HtmlHelp.html#HelpProcOptions" 
-role="tcg">Processing options</link>.</para>
+<para>HTML Help Compiler is not UTF-8 aware, so you should always use
+apropriate single-byte encoding here.</para>
 
-</refsection>
+</refsect1>
 </refentry>

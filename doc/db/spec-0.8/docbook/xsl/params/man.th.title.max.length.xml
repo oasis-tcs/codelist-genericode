@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="man.th.title.max.length">
+<refentry id="man.th.title.max.length">
 <refmeta>
 <refentrytitle>man.th.title.max.length</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">integer</refmiscinfo>
+<refmiscinfo role="type">integer</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>man.th.title.max.length</refname>
@@ -14,20 +9,20 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="man.th.title.max.length.frag">
+<src:fragment id='man.th.title.max.length.frag'>
 <xsl:param name="man.th.title.max.length">20</xsl:param>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Specifies the maximum permitted length of the title part of the
 man-page <literal>.TH</literal> title line header/footer. If the title
 exceeds the maxiumum specified, it is truncated down to the maximum
 permitted length.</para>
 
-<refsection><info><title>Details</title></info>
-  
+<refsect2>
+  <title>Details</title>
 
 <para>Every man page generated using the DocBook stylesheets has a
 title line, specified using the <literal>TH</literal> roff
@@ -57,7 +52,7 @@ viewing properly in a page header.</para>
 <para>The default value is reasonable but somewhat arbitrary. If you
 have pages with long titles, you may want to experiment with changing
 the value in order to achieve the correct aesthetic results.</para>
-</refsection>
+</refsect2>
 
-</refsection>
+</refsect1>
 </refentry>

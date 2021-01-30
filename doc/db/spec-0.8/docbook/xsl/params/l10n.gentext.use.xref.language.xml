@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="l10n.gentext.use.xref.language">
+<refentry id="l10n.gentext.use.xref.language">
 <refmeta>
 <refentrytitle>l10n.gentext.use.xref.language</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>l10n.gentext.use.xref.language</refname>
@@ -14,12 +9,12 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="l10n.gentext.use.xref.language.frag">
+<src:fragment id='l10n.gentext.use.xref.language.frag'>
 <xsl:param name="l10n.gentext.use.xref.language" select="0"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If non-zero, the language of the target will be used when
 generating cross reference text. Usually, the <quote>current</quote>
@@ -31,7 +26,7 @@ the generated text.</para>
 <para>Consider the following example:</para>
 
 <informalexample>
-<programlisting>&lt;para lang="en"&gt;See also &lt;xref linkend="chap3"/&gt;.&lt;/para&gt;
+<programlisting><![CDATA[<para lang="en">See also <xref linkend="chap3"/>.</para>]]>
 </programlisting>
 </informalexample>
 
@@ -49,5 +44,5 @@ resulting text will be something like this:</para>
 <para>See also Chapter 3.</para>
 </blockquote>
 
-</refsection>
+</refsect1>
 </refentry>

@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="line-height">
+<refentry id="line-height">
 <refmeta>
 <refentrytitle>line-height</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>line-height</refname>
@@ -14,14 +9,14 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="line-height.frag">
-<xsl:param name="line-height">normal</xsl:param>
+<src:fragment id='line-height.frag'>
+<xsl:param name="line-height" select="'normal'"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Sets the line-height property.</para>
 
-</refsection>
+</refsect1>
 </refentry>

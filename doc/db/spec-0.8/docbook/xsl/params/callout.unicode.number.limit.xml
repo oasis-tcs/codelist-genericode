@@ -1,25 +1,18 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="callout.unicode.number.limit">
+<refentry id="callout.unicode.number.limit">
 <refmeta>
 <refentrytitle>callout.unicode.number.limit</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">integer</refmiscinfo>
+<refmiscinfo role="type">integer</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>callout.unicode.number.limit</refname>
-<refpurpose>Number of the largest unicode callout character</refpurpose>
+<refpurpose>Number of the largest callout graphic</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="callout.unicode.number.limit.frag">
-<xsl:param name="callout.unicode.number.limit">10</xsl:param>
-</src:fragment>
+<src:fragment id='callout.unicode.number.limit.frag'><xsl:param name="callout.unicode.number.limit" select="'10'"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If <parameter>callout.unicode</parameter>
 is non-zero, unicode characters are used to represent
@@ -31,5 +24,5 @@ exceeds this limit, the default presentation "(nnn)" will always
 be used.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

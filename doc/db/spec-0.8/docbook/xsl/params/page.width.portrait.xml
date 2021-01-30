@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="page.width.portrait">
+<refentry id="page.width.portrait">
 <refmeta>
 <refentrytitle>page.width.portrait</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">length</refmiscinfo>
+
 </refmeta>
 <refnamediv>
 <refname>page.width.portrait</refname>
@@ -14,12 +9,9 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="page.width.portrait.frag"><xsl:param name="page.width.portrait">
+<src:fragment id='page.width.portrait.frag'><xsl:param name="page.width.portrait">
   <xsl:choose>
     <xsl:when test="$paper.type = 'USletter'">8.5in</xsl:when>
-    <xsl:when test="$paper.type = 'USlandscape'">11in</xsl:when>
-    <xsl:when test="$paper.type = 'USlegal'">8.5in</xsl:when>
-    <xsl:when test="$paper.type = 'USlegallandscape'">14in</xsl:when>
     <xsl:when test="$paper.type = '4A0'">1682mm</xsl:when>
     <xsl:when test="$paper.type = '2A0'">1189mm</xsl:when>
     <xsl:when test="$paper.type = 'A0'">841mm</xsl:when>
@@ -60,11 +52,11 @@
 </xsl:param></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>The portrait page width is the length of the short
 edge of the physical page.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

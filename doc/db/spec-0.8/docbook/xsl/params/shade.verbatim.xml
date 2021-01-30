@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="shade.verbatim">
+<refentry id="shade.verbatim">
 <refmeta>
 <refentrytitle>shade.verbatim</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>shade.verbatim</refname>
@@ -14,10 +9,10 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="shade.verbatim.frag"><xsl:param name="shade.verbatim" select="0"/></src:fragment>
+<src:fragment id='shade.verbatim.frag'><xsl:param name="shade.verbatim" select="0"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>In the FO stylesheet, if this parameter is non-zero then the
 <property>shade.verbatim.style</property> properties will be applied
@@ -26,5 +21,5 @@ to verbatim environments.</para>
 <para>In the HTML stylesheet, this parameter is now deprecated. Use
 CSS instead.</para>
 
-</refsection>
+</refsect1>
 </refentry>

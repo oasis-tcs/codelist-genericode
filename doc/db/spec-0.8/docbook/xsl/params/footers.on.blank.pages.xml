@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="footers.on.blank.pages">
+<refentry id="footers.on.blank.pages">
 <refmeta>
 <refentrytitle>footers.on.blank.pages</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>footers.on.blank.pages</refname>
@@ -14,14 +9,14 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="footers.on.blank.pages.frag">
+<src:fragment id='footers.on.blank.pages.frag'>
 <xsl:param name="footers.on.blank.pages" select="1"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If non-zero, footers will be placed on blank pages.</para>
 
-</refsection>
+</refsect1>
 </refentry>

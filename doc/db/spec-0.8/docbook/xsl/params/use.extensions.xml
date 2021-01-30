@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="use.extensions">
+<refentry id="use.extensions">
 <refmeta>
 <refentrytitle>use.extensions</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>use.extensions</refname>
@@ -14,12 +9,10 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="use.extensions.frag">
-<xsl:param name="use.extensions" select="0"/>
-</src:fragment>
+<src:fragment id='use.extensions.frag'><xsl:param name="use.extensions" select="'0'"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If non-zero, extensions may be used. Each extension is
 further controlled by its own parameter. But if
@@ -27,5 +20,5 @@ further controlled by its own parameter. But if
 be used.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

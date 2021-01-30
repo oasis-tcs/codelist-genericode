@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="monospace.properties">
+<refentry id="monospace.properties">
 <refmeta>
 <refentrytitle>monospace.properties</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">attribute set</refmiscinfo>
+<refmiscinfo role="type">attribute set</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>monospace.properties</refname>
@@ -14,7 +9,7 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="monospace.properties.frag">
+<src:fragment id='monospace.properties.frag'>
 <xsl:attribute-set name="monospace.properties">
   <xsl:attribute name="font-family">
     <xsl:value-of select="$monospace.font.family"/>
@@ -23,7 +18,7 @@
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Specifies the font name for monospaced output. This property set
 used to set the font-size as well, but that doesn't work very well
@@ -34,5 +29,5 @@ for example).</para>
 probably going to be more appropriate to set font-size-adjust, if your
 formatter supports it.</para>
 
-</refsection>
+</refsect1>
 </refentry>

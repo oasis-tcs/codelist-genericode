@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="manifest">
+<refentry id="manifest">
   <refmeta>
     <refentrytitle>manifest</refentrytitle>
-    <refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+    <refmiscinfo role="type">string</refmiscinfo>
   </refmeta>
   <refnamediv>
     <refname>manifest</refname>
@@ -14,16 +9,15 @@
   </refnamediv>
 
   <refsynopsisdiv>
-    <src:fragment xml:id="manifest.frag">
-    <xsl:param name="manifest" >HTML.manifest</xsl:param>
-    </src:fragment>
+    <src:fragment id='manifest.frag'
+      ><xsl:param name="manifest" select="'HTML.manifest'"/></src:fragment>
   </refsynopsisdiv>
 
-  <refsection><info><title>Description</title></info>
+  <refsect1><title>Description</title>
 
     <para>The name of the file to which a manifest is written (if the
       value of the <parameter>generate.manifest</parameter> parameter
       is non-zero).</para>
 
-  </refsection>
+  </refsect1>
 </refentry>

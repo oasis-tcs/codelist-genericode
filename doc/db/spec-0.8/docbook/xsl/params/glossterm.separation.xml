@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="glossterm.separation">
+<refentry id="glossterm.separation">
 <refmeta>
 <refentrytitle>glossterm.separation</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">length</refmiscinfo>
+<refmiscinfo role="type">length</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>glossterm.separation</refname>
@@ -14,18 +9,15 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="glossterm.separation.frag">
-<xsl:param name="glossterm.separation" >0.25in</xsl:param>
+<src:fragment id='glossterm.separation.frag'>
+<xsl:param name="glossterm.separation" select="'0.25in'"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>Specifies the miminum horizontal
-separation between glossary terms and descriptions when
-they are presented side-by-side using lists
-when the <parameter>glossary.as.blocks</parameter>
-is zero.</para>
+<para>Specifies the separation between glossary terms and descriptions when
+glossarys are presented using lists.</para>
 
-</refsection>
+</refsect1>
 </refentry>

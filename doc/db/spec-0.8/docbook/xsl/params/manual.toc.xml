@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="manual.toc">
+<refentry id="manual.toc">
 <refmeta>
 <refentrytitle>manual.toc</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>manual.toc</refname>
@@ -14,16 +9,16 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="manual.toc.frag">
-<xsl:param name="manual.toc"></xsl:param>
+<src:fragment id='manual.toc.frag'>
+<xsl:param name="manual.toc" select="''"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>The <parameter>manual.toc</parameter> identifies an explicit TOC that
 will be used for building the printed TOC.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

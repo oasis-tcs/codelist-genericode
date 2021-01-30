@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="column.gap.titlepage">
+<refentry id="column.gap.titlepage">
 <refmeta>
 <refentrytitle>column.gap.titlepage</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">length</refmiscinfo>
+<refmiscinfo role="type">length</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>column.gap.titlepage</refname>
@@ -14,16 +9,16 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="column.gap.titlepage.frag">
-<xsl:param name="column.gap.titlepage">12pt</xsl:param>
+<src:fragment id='column.gap.titlepage.frag'>
+<xsl:param name="column.gap.titlepage" select="'12pt'"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Specifies the gap between columns on title pages (if
 <parameter>column.count.titlepage</parameter> is greater than one).</para>
 
 
-</refsection>
+</refsect1>
 </refentry>

@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="man.hyphenate.computer.inlines">
+<refentry id="man.hyphenate.computer.inlines">
 <refmeta>
 <refentrytitle>man.hyphenate.computer.inlines</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>man.hyphenate.computer.inlines</refname>
@@ -14,11 +9,11 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="man.hyphenate.computer.inlines.frag">
+<src:fragment id='man.hyphenate.computer.inlines.frag'>
 <xsl:param name="man.hyphenate.computer.inlines">0</xsl:param></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If zero (the default), hyphenation is suppressed for
 <quote>computer inlines</quote> such as environment variables,
@@ -49,5 +44,5 @@ elements:
 non-zero, computer inlines will not be treated specially and will be
 hyphenated like other words when needed.</para>
 
-</refsection>
+</refsect1>
 </refentry>

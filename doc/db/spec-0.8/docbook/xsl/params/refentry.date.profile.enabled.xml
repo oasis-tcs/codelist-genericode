@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="refentry.date.profile.enabled">
+<refentry id="refentry.date.profile.enabled">
 <refmeta>
 <refentrytitle>refentry.date.profile.enabled</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">boolean</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>refentry.date.profile.enabled</refname>
@@ -14,11 +9,11 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="refentry.date.profile.enabled.frag">
+<src:fragment id='refentry.date.profile.enabled.frag'>
 <xsl:param name="refentry.date.profile.enabled">0</xsl:param></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If the value of
 <parameter>refentry.date.profile.enabled</parameter> is non-zero, then
@@ -42,5 +37,5 @@ data to be gathered. </para>
 this context. For details, see the documentation for the
 <parameter>refentry.date.profile</parameter> parameter.</para>
 
-</refsection>
+</refsect1>
 </refentry>

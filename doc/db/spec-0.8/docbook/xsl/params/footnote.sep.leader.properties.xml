@@ -1,20 +1,11 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="footnote.sep.leader.properties">
-<refmeta>
-<refentrytitle>footnote.sep.leader.properties</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">attribute set</refmiscinfo>
-</refmeta>
+<refentry id="footnote.sep.leader.properties">
 <refnamediv>
 <refname>footnote.sep.leader.properties</refname>
-<refpurpose>Properties associated with footnote separators</refpurpose>
+<refpurpose>Properties associated with a procedure</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="footnote.sep.leader.properties.frag">
+<src:fragment id='footnote.sep.leader.properties.frag'>
 <xsl:attribute-set name="footnote.sep.leader.properties">
   <xsl:attribute name="color">black</xsl:attribute>
   <xsl:attribute name="leader-pattern">rule</xsl:attribute>
@@ -23,7 +14,7 @@
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>The styling for the rule line that separates the
 footnotes from the body text.
@@ -35,5 +26,5 @@ the leader element, then you can customize the template
 named <literal>footnote.separator</literal> in 
 <filename>fo/pagesetup.xsl</filename>.</para>
 
-</refsection>
+</refsect1>
 </refentry>

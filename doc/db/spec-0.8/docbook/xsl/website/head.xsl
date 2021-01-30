@@ -170,7 +170,6 @@
 
 <xsl:template match="keywords" mode="head.mode">
   <meta name="keyword" content="{.}"/>
-  <meta name="keywords" content="{.}"/>
 </xsl:template>
 
 <xsl:template match="copyright" mode="head.mode">

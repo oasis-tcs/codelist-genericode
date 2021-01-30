@@ -6,12 +6,12 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: website.xsl 6910 2007-06-28 23:23:30Z xmldoc $
+     $Id: website.xsl,v 1.11 2005/03/29 19:48:16 bobstayton Exp $
      ********************************************************************
 
      This file is part of the WebSite distribution.
      See ../README or http://nwalsh.com/website/ for copyright
-     copyright and other information.
+     and other information.
 
      ******************************************************************** -->
 

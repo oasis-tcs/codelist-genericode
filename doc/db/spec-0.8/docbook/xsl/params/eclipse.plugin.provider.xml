@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="eclipse.plugin.provider">
+<refentry id="eclipse.plugin.provider">
 <refmeta>
 <refentrytitle>eclipse.plugin.provider</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>eclipse.plugin.provider</refname>
@@ -14,14 +9,14 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="eclipse.plugin.provider.frag">
+<src:fragment id='eclipse.plugin.provider.frag'>
 <xsl:param name="eclipse.plugin.provider">Example provider</xsl:param>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>Eclipse Help plugin provider name.</para>
 
-</refsection>
+</refsect1>
 </refentry>

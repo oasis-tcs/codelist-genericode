@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="points.per.em">
+<refentry id="points.per.em">
 <refmeta>
 <refentrytitle>points.per.em</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">number</refmiscinfo>
+<refmiscinfo role="type">number</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>points.per.em</refname>
@@ -14,16 +9,14 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="points.per.em.frag">
-<xsl:param name="points.per.em">10</xsl:param>
+<src:fragment id='points.per.em.frag'>
+<xsl:param name="points.per.em" select="10"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>The fixed value used for calculations based upon the size of a
-character. The assumption made is that ten point font is in use. This
-assumption may not be valid.</para>
+<para>FIXME:</para>
 
-</refsection>
+</refsect1>
 </refentry>

@@ -1,18 +1,18 @@
 <?xml version='1.0'?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:sverb="http://nwalsh.com/xslt/ext/com.nwalsh.saxon.Verbatim"
-                xmlns:xverb="xalan://com.nwalsh.xalan.Verbatim"
+                xmlns:xverb="com.nwalsh.xalan.Verbatim"
                 xmlns:lxslt="http://xml.apache.org/xslt"
                 exclude-result-prefixes="sverb xverb lxslt"
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: callout.xsl 9305 2012-04-27 21:50:53Z bobstayton $
+     $Id: callout.xsl,v 1.11 2003/08/07 17:04:43 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://docbook.sf.net/release/xsl/current/ for
-     copyright and other information.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
 
      ******************************************************************** -->
 
@@ -50,9 +50,7 @@
       <xsl:choose>
         <xsl:when test="$verbatim/@linenumbering = 'numbered'
                         and $linenumbering.extension != '0'">
-          <div>
-            <xsl:call-template name="common.html.attributes"/>
-            <xsl:call-template name="id.attribute"/>
+          <div class="{name(.)}">
             <xsl:call-template name="number.rtf.lines">
               <xsl:with-param name="rtf" select="$rtf-with-callouts"/>
               <xsl:with-param name="pi.context"
@@ -62,9 +60,7 @@
           </div>
         </xsl:when>
         <xsl:otherwise>
-          <div>
-            <xsl:call-template name="common.html.attributes"/>
-            <xsl:call-template name="id.attribute"/>
+          <div class="{name(.)}">
             <xsl:copy-of select="$rtf-with-callouts"/>
             <xsl:apply-templates select="calloutlist"/>
           </div>
@@ -72,9 +68,7 @@
       </xsl:choose>
     </xsl:when>
     <xsl:otherwise>
-      <div>
-        <xsl:apply-templates select="." mode="common.html.attributes"/>
-        <xsl:call-template name="id.attribute"/>
+      <div class="{name(.)}">
         <xsl:apply-templates/>
       </div>
     </xsl:otherwise>
@@ -99,20 +93,11 @@
   <xsl:choose>
     <xsl:when test="$target">
       <a>
-        <xsl:apply-templates select="." mode="common.html.attributes"/>
-        <xsl:choose>
-          <xsl:when test="$generate.id.attributes = 0">
-            <!-- force an id attribute here -->
-            <xsl:if test="@id or @xml:id">
-              <xsl:attribute name="name">
-                <xsl:value-of select="(@id|@xml:id)[1]"/>
-              </xsl:attribute>
-            </xsl:if>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:call-template name="id.attribute"/>
-          </xsl:otherwise>
-        </xsl:choose>
+        <xsl:if test="@id">
+          <xsl:attribute name="name">
+            <xsl:value-of select="@id"/>
+          </xsl:attribute>
+        </xsl:if>
         <xsl:attribute name="href">
           <xsl:call-template name="href.target">
             <xsl:with-param name="object" select="$target"/>
@@ -122,15 +107,6 @@
       </a>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:if test="$generate.id.attributes != 0">
-        <xsl:if test="@id or @xml:id">
-          <span>
-             <xsl:attribute name="id">
-                <xsl:value-of select="(@id|@xml:id)[1]"/>
-              </xsl:attribute>
-          </span>
-        </xsl:if>
-      </xsl:if>
       <xsl:call-template name="anchor"/>
       <xsl:apply-templates select="." mode="callout-bug"/>
     </xsl:otherwise>
@@ -178,9 +154,8 @@
   <xsl:choose>
     <xsl:when test="$callout.graphics != 0
                     and $conum &lt;= $callout.graphics.number.limit">
-      <!-- Added span to make valid in XHTML 1 -->
-      <span><img src="{$callout.graphics.path}{$conum}{$callout.graphics.extension}"
-           alt="{$conum}" border="0"/></span>
+      <img src="{$callout.graphics.path}{$conum}{$callout.graphics.extension}"
+           alt="{$conum}" border="0"/>
     </xsl:when>
     <xsl:when test="$callout.unicode != 0
                     and $conum &lt;= $callout.unicode.number.limit">

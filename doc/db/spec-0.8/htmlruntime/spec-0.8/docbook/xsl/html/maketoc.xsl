@@ -4,12 +4,12 @@
                 exclude-result-prefixes="doc">
 
 <!-- ********************************************************************
-     $Id: maketoc.xsl 6910 2007-06-28 23:23:30Z xmldoc $
+     $Id: maketoc.xsl,v 1.5 2003/11/30 19:42:23 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://docbook.sf.net/release/xsl/current/ for
-     copyright and other information.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
 
      ******************************************************************** -->
 
@@ -45,10 +45,7 @@
 
   <xsl:if test="$chunk != 0">
     <xsl:call-template name="indent-spaces"/>
-    <xsl:variable name="id">
-      <xsl:call-template name="object.id"/>
-    </xsl:variable>
-    <tocentry linkend="{$id}">
+    <tocentry linkend="{@id}">
       <xsl:processing-instruction name="dbhtml">
         <xsl:text>filename="</xsl:text>
         <xsl:value-of select="$filename"/>

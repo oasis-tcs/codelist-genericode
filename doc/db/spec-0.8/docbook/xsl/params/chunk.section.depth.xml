@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="chunk.section.depth">
+<refentry id="chunk.section.depth">
 <refmeta>
 <refentrytitle>chunk.section.depth</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">integer</refmiscinfo>
+<refmiscinfo role="type">integer</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>chunk.section.depth</refname>
@@ -14,14 +9,14 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="chunk.section.depth.frag">
+<src:fragment id='chunk.section.depth.frag'>
 <xsl:param name="chunk.section.depth" select="1"/>
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>This parameter sets the depth of section chunking.</para>
 
-</refsection>
+</refsect1>
 </refentry>

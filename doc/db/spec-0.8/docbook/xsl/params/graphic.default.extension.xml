@@ -1,12 +1,7 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="graphic.default.extension">
+<refentry id="graphic.default.extension">
 <refmeta>
 <refentrytitle>graphic.default.extension</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">string</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>graphic.default.extension</refname>
@@ -14,16 +9,16 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="graphic.default.extension.frag"><xsl:param name="graphic.default.extension"/></src:fragment>
+<src:fragment id='graphic.default.extension.frag'><xsl:param name="graphic.default.extension"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>If a <tag>graphic</tag> or <tag>mediaobject</tag>
+<para>If a <sgmltag>graphic</sgmltag> or <sgmltag>mediaobject</sgmltag>
 includes a reference to a filename that does not include an extension,
-and the <tag class="attribute">format</tag> attribute is
+and the <sgmltag class="attribute">format</sgmltag> attribute is
 <emphasis>unspecified</emphasis>, the default extension will be used.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>

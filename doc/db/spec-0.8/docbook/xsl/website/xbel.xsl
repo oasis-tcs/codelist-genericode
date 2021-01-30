@@ -3,12 +3,12 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: xbel.xsl 6910 2007-06-28 23:23:30Z xmldoc $
+     $Id: xbel.xsl,v 1.3 2002/05/24 11:58:27 nwalsh Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://docbook.sf.net/release/xsl/current/ for
-     copyright and other information.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
 
      ******************************************************************** -->
 
@@ -24,10 +24,7 @@
   </ul>
 </xsl:template>
 
-<!-- Only partial support for xbel elements -->
-<xsl:template match="xbel/info|xbel/title|xbel/desc|
-                     xbel/alias|xbel/separator">
-  <!-- No op -->
+<xsl:template match="info">
 </xsl:template>
 
 <xsl:template match="folder">

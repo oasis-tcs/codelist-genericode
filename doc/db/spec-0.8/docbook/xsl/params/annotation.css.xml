@@ -1,20 +1,15 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="annotation.css">
+<refentry id="annotation.css">
 <refmeta>
 <refentrytitle>annotation.css</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">string</refmiscinfo>
+<refmiscinfo role="type">boolean</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>annotation.css</refname>
-<refpurpose>CSS rules for annotations</refpurpose>
+<refpurpose>Enable annotations?</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="annotation.css.frag">
+<src:fragment id='annotation.css.frag'>
 <xsl:param name="annotation.css">
 /* ======================================================================
    Annotations
@@ -61,11 +56,11 @@ div.annotation-close { position: absolute;
 </src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
-<para>If <parameter>annotation.support</parameter> is enabled and the
-document contains <tag>annotation</tag>s, then the CSS in this
+<para>If <property>annotation.support</property> is enabled and the
+document contains <sgmltag>annotation</sgmltag>s, then the CSS in this
 parameter will be included in the document.</para>
 
-</refsection>
+</refsect1>
 </refentry>

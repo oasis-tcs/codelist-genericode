@@ -1,19 +1,14 @@
-<refentry xmlns="http://docbook.org/ns/docbook"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          xmlns:xi="http://www.w3.org/2001/XInclude"
-          xmlns:src="http://nwalsh.com/xmlns/litprog/fragment"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          version="5.0" xml:id="default.units">
+<refentry id="default.units">
 <refmeta>
 <refentrytitle>default.units</refentrytitle>
-<refmiscinfo class="other" otherclass="datatype">list</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">cm</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">mm</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">in</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">pt</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">pc</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">px</refmiscinfo>
-<refmiscinfo class="other" otherclass="value">em</refmiscinfo>
+<refmiscinfo role="type">list</refmiscinfo>
+<refmiscinfo role="value">cm</refmiscinfo>
+<refmiscinfo role="value">mm</refmiscinfo>
+<refmiscinfo role="value">in</refmiscinfo>
+<refmiscinfo role="value">pt</refmiscinfo>
+<refmiscinfo role="value">pc</refmiscinfo>
+<refmiscinfo role="value">px</refmiscinfo>
+<refmiscinfo role="value">em</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>default.units</refname>
@@ -21,17 +16,15 @@
 </refnamediv>
 
 <refsynopsisdiv>
-<src:fragment xml:id="default.units.frag">
-<xsl:param name="default.units">pt</xsl:param>
-</src:fragment>
+<src:fragment id='default.units.frag'><xsl:param name="default.units" select="'pt'"/></src:fragment>
 </refsynopsisdiv>
 
-<refsection><info><title>Description</title></info>
+<refsect1><title>Description</title>
 
 <para>If an unqualified dimension is encountered (for example, in a
-graphic width), the <parameter>default.units</parameter> will be used for the
+graphic width), the <parameter>default-units</parameter> will be used for the
 units. Unqualified dimensions are not allowed in XSL Formatting Objects.
 </para>
 
-</refsection>
+</refsect1>
 </refentry>
