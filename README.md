@@ -1,4 +1,4 @@
-Members of the [OASIS Code List Representation TC](https://www.oasis-open.org/committees/codelist/) create and manage technical content in this TC GitHub repository (https://github.com/oasis-tcs/codelist-genericode/) as part of the TC's chartered work (the program of work and deliverables described in its [charter](https://www.oasis-open.org/committees/codelist/charter.php).
+Members of the [OASIS Code List Representation TC](https://www.oasis-open.org/committees/codelist/) create and manage technical content in this TC GitHub repository (https://github.com/oasis-tcs/codelist-genericode/) as part of the TC's chartered work (the program of work and deliverables described in its [charter](https://www.oasis-open.org/committees/codelist/charter.php)).
 
 OASIS TC GitHub repositories, as described in [GitHub Repositories for OASIS TC Members' Chartered Work](https://www.oasis-open.org/resources/tcadmin/github-repositories-for-oasis-tc-members-chartered-work), are governed by the OASIS [TC Process](https://www.oasis-open.org/policies-guidelines/tc-process), [IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), and other policies. While they make use of public GitHub repositories, these repositories are distinct from [OASIS Open Repositories](https://www.oasis-open.org/resources/open-repositories), which are used for development of open source [licensed](https://www.oasis-open.org/resources/open-repositories/licenses) content.
 
@@ -40,12 +40,12 @@ The act of checking a committed branch to GitHub automatically triggers the publ
 1. The maintainer always pulls from the “review” branch into their own private “other” branch of their own naming, not overlapping with the name used by any other maintainer or editor.
 Pulling from the “review” branch must be done after every time the editor updates the “review” branch.
 A common mistake is to pull from the “main” branch because this is the branch that is visible when one opens the repository.
-1. The maintainer makes the changes they wish to their local copy of the “other” branch. A local preview facility allows the maintainer to their edits to the specification fully formatted as an OASIS specification in a web browser.
+1. The maintainer makes the changes they wish to their local copy of the “other” branch. A local preview facility allows the maintainer to preview in a web browser their edits to the specification fully formatted as an OASIS specification.
 When completed they commit their changes and push their changes to GitHub.
-1. Every push to GitHub triggers a GitHub Action that forwards a copy of the XML to the https://www.RealtaOnline.com server API entry point specific to the desired outputs.
-1. The Réalta server prepares the HTML and PDF outputs for the OASIS layout and the PDF output for the ISO Directives Part 2 layout.
-1. The Réalta server returns to GitHub the published results in a ZIP file. The Action’s script unzips the results and packages them in a doubly-zipped ZIP file.
-The outer ZIP is used to wrap the Action’s artifacts results. The inner ZIP wraps the work product results suitable for posting to the OASIS Kavi server for archive purposes. Inside the inner ZIP contains an archive-only directory recording the control files governing the publishing process, the set of work product files to be posted to the OASIS Docs server, and a ZIP of the work product files for the public to download from the OASIS Docs server. These Action results are transient and not placed into the repository. Eventually GitHub deletes old Action results. 
+1. Every push to GitHub triggers a GitHub Action that forwards a copy of the XML to the https://www.RealtaOnline.com API entry point specific to the desired outputs.
+1. Réalta prepares the HTML and PDF outputs for the OASIS layout and the PDF output for the ISO Directives Part 2 layout.
+1. Réalta returns to GitHub the published results in a ZIP file. The Action’s script unzips the results and packages them in a doubly-zipped ZIP file.
+The outer ZIP is used to wrap the Action’s artifacts results. The inner ZIP wraps the work product results suitable for posting to the OASIS Kavi server for archive purposes. Inside the inner ZIP contains an archive-only directory recording the control files governing the publishing process, the set of work product files to be posted to the OASIS Docs server, and a ZIP of the work product files for the public to download from the OASIS Docs server. These Action results are transient and not placed into the GitHub code repository. Eventually GitHub deletes old Action results. 
 The maintainer downloads the GitHub Action’s artifacts ZIP file for their review and, if desired, local backup. If they wish to make changes, they return to step 2 and repeat the process.
 1. When the maintainer is satisfied with their work to be reviewed by the editor and other team members, they send a pull request to the editor describing their changes that they have committed to their “other” branch.
 1. The editor reviews the pull request and, if satisfied with the contribution, they pull the server’s copy of the “other” branch into their local environment and merge it into the “review” branch.
@@ -55,13 +55,13 @@ This push automatically triggers the GitHub Action running the complete publishi
 If maintainers wish to make changes they return to step 1 (not step 2) and repeat the process.
 1. When the editor has accommodated all of the feedback from committee members regarding the review and wishes to archive a snapshot for posterity, they merge their local “review” branch into their local “main” branch.
 1. The editor pushes their local “main” branch to GitHub.
-This push automatically triggers the GitHub Action running the complete publishing process that returns the work product ready for the editor to download from GitHub. The artifacts ZIP is unpacked revealing the inner ZIP that is uploaded to the OASIS Kavi server for posterity and to fulfill the obligation to the public that intermediate work products be easily available.
+This push automatically triggers the GitHub Action running the complete publishing process that returns the work product ready for the editor to download from GitHub. The artifacts ZIP is manually unpacked revealing the inner ZIP that is then uploaded to the OASIS Kavi server for posterity and to fulfill the obligation to the public that intermediate work products be easily available.
 Following the OASIS TC Process the committee can qualify a snapshot on the OASIS Kavi server to be uploaded by OASIS TC Administration to the OASIS Docs server. When doing so the embedded archive-only directory is not included on the OASIS Docs server, but remains available on the OASIS Kavi server.
 
 ## Repository contents
 
 Directories:
-- `.github/workflows` - the automated publishing and packaging process triggers performed for every check-in
+- `.github/workflows` - the automated publishing and packaging process triggers performed for every push
 - `cs01` - the results of publication of the Committee Specification 01 dated 28 December 2007
 - `doc` - documentation inputs
   - `doc/genericode.xml` - the specification file being edited
@@ -74,16 +74,16 @@ Directories:
 - `xsd` - W3C XML Schema structural constraints
 
 Support files:
-- `produceGenericode.*` - publishing and packaging process files converting XML to end-user PDF and HTML documents
-- `realta*` - publishing support files
+- `produceGenericode.*` - GitHub action publishing and packaging process files converting XML to end-user PDF and HTML documents
+- `realta*` - publishing process support files
 
 ## Preview results
 
-Intermediate edits saved to the `doc/genercode.xml` file can be previewed instantly in a browser on your local computer. It is recommended that one do this to establish their edits are satisfactory before checking in to GitHub to trigger the published results.
+Intermediate edits saved to the local `doc/genercode.xml` file can be previewed instantly in a browser on your computer. It is recommended that one do this to establish their edits are satisfactory before checking in to GitHub to trigger the published results.
 
-Note that the preview HTML presents the PDF images and so the images are dramatically oversized. This is not the case for the published HTML returned from GitHub.
+Note that the preview HTML presents the high-resolution PDF images, not the low-resolution HTML images and so the images are dramatically oversized in the browser window. This is not the case for the published HTML returned from GitHub.
 
-Once the XML has been opened in the browser, it is necessary only to refresh the browser window after each save of the XML edits. It is not necessary to go through the drag-and-drop or open requests.
+Once the XML has been opened in the browser, it is necessary only to refresh the browser window after each save of the XML edits. It is not necessary to go through again the drag-and-drop or open requests.
 
 Opening the XML in Windows:
 - drag and drop the XML source onto Internet Explorer, or "right-click, Open with..., Internet Explorer"
@@ -101,7 +101,7 @@ The published results are not stored in the GitHub repository, _per se_.
 
 See the [Actions tab](https://github.com/oasis-tcs/codelist-genericode/actions) for the results of publishing processes and distribution packaging, being careful to note the branch indicated for the desired commit message. As branches are merged the commit message is inherited in the merged branch.
 
-You must be signed in to GitHub in order to download the results from the "Artifacts" section on the action's build result page.
+You must be signed in to GitHub in order to download the results from the "Artifacts" section on the action's build result page. If not, you will get a "404 Not Found" error for the build result page.
 
 Each downloaded result is doubly-zipped: the outer zip for GitHub extraction purposes and the inner zip for posting to Kavi and distribution. Moreover, the actual content is copied in the distribution in its own third ZIP file for posting. The `archive-only-not-in-final-distribution/` subdirectory is not meant for inclusion in the final home in the [OASIS document server](https://docs.oasis-open.org/codelist), only for archive purposes in Kavi.
 
