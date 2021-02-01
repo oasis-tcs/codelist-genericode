@@ -227,7 +227,7 @@
     </legalnotice>
     <legalnotice role="scope" condition="sts">
       <title>Scope</title>
-      <para>ISO/IEC 00000 specifies the genericode Version 1.0, which defines a generic set of semantics for a coded domain comprised of a “set of codes representing X”.</para> 
+      <para>ISO/IEC 00000 specifies the genericode Version 1.0, which defines a generic set of semantics for a coded domain comprised of a “set of codes representing X”.</para>
     </legalnotice>
   </articleinfo>
   <section id="S-INTRODUCTION" role="intro">
@@ -239,10 +239,10 @@
       <para>If code lists were really so simple and obvious, there would already be a single, well-known and accepted way of handling them in XML. There is no such agreed solution, though. The problem is that while code lists are a well understood concept, people don’t actually agree exactly on what
         code lists are, and how they should be used.</para>
       <para>The OASIS Code List Representation format, “<emphasis role="italic">genericode</emphasis>”<footnote id="fn1">
-          <para>Genericode can be written starting either with an upper-case or lower-case “g”.  It depends whether genericode is at the start of the sentence or not.</para>
-        </footnote>, is a single model and XML format (with a W3C XML Schema) that can encode a broad range of code list information. The XML format is designed to support interchange or distribution of
-        machine-readable code list information between systems. Note that genericode is <emphasis role="bold">not</emphasis> designed as a run-time format for accessing code list information, and is not optimized for such usage. Rather, it is designed as an interchange format that can be transformed
-        into formats suitable for run-time usage, or loaded into systems that perform run-time processing using code list information.</para>
+          <para>Genericode can be written starting either with an upper-case or lower-case “g”. It depends whether genericode is at the start of the sentence or not.</para>
+        </footnote>, is a single model and XML format (with a W3C XML Schema) that can encode a broad range of code list information. The XML format is designed to support interchange or distribution of machine-readable code list information between systems. Note that genericode is <emphasis
+          role="bold">not</emphasis> designed as a run-time format for accessing code list information, and is not optimized for such usage. Rather, it is designed as an interchange format that can be transformed into formats suitable for run-time usage, or loaded into systems that perform run-time
+        processing using code list information.</para>
       <para>This version 1.0 of genericode implements the “Version 1.0 Requirements” from the OASIS Code List Representation Requirements document, version 1.0.1 (<ulink url="http://docs.oasis-open.org/codelist/cd-genericode-1.0/doc/oasis-code-list-representation-requirements-1.0.1.pdf"
           conformance="skip">http://docs.oasis-open.org/codelist/cd-genericode-1.0/doc/oasis-code-list-representation-requirements-1.0.1.pdf</ulink>). The requirements document also lists requirements for future versions of genericode, which will not be discussed further in this version of this
         document.</para>
@@ -575,8 +575,8 @@
     <para>The XML schema may only require a set of 3-letter codes to represent the code list. The database may require a set of numeric codes, plus display labels (possibly in different languages). The application may need to know which 3-letter code corresponds to which numeric code, so that it can
       process the XML and update the database. Also, some information related to a code list might not be appropriate for the XML format. For example, if you have a different image file for each code, it isn’t ideal to include this image inline in the code list XML, since it vastly increases the
       size of the XML, and makes it more difficult to read. So in an XML representation, you are more likely to include some reference (e.g. a URL) to the image. For a database, however, it may be feasible to store the image in a BLOB<footnote id="fn2">
-          <para>Binary Large OBject.</para>
-        </footnote> column in a database.</para>
+        <para>Binary Large OBject.</para>
+      </footnote> column in a database.</para>
     <para>One last piece of experience from databases is that support for undefined values will be required. Sometimes users will have values that need to be associated with some of the codes in a code list, but won’t have values to associate with every code. In that case, the concept of a undefined
       (nil or null) value is needed.</para>
   </section>
@@ -621,22 +621,26 @@
         <para>A code list set document has the root element <code>&lt;gc:CodeListSet></code>. It contains references to particular versions of code lists, and can also contain version-independent references to code lists. A code list set document can be used to define a particular <emphasis
             role="italic">configuration</emphasis> of versions of code lists that are used by a project, application, standard, etc.</para>
       </section>
+      <section id="S-DENNIS-WORK">
+        <title>Dennis work</title>
+        <para>This is a new section for test purposes written for Dennis.</para>
+      </section>
     </section>
     <section id="S-COLUMN-SETS--COLUMNS-AND-KEYS">
       <title>Column Sets – Columns and Keys</title>
       <para>A column set is a set of definitions of genericode columns and/or keys. A column defines a particular metadata value that can be defined for each distinct entry in a code list. A key defines a set of one or more columns.</para>
       <para>It is not necessary to use separate column set documents. A genericode code list document can contain all of the required column and key definitions. Column set documents are provided as a convenience mechanism for sharing column and/or key definitions between multiple code lists.</para>
-    <figure id="F-UML-RELATIONSHIPS-OF-KEYS-AND-COLUMNS">
-      <title>UML relationships of keys and columns</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="art/uml-column-set-key.png"/>
-        </imageobject>
-        <textobject>
-          <phrase>[UML relationships of keys an columns]</phrase>
-        </textobject>
-      </mediaobject>
-    </figure>
+      <figure id="F-UML-RELATIONSHIPS-OF-KEYS-AND-COLUMNS">
+        <title>UML relationships of keys and columns</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/uml-column-set-key.png"/>
+          </imageobject>
+          <textobject>
+            <phrase>[UML relationships of keys an columns]</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
       <para>This figure is in UML notation. Each column set must have a unique ID. For a column set defined within a code list document, the code list document's unique identifier is used. A column set can define any number of columns. It can also reference any number of columns from other column
         sets (in column set documents or code list documents). A column set can also define any number of keys. Each key is defined by one or more of the columns in the column set (either defined or imported). Keys are used to uniquely identify the rows (distinct entries) of code lists. Columns and
         keys are uniquely named within the column set that defines them, and each can also be uniquely identified using a specific URI if required additionally.</para>
@@ -668,17 +672,17 @@
         and (optionally) a set of rows, where each row defines a <emphasis role="italic">distinct entry</emphasis> in the code list.</para>
       <para>A code list document that contains only information (metadata) about the code list as a whole is known as a <emphasis role="italic">CodeList Metadata</emphasis> document. If the code list document defines (zero or more) row, it is a <emphasis role="italic">Simple CodeList</emphasis>.
         These are the only kinds of code list that are supported in this version of the specification.</para>
-    <figure id="F-UML-FOR-CODE-LISTS">
-      <title>UML for code lists</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="art/uml-code-list.png"/>
-        </imageobject>
-        <textobject>
-          <phrase>[UML for code lists]</phrase>
-        </textobject>
-      </mediaobject>
-    </figure>
+      <figure id="F-UML-FOR-CODE-LISTS">
+        <title>UML for code lists</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/uml-code-list.png"/>
+          </imageobject>
+          <textobject>
+            <phrase>[UML for code lists]</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
       <para>There is an important difference between a <emphasis role="italic">CodeList Metadata</emphasis> document and <emphasis role="italic">Simple CodeList</emphasis> that contains zero rows (zero distinct entries). The former does not provide information on how many <emphasis role="italic"
           >distinct entries</emphasis> are contained in the code list. The latter explicitly indicates that a particular version of the code list contains zero distinct entries, i.e. the particular version of the code list is empty. A CodeList Metadata document does not provide any indication about
         whether a code list is empty or not.</para>
@@ -686,17 +690,17 @@
         <title>Simple CodeLists and CodeList Metadata</title>
         <para>A <emphasis role="italic">CodeList Metadata</emphasis> document is a special case of a <emphasis role="italic">Simple CodeList</emphasis> document. The differences will be discussed explicitly where appropriate.</para>
         <para>A <emphasis role="italic">Simple CodeList</emphasis> is modeled as follows:</para>
-    <figure id="F-UML-FOR-SIMPLE-CODE-LISTS">
-      <title>UML for simple code lists</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="art/uml-simple-code-list.png"/>
-        </imageobject>
-        <textobject>
-          <phrase>[UML for simple code lists]</phrase>
-        </textobject>
-      </mediaobject>
-    </figure>
+        <figure id="F-UML-FOR-SIMPLE-CODE-LISTS">
+          <title>UML for simple code lists</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/uml-simple-code-list.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>[UML for simple code lists]</phrase>
+            </textobject>
+          </mediaobject>
+        </figure>
         <para>A <emphasis role="italic">Simple CodeList</emphasis> contains zero or more rows (it is necessary to support empty code lists to allow for code lists that are empty now, but will be populated in future versions). Each <emphasis role="italic">Row</emphasis> defines a single <emphasis
             role="italic">distinct entry</emphasis> in the code list.</para>
         <para>A <emphasis role="italic">Row</emphasis> contains one or more <emphasis role="italic">Values</emphasis>, where each of those values corresponds to a distinct column in the code list. At least one value is required, because a code list has to have at least one key, and each key requires
@@ -4268,7 +4272,8 @@
     <section id="S-PACKAGE-STRUCTURE">
       <title>Package Structure</title>
       <para>The genericode specification is published as a zip archive in the release directory. Unzipping this archive creates a directory named &dirname; containing a “<literal>doc/</literal>” directory with documentation. The authoritative source of the documentation is a master DocBook XML file
-        (&filename;.xml), a generated hypertext version of this file (&filename;.html), and a generated PDF version of this file (&filename;.pdf). The files in other subdirectories, linked to from &filename;.xml, &filename;.html, and &filename;.pdf, contain the various normative and informational pieces of the genericode release. A description of each subdirectory is given below. Note that while the genericode.xml file is the “original” of this specification, it may not be viewable in all currently available web browsers.</para>
+        (&filename;.xml), a generated hypertext version of this file (&filename;.html), and a generated PDF version of this file (&filename;.pdf). The files in other subdirectories, linked to from &filename;.xml, &filename;.html, and &filename;.pdf, contain the various normative and informational
+        pieces of the genericode release. A description of each subdirectory is given below. Note that while the genericode.xml file is the “original” of this specification, it may not be viewable in all currently available web browsers.</para>
       <blockquote>
         <para>
           <emphasis role="bold">
