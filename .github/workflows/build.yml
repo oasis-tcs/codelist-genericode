@@ -23,10 +23,10 @@ jobs:
         mkdir target
         timestamp=$(date -u +%Y%m%d-%H%M)
         echo "TIMESTAMP=${timestamp}" >>$GITHUB_ENV
-        bash produceGenericode.sh target github ${timestamp}z ${timestamp} "${REALTA_USERNAME:-}" "${REALTA_PASSWORD:-}" DELETE-REPOSITORY-FILES-AS-WELL
+        bash produceGenericode.sh target github ${timestamp}z "${REALTA_USERNAME:-}" "${REALTA_PASSWORD:-}" DELETE-REPOSITORY-FILES-AS-WELL
 
     - uses: actions/upload-artifact@v2
       with:
-        name: genericode-1.0-github-${{ env.TIMESTAMP }}z
+        name: genericode-github-${{ env.TIMESTAMP }}z
         path: ./*
         #path: target/genericode-1.0-github-${{ env.TIMESTAMP }}z/*

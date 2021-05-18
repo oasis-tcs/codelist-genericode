@@ -9,7 +9,7 @@
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd03">
 	<!ENTITY PSTAGE "CSD03">
-	<!ENTITY stage "csd04wd02"><!--this line is formatted for grep retrieval-->
+	<!ENTITY stage "csd04wd02">
 	<!ENTITY STAGE "CSD04WD02">
 	<!ENTITY isostage "WD">
 	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 02">
@@ -21,7 +21,7 @@
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
-	<!ENTITY pubdate "26 January 2021">
+	<!ENTITY pubdate "18 May 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -90,7 +90,7 @@
           <itemizedlist>
             <listitem>
               <para>
-                <ulink url="&this-loc;/doc/">&this-loc;/doc/</ulink>
+                <ulink url="&this-loc;/db/">&this-loc;/db/</ulink>
               </para>
             </listitem>
           </itemizedlist>
