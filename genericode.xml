@@ -227,25 +227,271 @@
     </legalnotice>
     <legalnotice role="scope" condition="sts">
       <title>Scope</title>
-      <para>ISO/IEC 00000 specifies the genericode Version 1.0, which defines a generic set of semantics for a coded domain comprised of a “set of codes representing X”.</para> 
+      <para>ISO/IEC 00000 specifies genericode Version 1.0, which defines a generic set of semantics for sets of key values. It includes provision for specifying metadata associated both with the individual values and with the entire set itself. Also included is a serialization of these semantics in
+        XML syntax for unambiguous publishing and interchange.</para>
+      <para>The semantics are labeled in particular for expressing values in keyed coded domains comprising a “set of codes representing X”. Expressing metadata associated with key values implements an important use case for documenting the semantics of the codes.</para>
+      <para>The labels in genericode do not prohibit the use of genericode for any domain of sets of unique key values needing associated metadata. </para>
+      <para>Not included in scope </para>
     </legalnotice>
   </articleinfo>
   <section id="S-INTRODUCTION" role="intro">
     <title>Introduction</title>
     <section id="S-OVERVIEW">
       <title>Overview</title>
-      <para>Code lists, or enumerated values, have been with us since long before computers. They should be well understood and easily dealt with by now. Unfortunately, they are not. As is often the case, if you take a fundamentally simple concept, you find that everyone professes to understand it
-        with complete clarity. When you look more closely, you find that everybody has their own unique view of what the problem is and how it should be solved.</para>
-      <para>If code lists were really so simple and obvious, there would already be a single, well-known and accepted way of handling them in XML. There is no such agreed solution, though. The problem is that while code lists are a well understood concept, people don’t actually agree exactly on what
-        code lists are, and how they should be used.</para>
-      <para>The OASIS Code List Representation format, “<emphasis role="italic">genericode</emphasis>”<footnote id="fn1">
-          <para>Genericode can be written starting either with an upper-case or lower-case “g”.  It depends whether genericode is at the start of the sentence or not.</para>
-        </footnote>, is a single model and XML format (with a W3C XML Schema) that can encode a broad range of code list information. The XML format is designed to support interchange or distribution of
-        machine-readable code list information between systems. Note that genericode is <emphasis role="bold">not</emphasis> designed as a run-time format for accessing code list information, and is not optimized for such usage. Rather, it is designed as an interchange format that can be transformed
-        into formats suitable for run-time usage, or loaded into systems that perform run-time processing using code list information.</para>
-      <para>This version 1.0 of genericode implements the “Version 1.0 Requirements” from the OASIS Code List Representation Requirements document, version 1.0.1 (<ulink url="http://docs.oasis-open.org/codelist/cd-genericode-1.0/doc/oasis-code-list-representation-requirements-1.0.1.pdf"
-          conformance="skip">http://docs.oasis-open.org/codelist/cd-genericode-1.0/doc/oasis-code-list-representation-requirements-1.0.1.pdf</ulink>). The requirements document also lists requirements for future versions of genericode, which will not be discussed further in this version of this
-        document.</para>
+      <section id="S-GENERICODE">
+        <title>Genericode</title>
+        <para>Code lists, or enumerated values, have been with us since long before computers. They should be well understood and easily dealt with by now. Unfortunately, they are not. As is often the case, if you take a fundamentally simple concept, you find that everyone professes to understand it
+          with complete clarity. When you look more closely, you find that everybody has their own unique view of what the problem is and how it should be solved.</para>
+        <para>If code lists were really so simple and obvious, there would already be a single, well-known and accepted way of handling them in XML. There is no such agreed solution, though. The problem is that while code lists are a well understood concept, people don’t actually agree exactly on
+          what code lists are, and how they should be used.</para>
+        <para>The OASIS Code List Representation format, “<emphasis role="italic">genericode</emphasis>”<footnote id="fn1">
+            <para>Genericode can be written starting either with an upper-case or lower-case “g”. It depends whether genericode is at the start of the sentence or not.</para>
+          </footnote>, is a single model and XML format (with a W3C XML Schema) that can encode a broad range of code list information. The XML format is designed to support interchange or distribution of machine-readable code list information between systems. Note that genericode is <emphasis
+            role="bold">not</emphasis> designed as a run-time format for accessing code list information, and is not optimized for such usage. Rather, it is designed as an interchange format that can be transformed into formats suitable for run-time usage, or loaded into systems that perform
+          run-time processing using code list information.</para>
+        <para>This version 1.0 of genericode implements the “Version 1.0 Requirements” from the OASIS Code List Representation Requirements document, version 1.0.1 (<ulink url="http://docs.oasis-open.org/codelist/cd-genericode-1.0/doc/oasis-code-list-representation-requirements-1.0.1.pdf"
+            conformance="skip">http://docs.oasis-open.org/codelist/cd-genericode-1.0/doc/oasis-code-list-representation-requirements-1.0.1.pdf</ulink>). The requirements document also lists requirements for future versions of genericode, which will not be discussed further in this version of this
+          document.</para>
+      </section>
+      <section id="S-WHAT-IS-A-CODE-LIST" role="non-normative">
+        <title>What is a Code List?</title>
+        <para>What is a code list, then? Most people would agree that the following is a code list:</para>
+        <para>{“SUN”, “MON”, “TUE”, “WED”, “THU”, “FRI”, “SAT”}</para>
+        <para>Example 1: Days of the week: English, uppercase</para>
+        <para>This is a perfectly reasonable set of alphabetic codes for representing days of the week. However, so is:</para>
+        <para>{“Sun”, “Mon”, “Tue”, “Wed”, “Thu”, “Fri”, “Sat”}</para>
+        <para>Example 2: Days of the week: English, mixed case</para>
+        <para>These two code lists are similar, but certainly not identical. That said, they can both be used to represent the days of the week. Of course, you could also use:</para>
+        <para>{“Dim”, “Lun”, “Mar”, “Mer”, “Jeu”, “Ven”, “Sam”}</para>
+        <para>Example 3: Days of the week: French, mixed case</para>
+        <para>which is created from abbreviations for the days of the week in French. Then again, you could use:</para>
+        <para>{0, 1, 2, 3, 4, 5, 6}</para>
+        <para>Example 4: Days of the week: numeric</para>
+        <para>which is suitable as a computer representation, e.g. for a database column. On the other hand:</para>
+        <para>{“S”, “M”, “T”, “W”, “T”, “F”, “S”}</para>
+        <para>Example 5: Days of the week: English, single character</para>
+        <para>is not suitable as a code list for the days of the week, because the values are not unique.</para>
+        <para>Now suppose that you are using codes to represent days of the week in an application, and you are displaying the days of the week using 3-letter abbreviations in English or French. In that context, should <ulink
+            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%202" conformance="skip">Example 2</ulink> and <ulink
+            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%203" conformance="skip">Example 3</ulink> be considered to be code lists, or should they be considered to be display values that would be keyed to either the <ulink
+            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%201" conformance="skip">Example 1</ulink> or <ulink
+            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%204" conformance="skip">Example 4</ulink> codes? The fact is, they could be either code lists or display values. A value which is a code in one context might only be an
+          associated value for that code in another context. Nothing privileges any of these code lists over the others in terms of ability or suitability to be the code list (except the <ulink
+            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%205" conformance="skip">Example 5</ulink> values which are not suitable). There is a choice of code lists that can be used, and the answer to the question “which choice
+          is the best?” depends on the needs of each particular situation.</para>
+        <para>What the above examples show is that for each <emphasis role="italic">distinct entry</emphasis> in a code list, there are many possible associated values (we use the term <emphasis role="italic">distinct entry</emphasis> to express the idea that we are talking a single item that needs
+          to be represented in the code list, rather than about the code value(s) that can be used to identify that item). Some of those associated values are suitable for use in code lists, some are not. This leads to a tabular model, where each row of the table represents a conceptual code, and
+          each column represents an associated value (code list metadata), as follows:</para>
+        <informaltable border="0" class="MsoNormalTable"
+          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
+          width="530">
+          <tgroup cols="5">
+            <colspec colnum="1" colname="col1"/>
+            <colspec colnum="2" colname="col2"/>
+            <colspec colnum="3" colname="col3"/>
+            <colspec colnum="4" colname="col4"/>
+            <colspec colnum="5" colname="col5"/>
+            <thead>
+              <row>
+                <entry>Numeric <emphasis role="bold">(key)</emphasis></entry>
+                <entry>English, uppercase <emphasis role="bold">(key)</emphasis></entry>
+                <entry>English, mixed case <emphasis role="bold">(key)</emphasis></entry>
+                <entry>French, mixed case <emphasis role="bold">(key)</emphasis></entry>
+                <entry>English, single character</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>SUN</entry>
+                <entry>Sun</entry>
+                <entry>Dim</entry>
+                <entry>S</entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>MON</entry>
+                <entry>Mon</entry>
+                <entry>Lun</entry>
+                <entry>M</entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>TUE</entry>
+                <entry>Tue</entry>
+                <entry>Mar</entry>
+                <entry>T</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>WED</entry>
+                <entry>Wed</entry>
+                <entry>Mer</entry>
+                <entry>W</entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>THU</entry>
+                <entry>Thu</entry>
+                <entry>Jeu</entry>
+                <entry>T</entry>
+              </row>
+              <row>
+                <entry>5</entry>
+                <entry>FRI</entry>
+                <entry>Fri</entry>
+                <entry>Ven</entry>
+                <entry>F</entry>
+              </row>
+              <row>
+                <entry>6</entry>
+                <entry>SAT</entry>
+                <entry>Sat</entry>
+                <entry>Sam</entry>
+                <entry>S</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        <para>Table 1: Days of the week</para>
+        <para>Notice that the first 4 of the 5 columns have been labeled as “<emphasis role="italic">key</emphasis>” columns. This means that the values in those columns can be used to uniquely identify the rows, and hence they can be used as code list values. The term <emphasis role="italic"
+            >key</emphasis> is used here similarly to a relational database table.</para>
+        <para>This is the most common case, where a single column can be used as a key. However, consider the following modification:</para>
+        <informaltable border="0" class="MsoNormalTable"
+          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
+          width="478">
+          <tgroup cols="4">
+            <colspec colnum="1" colname="col1"/>
+            <colspec colnum="2" colname="col2"/>
+            <colspec colnum="3" colname="col3"/>
+            <colspec colnum="4" colname="col4"/>
+            <thead>
+              <row>
+                <entry>Numeric <emphasis role="bold">(key)</emphasis></entry>
+                <entry>English, uppercase <emphasis role="bold">(key)</emphasis></entry>
+                <entry>English, single character #1</entry>
+                <entry>English, single character #2</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>SUN</entry>
+                <entry>S</entry>
+                <entry>U</entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>MON</entry>
+                <entry>M</entry>
+                <entry>O</entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>TUE</entry>
+                <entry>T</entry>
+                <entry>U</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>WED</entry>
+                <entry>W</entry>
+                <entry>E</entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>THU</entry>
+                <entry>T</entry>
+                <entry>H</entry>
+              </row>
+              <row>
+                <entry>5</entry>
+                <entry>FRI</entry>
+                <entry>F</entry>
+                <entry>R</entry>
+              </row>
+              <row>
+                <entry>6</entry>
+                <entry>SAT</entry>
+                <entry>S</entry>
+                <entry>A</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        <para>Table 2: Days of the week, version 2</para>
+        <para>Here, the first two columns are each a key column. The last two columns are not individually key columns, but together they form a <emphasis role="italic">compound key</emphasis>, i.e. while the individual columns do not contain unique values, the pair of values is unique within each
+          row. This is again similar to what happens in some relational databases, that a key for the rows need not be constructed from a single column, but instead may be constructed by combining two or more columns.</para>
+        <para>Finally, there is no reason why a column should only contain simple values like strings or numbers. A column could also contain a complex compound group of data, such as a fragment of XML:</para>
+        <informaltable border="0" class="MsoNormalTable"
+          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
+          width="494">
+          <tgroup cols="3">
+            <colspec colnum="1" colname="col1"/>
+            <colspec colnum="2" colname="col2"/>
+            <colspec colnum="3" colname="col3"/>
+            <thead>
+              <row>
+                <entry>Numeric <emphasis role="bold">(key)</emphasis></entry>
+                <entry>English, uppercase <emphasis role="bold">(key)</emphasis></entry>
+                <entry>XHTML</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>0</entry>
+                <entry>SUN</entry>
+                <entry><literal>&lt;a href="http://days.of.week/SUN">&lt;b>Sunday&lt;/b>&lt;/a></literal></entry>
+              </row>
+              <row>
+                <entry>1</entry>
+                <entry>MON</entry>
+                <entry><literal>&lt;a href="http://days.of.week/MON">&lt;i>Monday&lt;/i>&lt;/a></literal></entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>TUE</entry>
+                <entry><literal>&lt;a href="http://days.of.week/TUE">&lt;b>Tuesday&lt;/b>&lt;/a></literal></entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>WED</entry>
+                <entry><literal>&lt;a href="http://days.of.week/WED">&lt;i>Wednesday&lt;/i>&lt;/a></literal></entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>THU</entry>
+                <entry><literal>&lt;a href="http://days.of.week/THU">&lt;b>Thursday&lt;/b>&lt;/a></literal></entry>
+              </row>
+              <row>
+                <entry>5</entry>
+                <entry>FRI</entry>
+                <entry><literal>&lt;a href="http://days.of.week/FRI">&lt;i>Friday&lt;/i>&lt;/a></literal></entry>
+              </row>
+              <row>
+                <entry>6</entry>
+                <entry>SAT</entry>
+                <entry><literal>&lt;a href="http://days.of.week/SAT">&lt;b>Saturday&lt;/b>&lt;/a></literal></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+        <para>Table 3: Days of the week, version 3</para>
+        <para>Notice that the final XHTML column is not marked as a key column. The values are unique, so it certainly could be used as a key column. However, sometimes you may not wish to mark a column as a key column, even if the values are unique. The values in the column may not make
+          particularly suitable keys. They might be too long to process quickly and conveniently, or they might not be able to be used in a particular context, such as for an XML attribute value. Also, it may be that while the values in a particular column are unique now, there is no guarantee or
+          expectation that they will remain unique as the code list grows or changes in the future.</para>
+        <para>Once you see the tabular nature that underlies the information that can be associated with code lists, it becomes clear why they can be a source of so much debate. Different users need different subsets of the code list information, and people often assume that the information they
+          need is all the information that anyone needs.</para>
+        <para>That kind of thinking doesn’t work well with code lists, because code lists are sufficiently generic a concept that they are used across messages/documents, applications, and databases. The code list details that you need for the XML schemas often will not be exactly the same as the
+          details that you need for your database or your application. If the code list information cannot be shared easily across these different areas, the result is duplication of effort and potential loss of synchronization between different implementations of the same code list.</para>
+        <para>The XML schema may only require a set of 3-letter codes to represent the code list. The database may require a set of numeric codes, plus display labels (possibly in different languages). The application may need to know which 3-letter code corresponds to which numeric code, so that it
+          can process the XML and update the database. Also, some information related to a code list might not be appropriate for the XML format. For example, if you have a different image file for each code, it isn’t ideal to include this image inline in the code list XML, since it vastly increases
+          the size of the XML, and makes it more difficult to read. So in an XML representation, you are more likely to include some reference (e.g. a URL) to the image. For a database, however, it may be feasible to store the image in a BLOB<footnote id="fn2">
+            <para>Binary Large OBject.</para>
+          </footnote> column in a database.</para>
+        <para>One last piece of experience from databases is that support for undefined values will be required. Sometimes users will have values that need to be associated with some of the codes in a code list, but won’t have values to associate with every code. In that case, the concept of a
+          undefined (nil or null) value is needed.</para>
+      </section>
     </section>
     <section id="S-IPR-POLICY" condition="oasis">
       <title>IPR Policy</title>
@@ -342,249 +588,8 @@
       </bibliolist>
     </section>
   </section>
-  <section id="S-WHAT-IS-A-CODE-LIST" role="non-normative">
-    <title>What is a Code List?</title>
-    <para>What is a code list, then? Most people would agree that the following is a code list:</para>
-    <para>{“SUN”, “MON”, “TUE”, “WED”, “THU”, “FRI”, “SAT”}</para>
-    <para>Example 1: Days of the week: English, uppercase</para>
-    <para>This is a perfectly reasonable set of alphabetic codes for representing days of the week. However, so is:</para>
-    <para>{“Sun”, “Mon”, “Tue”, “Wed”, “Thu”, “Fri”, “Sat”}</para>
-    <para>Example 2: Days of the week: English, mixed case</para>
-    <para>These two code lists are similar, but certainly not identical. That said, they can both be used to represent the days of the week. Of course, you could also use:</para>
-    <para>{“Dim”, “Lun”, “Mar”, “Mer”, “Jeu”, “Ven”, “Sam”}</para>
-    <para>Example 3: Days of the week: French, mixed case</para>
-    <para>which is created from abbreviations for the days of the week in French. Then again, you could use:</para>
-    <para>{0, 1, 2, 3, 4, 5, 6}</para>
-    <para>Example 4: Days of the week: numeric</para>
-    <para>which is suitable as a computer representation, e.g. for a database column. On the other hand:</para>
-    <para>{“S”, “M”, “T”, “W”, “T”, “F”, “S”}</para>
-    <para>Example 5: Days of the week: English, single character</para>
-    <para>is not suitable as a code list for the days of the week, because the values are not unique.</para>
-    <para>Now suppose that you are using codes to represent days of the week in an application, and you are displaying the days of the week using 3-letter abbreviations in English or French. In that context, should <ulink
-        url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%202" conformance="skip">Example 2</ulink> and <ulink
-        url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%203" conformance="skip">Example 3</ulink> be considered to be code lists, or should they be considered to be display values that would be keyed to either the <ulink
-        url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%201" conformance="skip">Example 1</ulink> or <ulink url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%204"
-        conformance="skip">Example 4</ulink> codes? The fact is, they could be either code lists or display values. A value which is a code in one context might only be an associated value for that code in another context. Nothing privileges any of these code lists over the others in terms of
-      ability or suitability to be the code list (except the <ulink url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%205" conformance="skip">Example 5</ulink> values which are not suitable). There is a choice of code lists that can
-      be used, and the answer to the question “which choice is the best?” depends on the needs of each particular situation.</para>
-    <para>What the above examples show is that for each <emphasis role="italic">distinct entry</emphasis> in a code list, there are many possible associated values (we use the term <emphasis role="italic">distinct entry</emphasis> to express the idea that we are talking a single item that needs to
-      be represented in the code list, rather than about the code value(s) that can be used to identify that item). Some of those associated values are suitable for use in code lists, some are not. This leads to a tabular model, where each row of the table represents a conceptual code, and each
-      column represents an associated value (code list metadata), as follows:</para>
-    <informaltable border="0" class="MsoNormalTable"
-      style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
-      width="530">
-      <tgroup cols="5">
-        <colspec colnum="1" colname="col1"/>
-        <colspec colnum="2" colname="col2"/>
-        <colspec colnum="3" colname="col3"/>
-        <colspec colnum="4" colname="col4"/>
-        <colspec colnum="5" colname="col5"/>
-        <thead>
-          <row>
-            <entry>Numeric <emphasis role="bold">(key)</emphasis></entry>
-            <entry>English, uppercase <emphasis role="bold">(key)</emphasis></entry>
-            <entry>English, mixed case <emphasis role="bold">(key)</emphasis></entry>
-            <entry>French, mixed case <emphasis role="bold">(key)</emphasis></entry>
-            <entry>English, single character</entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry>0</entry>
-            <entry>SUN</entry>
-            <entry>Sun</entry>
-            <entry>Dim</entry>
-            <entry>S</entry>
-          </row>
-          <row>
-            <entry>1</entry>
-            <entry>MON</entry>
-            <entry>Mon</entry>
-            <entry>Lun</entry>
-            <entry>M</entry>
-          </row>
-          <row>
-            <entry>2</entry>
-            <entry>TUE</entry>
-            <entry>Tue</entry>
-            <entry>Mar</entry>
-            <entry>T</entry>
-          </row>
-          <row>
-            <entry>3</entry>
-            <entry>WED</entry>
-            <entry>Wed</entry>
-            <entry>Mer</entry>
-            <entry>W</entry>
-          </row>
-          <row>
-            <entry>4</entry>
-            <entry>THU</entry>
-            <entry>Thu</entry>
-            <entry>Jeu</entry>
-            <entry>T</entry>
-          </row>
-          <row>
-            <entry>5</entry>
-            <entry>FRI</entry>
-            <entry>Fri</entry>
-            <entry>Ven</entry>
-            <entry>F</entry>
-          </row>
-          <row>
-            <entry>6</entry>
-            <entry>SAT</entry>
-            <entry>Sat</entry>
-            <entry>Sam</entry>
-            <entry>S</entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
-    <para>Table 1: Days of the week</para>
-    <para>Notice that the first 4 of the 5 columns have been labeled as “<emphasis role="italic">key</emphasis>” columns. This means that the values in those columns can be used to uniquely identify the rows, and hence they can be used as code list values. The term <emphasis role="italic"
-        >key</emphasis> is used here similarly to a relational database table.</para>
-    <para>This is the most common case, where a single column can be used as a key. However, consider the following modification:</para>
-    <informaltable border="0" class="MsoNormalTable"
-      style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
-      width="478">
-      <tgroup cols="4">
-        <colspec colnum="1" colname="col1"/>
-        <colspec colnum="2" colname="col2"/>
-        <colspec colnum="3" colname="col3"/>
-        <colspec colnum="4" colname="col4"/>
-        <thead>
-          <row>
-            <entry>Numeric <emphasis role="bold">(key)</emphasis></entry>
-            <entry>English, uppercase <emphasis role="bold">(key)</emphasis></entry>
-            <entry>English, single character #1</entry>
-            <entry>English, single character #2</entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry>0</entry>
-            <entry>SUN</entry>
-            <entry>S</entry>
-            <entry>U</entry>
-          </row>
-          <row>
-            <entry>1</entry>
-            <entry>MON</entry>
-            <entry>M</entry>
-            <entry>O</entry>
-          </row>
-          <row>
-            <entry>2</entry>
-            <entry>TUE</entry>
-            <entry>T</entry>
-            <entry>U</entry>
-          </row>
-          <row>
-            <entry>3</entry>
-            <entry>WED</entry>
-            <entry>W</entry>
-            <entry>E</entry>
-          </row>
-          <row>
-            <entry>4</entry>
-            <entry>THU</entry>
-            <entry>T</entry>
-            <entry>H</entry>
-          </row>
-          <row>
-            <entry>5</entry>
-            <entry>FRI</entry>
-            <entry>F</entry>
-            <entry>R</entry>
-          </row>
-          <row>
-            <entry>6</entry>
-            <entry>SAT</entry>
-            <entry>S</entry>
-            <entry>A</entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
-    <para>Table 2: Days of the week, version 2</para>
-    <para>Here, the first two columns are each a key column. The last two columns are not individually key columns, but together they form a <emphasis role="italic">compound key</emphasis>, i.e. while the individual columns do not contain unique values, the pair of values is unique within each row.
-      This is again similar to what happens in some relational databases, that a key for the rows need not be constructed from a single column, but instead may be constructed by combining two or more columns.</para>
-    <para>Finally, there is no reason why a column should only contain simple values like strings or numbers. A column could also contain a complex compound group of data, such as a fragment of XML:</para>
-    <informaltable border="0" class="MsoNormalTable"
-      style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
-      width="494">
-      <tgroup cols="3">
-        <colspec colnum="1" colname="col1"/>
-        <colspec colnum="2" colname="col2"/>
-        <colspec colnum="3" colname="col3"/>
-        <thead>
-          <row>
-            <entry>Numeric <emphasis role="bold">(key)</emphasis></entry>
-            <entry>English, uppercase <emphasis role="bold">(key)</emphasis></entry>
-            <entry>XHTML</entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry>0</entry>
-            <entry>SUN</entry>
-            <entry><literal>&lt;a href="http://days.of.week/SUN">&lt;b>Sunday&lt;/b>&lt;/a></literal></entry>
-          </row>
-          <row>
-            <entry>1</entry>
-            <entry>MON</entry>
-            <entry><literal>&lt;a href="http://days.of.week/MON">&lt;i>Monday&lt;/i>&lt;/a></literal></entry>
-          </row>
-          <row>
-            <entry>2</entry>
-            <entry>TUE</entry>
-            <entry><literal>&lt;a href="http://days.of.week/TUE">&lt;b>Tuesday&lt;/b>&lt;/a></literal></entry>
-          </row>
-          <row>
-            <entry>3</entry>
-            <entry>WED</entry>
-            <entry><literal>&lt;a href="http://days.of.week/WED">&lt;i>Wednesday&lt;/i>&lt;/a></literal></entry>
-          </row>
-          <row>
-            <entry>4</entry>
-            <entry>THU</entry>
-            <entry><literal>&lt;a href="http://days.of.week/THU">&lt;b>Thursday&lt;/b>&lt;/a></literal></entry>
-          </row>
-          <row>
-            <entry>5</entry>
-            <entry>FRI</entry>
-            <entry><literal>&lt;a href="http://days.of.week/FRI">&lt;i>Friday&lt;/i>&lt;/a></literal></entry>
-          </row>
-          <row>
-            <entry>6</entry>
-            <entry>SAT</entry>
-            <entry><literal>&lt;a href="http://days.of.week/SAT">&lt;b>Saturday&lt;/b>&lt;/a></literal></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </informaltable>
-    <para>Table 3: Days of the week, version 3</para>
-    <para>Notice that the final XHTML column is not marked as a key column. The values are unique, so it certainly could be used as a key column. However, sometimes you may not wish to mark a column as a key column, even if the values are unique. The values in the column may not make particularly
-      suitable keys. They might be too long to process quickly and conveniently, or they might not be able to be used in a particular context, such as for an XML attribute value. Also, it may be that while the values in a particular column are unique now, there is no guarantee or expectation that
-      they will remain unique as the code list grows or changes in the future.</para>
-    <para>Once you see the tabular nature that underlies the information that can be associated with code lists, it becomes clear why they can be a source of so much debate. Different users need different subsets of the code list information, and people often assume that the information they need is
-      all the information that anyone needs.</para>
-    <para>That kind of thinking doesn’t work well with code lists, because code lists are sufficiently generic a concept that they are used across messages/documents, applications, and databases. The code list details that you need for the XML schemas often will not be exactly the same as the
-      details that you need for your database or your application. If the code list information cannot be shared easily across these different areas, the result is duplication of effort and potential loss of synchronization between different implementations of the same code list.</para>
-    <para>The XML schema may only require a set of 3-letter codes to represent the code list. The database may require a set of numeric codes, plus display labels (possibly in different languages). The application may need to know which 3-letter code corresponds to which numeric code, so that it can
-      process the XML and update the database. Also, some information related to a code list might not be appropriate for the XML format. For example, if you have a different image file for each code, it isn’t ideal to include this image inline in the code list XML, since it vastly increases the
-      size of the XML, and makes it more difficult to read. So in an XML representation, you are more likely to include some reference (e.g. a URL) to the image. For a database, however, it may be feasible to store the image in a BLOB<footnote id="fn2">
-          <para>Binary Large OBject.</para>
-        </footnote> column in a database.</para>
-    <para>One last piece of experience from databases is that support for undefined values will be required. Sometimes users will have values that need to be associated with some of the codes in a code list, but won’t have values to associate with every code. In that case, the concept of a undefined
-      (nil or null) value is needed.</para>
-  </section>
-  <section id="S-GENERICODE-MODEL-XML-FORMAT" conformance="skip">
-    <title>Genericode Model &amp; XML Format</title>
-    <para>This section describes the genericode model and XML format for representing code lists. The “<code>gc</code>” XML prefix refers to the namespace URI</para>
-    <para>http://docs.oasis-open.org/codelist/ns/genericode/1.0/</para>
-    <para>If you are reading this section for the first time, you may find it helpful to review the examples in the appendices before continuing.</para>
+  <section id="S-GENERICODE-MODEL">
+    <title>Genericode Model</title>
     <section id="S-TABULAR-STRUCTURE">
       <title>Tabular Structure</title>
       <para>Genericode has a tabular structure for code list information. Each row in the table represents a single <emphasis role="italic">distinct entry</emphasis> in the code list, i.e. each row represents a single uniquely identifiable item in the code list.</para>
@@ -626,18 +631,18 @@
       <title>Column Sets – Columns and Keys</title>
       <para>A column set is a set of definitions of genericode columns and/or keys. A column defines a particular metadata value that can be defined for each distinct entry in a code list. A key defines a set of one or more columns.</para>
       <para>It is not necessary to use separate column set documents. A genericode code list document can contain all of the required column and key definitions. Column set documents are provided as a convenience mechanism for sharing column and/or key definitions between multiple code lists.</para>
-    <figure id="F-UML-RELATIONSHIPS-OF-KEYS-AND-COLUMNS">
-      <title>UML relationships of keys and columns</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="art/uml-column-set-key.png"/>
-        </imageobject>
-        <textobject>
-          <phrase>[UML relationships of keys an columns]</phrase>
-        </textobject>
-      </mediaobject>
-    </figure>
-      <para>This figure is in UML notation. Each column set must have a unique ID. For a column set defined within a code list document, the code list document's unique identifier is used. A column set can define any number of columns. It can also reference any number of columns from other column
+      <figure id="F-UML-RELATIONSHIPS-OF-KEYS-AND-COLUMNS">
+        <title>UML relationships of keys and columns</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/uml-column-set-key.png"/>
+          </imageobject>
+          <textobject>
+            <phrase>[UML relationships of keys an columns]</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+      <para>This figure is in UML notation. Each column set must have a unique ID. For a column set defined within a code list document, the code list document’s unique identifier is used. A column set can define any number of columns. It can also reference any number of columns from other column
         sets (in column set documents or code list documents). A column set can also define any number of keys. Each key is defined by one or more of the columns in the column set (either defined or imported). Keys are used to uniquely identify the rows (distinct entries) of code lists. Columns and
         keys are uniquely named within the column set that defines them, and each can also be uniquely identified using a specific URI if required additionally.</para>
       <para>The matching genericode W3C XML Schema (WXS) representation of column set content is:</para>
@@ -655,11 +660,11 @@
           <para>Any namespace except the genericode namespace.</para>
         </footnote> is allowed), and the Type is set to the root element name for the XML data (or to “*” if any root element is allowed).</para>
       <para>Data definitions can contain Parameter elements which define facets that refine the datatype. When using the WXS datatype library, these are just the usual WXS datatype facets.</para>
-      <para>If a column is defined in an external column set or code list document, it is referenced using a ColumnRef. The column reference must have an ID just as a column definition would, but it also has an ExternalRef which contains the column's ID in the external document. The external column
+      <para>If a column is defined in an external column set or code list document, it is referenced using a ColumnRef. The column reference must have an ID just as a column definition would, but it also has an ExternalRef which contains the column’s ID in the external document. The external column
         set or code list is identified by a CanonicalVersionUri and/or by any LocationUri information that is provided.</para>
       <para>A key definition (Key) contains an ID for the key. It also contains a short name (token) for the key, any number of long names, and optional extra canonical identification URIs. The columns which together form the key are referenced using one or more ColumnRef elements. The Ref attribute
         of each contains the ID of either a Column or ColumnRef in the column set. Only required (not optional) columns may be used within a key (note that this rule is not able to be enforced using the genericode WXS Schema alone).</para>
-      <para>If a key is defined in an external column set or code list document, it can be referred to using a KeyRef. The key reference must have an ID, and also has an ExternalRef which contains the key's ID in the external document. The external column set or code list is identified by a
+      <para>If a key is defined in an external column set or code list document, it can be referred to using a KeyRef. The key reference must have an ID, and also has an ExternalRef which contains the key’s ID in the external document. The external column set or code list is identified by a
         CanonicalVersionUri and/or by any LocationUri information that is provided.</para>
     </section>
     <section id="S-CODE-LISTS" conformance="skip">
@@ -668,17 +673,17 @@
         and (optionally) a set of rows, where each row defines a <emphasis role="italic">distinct entry</emphasis> in the code list.</para>
       <para>A code list document that contains only information (metadata) about the code list as a whole is known as a <emphasis role="italic">CodeList Metadata</emphasis> document. If the code list document defines (zero or more) row, it is a <emphasis role="italic">Simple CodeList</emphasis>.
         These are the only kinds of code list that are supported in this version of the specification.</para>
-    <figure id="F-UML-FOR-CODE-LISTS">
-      <title>UML for code lists</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="art/uml-code-list.png"/>
-        </imageobject>
-        <textobject>
-          <phrase>[UML for code lists]</phrase>
-        </textobject>
-      </mediaobject>
-    </figure>
+      <figure id="F-UML-FOR-CODE-LISTS">
+        <title>UML for code lists</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/uml-code-list.png"/>
+          </imageobject>
+          <textobject>
+            <phrase>[UML for code lists]</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
       <para>There is an important difference between a <emphasis role="italic">CodeList Metadata</emphasis> document and <emphasis role="italic">Simple CodeList</emphasis> that contains zero rows (zero distinct entries). The former does not provide information on how many <emphasis role="italic"
           >distinct entries</emphasis> are contained in the code list. The latter explicitly indicates that a particular version of the code list contains zero distinct entries, i.e. the particular version of the code list is empty. A CodeList Metadata document does not provide any indication about
         whether a code list is empty or not.</para>
@@ -686,17 +691,17 @@
         <title>Simple CodeLists and CodeList Metadata</title>
         <para>A <emphasis role="italic">CodeList Metadata</emphasis> document is a special case of a <emphasis role="italic">Simple CodeList</emphasis> document. The differences will be discussed explicitly where appropriate.</para>
         <para>A <emphasis role="italic">Simple CodeList</emphasis> is modeled as follows:</para>
-    <figure id="F-UML-FOR-SIMPLE-CODE-LISTS">
-      <title>UML for simple code lists</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="art/uml-simple-code-list.png"/>
-        </imageobject>
-        <textobject>
-          <phrase>[UML for simple code lists]</phrase>
-        </textobject>
-      </mediaobject>
-    </figure>
+        <figure id="F-UML-FOR-SIMPLE-CODE-LISTS">
+          <title>UML for simple code lists</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/uml-simple-code-list.png"/>
+            </imageobject>
+            <textobject>
+              <phrase>[UML for simple code lists]</phrase>
+            </textobject>
+          </mediaobject>
+        </figure>
         <para>A <emphasis role="italic">Simple CodeList</emphasis> contains zero or more rows (it is necessary to support empty code lists to allow for code lists that are empty now, but will be populated in future versions). Each <emphasis role="italic">Row</emphasis> defines a single <emphasis
             role="italic">distinct entry</emphasis> in the code list.</para>
         <para>A <emphasis role="italic">Row</emphasis> contains one or more <emphasis role="italic">Values</emphasis>, where each of those values corresponds to a distinct column in the code list. At least one value is required, because a code list has to have at least one key, and each key requires
@@ -714,7 +719,7 @@
         <para>The Value container element is needed to allow optional user annotations of individual values in the code list. It has a ColumnRef attribute which contains the unique document ID of the associated column. A Value element can contains either a SimpleValue containing a textual value, or
           a ComplexValue containing a balanced (well-formed) XML fragment from a namespace other than the genericode namespace.</para>
         <para>If a <code>Value</code> element does not contain either a <code>SimpleValue</code> element or a <code>ComplexValue</code> element, then the value is undefined. Only <emphasis role="italic">optional columns</emphasis> are allowed to have undefined values. Also, if a <code>Row</code>
-          element does not contain a <code>Value</code> element corresponding to a particular column, then the row's value for that column is undefined.</para>
+          element does not contain a <code>Value</code> element corresponding to a particular column, then the row’s value for that column is undefined.</para>
         <para>Note that the ColumnRef attribute of a Value is optional. If it is not provided, it is assumed that the column is the one which follows the column associated with the previous value in the row. If the first Value in a Row does not have a ColumnRef, it is assumed to be associated with
           the first column in the column set. It is an error if a row contains more than one value for the same column, or if it does not contain a value for a required column.</para>
         <para>The genericode WXS Schema is not able to validate that the contents of a Value match the datatype of the associated column. Other validation mechanisms should be used to perform datatype validation.</para>
@@ -753,10 +758,13 @@
       <para>which is used in the identification of auxiliary rules in the Schema. These are rules that cannot be enforced using the XML Schema itself; they appear in the Schema in <code>&lt;rule:text></code> elements within <code>&lt;xsd:documentation></code> elements.</para>
     </section>
   </section>
-  <section id="S-GENERICODE-XML-SCHEMA-REFERENCE" conformance="skip">
-    <title>Genericode XML Schema Reference</title>
-    <para><emphasis role="bold">Schema version:</emphasis> 1.0</para>
-    <para><emphasis role="bold">Target namespace:</emphasis> http://docs.oasis-open.org/codelist/ns/genericode/1.0/</para>
+  <section id="S-GENERICODE-XML-SERIALIZATION" conformance="skip">
+    <title>Genericode XML Serialization</title>
+    <section id="S-SCHEMA-VERSION-AND-NAMESPACE">
+      <title>Schema Version and Namespace</title>
+      <para><emphasis role="bold">Schema version:</emphasis> 1.0</para>
+      <para><emphasis role="bold">Target namespace:</emphasis> http://docs.oasis-open.org/codelist/ns/genericode/1.0/</para>
+    </section>
     <section id="S-NOTATION">
       <title>Notation</title>
       <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="452">
@@ -956,13 +964,13 @@
       </section>
       <section id="S-ANYOTHERCONTENT-COMPLEX-TYPE">
         <title>AnyOtherContent (Complex Type)</title>
-        <para>Container for any XML content which is in a different namespace to the Schema's target namespace.</para>
+        <para>Container for any XML content which is in a different namespace to the Schema’s target namespace.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (ANY[##other]*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
       </section>
       <section id="S-ANYOTHERLANGUAGECONTENT-COMPLEX-TYPE">
         <title>AnyOtherLanguageContent (Complex Type)</title>
-        <para>Container for any human-readable XML content which is in a different namespace to the Schema's target namespace.</para>
+        <para>Container for any human-readable XML content which is in a different namespace to the Schema’s target namespace.</para>
         <para><emphasis role="bold">Extension of:</emphasis> AnyOtherContent (page 29)</para>
         <para><emphasis role="bold">Content Model:</emphasis> (ANY[##other]*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
@@ -1009,7 +1017,7 @@
               <row>
                 <entry>
                   <para><emphasis role="bold">Rule R1 [document] :</emphasis></para>
-                  <para>A code list must have at least one key, unless it is a metadata-only definition without a 'SimpleCodeList' element.</para>
+                  <para>A code list must have at least one key, unless it is a metadata-only definition without a ‘SimpleCodeList’ element.</para>
                 </entry>
               </row>
             </tbody>
@@ -1714,7 +1722,7 @@
                 <entry>
                   <para>Unique ID within the external document.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The external reference must not be prefixed with a '#' symbol.</para>
+                  <para>The external reference must not be prefixed with a ‘#’ symbol.</para>
                   <para><emphasis role="bold">ExternalReference:</emphasis></para>
                   <para>ID which identifies which identifies the column within the external column set or code list.</para>
                 </entry>
@@ -2266,8 +2274,8 @@
                   <para>Unique ID for the datatype within its datatype library.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>The datatype ID must not include a namespace prefix.</para>
-                  <para>For the W3C XML Schema datatypes, possible datatype IDs are 'string', 'token', 'boolean', 'decimal', etc.</para>
-                  <para>If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or '*' if the root element name is not restricted.</para>
+                  <para>For the W3C XML Schema datatypes, possible datatype IDs are ‘string’, ‘token’, ‘boolean’, ‘decimal’, etc.</para>
+                  <para>If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or ‘*’ if the root element name is not restricted.</para>
                 </entry>
               </row>
               <row>
@@ -2278,7 +2286,7 @@
                   <para>URI which uniquely identifies the datatype library.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>If this URI not explicitly provided, the datatype library for the enclosing column set is used.</para>
-                  <para>If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or '*' if the namespace URI is not restricted.</para>
+                  <para>If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or ‘*’ if the namespace URI is not restricted.</para>
                 </entry>
               </row>
               <row>
@@ -2286,8 +2294,8 @@
                 <entry>optional</entry>
                 <entry>xsd:language</entry>
                 <entry>
-                  <para>Language code which accepts the same values as 'xml:lang'.</para>
-                  <para>Unlike 'xml:lang', the scope of the language definition is not restricted to the XML content within the element where the 'lang' attribute appears.</para>
+                  <para>Language code which accepts the same values as ‘xml:lang’.</para>
+                  <para>Unlike ‘xml:lang’, the scope of the language definition is not restricted to the XML content within the element where the ‘lang’ attribute appears.</para>
                   <para><emphasis role="bold">Language:</emphasis></para>
                   <para>Language from which the data is taken or derived.</para>
                 </entry>
@@ -2307,7 +2315,7 @@
               <row>
                 <entry>
                   <para><emphasis role="bold">Rule R23 [document] :</emphasis></para>
-                  <para>The 'gc:lang' attribute may be specified only if no language is already set for the data type that is being restricted.</para>
+                  <para>The ‘gc:lang’ attribute may be specified only if no language is already set for the data type that is being restricted.</para>
                 </entry>
               </row>
             </tbody>
@@ -2358,8 +2366,8 @@
                 <entry>optional</entry>
                 <entry>xsd:language</entry>
                 <entry>
-                  <para>Language code which accepts the same values as 'xml:lang'.</para>
-                  <para>Unlike 'xml:lang', the scope of the language definition is not restricted to the XML content within the element where the 'lang' attribute appears.</para>
+                  <para>Language code which accepts the same values as ‘xml:lang’.</para>
+                  <para>Unlike ‘xml:lang’, the scope of the language definition is not restricted to the XML content within the element where the ‘lang’ attribute appears.</para>
                   <para><emphasis role="bold">Language:</emphasis></para>
                   <para>Language from which the data is taken or derived.</para>
                 </entry>
@@ -2491,7 +2499,7 @@
                 <entry>
                   <para>Unique ID within the external document.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The external reference must not be prefixed with a '#' symbol.</para>
+                  <para>The external reference must not be prefixed with a ‘#’ symbol.</para>
                 </entry>
               </row>
             </tbody>
@@ -3013,7 +3021,7 @@
                 <entry>
                   <para>Unique ID within the external document.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The external reference must not be prefixed with a '#' symbol.</para>
+                  <para>The external reference must not be prefixed with a ‘#’ symbol.</para>
                   <para><emphasis role="bold">ExternalReference:</emphasis></para>
                   <para>ID which identifies which identifies the key within the external column set or code list.</para>
                 </entry>
@@ -3056,8 +3064,8 @@
                 <entry>optional</entry>
                 <entry>xsd:language</entry>
                 <entry>
-                  <para>Language code which accepts the same values as 'xml:lang'.</para>
-                  <para>Unlike 'xml:lang', the scope of the language definition is not restricted to the XML content within the element where the 'lang' attribute appears.</para>
+                  <para>Language code which accepts the same values as ‘xml:lang’.</para>
+                  <para>Unlike ‘xml:lang’, the scope of the language definition is not restricted to the XML content within the element where the ‘lang’ attribute appears.</para>
                 </entry>
               </row>
             </tbody>
@@ -3431,8 +3439,8 @@
                 <entry>
                   <para>Complex (structured) XML value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The names of all direct child elements of the 'ComplexValue' element must match the datatype ID for the matching column, unless that ID is set to '*'.</para>
-                  <para>The namespace URIs of all direct child elements of the 'ComplexValue' element must match the datatype library URI for the matching column, unless that URI is set to '*'.</para>
+                  <para>The names of all direct child elements of the ‘ComplexValue’ element must match the datatype ID for the matching column, unless that ID is set to ‘*’.</para>
+                  <para>The namespace URIs of all direct child elements of the ‘ComplexValue’ element must match the datatype library URI for the matching column, unless that URI is set to ‘*’.</para>
                   <para><emphasis role="bold">ValueChoice:</emphasis></para>
                   <para>A choice between a simple textual value and a complex (structured) XML value. If the value is undefined, then neither choice is used.</para>
                 </entry>
@@ -3503,8 +3511,8 @@
                 <entry>
                   <para>Complex (structured) XML value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The names of all direct child elements of the 'ComplexValue' element must match the datatype ID for the matching column, unless that ID is set to '*'.</para>
-                  <para>The namespace URIs of all direct child elements of the 'ComplexValue' element must match the datatype library URI for the matching column, unless that URI is set to '*'.</para>
+                  <para>The names of all direct child elements of the ‘ComplexValue’ element must match the datatype ID for the matching column, unless that ID is set to ‘*’.</para>
+                  <para>The namespace URIs of all direct child elements of the ‘ComplexValue’ element must match the datatype library URI for the matching column, unless that URI is set to ‘*’.</para>
                 </entry>
               </row>
             </tbody>
@@ -3608,7 +3616,7 @@
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
-                <entry>A code list must have at least one key, unless it is a metadata-only definition without a 'SimpleCodeList' element.</entry>
+                <entry>A code list must have at least one key, unless it is a metadata-only definition without a ‘SimpleCodeList’ element.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -3643,7 +3651,7 @@
               <row>
                 <entry>
                   <para>The datatype ID must not include a namespace prefix.</para>
-                  <para>For the W3C XML Schema datatypes, possible datatype IDs are 'string', 'token', 'boolean', 'decimal', etc.</para>
+                  <para>For the W3C XML Schema datatypes, possible datatype IDs are ‘string’, ‘token’, ‘boolean’, ‘decimal’, etc.</para>
                 </entry>
               </row>
             </tbody>
@@ -3655,7 +3663,7 @@
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
-                <entry>If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or '*' if the root element name is not restricted.</entry>
+                <entry>If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or ‘*’ if the root element name is not restricted.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -3666,7 +3674,7 @@
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
-                <entry>If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or '*' if the namespace URI is not restricted.</entry>
+                <entry>If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or ‘*’ if the namespace URI is not restricted.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -3677,7 +3685,7 @@
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
-                <entry>The 'gc:lang' attribute may be specified only if no language is already set for the data type that is being restricted.</entry>
+                <entry>The ‘gc:lang’ attribute may be specified only if no language is already set for the data type that is being restricted.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -3688,7 +3696,7 @@
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
-                <entry>The external reference must not be prefixed with a '#' symbol.</entry>
+                <entry>The external reference must not be prefixed with a ‘#’ symbol.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -3801,7 +3809,7 @@
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
-                <entry>The names of all direct child elements of the 'ComplexValue' element must match the datatype ID for the matching column, unless that ID is set to '*'.</entry>
+                <entry>The names of all direct child elements of the ‘ComplexValue’ element must match the datatype ID for the matching column, unless that ID is set to ‘*’.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -3812,7 +3820,7 @@
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
-                <entry>The namespace URIs of all direct child elements of the 'ComplexValue' element must match the datatype library URI for the matching column, unless that URI is set to '*'.</entry>
+                <entry>The namespace URIs of all direct child elements of the ‘ComplexValue’ element must match the datatype library URI for the matching column, unless that URI is set to ‘*’.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -4268,7 +4276,8 @@
     <section id="S-PACKAGE-STRUCTURE">
       <title>Package Structure</title>
       <para>The genericode specification is published as a zip archive in the release directory. Unzipping this archive creates a directory named &dirname; containing a “<literal>doc/</literal>” directory with documentation. The authoritative source of the documentation is a master DocBook XML file
-        (&filename;.xml), a generated hypertext version of this file (&filename;.html), and a generated PDF version of this file (&filename;.pdf). The files in other subdirectories, linked to from &filename;.xml, &filename;.html, and &filename;.pdf, contain the various normative and informational pieces of the genericode release. A description of each subdirectory is given below. Note that while the genericode.xml file is the “original” of this specification, it may not be viewable in all currently available web browsers.</para>
+        (&filename;.xml), a generated hypertext version of this file (&filename;.html), and a generated PDF version of this file (&filename;.pdf). The files in other subdirectories, linked to from &filename;.xml, &filename;.html, and &filename;.pdf, contain the various normative and informational
+        pieces of the genericode release. A description of each subdirectory is given below. Note that while the genericode.xml file is the “original” of this specification, it may not be viewable in all currently available web browsers.</para>
       <blockquote>
         <para>
           <emphasis role="bold">
