@@ -70,14 +70,12 @@
         <email>gkholman@CraneSoftwrights.com</email>
       </editor>
       <othercredit>
-        <firstname>G. Ken</firstname>
-        <surname>Holman</surname>
+        <firstname>Andrea</firstname>
+        <surname>Caccia</surname>
         <affiliation>
-          <orgname>
-            <ulink url="http://www.CraneSoftwrights.com/links/info-genericode.htm" conformance="skip">Crane Softwrights Ltd.</ulink>
-          </orgname>
+          <orgname> Individual </orgname>
         </affiliation>
-        <email>gkholman@CraneSoftwrights.com</email>
+        <email>andrea.caccia@studiocaccia.com</email>
       </othercredit>
     </authorgroup>
     <pubdate>&pubdate;</pubdate>
@@ -125,19 +123,26 @@
         </listitem>
       </itemizedlist>
     </legalnotice>
+    <legalnotice role="namespaces">
+      <title>Declared XML Namespaces</title>
+      <simplelist lang="none">
+        <member><ulink conformance="skip" url="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">http://docs.oasis-open.org/codelist/ns/genericode/1.0/</ulink></member>
+        <member><ulink conformance="skip" url="http://docs.oasis-open.org/codelist/ns/rule/1.0/">http://docs.oasis-open.org/codelist/ns/rule/1.0/</ulink></member>
+      </simplelist>
+    </legalnotice>
     <abstract>
       <para>This specification defines the genericode v1.0 vocabulary, rules, and serialization.</para>
     </abstract>
     <legalnotice role="status" id="STATUS">
       <title>Status</title>
-      <!--
+      <!--only one of the two following paragraphs applies; comment out the other one-->
       <para>This <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#dWorkingDraft">Working Draft</ulink> (WD) has been produced by one or more TC Members; it has not yet been voted on by the TC or <ulink conformance="skip"
           url="https://www.oasis-open.org/policies-guidelines/tc-process#committeeDraft">approved</ulink> as a Committee Specification Draft. The OASIS document <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess">Approval Process</ulink>
         begins officially with a TC vote to approve a WD as a Committee Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Draft.</para>
+      <!--
+      <para>This document was last revised or approved by the OASIS Universal Business Language TC <!-\-OASIS Members-\-> on the above date. The level of approval is also listed above. Check the &#x201c;Latest version&#x201d; location noted above for possible later revisions of this document. Any
+        other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <ulink url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical</ulink>. </para> 
       -->
-      <para>This document was last revised or approved by the OASIS Universal Business Language TC <!--OASIS Members--> on the above date. The level of approval is also listed above. Check the &#x201c;Latest version&#x201d; location noted above for possible later revisions of this document. Any
-        other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <ulink url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical</ulink>. </para>
-      <!--only one of the two above paragraphs applies; comment out the other one-->
       <para>TC members should send comments on this document to the TC’s email list. Others should send comments to the TC’s public comment list, after subscribing to it by following the instructions at the “<ulink conformance="skip"
           url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=codelist">Send A Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink url="https://www.oasis-open.org/committees/codelist/">https://www.oasis-open.org/committees/codelist/</ulink>.</para>
       <para>This specification is provided under the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-Limited-Mode" conformance="skip">RF on Limited Terms Mode</ulink> of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">OASIS IPR
@@ -227,31 +232,50 @@
     </legalnotice>
     <legalnotice role="scope" condition="sts">
       <title>Scope</title>
-      <para>ISO/IEC 00000 specifies genericode Version 1.0, which defines a generic set of semantics for sets of key values. It includes provision for specifying metadata associated both with the individual values and with the entire set itself. Also included is a serialization of these semantics in
-        XML syntax for unambiguous publishing and interchange.</para>
-      <para>The semantics are labeled in particular for expressing values in keyed coded domains comprising a “set of codes representing X”. Expressing metadata associated with key values implements an important use case for documenting the semantics of the codes.</para>
-      <para>The labels in genericode do not prohibit the use of genericode for any domain of sets of unique key values needing associated metadata. </para>
-      <para>Not included in scope </para>
+      <para>ISO/IEC 00000 specifies genericode Version 1.0 defining a generic set of semantics for sets of key values. It includes provision for specifying metadata associated both with the individual values and with the entire set itself. Also included is a serialization of these semantics in XML
+        syntax for unambiguous publishing and interchange.</para>
+      <para>The semantics are labeled in particular for expressing values in keyed coded domains comprising a “set of codes representing X”. Expressing metadata associated with key values implements an important use case for documenting the semantics of the codes in the coded domain. The choice of
+        labels is not intended to limit the scope of genericode only to coded domains, as genericode can be used for any opportunity to associate rich value metadata with unique key values.</para>
     </legalnotice>
   </articleinfo>
   <section id="S-INTRODUCTION" role="intro">
     <title>Introduction</title>
     <section id="S-OVERVIEW">
       <title>Overview</title>
+      <section id="S-KEY-VALUE-SEMANTICS">
+        <title>Key/value semantics</title>
+        <para>The key-value store concept is a long-understood data storage paradigm for managing as associative array arrangement of information. The keys of the store are unique values expressed either as monolithic values or the combination of multi-faceted components. The keys are unique to
+          ensure unambiguous association to them with the information values that belong with a given key value.</para>
+        <para>The associated information values may be simple values or richly-structured values, or may not exist at all for a given key value. Simply the enumeration of a set of unique values can be regarded as a useful key-value association without any values specified. It may be that users of a
+          set of keys implicitly understand the concept associated with each key value without the need to explicitly reify the concept in any associated information values.</para>
+        <para>When moving information between key-value stores, or publishing the information found in a key-value store, an IT-enabled serialization format needs to accommodate the collection of information as a whole, the individual key values however composed, and the optional though potentially
+          voluminous information item values associated with each key.</para>
+        <para>Supporting multiple ad hoc or colloquial expressions of key-value associations, whether IT-enabled in a data format or not IT-enabled in arbitrary and opaque publication formats such as PDF and HTML tables, can be a burden for publishers and consumers alike. Promoting a single
+          standardized IT-enabled key-value serialization will promote easier publishing and easier ingestion of the pertinent aspects of a set of keys and their associated information values.</para>
+      </section>
+      <section id="S-IT-ENABLED-EXPRESSION-OF-CODED-DOMAINS">
+        <title>IT-enabled expression of coded domains</title>
+        <para>ISO/IEC 14662 <emphasis>Open-edi reference model</emphasis> provides standards for the inter-working of organizations through interconnected information technology (IT) systems. See <xref linkend="A-THE-OPEN-EDI-REFERENCE-MODEL-PERSPECTIVE-OF-CODE-LISTS"/> for the relationship between
+          the semantic and IT-enabling perspectives of business transactions in, respectively, the Business Operational View (BOV) and the Functional Services View (FSV).</para>
+        <para>ISO/IEC 15944-10 <emphasis>IT-enabled coded domains as semantic components in business transactions</emphasis> details important aspects of the BOV of a “set of codes representing X”, where X is a semantic umbrella concept scope and individual codes are distinct and separate semantic
+          concepts within that scope. Simple umbrella semantic examples are days of the week, countries of the world, and financial currencies. Individual distinct semantic concepts are “Tuesday” and “Thursday”, “Australia” and “Tanzania”, and “the US dollar” and “the Euro”.</para>
+        <para>Some semantic concepts, such as days of the week, are accepted as given without the need for any governing authority or Open-edi sponsoring authority or Open-edi registration authority. Most other e-business semantic concepts involved in connecting the IT systems for the inter-working
+          of organizations need such authoritative governance and managed publication of the semantics to be mutually understood by the expression of a code in a coded domain. Such code-level metadata could express linguistic or illustrative explication of the semantics of the given coded value
+          unique key.</para>
+        <para>Colloquially, such collections of codes of a coded domain are referred to as <emphasis>code lists</emphasis>. The genericode specification satisfies the FSV perspective of code lists by providing an IT-enabled expression of coded domains for the direct interchange or open publishing of
+          their content and semantics in a machine-readable syntax.</para>
+      </section>
       <section id="S-GENERICODE">
         <title>Genericode</title>
-        <para>Code lists, or enumerated values, have been with us since long before computers. They should be well understood and easily dealt with by now. Unfortunately, they are not. As is often the case, if you take a fundamentally simple concept, you find that everyone professes to understand it
-          with complete clarity. When you look more closely, you find that everybody has their own unique view of what the problem is and how it should be solved.</para>
+        <para>Code lists, often regarded simply as enumerated values, have been with us since long before computers. They should be well understood and easily dealt with by now. Unfortunately, they are not. As is often the case, if you take a fundamentally simple concept, you find that everyone
+          professes to understand it with complete clarity. When you look more closely, you find that everybody has their own unique view of what the problem is and how it should be solved.</para>
         <para>If code lists were really so simple and obvious, there would already be a single, well-known and accepted way of handling them in XML. There is no such agreed solution, though. The problem is that while code lists are a well understood concept, people don’t actually agree exactly on
           what code lists are, and how they should be used.</para>
         <para>The OASIS Code List Representation format, “<emphasis role="italic">genericode</emphasis>”<footnote id="fn1">
             <para>Genericode can be written starting either with an upper-case or lower-case “g”. It depends whether genericode is at the start of the sentence or not.</para>
-          </footnote>, is a single model and XML format (with a W3C XML Schema) that can encode a broad range of code list information. The XML format is designed to support interchange or distribution of machine-readable code list information between systems. Note that genericode is <emphasis
-            role="bold">not</emphasis> designed as a run-time format for accessing code list information, and is not optimized for such usage. Rather, it is designed as an interchange format that can be transformed into formats suitable for run-time usage, or loaded into systems that perform
-          run-time processing using code list information.</para>
-        <para>This version 1.0 of genericode implements the “Version 1.0 Requirements” from the OASIS Code List Representation Requirements document, version 1.0.1 (<ulink url="http://docs.oasis-open.org/codelist/cd-genericode-1.0/doc/oasis-code-list-representation-requirements-1.0.1.pdf"
-            conformance="skip">http://docs.oasis-open.org/codelist/cd-genericode-1.0/doc/oasis-code-list-representation-requirements-1.0.1.pdf</ulink>). The requirements document also lists requirements for future versions of genericode, which will not be discussed further in this version of this
-          document.</para>
+          </footnote>, is a single semantic model of code lists and accompanying XML serialization (supported by a W3C XML Schema) that can encode a broad range of code list information. The serialization is designed to IT-enable the interchange or distribution of machine-readable code list
+          information between systems. Note that genericode is <emphasis role="bold">not</emphasis> designed as a run-time format for accessing code list information, and is not optimized for such usage. Rather, it is designed as an interchange format that can be transformed into formats suitable
+          for run-time usage, or loaded into systems that perform run-time processing using code list information.</para>
       </section>
       <section id="S-WHAT-IS-A-CODE-LIST" role="non-normative">
         <title>What is a Code List?</title>
@@ -284,7 +308,7 @@
           each column represents an associated value (code list metadata), as follows:</para>
         <informaltable border="0" class="MsoNormalTable"
           style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
-          width="530">
+          width="8cm">
           <tgroup cols="5">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -359,7 +383,7 @@
         <para>This is the most common case, where a single column can be used as a key. However, consider the following modification:</para>
         <informaltable border="0" class="MsoNormalTable"
           style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
-          width="478">
+          width="8cm">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -423,13 +447,12 @@
         <para>Here, the first two columns are each a key column. The last two columns are not individually key columns, but together they form a <emphasis role="italic">compound key</emphasis>, i.e. while the individual columns do not contain unique values, the pair of values is unique within each
           row. This is again similar to what happens in some relational databases, that a key for the rows need not be constructed from a single column, but instead may be constructed by combining two or more columns.</para>
         <para>Finally, there is no reason why a column should only contain simple values like strings or numbers. A column could also contain a complex compound group of data, such as a fragment of XML:</para>
-        <informaltable border="0" class="MsoNormalTable"
-          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
-          width="494">
+        <informaltable border="0" width="12cm" class="MsoNormalTable"
+          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;">
           <tgroup cols="3">
-            <colspec colnum="1" colname="col1"/>
-            <colspec colnum="2" colname="col2"/>
-            <colspec colnum="3" colname="col3"/>
+            <colspec colnum="1" colname="col1" colwidth="2cm"/>
+            <colspec colnum="2" colname="col2" colwidth="2cm"/>
+            <colspec colnum="3" colname="col3" colwidth="8cm"/>
             <thead>
               <row>
                 <entry>Numeric <emphasis role="bold">(key)</emphasis></entry>
@@ -767,7 +790,7 @@
     </section>
     <section id="S-NOTATION">
       <title>Notation</title>
-      <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="452">
+      <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="8">
         <tgroup cols="3">
           <colspec colnum="1" colname="col1"/>
           <colspec colnum="2" colname="col2"/>
@@ -822,71 +845,71 @@
       <title>Table of Schema Definitions</title>
       <section id="S-GLOBAL-ELEMENTS">
         <title>Global Elements</title>
-        <para>· CodeList (page 29)</para>
-        <para>· CodeListSet (page 32)</para>
-        <para>· ColumnSet (page 39)</para>
+        <para>· <xref linkend="S-CODELIST-ELEMENT"/></para>
+        <para>· <xref linkend="S-CODELISTSET-ELEMENT"/></para>
+        <para>· <xref linkend="S-COLUMNSET-ELEMENT"/></para>
       </section>
       <section id="S-GLOBAL-COMPLEX-TYPES">
         <title>Global Complex Types</title>
-        <para>· Agency (page 28)</para>
-        <para>· Annotation (page 28)</para>
-        <para>· AnyOtherContent (page 29)</para>
-        <para>· AnyOtherLanguageContent (page 29)</para>
-        <para>· CodeListDocument (page 29)</para>
-        <para>· CodeListRef (page 30)</para>
-        <para>· CodeListSetDocument (page 33)</para>
-        <para>· CodeListSetRef (page 33)</para>
-        <para>· Column (page 35)</para>
-        <para>· ColumnRef (page 37)</para>
-        <para>· ColumnSet (page 39)</para>
-        <para>· ColumnSetDocument (page 41)</para>
-        <para>· ColumnSetRef (page 43)</para>
-        <para>· Data (page 44)</para>
-        <para>· DataRestrictions (page 45)</para>
-        <para>· DatatypeFacet (page 46)</para>
-        <para>· GeneralIdentifier (page 47)</para>
-        <para>· Identification (page 47)</para>
-        <para>· Key (page 50)</para>
-        <para>· KeyColumnRef (page 51)</para>
-        <para>· KeyRef (page 52)</para>
-        <para>· LongName (page 53)</para>
-        <para>· MimeTypedUri (page 53)</para>
-        <para>· Row (page 55)</para>
-        <para>· ShortName (page 55)</para>
-        <para>· SimpleCodeList (page 55)</para>
-        <para>· SimpleValue (page 56)</para>
-        <para>· Value (page 56)</para>
+        <para>· <xref linkend="S-AGENCY-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-ANYOTHERCONTENT-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-ANYOTHERLANGUAGECONTENT-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-CODELISTDOCUMENT-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-CODELISTREF-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-CODELISTSETDOCUMENT-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-CODELISTSETREF-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-COLUMN-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-COLUMNREF-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-COLUMNSET-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-COLUMNSETDOCUMENT-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-COLUMNSETREF-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-DATA-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-DATARESTRICTIONS-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-DATATYPEFACET-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-GENERALIDENTIFIER-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-IDENTIFICATION-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-KEY-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-KEYCOLUMNREF-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-KEYREF-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-LONGNAME-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-MIMETYPEDURI-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-ROW-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-SHORTNAME-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-SIMPLECODELIST-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-SIMPLEVALUE-COMPLEX-TYPE"/></para>
+        <para>· <xref linkend="S-VALUE-COMPLEX-TYPE"/></para>
       </section>
       <section id="S-GLOBAL-SIMPLE-TYPES">
         <title>Global Simple Types</title>
-        <para>· UseType (page 56)</para>
+        <para>· <xref linkend="S-USETYPE-SIMPLE-TYPE"/></para>
       </section>
       <section id="S-GLOBAL-MODEL-GROUPS">
         <title>Global Model Groups</title>
-        <para>· CodeListSetChoice (page 32)</para>
-        <para>· ColumnChoice (page 36)</para>
-        <para>· ColumnSetChoice (page 40)</para>
-        <para>· ColumnSetContent (page 41)</para>
-        <para>· DocumentHeader (page 47)</para>
-        <para>· IdentificationRefUriSet (page 49)</para>
-        <para>· IdentificationVersionUriSet (page 49)</para>
-        <para>· KeyChoice (page 51)</para>
-        <para>· NameSet (page 54)</para>
-        <para>· OuterCodeListChoice (page 54)</para>
-        <para>· SimpleCodeListSequence (page 56)</para>
-        <para>· ValueChoice (page 57)</para>
-        <para>· VersionLocationUriSet (page 58)</para>
+        <para>· <xref linkend="S-CODELISTSETCHOICE-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-COLUMNCHOICE-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-COLUMNSETCHOICE-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-COLUMNSETCONTENT-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-DOCUMENTHEADER-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-IDENTIFICATIONREFURISET-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-IDENTIFICATIONVERSIONURISET-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-KEYCHOICE-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-NAMESET-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-OUTERCODELISTCHOICE-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-SIMPLECODELISTSEQUENCE-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-VALUECHOICE-MODEL-GROUP"/></para>
+        <para>· <xref linkend="S-VERSIONLOCATIONURISET-MODEL-GROUP"/></para>
       </section>
       <section id="S-GLOBAL-ATTRIBUTE-GROUPS">
         <title>Global Attribute Groups</title>
-        <para>· ColumnReference (page 39)</para>
-        <para>· DefaultDatatypeLibrary (page 46)</para>
-        <para>· ExternalReference (page 47)</para>
-        <para>· IdDefinition (page 47)</para>
-        <para>· Language (page 53)</para>
-        <para>· OptionalUseDefinition (page 54)</para>
-        <para>· RequiredUseDefinition (page 54)</para>
-        <para>· ValueIdentification (page 58)</para>
+        <para>· <xref linkend="S-COLUMNREFERENCE-ATTRIBUTE-GROUP"/></para>
+        <para>· <xref linkend="S-DEFAULTDATATYPELIBRARY-ATTRIBUTE-GROUP"/></para>
+        <para>· <xref linkend="S-EXTERNALREFERENCE-ATTRIBUTE-GROUP"/></para>
+        <para>· <xref linkend="S-IDDEFINITION-ATTRIBUTE-GROUP"/></para>
+        <para>· <xref linkend="S-LANGUAGE-ATTRIBUTE-GROUP"/></para>
+        <para>· <xref linkend="S-OPTIONALUSEDEFINITION-ATTRIBUTE-GROUP"/></para>
+        <para>· <xref linkend="S-REQUIREDUSEDEFINITION-ATTRIBUTE-GROUP"/></para>
+        <para>· <xref linkend="S-VALUEIDENTIFICATION-ATTRIBUTE-GROUP"/></para>
       </section>
     </section>
     <section id="S-GLOBAL-SCHEMA-DEFINITIONS-IN-ALPHABETIC-ORDER">
@@ -897,7 +920,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (ShortName? , LongName* , Identifier*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -912,17 +935,17 @@
             <tbody>
               <row>
                 <entry>ShortName</entry>
-                <entry>ShortName (page 55)</entry>
+                <entry><xref linkend="S-SHORTNAME-COMPLEX-TYPE"/></entry>
                 <entry>Short name (without whitespace) for the agency.</entry>
               </row>
               <row>
                 <entry>LongName</entry>
-                <entry>LongName (page 53)</entry>
+                <entry><xref linkend="S-LONGNAME-COMPLEX-TYPE"/></entry>
                 <entry>Human-readable name for the agency.</entry>
               </row>
               <row>
                 <entry>Identifier</entry>
-                <entry>GeneralIdentifier (page 47)</entry>
+                <entry><xref linkend="S-GENERALIDENTIFIER-COMPLEX-TYPE"/></entry>
                 <entry>Identifier for the agency.</entry>
               </row>
             </tbody>
@@ -935,7 +958,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Description* , AppInfo?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -950,12 +973,12 @@
             <tbody>
               <row>
                 <entry>Description</entry>
-                <entry>AnyOtherLanguageContent (page 29)</entry>
+                <entry><xref linkend="S-ANYOTHERLANGUAGECONTENT-COMPLEX-TYPE"/></entry>
                 <entry>Human-readable information.</entry>
               </row>
               <row>
                 <entry>AppInfo</entry>
-                <entry>AnyOtherContent (page 29)</entry>
+                <entry><xref linkend="S-ANYOTHERCONTENT-COMPLEX-TYPE"/></entry>
                 <entry>Machine-readable information.</entry>
               </row>
             </tbody>
@@ -971,11 +994,11 @@
       <section id="S-ANYOTHERLANGUAGECONTENT-COMPLEX-TYPE">
         <title>AnyOtherLanguageContent (Complex Type)</title>
         <para>Container for any human-readable XML content which is in a different namespace to the Schema’s target namespace.</para>
-        <para><emphasis role="bold">Extension of:</emphasis> AnyOtherContent (page 29)</para>
+        <para><emphasis role="bold">Extension of:</emphasis> <xref linkend="S-ANYOTHERCONTENT-COMPLEX-TYPE"/></para>
         <para><emphasis role="bold">Content Model:</emphasis> (ANY[##other]*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1004,13 +1027,13 @@
         <title>CodeList (Element)</title>
         <para>Top-level (root) element for a genericode code list definition.</para>
         <para>A code list definition defines the details of a particular (version of a) code list.</para>
-        <para><emphasis role="bold">Complex Type:</emphasis> CodeListDocument (page 29)</para>
+        <para><emphasis role="bold">Complex Type:</emphasis> <xref linkend="S-CODELISTDOCUMENT-COMPLEX-TYPE"/></para>
       </section>
       <section id="S-CODELISTDOCUMENT-COMPLEX-TYPE">
         <title>CodeListDocument (Complex Type)</title>
         <para>Document type for genericode code list definitions.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -1026,7 +1049,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((Annotation? , Identification) , (ColumnSet | ColumnSetRef) , ((SimpleCodeList))?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1040,8 +1063,8 @@
             </thead>
             <tbody>
               <row>
-                <entry>Annotation (from DocumentHeader on page 47)</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry>Annotation (from <xref linkend="S-DOCUMENTHEADER-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>User annotation information.</para>
                   <para><emphasis role="bold">DocumentHeader:</emphasis></para>
@@ -1049,8 +1072,8 @@
                 </entry>
               </row>
               <row>
-                <entry>Identification (from DocumentHeader on page 47)</entry>
-                <entry>Identification (page 47)</entry>
+                <entry>Identification (from <xref linkend="S-DOCUMENTHEADER-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-IDENTIFICATION-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Identification and location information (metadata).</para>
                   <para><emphasis role="bold">DocumentHeader:</emphasis></para>
@@ -1058,8 +1081,8 @@
                 </entry>
               </row>
               <row>
-                <entry>ColumnSet (from ColumnSetChoice on page 40)</entry>
-                <entry>ColumnSet (page 39)</entry>
+                <entry>ColumnSet (from <xref linkend="S-COLUMNSETCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-COLUMNSET-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Definition of a column set (columns and keys for the code list).</para>
                   <para><emphasis role="bold">ColumnSetChoice:</emphasis></para>
@@ -1067,8 +1090,8 @@
                 </entry>
               </row>
               <row>
-                <entry>ColumnSetRef (from ColumnSetChoice on page 40)</entry>
-                <entry>ColumnSetRef (page 43)</entry>
+                <entry>ColumnSetRef (from <xref linkend="S-COLUMNSETCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-COLUMNSETREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Reference to a column set defined in an external column set or code list document.</para>
                   <para><emphasis role="bold">ColumnSetChoice:</emphasis></para>
@@ -1076,8 +1099,8 @@
                 </entry>
               </row>
               <row>
-                <entry>SimpleCodeList (from SimpleCodeListSequence on page 56)</entry>
-                <entry>SimpleCodeList (page 55)</entry>
+                <entry>SimpleCodeList (from <xref linkend="S-SIMPLECODELISTSEQUENCE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-SIMPLECODELIST-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Simple (explicit) code list definition.</para>
                   <para><emphasis role="bold">SimpleCodeListSequence:</emphasis></para>
@@ -1091,7 +1114,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1124,7 +1147,7 @@
         <title>CodeListRef (Complex Type)</title>
         <para>Reference to a code list, possibly defined in an external document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -1144,7 +1167,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , CanonicalUri , CanonicalVersionUri? , LocationUri*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1159,7 +1182,7 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the referenced code list.</entry>
               </row>
               <row>
@@ -1198,7 +1221,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1230,14 +1253,14 @@
       <section id="S-CODELISTSET-ELEMENT">
         <title>CodeListSet (Element)</title>
         <para>Top-level element for the definition of a code list set.</para>
-        <para><emphasis role="bold">Complex Type:</emphasis> CodeListSetDocument (page 33)</para>
+        <para><emphasis role="bold">Complex Type:</emphasis> <xref linkend="S-CODELISTSETDOCUMENT-COMPLEX-TYPE"/></para>
       </section>
       <section id="S-CODELISTSETCHOICE-MODEL-GROUP">
         <title>CodeListSetChoice (Model Group)</title>
         <para>A choice between a code list reference, an inline code list set, or a code list set reference.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (CodeListRef | CodeListSet | CodeListSetRef)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1252,17 +1275,17 @@
             <tbody>
               <row>
                 <entry>CodeListRef</entry>
-                <entry>CodeListRef (page 30)</entry>
+                <entry><xref linkend="S-CODELISTREF-COMPLEX-TYPE"/></entry>
                 <entry> </entry>
               </row>
               <row>
                 <entry>CodeListSet</entry>
-                <entry>CodeListSetDocument (page 33)</entry>
+                <entry><xref linkend="S-CODELISTSETDOCUMENT-COMPLEX-TYPE"/></entry>
                 <entry> </entry>
               </row>
               <row>
                 <entry>CodeListSetRef</entry>
-                <entry>CodeListSetRef (page 33)</entry>
+                <entry><xref linkend="S-CODELISTSETREF-COMPLEX-TYPE"/></entry>
                 <entry> </entry>
               </row>
             </tbody>
@@ -1275,7 +1298,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((Annotation? , Identification) , (CodeListRef | CodeListSet | CodeListSetRef)*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1289,8 +1312,8 @@
             </thead>
             <tbody>
               <row>
-                <entry>Annotation (from DocumentHeader on page 47)</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry>Annotation (from <xref linkend="S-DOCUMENTHEADER-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>User annotation information.</para>
                   <para><emphasis role="bold">DocumentHeader:</emphasis></para>
@@ -1298,8 +1321,8 @@
                 </entry>
               </row>
               <row>
-                <entry>Identification (from DocumentHeader on page 47)</entry>
-                <entry>Identification (page 47)</entry>
+                <entry>Identification (from <xref linkend="S-DOCUMENTHEADER-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-IDENTIFICATION-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Identification and location information (metadata).</para>
                   <para><emphasis role="bold">DocumentHeader:</emphasis></para>
@@ -1307,24 +1330,24 @@
                 </entry>
               </row>
               <row>
-                <entry>CodeListRef (from CodeListSetChoice on page 32)</entry>
-                <entry>CodeListRef (page 30)</entry>
+                <entry>CodeListRef (from <xref linkend="S-CODELISTSETCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-CODELISTREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para><emphasis role="bold">CodeListSetChoice:</emphasis></para>
                   <para>Contents of the code list set. If the code list set does not have any contents, it is a CodeListSet Metadata definition.</para>
                 </entry>
               </row>
               <row>
-                <entry>CodeListSet (from CodeListSetChoice on page 32)</entry>
-                <entry>CodeListSetDocument (page 33)</entry>
+                <entry>CodeListSet (from <xref linkend="S-CODELISTSETCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-CODELISTSETDOCUMENT-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para><emphasis role="bold">CodeListSetChoice:</emphasis></para>
                   <para>Contents of the code list set. If the code list set does not have any contents, it is a CodeListSet Metadata definition.</para>
                 </entry>
               </row>
               <row>
-                <entry>CodeListSetRef (from CodeListSetChoice on page 32)</entry>
-                <entry>CodeListSetRef (page 33)</entry>
+                <entry>CodeListSetRef (from <xref linkend="S-CODELISTSETCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-CODELISTSETREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para><emphasis role="bold">CodeListSetChoice:</emphasis></para>
                   <para>Contents of the code list set. If the code list set does not have any contents, it is a CodeListSet Metadata definition.</para>
@@ -1334,7 +1357,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1367,7 +1390,7 @@
         <title>CodeListSetRef (Complex Type)</title>
         <para>Reference to a code list set, possibly defined in an external document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -1387,7 +1410,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , CanonicalUri , CanonicalVersionUri? , LocationUri*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1402,7 +1425,7 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the referenced code list set.</entry>
               </row>
               <row>
@@ -1441,7 +1464,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1477,7 +1500,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (ShortName , LongName*) , (CanonicalUri , CanonicalVersionUri?)? , Data)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1492,12 +1515,12 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User information about the column.</entry>
               </row>
               <row>
-                <entry>ShortName (from NameSet on page 54)</entry>
-                <entry>ShortName (page 55)</entry>
+                <entry>ShortName (from <xref linkend="S-NAMESET-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-SHORTNAME-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Short name (without whitespace).</para>
                   <para><emphasis role="bold">NameSet:</emphasis></para>
@@ -1505,8 +1528,8 @@
                 </entry>
               </row>
               <row>
-                <entry>LongName (from NameSet on page 54)</entry>
-                <entry>LongName (page 53)</entry>
+                <entry>LongName (from <xref linkend="S-NAMESET-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-LONGNAME-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Human-readable name.</para>
                   <para><emphasis role="bold">NameSet:</emphasis></para>
@@ -1514,7 +1537,7 @@
                 </entry>
               </row>
               <row>
-                <entry>CanonicalUri (from IdentificationVersionUriSet on page 49)</entry>
+                <entry>CanonicalUri (from <xref linkend="S-IDENTIFICATIONVERSIONURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Canonical URI which uniquely identifies all versions collectively.</para>
@@ -1526,7 +1549,7 @@
                 </entry>
               </row>
               <row>
-                <entry>CanonicalVersionUri (from IdentificationVersionUriSet on page 49)</entry>
+                <entry>CanonicalVersionUri (from <xref linkend="S-IDENTIFICATIONVERSIONURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Canonical URI which uniquely identifies this version.</para>
@@ -1539,14 +1562,14 @@
               </row>
               <row>
                 <entry>Data</entry>
-                <entry>Data (page 44)</entry>
+                <entry><xref linkend="S-DATA-COMPLEX-TYPE"/></entry>
                 <entry>Data type of the column.</entry>
               </row>
             </tbody>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1562,7 +1585,7 @@
             </thead>
             <tbody>
               <row>
-                <entry>Id (from IdDefinition on page 47)</entry>
+                <entry>Id (from <xref linkend="S-IDDEFINITION-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>required</entry>
                 <entry>xsd:ID</entry>
                 <entry>
@@ -1572,9 +1595,9 @@
                 </entry>
               </row>
               <row>
-                <entry>Use (from RequiredUseDefinition on page 54)</entry>
+                <entry>Use (from <xref linkend="S-REQUIREDUSEDEFINITION-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>required</entry>
-                <entry>UseType (page 56)</entry>
+                <entry><xref linkend="S-USETYPE-SIMPLE-TYPE"/></entry>
                 <entry>
                   <para>Whether the usage is required or optional.</para>
                   <para><emphasis role="bold">RequiredUseDefinition:</emphasis></para>
@@ -1590,7 +1613,7 @@
         <para>A choice between a column definition and a column reference.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (Column | ColumnRef)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1605,12 +1628,12 @@
             <tbody>
               <row>
                 <entry>Column</entry>
-                <entry>Column (page 35)</entry>
+                <entry><xref linkend="S-COLUMN-COMPLEX-TYPE"/></entry>
                 <entry>Definition of a column.</entry>
               </row>
               <row>
                 <entry>ColumnRef</entry>
-                <entry>ColumnRef (page 37)</entry>
+                <entry><xref linkend="S-COLUMNREF-COMPLEX-TYPE"/></entry>
                 <entry>Reference to a column defined in an external column set or code list.</entry>
               </row>
             </tbody>
@@ -1621,7 +1644,7 @@
         <title>ColumnRef (Complex Type)</title>
         <para>Reference to a column defined in an external column set or code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -1640,7 +1663,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (CanonicalVersionUri , LocationUri*) , Data?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1655,11 +1678,11 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the referenced column.</entry>
               </row>
               <row>
-                <entry>CanonicalVersionUri (from IdentificationRefUriSet on page 49)</entry>
+                <entry>CanonicalVersionUri (from <xref linkend="S-IDENTIFICATIONREFURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Canonical URI which serves as a unique identifier for this version.</para>
@@ -1671,7 +1694,7 @@
                 </entry>
               </row>
               <row>
-                <entry>LocationUri (from IdentificationRefUriSet on page 49)</entry>
+                <entry>LocationUri (from <xref linkend="S-IDENTIFICATIONREFURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Suggested retrieval location for this version, in genericode format.</para>
@@ -1683,14 +1706,14 @@
               </row>
               <row>
                 <entry>Data</entry>
-                <entry>DataRestrictions (page 45)</entry>
+                <entry><xref linkend="S-DATARESTRICTIONS-COMPLEX-TYPE"/></entry>
                 <entry>Restrictions to the data type of the referenced column.</entry>
               </row>
             </tbody>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1706,7 +1729,7 @@
             </thead>
             <tbody>
               <row>
-                <entry>Id (from IdDefinition on page 47)</entry>
+                <entry>Id (from <xref linkend="S-IDDEFINITION-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>required</entry>
                 <entry>xsd:ID</entry>
                 <entry>
@@ -1716,7 +1739,7 @@
                 </entry>
               </row>
               <row>
-                <entry>ExternalRef (from ExternalReference on page 47)</entry>
+                <entry>ExternalRef (from <xref linkend="S-EXTERNALREFERENCE-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>required</entry>
                 <entry>xsd:NCName</entry>
                 <entry>
@@ -1728,16 +1751,16 @@
                 </entry>
               </row>
               <row>
-                <entry>Use (from OptionalUseDefinition on page 54)</entry>
+                <entry>Use (from <xref linkend="S-OPTIONALUSEDEFINITION-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>optional</entry>
-                <entry>UseType (page 56)</entry>
+                <entry><xref linkend="S-USETYPE-SIMPLE-TYPE"/></entry>
                 <entry>
                   <para>Whether the usage is required or optional.</para>
                   <para><emphasis role="bold">OptionalUseDefinition:</emphasis></para>
                   <para>Whether the column is required or optional.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable border="0" class="MsoNormalTable" style="border-collapse: collapse;" width="596">
+                    <informaltable role="rule" border="0" style="border-collapse: collapse;">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1771,7 +1794,7 @@
         <title>ColumnReference (Attribute Group)</title>
         <para>Attribute set for referring to a column definition.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1799,7 +1822,7 @@
       <section id="S-COLUMNSET-ELEMENT">
         <title>ColumnSet (Element)</title>
         <para>Top-level element for the definition of a column set.</para>
-        <para><emphasis role="bold">Complex Type:</emphasis> ColumnSetDocument (page 41)</para>
+        <para><emphasis role="bold">Complex Type:</emphasis> <xref linkend="S-COLUMNSETDOCUMENT-COMPLEX-TYPE"/></para>
       </section>
       <section id="S-COLUMNSET-COMPLEX-TYPE">
         <title>ColumnSet (Complex Type)</title>
@@ -1807,7 +1830,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((Column | ColumnRef)* , (Key | KeyRef)*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1821,8 +1844,8 @@
             </thead>
             <tbody>
               <row>
-                <entry>Column (from ColumnChoice on page 36)</entry>
-                <entry>Column (page 35)</entry>
+                <entry>Column (from <xref linkend="S-COLUMNCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-COLUMN-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Definition of a column.</para>
                   <para><emphasis role="bold">ColumnChoice:</emphasis></para>
@@ -1832,8 +1855,8 @@
                 </entry>
               </row>
               <row>
-                <entry>ColumnRef (from ColumnChoice on page 36)</entry>
-                <entry>ColumnRef (page 37)</entry>
+                <entry>ColumnRef (from <xref linkend="S-COLUMNCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-COLUMNREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Reference to a column defined in an external column set or code list.</para>
                   <para><emphasis role="bold">ColumnChoice:</emphasis></para>
@@ -1843,8 +1866,8 @@
                 </entry>
               </row>
               <row>
-                <entry>Key (from KeyChoice on page 51)</entry>
-                <entry>Key (page 50)</entry>
+                <entry>Key (from <xref linkend="S-KEYCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-KEY-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Definition of a key.</para>
                   <para><emphasis role="bold">KeyChoice:</emphasis></para>
@@ -1854,8 +1877,8 @@
                 </entry>
               </row>
               <row>
-                <entry>KeyRef (from KeyChoice on page 51)</entry>
-                <entry>KeyRef (page 52)</entry>
+                <entry>KeyRef (from <xref linkend="S-KEYCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-KEYREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Reference to a key defined in an external column set or code list.</para>
                   <para><emphasis role="bold">KeyChoice:</emphasis></para>
@@ -1868,7 +1891,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1884,7 +1907,7 @@
             </thead>
             <tbody>
               <row>
-                <entry>DatatypeLibrary (from DefaultDatatypeLibrary on page 46)</entry>
+                <entry>DatatypeLibrary (from <xref linkend="S-DEFAULTDATATYPELIBRARY-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>optional</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
@@ -1912,7 +1935,7 @@
         <para>A choice between a column set definition and a column set reference.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (ColumnSet | ColumnSetRef)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1927,12 +1950,12 @@
             <tbody>
               <row>
                 <entry>ColumnSet</entry>
-                <entry>ColumnSet (page 39)</entry>
+                <entry><xref linkend="S-COLUMNSET-COMPLEX-TYPE"/></entry>
                 <entry>Definition of a column set (columns and keys for the code list).</entry>
               </row>
               <row>
                 <entry>ColumnSetRef</entry>
-                <entry>ColumnSetRef (page 43)</entry>
+                <entry><xref linkend="S-COLUMNSETREF-COMPLEX-TYPE"/></entry>
                 <entry>Reference to a column set defined in an external column set or code list document.</entry>
               </row>
             </tbody>
@@ -1944,7 +1967,7 @@
         <para>Specific details of a column set.</para>
         <para><emphasis role="bold">Content Model:</emphasis> ((Column | ColumnRef)* , (Key | KeyRef)*)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1958,8 +1981,8 @@
             </thead>
             <tbody>
               <row>
-                <entry>Column (from ColumnChoice on page 36)</entry>
-                <entry>Column (page 35)</entry>
+                <entry>Column (from <xref linkend="S-COLUMNCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-COLUMN-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Definition of a column.</para>
                   <para><emphasis role="bold">ColumnChoice:</emphasis></para>
@@ -1967,8 +1990,8 @@
                 </entry>
               </row>
               <row>
-                <entry>ColumnRef (from ColumnChoice on page 36)</entry>
-                <entry>ColumnRef (page 37)</entry>
+                <entry>ColumnRef (from <xref linkend="S-COLUMNCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-COLUMNREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Reference to a column defined in an external column set or code list.</para>
                   <para><emphasis role="bold">ColumnChoice:</emphasis></para>
@@ -1976,8 +1999,8 @@
                 </entry>
               </row>
               <row>
-                <entry>Key (from KeyChoice on page 51)</entry>
-                <entry>Key (page 50)</entry>
+                <entry>Key (from <xref linkend="S-KEYCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-KEY-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Definition of a key.</para>
                   <para><emphasis role="bold">KeyChoice:</emphasis></para>
@@ -1985,8 +2008,8 @@
                 </entry>
               </row>
               <row>
-                <entry>KeyRef (from KeyChoice on page 51)</entry>
-                <entry>KeyRef (page 52)</entry>
+                <entry>KeyRef (from <xref linkend="S-KEYCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-KEYREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Reference to a key defined in an external column set or code list.</para>
                   <para><emphasis role="bold">KeyChoice:</emphasis></para>
@@ -2003,7 +2026,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((Annotation? , Identification) , ((Column | ColumnRef)* , (Key | KeyRef)*))</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2017,8 +2040,8 @@
             </thead>
             <tbody>
               <row>
-                <entry>Annotation (from DocumentHeader on page 47)</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry>Annotation (from <xref linkend="S-DOCUMENTHEADER-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>User annotation information.</para>
                   <para><emphasis role="bold">DocumentHeader:</emphasis></para>
@@ -2026,8 +2049,8 @@
                 </entry>
               </row>
               <row>
-                <entry>Identification (from DocumentHeader on page 47)</entry>
-                <entry>Identification (page 47)</entry>
+                <entry>Identification (from <xref linkend="S-DOCUMENTHEADER-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-IDENTIFICATION-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Identification and location information (metadata).</para>
                   <para><emphasis role="bold">DocumentHeader:</emphasis></para>
@@ -2035,8 +2058,8 @@
                 </entry>
               </row>
               <row>
-                <entry>Column (from ColumnChoice on page 36)</entry>
-                <entry>Column (page 35)</entry>
+                <entry>Column (from <xref linkend="S-COLUMNCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-COLUMN-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Definition of a column.</para>
                   <para><emphasis role="bold">ColumnChoice:</emphasis></para>
@@ -2046,8 +2069,8 @@
                 </entry>
               </row>
               <row>
-                <entry>ColumnRef (from ColumnChoice on page 36)</entry>
-                <entry>ColumnRef (page 37)</entry>
+                <entry>ColumnRef (from <xref linkend="S-COLUMNCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-COLUMNREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Reference to a column defined in an external column set or code list.</para>
                   <para><emphasis role="bold">ColumnChoice:</emphasis></para>
@@ -2057,8 +2080,8 @@
                 </entry>
               </row>
               <row>
-                <entry>Key (from KeyChoice on page 51)</entry>
-                <entry>Key (page 50)</entry>
+                <entry>Key (from <xref linkend="S-KEYCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-KEY-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Definition of a key.</para>
                   <para><emphasis role="bold">KeyChoice:</emphasis></para>
@@ -2068,8 +2091,8 @@
                 </entry>
               </row>
               <row>
-                <entry>KeyRef (from KeyChoice on page 51)</entry>
-                <entry>KeyRef (page 52)</entry>
+                <entry>KeyRef (from <xref linkend="S-KEYCHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-KEYREF-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Reference to a key defined in an external column set or code list.</para>
                   <para><emphasis role="bold">KeyChoice:</emphasis></para>
@@ -2082,7 +2105,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2098,7 +2121,7 @@
             </thead>
             <tbody>
               <row>
-                <entry>DatatypeLibrary (from DefaultDatatypeLibrary on page 46)</entry>
+                <entry>DatatypeLibrary (from <xref linkend="S-DEFAULTDATATYPELIBRARY-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>optional</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
@@ -2125,7 +2148,7 @@
         <title>ColumnSetRef (Complex Type)</title>
         <para>Reference to a column set defined in an external column set or code list document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -2144,7 +2167,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (CanonicalVersionUri , LocationUri*))</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2159,11 +2182,11 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the referenced column set.</entry>
               </row>
               <row>
-                <entry>CanonicalVersionUri (from IdentificationRefUriSet on page 49)</entry>
+                <entry>CanonicalVersionUri (from <xref linkend="S-IDENTIFICATIONREFURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Canonical URI which serves as a unique identifier for this version.</para>
@@ -2175,7 +2198,7 @@
                 </entry>
               </row>
               <row>
-                <entry>LocationUri (from IdentificationRefUriSet on page 49)</entry>
+                <entry>LocationUri (from <xref linkend="S-IDENTIFICATIONREFURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Suggested retrieval location for this version, in genericode format.</para>
@@ -2189,7 +2212,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2224,7 +2247,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , Parameter*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2239,19 +2262,19 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the datatype.</entry>
               </row>
               <row>
                 <entry>Parameter</entry>
-                <entry>DatatypeFacet (page 46)</entry>
+                <entry><xref linkend="S-DATATYPEFACET-COMPLEX-TYPE"/></entry>
                 <entry>Facet parameter which refines the datatype.</entry>
               </row>
             </tbody>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2290,7 +2313,7 @@
                 </entry>
               </row>
               <row>
-                <entry>Lang (from Language on page 53)</entry>
+                <entry>Lang (from <xref linkend="S-LANGUAGE-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>optional</entry>
                 <entry>xsd:language</entry>
                 <entry>
@@ -2308,7 +2331,7 @@
         <title>DataRestrictions (Complex Type)</title>
         <para>Restrictions to a data type.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -2324,7 +2347,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Parameter*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2339,14 +2362,14 @@
             <tbody>
               <row>
                 <entry>Parameter</entry>
-                <entry>DatatypeFacet (page 46)</entry>
+                <entry><xref linkend="S-DATATYPEFACET-COMPLEX-TYPE"/></entry>
                 <entry>Facet parameter which refines the datatype.</entry>
               </row>
             </tbody>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2362,7 +2385,7 @@
             </thead>
             <tbody>
               <row>
-                <entry>Lang (from Language on page 53)</entry>
+                <entry>Lang (from <xref linkend="S-LANGUAGE-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>optional</entry>
                 <entry>xsd:language</entry>
                 <entry>
@@ -2381,7 +2404,7 @@
         <para>Facet information for refining a datatype.</para>
         <para><emphasis role="bold">Extension of:</emphasis> xsd:string</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2416,7 +2439,7 @@
         <title>DefaultDatatypeLibrary (Attribute Group)</title>
         <para>Identification of the default datatype library for a column set.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2446,7 +2469,7 @@
         <para>General document information (metadata).</para>
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , Identification)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2461,12 +2484,12 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation information.</entry>
               </row>
               <row>
                 <entry>Identification</entry>
-                <entry>Identification (page 47)</entry>
+                <entry><xref linkend="S-IDENTIFICATION-COMPLEX-TYPE"/></entry>
                 <entry>Identification and location information (metadata).</entry>
               </row>
             </tbody>
@@ -2477,7 +2500,7 @@
         <title>ExternalReference (Attribute Group)</title>
         <para>Attribute set used to identify a definition within an external document.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2515,7 +2538,7 @@
         <title>IdDefinition (Attribute Group)</title>
         <para>Attribute set used to identify a definition within the document.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2546,7 +2569,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((ShortName , LongName*) , Version , CanonicalUri , (CanonicalVersionUri , LocationUri* , AlternateFormatLocationUri*) , Agency?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2560,8 +2583,8 @@
             </thead>
             <tbody>
               <row>
-                <entry>ShortName (from NameSet on page 54)</entry>
-                <entry>ShortName (page 55)</entry>
+                <entry>ShortName (from <xref linkend="S-NAMESET-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-SHORTNAME-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Short name (without whitespace).</para>
                   <para><emphasis role="bold">NameSet:</emphasis></para>
@@ -2569,8 +2592,8 @@
                 </entry>
               </row>
               <row>
-                <entry>LongName (from NameSet on page 54)</entry>
-                <entry>LongName (page 53)</entry>
+                <entry>LongName (from <xref linkend="S-NAMESET-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-LONGNAME-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Human-readable name.</para>
                   <para><emphasis role="bold">NameSet:</emphasis></para>
@@ -2593,7 +2616,7 @@
                 </entry>
               </row>
               <row>
-                <entry>CanonicalVersionUri (from VersionLocationUriSet on page 58)</entry>
+                <entry>CanonicalVersionUri (from <xref linkend="S-VERSIONLOCATIONURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Canonical URI which uniquely identifies this version.</para>
@@ -2605,7 +2628,7 @@
                 </entry>
               </row>
               <row>
-                <entry>LocationUri (from VersionLocationUriSet on page 58)</entry>
+                <entry>LocationUri (from <xref linkend="S-VERSIONLOCATIONURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Suggested retrieval location for this version, in genericode format.</para>
@@ -2616,8 +2639,8 @@
                 </entry>
               </row>
               <row>
-                <entry>AlternateFormatLocationUri (from VersionLocationUriSet on page 58)</entry>
-                <entry>MimeTypedUri (page 53)</entry>
+                <entry>AlternateFormatLocationUri (from <xref linkend="S-VERSIONLOCATIONURISET-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-MIMETYPEDURI-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Suggested retrieval location for this version, in a non-genericode format.</para>
                   <para>Such alternative formats are intended only as additional renditions of the code list information, not as a replacements nor as alternatives for use in application processing.</para>
@@ -2627,7 +2650,7 @@
               </row>
               <row>
                 <entry>Agency</entry>
-                <entry>Agency (page 28)</entry>
+                <entry><xref linkend="S-AGENCY-COMPLEX-TYPE"/></entry>
                 <entry>Agency that is responsible for publication and/or maintenance of the information.</entry>
               </row>
             </tbody>
@@ -2639,7 +2662,7 @@
         <para>Identification and location URIs.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (CanonicalVersionUri , LocationUri*)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2680,7 +2703,7 @@
         <para>URIs used as unique identifiers.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (CanonicalUri , CanonicalVersionUri?)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2722,7 +2745,7 @@
         <para>Definition of a key.</para>
         <para>A key is a set of one or more columns whose values together provide a unique identification of each item in a code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -2738,7 +2761,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (ShortName , LongName*) , (CanonicalUri , CanonicalVersionUri?)? , ColumnRef+)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2753,12 +2776,12 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the key.</entry>
               </row>
               <row>
-                <entry>ShortName (from NameSet on page 54)</entry>
-                <entry>ShortName (page 55)</entry>
+                <entry>ShortName (from <xref linkend="S-NAMESET-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-SHORTNAME-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Short name (without whitespace).</para>
                   <para><emphasis role="bold">NameSet:</emphasis></para>
@@ -2766,8 +2789,8 @@
                 </entry>
               </row>
               <row>
-                <entry>LongName (from NameSet on page 54)</entry>
-                <entry>LongName (page 53)</entry>
+                <entry>LongName (from <xref linkend="S-NAMESET-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-LONGNAME-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Human-readable name.</para>
                   <para><emphasis role="bold">NameSet:</emphasis></para>
@@ -2775,7 +2798,7 @@
                 </entry>
               </row>
               <row>
-                <entry>CanonicalUri (from IdentificationVersionUriSet on page 49)</entry>
+                <entry>CanonicalUri (from <xref linkend="S-IDENTIFICATIONVERSIONURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Canonical URI which uniquely identifies all versions collectively.</para>
@@ -2787,7 +2810,7 @@
                 </entry>
               </row>
               <row>
-                <entry>CanonicalVersionUri (from IdentificationVersionUriSet on page 49)</entry>
+                <entry>CanonicalVersionUri (from <xref linkend="S-IDENTIFICATIONVERSIONURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Canonical URI which uniquely identifies this version.</para>
@@ -2800,14 +2823,14 @@
               </row>
               <row>
                 <entry>ColumnRef</entry>
-                <entry>KeyColumnRef (page 51)</entry>
+                <entry><xref linkend="S-KEYCOLUMNREF-COMPLEX-TYPE"/></entry>
                 <entry>Reference to the document ID of a column in the key.</entry>
               </row>
             </tbody>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2823,7 +2846,7 @@
             </thead>
             <tbody>
               <row>
-                <entry>Id (from IdDefinition on page 47)</entry>
+                <entry>Id (from <xref linkend="S-IDDEFINITION-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>required</entry>
                 <entry>xsd:ID</entry>
                 <entry>
@@ -2841,7 +2864,7 @@
         <para>A choice between a key definition and a key reference.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (Key | KeyRef)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2856,12 +2879,12 @@
             <tbody>
               <row>
                 <entry>Key</entry>
-                <entry>Key (page 50)</entry>
+                <entry><xref linkend="S-KEY-COMPLEX-TYPE"/></entry>
                 <entry>Definition of a key.</entry>
               </row>
               <row>
                 <entry>KeyRef</entry>
-                <entry>KeyRef (page 52)</entry>
+                <entry><xref linkend="S-KEYREF-COMPLEX-TYPE"/></entry>
                 <entry>Reference to a key defined in an external column set or code list.</entry>
               </row>
             </tbody>
@@ -2874,7 +2897,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2889,14 +2912,14 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the column.</entry>
               </row>
             </tbody>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2925,7 +2948,7 @@
         <title>KeyRef (Complex Type)</title>
         <para>Reference to a key defined in an external column set or code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -2944,7 +2967,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (CanonicalVersionUri , LocationUri*))</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2959,11 +2982,11 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the referenced key.</entry>
               </row>
               <row>
-                <entry>CanonicalVersionUri (from IdentificationRefUriSet on page 49)</entry>
+                <entry>CanonicalVersionUri (from <xref linkend="S-IDENTIFICATIONREFURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Canonical URI which serves as a unique identifier for this version.</para>
@@ -2975,7 +2998,7 @@
                 </entry>
               </row>
               <row>
-                <entry>LocationUri (from IdentificationRefUriSet on page 49)</entry>
+                <entry>LocationUri (from <xref linkend="S-IDENTIFICATIONREFURISET-MODEL-GROUP"/>)</entry>
                 <entry>xsd:anyURI</entry>
                 <entry>
                   <para>Suggested retrieval location for this version, in genericode format.</para>
@@ -2989,7 +3012,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3005,7 +3028,7 @@
             </thead>
             <tbody>
               <row>
-                <entry>Id (from IdDefinition on page 47)</entry>
+                <entry>Id (from <xref linkend="S-IDDEFINITION-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>required</entry>
                 <entry>xsd:ID</entry>
                 <entry>
@@ -3015,7 +3038,7 @@
                 </entry>
               </row>
               <row>
-                <entry>ExternalRef (from ExternalReference on page 47)</entry>
+                <entry>ExternalRef (from <xref linkend="S-EXTERNALREFERENCE-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>required</entry>
                 <entry>xsd:NCName</entry>
                 <entry>
@@ -3044,7 +3067,7 @@
         <title>Language (Attribute Group)</title>
         <para>Attributes which describe the language of a piece of text.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3082,7 +3105,7 @@
         <para>URI for a resource, with support for specifying the MIME type.</para>
         <para><emphasis role="bold">Extension of:</emphasis> xsd:anyURI</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3112,7 +3135,7 @@
         <para>Various names.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (ShortName , LongName*)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3127,12 +3150,12 @@
             <tbody>
               <row>
                 <entry>ShortName</entry>
-                <entry>ShortName (page 55)</entry>
+                <entry><xref linkend="S-SHORTNAME-COMPLEX-TYPE"/></entry>
                 <entry>Short name (without whitespace).</entry>
               </row>
               <row>
                 <entry>LongName</entry>
-                <entry>LongName (page 53)</entry>
+                <entry><xref linkend="S-LONGNAME-COMPLEX-TYPE"/></entry>
                 <entry>Human-readable name.</entry>
               </row>
             </tbody>
@@ -3143,7 +3166,7 @@
         <title>OptionalUseDefinition (Attribute Group)</title>
         <para>Attribute set which defines the usage (optional attribute).</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3161,7 +3184,7 @@
               <row>
                 <entry>Use</entry>
                 <entry>optional</entry>
-                <entry>UseType (page 56)</entry>
+                <entry><xref linkend="S-USETYPE-SIMPLE-TYPE"/></entry>
                 <entry>Whether the usage is required or optional.</entry>
               </row>
             </tbody>
@@ -3173,7 +3196,7 @@
         <para>A choice which currently only allows a simple (explicit) code list definition.</para>
         <para><emphasis role="bold">Content Model:</emphasis> ((SimpleCodeList))</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3187,8 +3210,8 @@
             </thead>
             <tbody>
               <row>
-                <entry>SimpleCodeList (from SimpleCodeListSequence on page 56)</entry>
-                <entry>SimpleCodeList (page 55)</entry>
+                <entry>SimpleCodeList (from <xref linkend="S-SIMPLECODELISTSEQUENCE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-SIMPLECODELIST-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Simple (explicit) code list definition.</para>
                   <para><emphasis role="bold">SimpleCodeListSequence:</emphasis></para>
@@ -3203,7 +3226,7 @@
         <title>RequiredUseDefinition (Attribute Group)</title>
         <para>Attribute set which defines the usage (required attribute).</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3221,7 +3244,7 @@
               <row>
                 <entry>Use</entry>
                 <entry>required</entry>
-                <entry>UseType (page 56)</entry>
+                <entry><xref linkend="S-USETYPE-SIMPLE-TYPE"/></entry>
                 <entry>Whether the usage is required or optional.</entry>
               </row>
             </tbody>
@@ -3234,7 +3257,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , Value+)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3249,12 +3272,12 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the row.</entry>
               </row>
               <row>
                 <entry>Value</entry>
-                <entry>Value (page 56)</entry>
+                <entry><xref linkend="S-VALUE-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Column value for the row.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
@@ -3271,7 +3294,7 @@
         <title>ShortName (Complex Type)</title>
         <para>A short name without whitespace that is suitable for use in generating names for software artifacts.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3286,7 +3309,7 @@
         </informaltable>
         <para><emphasis role="bold">Extension of:</emphasis> xsd:token</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3315,7 +3338,7 @@
         <title>SimpleCodeList (Complex Type)</title>
         <para>Simple (explicit) code list definition.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3331,7 +3354,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , Row*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3346,12 +3369,12 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the code list.</entry>
               </row>
               <row>
                 <entry>Row</entry>
-                <entry>Row (page 55)</entry>
+                <entry><xref linkend="S-ROW-COMPLEX-TYPE"/></entry>
                 <entry>Row which represents an individual item in the code list.</entry>
               </row>
             </tbody>
@@ -3363,7 +3386,7 @@
         <para>Details of a simple code list definition.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (SimpleCodeList)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3378,7 +3401,7 @@
             <tbody>
               <row>
                 <entry>SimpleCodeList</entry>
-                <entry>SimpleCodeList (page 55)</entry>
+                <entry><xref linkend="S-SIMPLECODELIST-COMPLEX-TYPE"/></entry>
                 <entry>Simple (explicit) code list definition.</entry>
               </row>
             </tbody>
@@ -3404,7 +3427,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (SimpleValue | ComplexValue)?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3419,12 +3442,12 @@
             <tbody>
               <row>
                 <entry>Annotation</entry>
-                <entry>Annotation (page 28)</entry>
+                <entry><xref linkend="S-ANNOTATION-COMPLEX-TYPE"/></entry>
                 <entry>User annotation for the value.</entry>
               </row>
               <row>
-                <entry>SimpleValue (from ValueChoice on page 57)</entry>
-                <entry>SimpleValue (page 56)</entry>
+                <entry>SimpleValue (from <xref linkend="S-VALUECHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-SIMPLEVALUE-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Simple textual value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
@@ -3434,8 +3457,8 @@
                 </entry>
               </row>
               <row>
-                <entry>ComplexValue (from ValueChoice on page 57)</entry>
-                <entry>AnyOtherContent (page 29)</entry>
+                <entry>ComplexValue (from <xref linkend="S-VALUECHOICE-MODEL-GROUP"/>)</entry>
+                <entry><xref linkend="S-ANYOTHERCONTENT-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Complex (structured) XML value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
@@ -3449,7 +3472,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3465,7 +3488,7 @@
             </thead>
             <tbody>
               <row>
-                <entry>ColumnRef (from ColumnReference on page 39)</entry>
+                <entry>ColumnRef (from <xref linkend="S-COLUMNREFERENCE-ATTRIBUTE-GROUP"/>)</entry>
                 <entry>optional</entry>
                 <entry>xsd:IDREF</entry>
                 <entry>
@@ -3483,7 +3506,7 @@
         <para>A choice between a simple textual value and a complex (structured) XML value.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (SimpleValue | ComplexValue)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3498,7 +3521,7 @@
             <tbody>
               <row>
                 <entry>SimpleValue</entry>
-                <entry>SimpleValue (page 56)</entry>
+                <entry><xref linkend="S-SIMPLEVALUE-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Simple textual value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
@@ -3507,7 +3530,7 @@
               </row>
               <row>
                 <entry>ComplexValue</entry>
-                <entry>AnyOtherContent (page 29)</entry>
+                <entry><xref linkend="S-ANYOTHERCONTENT-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Complex (structured) XML value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
@@ -3523,7 +3546,7 @@
         <title>ValueIdentification (Attribute Group)</title>
         <para>Information which identifies one of a set of alternate values.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3559,7 +3582,7 @@
         <para>Identification and location URIs for a version.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (CanonicalVersionUri , LocationUri* , AlternateFormatLocationUri*)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3593,7 +3616,7 @@
               </row>
               <row>
                 <entry>AlternateFormatLocationUri</entry>
-                <entry>MimeTypedUri (page 53)</entry>
+                <entry><xref linkend="S-MIMETYPEDURI-COMPLEX-TYPE"/></entry>
                 <entry>
                   <para>Suggested retrieval location for this version, in a non-genericode format.</para>
                   <para>Such alternative formats are intended only as additional renditions of the code list information, not as a replacements nor as alternatives for use in application processing.</para>
@@ -3611,7 +3634,7 @@
       <section id="S-CATEGORY-DOCUMENT">
         <title>Category: document</title>
         <para><emphasis role="bold">Rule R1 [document:: complexType CodeListDocument] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3622,7 +3645,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R4 [document:: element CanonicalUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3633,7 +3656,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R6 [document:: element CanonicalVersionUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3644,7 +3667,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R19 [document:: attribute Type in complexType Data] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3658,7 +3681,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R20 [document:: attribute Type in complexType Data] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3669,7 +3692,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R22 [document:: attribute DatatypeLibrary in complexType Data] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3680,7 +3703,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R23 [document:: complexType DataRestrictions] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3691,7 +3714,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R24 [document:: attribute ExternalRef in attributeGroup ExternalReference] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3702,7 +3725,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R25 [document:: element CanonicalUri in complexType Identification] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3713,7 +3736,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R27 [document:: element CanonicalVersionUri in group IdentificationRefUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3724,7 +3747,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R30 [document:: element CanonicalUri in group IdentificationVersionUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3735,7 +3758,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R32 [document:: element CanonicalVersionUri in group IdentificationVersionUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3746,7 +3769,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R34 [document:: complexType Key] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3757,7 +3780,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R37 [document:: element Value in complexType Row] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3771,7 +3794,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R38 [document:: element Value in complexType Row] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3782,7 +3805,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R39 [document:: complexType ShortName] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3793,7 +3816,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R41 [document:: element SimpleValue in group ValueChoice] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3804,7 +3827,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R42 [document:: element ComplexValue in group ValueChoice] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3815,7 +3838,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R43 [document:: element ComplexValue in group ValueChoice] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3826,7 +3849,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R44 [document:: element CanonicalVersionUri in group VersionLocationUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3837,7 +3860,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R48 [document:: element CanonicalUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3848,7 +3871,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R50 [document:: element CanonicalVersionUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3862,7 +3885,7 @@
       <section id="S-CATEGORY-APPLICATION">
         <title>Category: application</title>
         <para><emphasis role="bold">Rule R2 [application:: attribute xml:base in complexType CodeListDocument] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3873,7 +3896,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R3 [application:: complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3890,7 +3913,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R5 [application:: element CanonicalUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3901,7 +3924,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R7 [application:: element CanonicalVersionUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3912,7 +3935,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R8 [application:: element LocationUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3927,7 +3950,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R9 [application:: element LocationUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3938,7 +3961,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R10 [application:: attribute xml:base in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3949,7 +3972,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R11 [application:: attribute xml:base in complexType CodeListSetDocument] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3960,7 +3983,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R12 [application:: complexType ColumnRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3976,7 +3999,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R13 [application:: attributeGroup gc:OptionalUseDefinition in complexType ColumnRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3987,7 +4010,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R14 [application:: attribute xml:base in complexType ColumnRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3998,7 +4021,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R15 [application:: attribute xml:base in complexType ColumnSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4009,7 +4032,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R16 [application:: attribute xml:base in complexType ColumnSetDocument] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4020,7 +4043,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R17 [application:: complexType ColumnSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4036,7 +4059,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R18 [application:: attribute xml:base in complexType ColumnSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4047,7 +4070,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R21 [application:: attribute DatatypeLibrary in complexType Data] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4058,7 +4081,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R26 [application:: element CanonicalUri in complexType Identification] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4069,7 +4092,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R28 [application:: element CanonicalVersionUri in group IdentificationRefUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4080,7 +4103,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R29 [application:: element LocationUri in group IdentificationRefUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4091,7 +4114,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R31 [application:: element CanonicalUri in group IdentificationVersionUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4102,7 +4125,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R33 [application:: element CanonicalVersionUri in group IdentificationVersionUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4113,7 +4136,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R35 [application:: complexType KeyRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4129,7 +4152,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R36 [application:: attribute xml:base in complexType KeyRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4140,7 +4163,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R40 [application:: complexType SimpleCodeList] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4151,7 +4174,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R45 [application:: element CanonicalVersionUri in group VersionLocationUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4162,7 +4185,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R46 [application:: element LocationUri in group VersionLocationUriSet] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4173,7 +4196,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R47 [application:: complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4190,7 +4213,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R49 [application:: element CanonicalUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4201,7 +4224,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R51 [application:: element CanonicalVersionUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4212,7 +4235,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R52 [application:: element LocationUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4227,7 +4250,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R53 [application:: element LocationUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4238,7 +4261,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Rule R54 [application:: attribute xml:base in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" class="MsoNormalTable" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
