@@ -54,7 +54,7 @@
   <copy file="genericode.xml" preservelastmodified="true" todir="${dir}"/>
 
   <!--create the conformance entities-->
-  <java classname="net.sf.saxon.Transform" dir="${dir}" fork="true"
+  <java classname="net.sf.saxon.Transform"
         classpath="db/spec-0.8/validate/saxon9he.jar"
         resultproperty="entitiesCreatedResult">
     <arg value="-xsl:${thisdir}/rules2entities.xsl"/>
@@ -66,7 +66,7 @@
   </condition>
  
   <!--assemble the inputs into a single XML file, no entities-->
-  <java classname="net.sf.saxon.Transform" dir="${dir}"
+  <java classname="net.sf.saxon.Transform"
         classpath="db/spec-0.8/validate/saxon9he.jar"
         resultproperty="entitiesAssembledResult"
         if:set="entitiesCreated">
