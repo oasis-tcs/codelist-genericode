@@ -21,7 +21,9 @@
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
-	<!ENTITY pubdate "18 May 2021">
+	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
+	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
+	<!ENTITY pubdate "23 May 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -295,14 +297,10 @@
         <para>{“S”, “M”, “T”, “W”, “T”, “F”, “S”}</para>
         <para>Example 5: Days of the week: English, single character</para>
         <para>is not suitable as a code list for the days of the week, because the values are not unique.</para>
-        <para>Now suppose that you are using codes to represent days of the week in an application, and you are displaying the days of the week using 3-letter abbreviations in English or French. In that context, should <ulink
-            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%202" conformance="skip">Example 2</ulink> and <ulink
-            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%203" conformance="skip">Example 3</ulink> be considered to be code lists, or should they be considered to be display values that would be keyed to either the <ulink
-            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%201" conformance="skip">Example 1</ulink> or <ulink
-            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%204" conformance="skip">Example 4</ulink> codes? The fact is, they could be either code lists or display values. A value which is a code in one context might only be an
-          associated value for that code in another context. Nothing privileges any of these code lists over the others in terms of ability or suitability to be the code list (except the <ulink
-            url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html#Example%205" conformance="skip">Example 5</ulink> values which are not suitable). There is a choice of code lists that can be used, and the answer to the question “which choice
-          is the best?” depends on the needs of each particular situation.</para>
+        <para>Now suppose that you are using codes to represent days of the week in an application, and you are displaying the days of the week using 3-letter abbreviations in English or French. In that context, should Example 2 and Example 3 be considered to be code lists, or should they be
+          considered to be display values that would be keyed to either the Example 1 or Example 4 codes? The fact is, they could be either code lists or display values. A value which is a code in one context might only be an associated value for that code in another context. Nothing privileges any
+          of these code lists over the others in terms of ability or suitability to be the code list (except the Example 5 values which are not suitable). There is a choice of code lists that can be used, and the answer to the question “which choice is the best?” depends on the needs of each
+          particular situation.</para>
         <para>What the above examples show is that for each <emphasis role="italic">distinct entry</emphasis> in a code list, there are many possible associated values (we use the term <emphasis role="italic">distinct entry</emphasis> to express the idea that we are talking a single item that needs
           to be represented in the code list, rather than about the code value(s) that can be used to identify that item). Some of those associated values are suitable for use in code lists, some are not. This leads to a tabular model, where each row of the table represents a conceptual code, and
           each column represents an associated value (code list metadata), as follows:</para>
@@ -522,7 +520,7 @@
           Policy</ulink>, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights
         section of the Technical Committee web page (<ulink url="https://www.oasis-open.org/committees/codelist/ipr.php">https://www.oasis-open.org/committees/codelist/ipr.php</ulink>).</para>
     </section>
-    <section id="S-TERMINOLOGY" role="terms" conformance="skip">
+    <section id="S-TERMINOLOGY" role="terms">
       <title>Terminology</title>
       <para condition="sts">For the purposes of this document, the following terms and definitions apply.</para>
       <para condition="sts">ISO and IEC maintain terminological databases for use in standardization at the following addresses:</para>
@@ -536,17 +534,10 @@
           </para>
         </listitem>
       </itemizedlist>
-      <para>The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this specification are to be interpreted as described in IETF RFC 2119 <xref linkend="rfc2119"/>.</para>
     </section>
     <section id="S-NORMATIVE-REFERENCES" role="norm-refs">
       <title>Normative References</title>
       <bibliolist id="normbibl">
-        <bibliomixed id="rfc2119">
-          <abbrev condition="oasis">RFC2119</abbrev>
-          <citetitle>
-            <ulink url="http://www.faqs.org/rfcs/rfc2119.html" conformance="skip">Key words for use in RFCs to Indicate Requirement Levels</ulink>
-          </citetitle>
-        </bibliomixed>
         <bibliomixed id="xml">
           <abbrev condition="oasis">XML</abbrev>
           <citetitle>
@@ -622,20 +613,23 @@
         people usually mean when they talk about the “codes” in a code list. However, genericode allows multiple keys for each code list, and there is no single <emphasis role="italic">preferred</emphasis> key. For code lists that have multiple keys, it is assumed that the choice of which key to use
         is a <emphasis role="italic">late binding</emphasis> choice that is specific to the application, technology and/or context in which the code list is used.</para>
     </section>
-    <section id="S-GENERICODE-DOCUMENT-TYPES" conformance="skip">
+    <section id="S-GENERICODE-DOCUMENT-TYPES">
       <title>Genericode Document Types</title>
-      <para>There are 3 kinds of genericode documents, all supported by the one W3C XML Schema:</para>
-      <itemizedlist>
-        <listitem>
-          <para>· Column Set documents;</para>
-        </listitem>
-        <listitem>
-          <para>· Code List documents;</para>
-        </listitem>
-        <listitem>
-          <para>· Code List Set documents.</para>
-        </listitem>
-      </itemizedlist>
+      <section id="S-SUMMARY-OF-DOCUMENT-TYPES">
+        <title>Summary of Document Types</title>
+        <para>There are 3 kinds of genericode documents, all supported by the one W3C XML Schema:</para>
+        <itemizedlist>
+          <listitem>
+            <para>· Column Set documents;</para>
+          </listitem>
+          <listitem>
+            <para>· Code List documents;</para>
+          </listitem>
+          <listitem>
+            <para>· Code List Set documents.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
       <section id="S-COLUMN-SET-DOCUMENTS">
         <title>Column Set Documents</title>
         <para>A column set document has the root element <code>&lt;gc:ColumnSet></code>. It contain definitions of genericode columns or keys that can be imported into code list documents or into other column set documents.</para>
@@ -690,7 +684,7 @@
       <para>If a key is defined in an external column set or code list document, it can be referred to using a KeyRef. The key reference must have an ID, and also has an ExternalRef which contains the key’s ID in the external document. The external column set or code list is identified by a
         CanonicalVersionUri and/or by any LocationUri information that is provided.</para>
     </section>
-    <section id="S-CODE-LISTS" conformance="skip">
+    <section id="S-CODE-LISTS">
       <title>Code lists</title>
       <para>A code list can contain its own embedded column set definition. It can also import columns and keys from any number of external column sets (in column set documents and/or code list documents). In the simplest case, what a code list provides is information (metadata) about the code list
         and (optionally) a set of rows, where each row defines a <emphasis role="italic">distinct entry</emphasis> in the code list.</para>
@@ -710,43 +704,40 @@
       <para>There is an important difference between a <emphasis role="italic">CodeList Metadata</emphasis> document and <emphasis role="italic">Simple CodeList</emphasis> that contains zero rows (zero distinct entries). The former does not provide information on how many <emphasis role="italic"
           >distinct entries</emphasis> are contained in the code list. The latter explicitly indicates that a particular version of the code list contains zero distinct entries, i.e. the particular version of the code list is empty. A CodeList Metadata document does not provide any indication about
         whether a code list is empty or not.</para>
-      <section id="S-SIMPLE-CODELISTS-AND-CODELIST-METADATA">
-        <title>Simple CodeLists and CodeList Metadata</title>
-        <para>A <emphasis role="italic">CodeList Metadata</emphasis> document is a special case of a <emphasis role="italic">Simple CodeList</emphasis> document. The differences will be discussed explicitly where appropriate.</para>
-        <para>A <emphasis role="italic">Simple CodeList</emphasis> is modeled as follows:</para>
-        <figure id="F-UML-FOR-SIMPLE-CODE-LISTS">
-          <title>UML for simple code lists</title>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="art/uml-simple-code-list.png"/>
-            </imageobject>
-            <textobject>
-              <phrase>[UML for simple code lists]</phrase>
-            </textobject>
-          </mediaobject>
-        </figure>
-        <para>A <emphasis role="italic">Simple CodeList</emphasis> contains zero or more rows (it is necessary to support empty code lists to allow for code lists that are empty now, but will be populated in future versions). Each <emphasis role="italic">Row</emphasis> defines a single <emphasis
-            role="italic">distinct entry</emphasis> in the code list.</para>
-        <para>A <emphasis role="italic">Row</emphasis> contains one or more <emphasis role="italic">Values</emphasis>, where each of those values corresponds to a distinct column in the code list. At least one value is required, because a code list has to have at least one key, and each key requires
-          at least one column. As a consequence, a <emphasis role="italic">Row</emphasis> must have at least one <emphasis role="italic">Value</emphasis>. Additionally, a <emphasis role="italic">Row</emphasis> must contain a defined <emphasis role="italic">Value</emphasis> for each of the <emphasis
-            role="italic">required columns</emphasis> in the code list, i.e. for those columns for which a <emphasis role="italic">Value</emphasis> must be defined (non-null) for each <emphasis role="italic">Row</emphasis> (distinct entry) in the code list.</para>
-        <para>Each <emphasis role="italic">Value</emphasis> is associated with a single distinct column of the code list. For each <emphasis role="italic">Key</emphasis> in the code list, the values associated with the columns for that key must form a unique set, i.e. no two rows are allowed to have
-          the same set of values for the same key columns. Note that this uniqueness requirement cannot be enforced using the genericode WXS Schema for code list documents, which is structured as follows:</para>
-        <para>Many of these elements and types have appeared already in section <xref linkend="S-COLUMN-SETS--COLUMNS-AND-KEYS"/>, so the explanations will not be repeated here. A code list document can either define its own embedded ColumnSet, or refer to an externally defined column set using a
-          ColumnSetRef.</para>
-        <para>A ColumnSetRef contains the canonical version URI which uniquely identifies a referenced column set or code list document which contains the column set. It can also contain suggested URLs from which to retrieve the column set or code list. Canonical version URIs must not be used as
-            <emphasis role="italic">de facto</emphasis> location URIs for retrieving column set instances (nor anything else).</para>
-        <para>A code list document that contains a SimpleCodeList element is a Simple CodeList. If the code list document does not contain a SimpleCodeList element, then it is a CodeList Metadata document.</para>
-        <para>The genericode WXS Schema representation of a SimpleCodeList is</para>
-        <para>A SimpleCodeList contains zero or more Row elements. Each Row contains one or more Value elements.</para>
-        <para>The Value container element is needed to allow optional user annotations of individual values in the code list. It has a ColumnRef attribute which contains the unique document ID of the associated column. A Value element can contains either a SimpleValue containing a textual value, or
-          a ComplexValue containing a balanced (well-formed) XML fragment from a namespace other than the genericode namespace.</para>
-        <para>If a <code>Value</code> element does not contain either a <code>SimpleValue</code> element or a <code>ComplexValue</code> element, then the value is undefined. Only <emphasis role="italic">optional columns</emphasis> are allowed to have undefined values. Also, if a <code>Row</code>
-          element does not contain a <code>Value</code> element corresponding to a particular column, then the row’s value for that column is undefined.</para>
-        <para>Note that the ColumnRef attribute of a Value is optional. If it is not provided, it is assumed that the column is the one which follows the column associated with the previous value in the row. If the first Value in a Row does not have a ColumnRef, it is assumed to be associated with
-          the first column in the column set. It is an error if a row contains more than one value for the same column, or if it does not contain a value for a required column.</para>
-        <para>The genericode WXS Schema is not able to validate that the contents of a Value match the datatype of the associated column. Other validation mechanisms should be used to perform datatype validation.</para>
-      </section>
+      <para>A <emphasis role="italic">CodeList Metadata</emphasis> document is a special case of a <emphasis role="italic">Simple CodeList</emphasis> document. The differences will be discussed explicitly where appropriate.</para>
+      <para>A <emphasis role="italic">Simple CodeList</emphasis> is modeled as follows:</para>
+      <figure id="F-UML-FOR-SIMPLE-CODE-LISTS">
+        <title>UML for simple code lists</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/uml-simple-code-list.png"/>
+          </imageobject>
+          <textobject>
+            <phrase>[UML for simple code lists]</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+      <para>A <emphasis role="italic">Simple CodeList</emphasis> contains zero or more rows (it is necessary to support empty code lists to allow for code lists that are empty now, but will be populated in future versions). Each <emphasis role="italic">Row</emphasis> defines a single <emphasis
+          role="italic">distinct entry</emphasis> in the code list.</para>
+      <para>A <emphasis role="italic">Row</emphasis> contains one or more <emphasis role="italic">Values</emphasis>, where each of those values corresponds to a distinct column in the code list. At least one value is required, because a code list has to have at least one key, and each key requires
+        at least one column. As a consequence, a <emphasis role="italic">Row</emphasis> must have at least one <emphasis role="italic">Value</emphasis>. Additionally, a <emphasis role="italic">Row</emphasis> must contain a defined <emphasis role="italic">Value</emphasis> for each of the <emphasis
+          role="italic">required columns</emphasis> in the code list, i.e. for those columns for which a <emphasis role="italic">Value</emphasis> must be defined (non-null) for each <emphasis role="italic">Row</emphasis> (distinct entry) in the code list.</para>
+      <para>Each <emphasis role="italic">Value</emphasis> is associated with a single distinct column of the code list. For each <emphasis role="italic">Key</emphasis> in the code list, the values associated with the columns for that key must form a unique set, i.e. no two rows are allowed to have
+        the same set of values for the same key columns. Note that this uniqueness requirement cannot be enforced using the genericode WXS Schema for code list documents, which is structured as follows:</para>
+      <para>Many of these elements and types have appeared already in section <xref linkend="S-COLUMN-SETS--COLUMNS-AND-KEYS"/>, so the explanations will not be repeated here. A code list document can either define its own embedded ColumnSet, or refer to an externally defined column set using a
+        ColumnSetRef.</para>
+      <para>A ColumnSetRef contains the canonical version URI which uniquely identifies a referenced column set or code list document which contains the column set. It can also contain suggested URLs from which to retrieve the column set or code list. Canonical version URIs must not be used as
+          <emphasis role="italic">de facto</emphasis> location URIs for retrieving column set instances (nor anything else).</para>
+      <para>A code list document that contains a SimpleCodeList element is a Simple CodeList. If the code list document does not contain a SimpleCodeList element, then it is a CodeList Metadata document.</para>
+      <para>The genericode WXS Schema representation of a SimpleCodeList is</para>
+      <para>A SimpleCodeList contains zero or more Row elements. Each Row contains one or more Value elements.</para>
+      <para>The Value container element is needed to allow optional user annotations of individual values in the code list. It has a ColumnRef attribute which contains the unique document ID of the associated column. A Value element can contains either a SimpleValue containing a textual value, or a
+        ComplexValue containing a balanced (well-formed) XML fragment from a namespace other than the genericode namespace.</para>
+      <para>If a <code>Value</code> element does not contain either a <code>SimpleValue</code> element or a <code>ComplexValue</code> element, then the value is undefined. Only <emphasis role="italic">optional columns</emphasis> are allowed to have undefined values. Also, if a <code>Row</code>
+        element does not contain a <code>Value</code> element corresponding to a particular column, then the row’s value for that column is undefined.</para>
+      <para>Note that the ColumnRef attribute of a Value is optional. If it is not provided, it is assumed that the column is the one which follows the column associated with the previous value in the row. If the first Value in a Row does not have a ColumnRef, it is assumed to be associated with the
+        first column in the column set. It is an error if a row contains more than one value for the same column, or if it does not contain a value for a required column.</para>
+      <para>The genericode WXS Schema is not able to validate that the contents of a Value match the datatype of the associated column. Other validation mechanisms should be used to perform datatype validation.</para>
     </section>
     <section id="S-CODE-LIST-SETS">
       <title>Code list sets</title>
@@ -781,7 +772,7 @@
       <para>which is used in the identification of auxiliary rules in the Schema. These are rules that cannot be enforced using the XML Schema itself; they appear in the Schema in <code>&lt;rule:text></code> elements within <code>&lt;xsd:documentation></code> elements.</para>
     </section>
   </section>
-  <section id="S-GENERICODE-XML-SERIALIZATION" conformance="skip">
+  <section id="S-GENERICODE-XML-SERIALIZATION">
     <title>Genericode XML Serialization</title>
     <section id="S-SCHEMA-VERSION-AND-NAMESPACE">
       <title>Schema Version and Namespace</title>
@@ -920,7 +911,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (ShortName? , LongName* , Identifier*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -958,7 +949,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Description* , AppInfo?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -994,11 +985,12 @@
       <section id="S-ANYOTHERLANGUAGECONTENT-COMPLEX-TYPE">
         <title>AnyOtherLanguageContent (Complex Type)</title>
         <para>Container for any human-readable XML content which is in a different namespace to the Schema’s target namespace.</para>
-        <para><emphasis role="bold">Extension of:</emphasis> <xref linkend="S-ANYOTHERCONTENT-COMPLEX-TYPE"/></para>
+        <para><emphasis role="bold">Extension of:</emphasis>
+          <xref linkend="S-ANYOTHERCONTENT-COMPLEX-TYPE"/></para>
         <para><emphasis role="bold">Content Model:</emphasis> (ANY[##other]*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1027,19 +1019,20 @@
         <title>CodeList (Element)</title>
         <para>Top-level (root) element for a genericode code list definition.</para>
         <para>A code list definition defines the details of a particular (version of a) code list.</para>
-        <para><emphasis role="bold">Complex Type:</emphasis> <xref linkend="S-CODELISTDOCUMENT-COMPLEX-TYPE"/></para>
+        <para><emphasis role="bold">Complex Type:</emphasis>
+          <xref linkend="S-CODELISTDOCUMENT-COMPLEX-TYPE"/></para>
       </section>
       <section id="S-CODELISTDOCUMENT-COMPLEX-TYPE">
         <title>CodeListDocument (Complex Type)</title>
         <para>Document type for genericode code list definitions.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-1" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R1 [document] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 1 [document] :</emphasis></para>
                   <para>A code list must have at least one key, unless it is a metadata-only definition without a ‘SimpleCodeList’ element.</para>
                 </entry>
               </row>
@@ -1049,7 +1042,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((Annotation? , Identification) , (ColumnSet | ColumnSetRef) , ((SimpleCodeList))?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1114,7 +1107,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1136,7 +1129,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-2" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 2 [application] :</emphasis></para>
+                              <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -1147,13 +1154,13 @@
         <title>CodeListRef (Complex Type)</title>
         <para>Reference to a code list, possibly defined in an external document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-3" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R3 [application] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 3 [application] :</emphasis></para>
                   <para>The code list reference must be valid.</para>
                   <para>An application may use the CanonicalVersionUri to select a local copy of the code list.</para>
                   <para>If there is no CanonicalVersionUri, the CanonicalUri may be used to select a local copy of the code list.</para>
@@ -1167,7 +1174,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , CanonicalUri , CanonicalVersionUri? , LocationUri*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1191,8 +1198,36 @@
                 <entry>
                   <para>Canonical URI which uniquely identifies all versions (collectively) of the referenced code list.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-4" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 4 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-5" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 5 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -1201,8 +1236,36 @@
                 <entry>
                   <para>Canonical URI which uniquely identifies a specific version of the referenced code list.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-6" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 6 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-7" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 7 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -1211,17 +1274,45 @@
                 <entry>
                   <para>Suggested retrieval location for this code list, in genericode format.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>If the CanonicalVersionUri has been defined, the LocationUri must reference a genericode CodeList document.</para>
-                  <para>If the CanonicalVersionUri is undefined, the LocationUri must reference a genericode CodeList Metadata document.</para>
-                  <para>An application must signal an error to the user if a LocationUri does not reference the appropriate type of genericode document.</para>
-                  <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-8" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 8 [application] :</emphasis></para>
+                              <para>If the CanonicalVersionUri has been defined, the LocationUri must reference a genericode CodeList document.</para>
+                              <para>If the CanonicalVersionUri is undefined, the LocationUri must reference a genericode CodeList Metadata document.</para>
+                              <para>An application must signal an error to the user if a LocationUri does not reference the appropriate type of genericode document.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-9" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 9 [application] :</emphasis></para>
+                              <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1243,7 +1334,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-10" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 10 [application] :</emphasis></para>
+                              <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -1253,14 +1358,15 @@
       <section id="S-CODELISTSET-ELEMENT">
         <title>CodeListSet (Element)</title>
         <para>Top-level element for the definition of a code list set.</para>
-        <para><emphasis role="bold">Complex Type:</emphasis> <xref linkend="S-CODELISTSETDOCUMENT-COMPLEX-TYPE"/></para>
+        <para><emphasis role="bold">Complex Type:</emphasis>
+          <xref linkend="S-CODELISTSETDOCUMENT-COMPLEX-TYPE"/></para>
       </section>
       <section id="S-CODELISTSETCHOICE-MODEL-GROUP">
         <title>CodeListSetChoice (Model Group)</title>
         <para>A choice between a code list reference, an inline code list set, or a code list set reference.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (CodeListRef | CodeListSet | CodeListSetRef)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1298,7 +1404,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((Annotation? , Identification) , (CodeListRef | CodeListSet | CodeListSetRef)*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1357,7 +1463,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1379,7 +1485,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-11" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 11 [application] :</emphasis></para>
+                              <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -1390,13 +1510,13 @@
         <title>CodeListSetRef (Complex Type)</title>
         <para>Reference to a code list set, possibly defined in an external document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-47" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R47 [application] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 47 [application] :</emphasis></para>
                   <para>The code list set reference must be valid.</para>
                   <para>An application may use the CanonicalVersionUri to select a local copy of the code list set.</para>
                   <para>If there is no CanonicalVersionUri, the CanonicalUri may be used to select a local copy of the code list set.</para>
@@ -1410,7 +1530,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , CanonicalUri , CanonicalVersionUri? , LocationUri*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1434,8 +1554,36 @@
                 <entry>
                   <para>Canonical URI which uniquely identifies all versions (collectively) of the referenced code list set.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-48" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 48 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-49" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 49 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -1444,8 +1592,36 @@
                 <entry>
                   <para>Canonical URI which uniquely identifies a specific version of the referenced code list set.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-50" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 50 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-51" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 51 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -1464,7 +1640,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1500,7 +1676,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (ShortName , LongName*) , (CanonicalUri , CanonicalVersionUri?)? , Data)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1569,7 +1745,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1613,7 +1789,7 @@
         <para>A choice between a column definition and a column reference.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (Column | ColumnRef)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1644,13 +1820,13 @@
         <title>ColumnRef (Complex Type)</title>
         <para>Reference to a column defined in an external column set or code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-12" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R12 [application] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 12 [application] :</emphasis></para>
                   <para>The column reference must be valid.</para>
                   <para>An application may use the CanonicalVersionUri to select a local copy of the code list or column set which contains the column definition.</para>
                   <para>Otherwise the LocationUri value(s) may be tried in order, until a valid code list or column set document (containing the necessary column definition) is retrieved.</para>
@@ -1663,7 +1839,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (CanonicalVersionUri , LocationUri*) , Data?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1713,7 +1889,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1760,13 +1936,13 @@
                   <para>Whether the column is required or optional.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" border="0" style="border-collapse: collapse;">
+                    <informaltable role="rule" id="RULE-13" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
                           <row>
                             <entry>
-                              <para><emphasis role="bold">Rule R13 [application] :</emphasis></para>
+                              <para><emphasis role="bold">Rule 13 [application] :</emphasis></para>
                               <para>If specified, this overrides the usage specified in the external column set or code list document.</para>
                             </entry>
                           </row>
@@ -1783,7 +1959,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-14" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 14 [application] :</emphasis></para>
+                              <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -1794,7 +1984,7 @@
         <title>ColumnReference (Attribute Group)</title>
         <para>Attribute set for referring to a column definition.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1822,7 +2012,8 @@
       <section id="S-COLUMNSET-ELEMENT">
         <title>ColumnSet (Element)</title>
         <para>Top-level element for the definition of a column set.</para>
-        <para><emphasis role="bold">Complex Type:</emphasis> <xref linkend="S-COLUMNSETDOCUMENT-COMPLEX-TYPE"/></para>
+        <para><emphasis role="bold">Complex Type:</emphasis>
+          <xref linkend="S-COLUMNSETDOCUMENT-COMPLEX-TYPE"/></para>
       </section>
       <section id="S-COLUMNSET-COMPLEX-TYPE">
         <title>ColumnSet (Complex Type)</title>
@@ -1830,7 +2021,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((Column | ColumnRef)* , (Key | KeyRef)*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1891,7 +2082,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1923,7 +2114,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-15" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 15 [application] :</emphasis></para>
+                              <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -1935,7 +2140,7 @@
         <para>A choice between a column set definition and a column set reference.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (ColumnSet | ColumnSetRef)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -1967,7 +2172,7 @@
         <para>Specific details of a column set.</para>
         <para><emphasis role="bold">Content Model:</emphasis> ((Column | ColumnRef)* , (Key | KeyRef)*)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2026,7 +2231,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((Annotation? , Identification) , ((Column | ColumnRef)* , (Key | KeyRef)*))</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2105,7 +2310,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2137,7 +2342,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-16" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 16 [application] :</emphasis></para>
+                              <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -2148,13 +2367,13 @@
         <title>ColumnSetRef (Complex Type)</title>
         <para>Reference to a column set defined in an external column set or code list document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-17" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R17 [application] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 17 [application] :</emphasis></para>
                   <para>The column set reference must be valid.</para>
                   <para>An application may use the CanonicalVersionUri to select a local copy of the column set or code list.</para>
                   <para>Otherwise the LocationUri value(s) may be tried in order, until a valid column set or code list document is retrieved.</para>
@@ -2167,7 +2386,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (CanonicalVersionUri , LocationUri*))</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2212,7 +2431,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2234,7 +2453,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-18" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 18 [application] :</emphasis></para>
+                              <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -2247,7 +2480,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , Parameter*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2274,7 +2507,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2296,9 +2529,37 @@
                 <entry>
                   <para>Unique ID for the datatype within its datatype library.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The datatype ID must not include a namespace prefix.</para>
-                  <para>For the W3C XML Schema datatypes, possible datatype IDs are ‘string’, ‘token’, ‘boolean’, ‘decimal’, etc.</para>
-                  <para>If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or ‘*’ if the root element name is not restricted.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-19" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 19 [document] :</emphasis></para>
+                              <para>The datatype ID must not include a namespace prefix.</para>
+                              <para>For the W3C XML Schema datatypes, possible datatype IDs are ‘string’, ‘token’, ‘boolean’, ‘decimal’, etc.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-20" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 20 [document] :</emphasis></para>
+                              <para>If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or ‘*’ if the root element name is not restricted.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -2308,8 +2569,36 @@
                 <entry>
                   <para>URI which uniquely identifies the datatype library.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>If this URI not explicitly provided, the datatype library for the enclosing column set is used.</para>
-                  <para>If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or ‘*’ if the namespace URI is not restricted.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-21" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 21 [application] :</emphasis></para>
+                              <para>If this URI not explicitly provided, the datatype library for the enclosing column set is used.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-22" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 22 [document] :</emphasis></para>
+                              <para>If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or ‘*’ if the namespace URI is not restricted.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -2331,13 +2620,13 @@
         <title>DataRestrictions (Complex Type)</title>
         <para>Restrictions to a data type.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-23" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R23 [document] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 23 [document] :</emphasis></para>
                   <para>The ‘gc:lang’ attribute may be specified only if no language is already set for the data type that is being restricted.</para>
                 </entry>
               </row>
@@ -2347,7 +2636,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Parameter*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2369,7 +2658,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2404,7 +2693,7 @@
         <para>Facet information for refining a datatype.</para>
         <para><emphasis role="bold">Extension of:</emphasis> xsd:string</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2439,7 +2728,7 @@
         <title>DefaultDatatypeLibrary (Attribute Group)</title>
         <para>Identification of the default datatype library for a column set.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2469,7 +2758,7 @@
         <para>General document information (metadata).</para>
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , Identification)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2500,7 +2789,7 @@
         <title>ExternalReference (Attribute Group)</title>
         <para>Attribute set used to identify a definition within an external document.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2522,7 +2811,21 @@
                 <entry>
                   <para>Unique ID within the external document.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The external reference must not be prefixed with a ‘#’ symbol.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-24" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 24 [document] :</emphasis></para>
+                              <para>The external reference must not be prefixed with a ‘#’ symbol.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -2538,7 +2841,7 @@
         <title>IdDefinition (Attribute Group)</title>
         <para>Attribute set used to identify a definition within the document.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2569,7 +2872,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> ((ShortName , LongName*) , Version , CanonicalUri , (CanonicalVersionUri , LocationUri* , AlternateFormatLocationUri*) , Agency?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2611,8 +2914,36 @@
                 <entry>
                   <para>Canonical URI which uniquely identifies all versions (collectively).</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-25" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 25 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-26" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 26 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -2662,7 +2993,7 @@
         <para>Identification and location URIs.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (CanonicalVersionUri , LocationUri*)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2681,8 +3012,36 @@
                 <entry>
                   <para>Canonical URI which serves as a unique identifier for this version.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-27" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 27 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-28" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 28 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -2691,7 +3050,21 @@
                 <entry>
                   <para>Suggested retrieval location for this version, in genericode format.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-29" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 29 [application] :</emphasis></para>
+                              <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -2703,7 +3076,7 @@
         <para>URIs used as unique identifiers.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (CanonicalUri , CanonicalVersionUri?)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2722,8 +3095,36 @@
                 <entry>
                   <para>Canonical URI which uniquely identifies all versions collectively.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-30" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 30 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-31" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 31 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -2732,8 +3133,36 @@
                 <entry>
                   <para>Canonical URI which uniquely identifies this version.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-32" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 32 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-33" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 33 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -2745,13 +3174,13 @@
         <para>Definition of a key.</para>
         <para>A key is a set of one or more columns whose values together provide a unique identification of each item in a code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-34" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R34 [document] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 34 [document] :</emphasis></para>
                   <para>Only required columns can be used for keys.</para>
                 </entry>
               </row>
@@ -2761,7 +3190,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (ShortName , LongName*) , (CanonicalUri , CanonicalVersionUri?)? , ColumnRef+)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2830,7 +3259,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2864,7 +3293,7 @@
         <para>A choice between a key definition and a key reference.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (Key | KeyRef)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2897,7 +3326,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2919,7 +3348,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -2948,13 +3377,13 @@
         <title>KeyRef (Complex Type)</title>
         <para>Reference to a key defined in an external column set or code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-35" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R35 [application] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 35 [application] :</emphasis></para>
                   <para>The key reference must be valid.</para>
                   <para>An application may use the CanonicalVersionUri to select a local copy of the code list or column set which contains the key definition.</para>
                   <para>Otherwise the LocationUri value(s) may be tried in order, until a valid code list or column set document (containing the necessary key definition) is retrieved.</para>
@@ -2967,7 +3396,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (CanonicalVersionUri , LocationUri*))</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3012,7 +3441,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3056,7 +3485,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-36" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 36 [application] :</emphasis></para>
+                              <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -3067,7 +3510,7 @@
         <title>Language (Attribute Group)</title>
         <para>Attributes which describe the language of a piece of text.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3105,7 +3548,7 @@
         <para>URI for a resource, with support for specifying the MIME type.</para>
         <para><emphasis role="bold">Extension of:</emphasis> xsd:anyURI</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3135,7 +3578,7 @@
         <para>Various names.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (ShortName , LongName*)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3166,7 +3609,7 @@
         <title>OptionalUseDefinition (Attribute Group)</title>
         <para>Attribute set which defines the usage (optional attribute).</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3196,7 +3639,7 @@
         <para>A choice which currently only allows a simple (explicit) code list definition.</para>
         <para><emphasis role="bold">Content Model:</emphasis> ((SimpleCodeList))</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3226,7 +3669,7 @@
         <title>RequiredUseDefinition (Attribute Group)</title>
         <para>Attribute set which defines the usage (required attribute).</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3257,7 +3700,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , Value+)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3281,9 +3724,37 @@
                 <entry>
                   <para>Column value for the row.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>A value must be provided for each required column.</para>
-                  <para>A value does not need to be provided for a column if the column is optional.</para>
-                  <para>If a value does not have an explicit column reference, the column is taken to be the column following the column of the preceding value in the row, or the first column if the value is the first value of the row.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-37" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 37 [document] :</emphasis></para>
+                              <para>A value must be provided for each required column.</para>
+                              <para>A value does not need to be provided for a column if the column is optional.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-38" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 38 [document] :</emphasis></para>
+                              <para>If a value does not have an explicit column reference, the column is taken to be the column following the column of the preceding value in the row, or the first column if the value is the first value of the row.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -3294,13 +3765,13 @@
         <title>ShortName (Complex Type)</title>
         <para>A short name without whitespace that is suitable for use in generating names for software artifacts.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-39" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R39 [document] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 39 [document] :</emphasis></para>
                   <para>Must not contain whitespace characters.</para>
                 </entry>
               </row>
@@ -3309,7 +3780,7 @@
         </informaltable>
         <para><emphasis role="bold">Extension of:</emphasis> xsd:token</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3338,13 +3809,13 @@
         <title>SimpleCodeList (Complex Type)</title>
         <para>Simple (explicit) code list definition.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable role="rule" id="RULE-40" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Rule R40 [application] :</emphasis></para>
+                  <para><emphasis role="bold">Rule 40 [application] :</emphasis></para>
                   <para>Applications must not have any dependency on the ordering of the rows.</para>
                 </entry>
               </row>
@@ -3354,7 +3825,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , Row*)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3386,7 +3857,7 @@
         <para>Details of a simple code list definition.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (SimpleCodeList)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3427,7 +3898,7 @@
         <para><emphasis role="bold">Content Model:</emphasis> (Annotation? , (SimpleValue | ComplexValue)?)</para>
         <para><emphasis role="bold">Mixed Content:</emphasis> No</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3472,7 +3943,7 @@
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3506,7 +3977,7 @@
         <para>A choice between a simple textual value and a complex (structured) XML value.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (SimpleValue | ComplexValue)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3525,7 +3996,21 @@
                 <entry>
                   <para>Simple textual value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The value must be valid with respect to the datatype and restrictions of the matching column.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-41" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 41 [document] :</emphasis></para>
+                              <para>The value must be valid with respect to the datatype and restrictions of the matching column.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -3534,8 +4019,36 @@
                 <entry>
                   <para>Complex (structured) XML value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>The names of all direct child elements of the ‘ComplexValue’ element must match the datatype ID for the matching column, unless that ID is set to ‘*’.</para>
-                  <para>The namespace URIs of all direct child elements of the ‘ComplexValue’ element must match the datatype library URI for the matching column, unless that URI is set to ‘*’.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-42" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 42 [document] :</emphasis></para>
+                              <para>The names of all direct child elements of the ‘ComplexValue’ element must match the datatype ID for the matching column, unless that ID is set to ‘*’.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-43" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 43 [document] :</emphasis></para>
+                              <para>The namespace URIs of all direct child elements of the ‘ComplexValue’ element must match the datatype library URI for the matching column, unless that URI is set to ‘*’.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -3546,7 +4059,7 @@
         <title>ValueIdentification (Attribute Group)</title>
         <para>Information which identifies one of a set of alternate values.</para>
         <para><emphasis role="bold">Attributes:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="4">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3582,7 +4095,7 @@
         <para>Identification and location URIs for a version.</para>
         <para><emphasis role="bold">Content Model:</emphasis> (CanonicalVersionUri , LocationUri* , AlternateFormatLocationUri*)</para>
         <para><emphasis role="bold">Elements:</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
+        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1"/>
             <colspec colnum="2" colname="col2"/>
@@ -3601,8 +4114,36 @@
                 <entry>
                   <para>Canonical URI which uniquely identifies this version.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>Must be an absolute URI, must not be relative.</para>
-                  <para>Must not be used as a de facto location URI.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-44" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 44 [document] :</emphasis></para>
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="RULE-45" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 45 [application] :</emphasis></para>
+                              <para>Must not be used as a de facto location URI.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -3611,7 +4152,21 @@
                 <entry>
                   <para>Suggested retrieval location for this version, in genericode format.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
-                  <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
+                  <para>
+                    <informaltable role="rule" id="RULE-46" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 46 [application] :</emphasis></para>
+                              <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
               <row>
@@ -3627,650 +4182,20 @@
         </informaltable>
       </section>
     </section>
-    <section id="S-4.4-CONFORMANCE" conformance="skip">
-      <title>4.4 Conformance</title>
-      <para>An XML instance conforms to the OASIS Code List Representation genericode document model if it does not violate any constraints expressed in the "genericode.xsd" schema associated with this version of the specification, including auxiliary rules marked as "document" rules (see below). An
-        application conforms to the OASIS Code List Representation genericode processing rules if, in addition, it does not violate any of auxiliary rules marked as "application" rules. The auxiliary rules are:</para>
+    <section id="S-CONFORMANCE">
+      <title>Conformance</title>
+      <section id="S-AUXILIARY-RULES">
+        <title>Auxiliary Rules</title>
+        <para>An XML instance conforms to the OASIS Code List Representation genericode document model if it does not violate any constraints expressed in the genericode.xsd schema associated with this version of the specification, including auxiliary rules marked as “document” rules. </para>
+        <para>An application conforms to the OASIS Code List Representation genericode processing rules if, in addition, it does not violate any of auxiliary rules marked as “application” rules.</para>
+      </section>
       <section id="S-CATEGORY-DOCUMENT">
         <title>Category: document</title>
-        <para><emphasis role="bold">Rule R1 [document:: complexType CodeListDocument] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>A code list must have at least one key, unless it is a metadata-only definition without a ‘SimpleCodeList’ element.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R4 [document:: element CanonicalUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R6 [document:: element CanonicalVersionUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R19 [document:: attribute Type in complexType Data] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>The datatype ID must not include a namespace prefix.</para>
-                  <para>For the W3C XML Schema datatypes, possible datatype IDs are ‘string’, ‘token’, ‘boolean’, ‘decimal’, etc.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R20 [document:: attribute Type in complexType Data] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or ‘*’ if the root element name is not restricted.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R22 [document:: attribute DatatypeLibrary in complexType Data] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or ‘*’ if the namespace URI is not restricted.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R23 [document:: complexType DataRestrictions] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>The ‘gc:lang’ attribute may be specified only if no language is already set for the data type that is being restricted.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R24 [document:: attribute ExternalRef in attributeGroup ExternalReference] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>The external reference must not be prefixed with a ‘#’ symbol.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R25 [document:: element CanonicalUri in complexType Identification] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R27 [document:: element CanonicalVersionUri in group IdentificationRefUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R30 [document:: element CanonicalUri in group IdentificationVersionUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R32 [document:: element CanonicalVersionUri in group IdentificationVersionUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R34 [document:: complexType Key] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Only required columns can be used for keys.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R37 [document:: element Value in complexType Row] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>A value must be provided for each required column.</para>
-                  <para>A value does not need to be provided for a column if the column is optional.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R38 [document:: element Value in complexType Row] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>If a value does not have an explicit column reference, the column is taken to be the column following the column of the preceding value in the row, or the first column if the value is the first value of the row.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R39 [document:: complexType ShortName] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not contain whitespace characters.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R41 [document:: element SimpleValue in group ValueChoice] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>The value must be valid with respect to the datatype and restrictions of the matching column.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R42 [document:: element ComplexValue in group ValueChoice] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>The names of all direct child elements of the ‘ComplexValue’ element must match the datatype ID for the matching column, unless that ID is set to ‘*’.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R43 [document:: element ComplexValue in group ValueChoice] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>The namespace URIs of all direct child elements of the ‘ComplexValue’ element must match the datatype library URI for the matching column, unless that URI is set to ‘*’.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R44 [document:: element CanonicalVersionUri in group VersionLocationUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R48 [document:: element CanonicalUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R50 [document:: element CanonicalVersionUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must be an absolute URI, must not be relative.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
+        &rule-summary-document;
       </section>
       <section id="S-CATEGORY-APPLICATION">
         <title>Category: application</title>
-        <para><emphasis role="bold">Rule R2 [application:: attribute xml:base in complexType CodeListDocument] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R3 [application:: complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>The code list reference must be valid.</para>
-                  <para>An application may use the CanonicalVersionUri to select a local copy of the code list.</para>
-                  <para>If there is no CanonicalVersionUri, the CanonicalUri may be used to select a local copy of the code list.</para>
-                  <para>Otherwise the LocationUri value(s) may be tried in order, until a valid code list document is retrieved.</para>
-                  <para>An application must signal an error to the user if it is not able to retrieve a code list document to match the code list reference.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R5 [application:: element CanonicalUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R7 [application:: element CanonicalVersionUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R8 [application:: element LocationUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>If the CanonicalVersionUri has been defined, the LocationUri must reference a genericode CodeList document.</para>
-                  <para>If the CanonicalVersionUri is undefined, the LocationUri must reference a genericode CodeList Metadata document.</para>
-                  <para>An application must signal an error to the user if a LocationUri does not reference the appropriate type of genericode document.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R9 [application:: element LocationUri in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R10 [application:: attribute xml:base in complexType CodeListRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R11 [application:: attribute xml:base in complexType CodeListSetDocument] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R12 [application:: complexType ColumnRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>The column reference must be valid.</para>
-                  <para>An application may use the CanonicalVersionUri to select a local copy of the code list or column set which contains the column definition.</para>
-                  <para>Otherwise the LocationUri value(s) may be tried in order, until a valid code list or column set document (containing the necessary column definition) is retrieved.</para>
-                  <para>An application must signal an error to the user if it is not able to retrieve a code list or column set document which contains the necessary column definition.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R13 [application:: attributeGroup gc:OptionalUseDefinition in complexType ColumnRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>If specified, this overrides the usage specified in the external column set or code list document.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R14 [application:: attribute xml:base in complexType ColumnRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R15 [application:: attribute xml:base in complexType ColumnSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R16 [application:: attribute xml:base in complexType ColumnSetDocument] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R17 [application:: complexType ColumnSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>The column set reference must be valid.</para>
-                  <para>An application may use the CanonicalVersionUri to select a local copy of the column set or code list.</para>
-                  <para>Otherwise the LocationUri value(s) may be tried in order, until a valid column set or code list document is retrieved.</para>
-                  <para>An application must signal an error to the user if it is not able to retrieve a column set or code list document to match the column set reference.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R18 [application:: attribute xml:base in complexType ColumnSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R21 [application:: attribute DatatypeLibrary in complexType Data] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>If this URI not explicitly provided, the datatype library for the enclosing column set is used.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R26 [application:: element CanonicalUri in complexType Identification] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R28 [application:: element CanonicalVersionUri in group IdentificationRefUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R29 [application:: element LocationUri in group IdentificationRefUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R31 [application:: element CanonicalUri in group IdentificationVersionUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R33 [application:: element CanonicalVersionUri in group IdentificationVersionUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R35 [application:: complexType KeyRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>The key reference must be valid.</para>
-                  <para>An application may use the CanonicalVersionUri to select a local copy of the code list or column set which contains the key definition.</para>
-                  <para>Otherwise the LocationUri value(s) may be tried in order, until a valid code list or column set document (containing the necessary key definition) is retrieved.</para>
-                  <para>An application must signal an error to the user if it is not able to retrieve a code list or column set document which contains the necessary key definition.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R36 [application:: attribute xml:base in complexType KeyRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R40 [application:: complexType SimpleCodeList] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Applications must not have any dependency on the ordering of the rows.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R45 [application:: element CanonicalVersionUri in group VersionLocationUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R46 [application:: element LocationUri in group VersionLocationUriSet] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R47 [application:: complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>The code list set reference must be valid.</para>
-                  <para>An application may use the CanonicalVersionUri to select a local copy of the code list set.</para>
-                  <para>If there is no CanonicalVersionUri, the CanonicalUri may be used to select a local copy of the code list set.</para>
-                  <para>Otherwise the LocationUri value(s) may be tried in order, until a valid code list set document is retrieved.</para>
-                  <para>An application must signal an error to the user if it is not able to retrieve a code list set document to match the code list set reference.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R49 [application:: element CanonicalUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R51 [application:: element CanonicalVersionUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>Must not be used as a de facto location URI.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R52 [application:: element LocationUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>
-                  <para>If the CanonicalVersionUri has been defined, the LocationUri must reference a genericode CodeListSet document.</para>
-                  <para>If the CanonicalVersionUri is undefined, the LocationUri must reference a genericode CodeListSet Metadata document.</para>
-                  <para>An application must signal an error to the user if a LocationUri does not reference the appropriate type of genericode document.</para>
-                </entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R53 [application:: element LocationUri in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
-        <para><emphasis role="bold">Rule R54 [application:: attribute xml:base in complexType CodeListSetRef] :</emphasis></para>
-        <informaltable border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="596">
-          <tgroup cols="1">
-            <colspec colnum="1" colname="col1"/>
-            <tbody>
-              <row>
-                <entry>xml:base does not apply to canonical URIs.</entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable>
+        &rule-summary-application;
       </section>
     </section>
   </section>
@@ -4283,7 +4208,7 @@
       <itemizedlist>
         <listitem>
           <para>
-            <ulink conformance="skip" url="&latest-loc;/"/>
+            <ulink conformance="skip" url="&this-loc;/">&this-loc;/</ulink>
           </para>
         </listitem>
       </itemizedlist>
@@ -4291,7 +4216,7 @@
       <itemizedlist>
         <listitem>
           <para>
-            <ulink conformance="skip" url="http://standards.iso.org/ittf/PubliclyAvailableStandards/"/>
+            <ulink url="http://standards.iso.org/ittf/PubliclyAvailableStandards/">http://standards.iso.org/ittf/PubliclyAvailableStandards/</ulink>
           </para>
         </listitem>
       </itemizedlist>
@@ -4417,7 +4342,7 @@
     <note>
       <para>This temporary appendix will be removed in the final version of the committee specification.</para>
     </note>
-    <informaltable>
+    <informaltable width="100%">
       <tgroup cols="4">
         <colspec colwidth="1*"/>
         <colspec colwidth="2*"/>
@@ -4434,9 +4359,9 @@
         <tbody>
           <row>
             <entry>csd04wd02</entry>
-            <entry>24 January 2021</entry>
+            <entry>&pubdate;</entry>
             <entry>GKH</entry>
-            <entry>Restore UML diagrams</entry>
+            <entry>Restore UML diagrams; use entities for conformance tables; general clean-up; add introductory text</entry>
           </row>
           <row>
             <entry>csd04wd01</entry>

@@ -26,6 +26,7 @@
   <copy todir="${dir}">
     <fileset dir=".">
       <include name="genericode.xml"/>
+      <include name="*.ent.xml"/>
       <include name="art/**"/>
       <include name="htmlart/**"/>
       <include name="realta-user-parameters.xml"/>
@@ -43,17 +44,51 @@
       <include name="**"/>
     </fileset>
   </copy>
-  <move file="${dir}/genericode.xml"
-        tofile="${dir}/${package}-${stage}.xml"/>
-  <!--validate that the authored content is acceptable-->
-  <antcallback target="-validate" return="validatedInputs">
-    <param name="source" value="${dir}/${package}-${stage}.xml"/>
-  </antcallback>
-  <delete file="output.txt"/>
-  
-  <antcall target="-make-docs" if:set="validatedInputs"/>
+  <copy todir="${dir}/db">
+    <fileset dir="db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+
+  <!--rename the source file to the target requirement-->
+  <copy file="genericode.xml" preservelastmodified="true" todir="${dir}"/>
+
+  <!--create the conformance entities-->
+  <java classname="net.sf.saxon.Transform" dir="${dir}" fork="true"
+        classpath="db/spec-0.8/validate/saxon9he.jar"
+        resultproperty="entitiesCreatedResult">
+    <arg value="-xsl:${thisdir}/rules2entities.xsl"/>
+    <arg value="-s:${dir}/genericode.xml"/>
+    <arg value="-o:${dir}/dummy-should-not-exist.txt"/>
+  </java>
+  <condition property="entitiesCreated">
+    <equals arg1="${entitiesCreatedResult}" arg2="0"/>
+  </condition>
  
-  <antcall target="-package-docs"/>
+  <!--assemble the inputs into a single XML file, no entities-->
+  <java classname="net.sf.saxon.Transform" dir="${dir}"
+        classpath="db/spec-0.8/validate/saxon9he.jar"
+        resultproperty="entitiesAssembledResult"
+        if:set="entitiesCreated">
+    <arg value="-xsl:${thisdir}/assembleEntities.xsl"/>
+    <arg value="-s:${dir}/genericode.xml"/>
+    <arg value="-o:${dir}/${package}-${stage}.xml"/>
+  </java>
+  <condition property="entitiesAssembled">
+    <equals arg1="${entitiesAssembledResult}" arg2="0"/>
+  </condition>
+
+  <sequential if:set="entitiesAssembled">
+    <!--validate that the authored content is acceptable-->
+    <antcallback target="-validate" return="validatedInputs">
+      <param name="source" value="${dir}/${package}-${stage}.xml"/>
+    </antcallback>
+    <delete file="output.txt"/>
+  
+    <antcall target="-make-docs" if:set="validatedInputs"/>
+   
+    <antcall target="-package-docs"/>
+  </sequential>
 
   <!--At this point all of the documentation has been zipped up in its own
       package, ready to use. The artefacts are assumed to have been zipped
@@ -101,13 +136,13 @@
   <uptodate targetfile="${dir}/${package}-${stage}.pdf"
             property=  "docs-gc-pdf-okay">
     <srcfiles dir="${dir}">
-      <include name="genericode.xml"/>
+      <include name="${package}-${stage}.xml"/>
     </srcfiles>
   </uptodate>
   <uptodate targetfile="${dir}/iso-iec-00000-genericode-draft.pdf"
             property=  "docs-gc-iso-okay">
     <srcfiles dir="${dir}">
-      <include name="genericode.xml"/>
+      <include name="${package}-${stage}.xml"/>
     </srcfiles>
   </uptodate>
   <condition property="docs-gc-okay">
@@ -126,16 +161,19 @@
   <delete file="${dir}/${package}-${stage}.pdf"/>
   <delete file="${dir}/iso-iec-00000-genericode-draft.pdf"/>
   <delete file="${dir}/${package}-${stage}-pub.zip"/>
+  
   <!--package inputs to the publishing process-->
   <zip destfile="${dir}/${package}-${stage}-pub.zip">
     <fileset dir="${dir}">
       <include name="${package}-${stage}.xml"/>
       <include name="art/**"/>
+      <include name="db/**"/>
     </fileset>
     <fileset dir="${dir}">
       <include name="realta-user-parameters.xml"/>
     </fileset>
   </zip>
+
   <!--create publishing outputs-->
   <echo message="Submitting print job..."/>
   <property name="serverScript" location="RealtaServerAnt.xml"/> 
@@ -214,6 +252,7 @@
     <fileset dir="${dir}">
       <include name="xsd/**"/>
       <include name="sch/**"/>
+      <include name="db/**"/>
       <include name="${package}-${stage}.*"/>
       <include name="iso*"/>
       <exclude name="*.txt"/>
@@ -233,8 +272,8 @@
   </copy>
   <copy preservelastmodified="true"
         todir="${dir}/${package}-${stage}-${label}/db">
-    <fileset dir="db/spec-0.8/htmlruntime">
-     <include name="**"/>
+    <fileset dir="${dir}/db">
+      <include name="**"/>
     </fileset>
   </copy>
 </target>
@@ -249,9 +288,21 @@
     <fileset dir=".">
       <include name="produceGenericode.*"/>
       <include name="RealtaServerAnt.xml"/>
+      <include name="*.xsl"/>
     </fileset>
     <fileset dir="${dir}">
       <include name="realta-user-parameters.xml"/>
+    </fileset>
+  </copy>
+  <copy todir="${dir}/${package}-${stage}-${label}-archive-only/old-entities">
+    <fileset dir=".">
+      <include name="*.ent.xml"/>
+    </fileset>
+  </copy>
+  <copy todir="${dir}/${package}-${stage}-${label}-archive-only/new-entities"
+        if:set="entitiesCreated">
+    <fileset dir="${dir}">
+      <include name="*.ent.xml"/>
     </fileset>
   </copy>
   <move todir="${dir}/${package}-${stage}-${label}-archive-only">

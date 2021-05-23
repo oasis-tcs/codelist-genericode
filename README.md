@@ -77,6 +77,17 @@ Support files:
 - `produceGenericode.*` - GitHub action publishing and packaging process files converting XML to end-user PDF and HTML documents
 - `realta*` - publishing process support files
 
+## Authoring and generated content 
+
+Two conformance clauses collect the auxiliary rules of genericode into summaries. To relieve the author of the burden of maintaining consistency between the rules authored in the body and the rules summarized for conformance, the publishing process on GitHub synthesizes the conformance clauses by harvesting the rules from the authored content.
+
+![Publishing flow for generated content](pubgenflow.png)
+
+1. When the repository is pushed to GitHub, the authored `genericode.xml` XML and two stub entity XML files are uploaded. The stub entity files are not to be modified in any way by authors.
+1. The three files are input into the `rules2entities.xsl` stylesheet in order to generate the entity files composing the conformance clause content by harvesting those tables marked with `role="rule"` in DocBook
+1. The `assembleEntities.xsl` stylesheet creates the monolithic output `genericode-{version}-{stage}.xml` preserving the document type declaration and incorporating the generated entities
+1. The monolithic file is used for publishing and for distribution to users in the finalized work products
+
 ## Preview results
 
 Intermediate edits saved to the local `doc/genercode.xml` file can be previewed instantly in a browser on your computer. It is recommended that one do this to establish their edits are satisfactory before checking in to GitHub to trigger the published results.
@@ -94,6 +105,8 @@ Opening the XML in Mac OSX:
 - drag and drop the XML source onto Safari, or "right-click, Open With, Safari"
 - use Cmd-R to refresh the browser after editing the file
 - this does not work with Firefox or Chrome browsers
+
+The auxiliary rules conformance clauses in the preview are the entity stubs not to be changed by the author. The publishing process will create the distributed XML that includes the populated conformance clauses.
 
 ## Published results
 
