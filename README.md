@@ -37,26 +37,20 @@ The act of checking a committed branch to GitHub automatically triggers the publ
 
 ![Detailed steps for submitting changes to the editor](architecture.png)
 
-1. The maintainer always pulls from the “review” branch into their own private “other” branch of their own naming, not overlapping with the name used by any other maintainer or editor.
-Pulling from the “review” branch must be done after every time the editor updates the “review” branch.
-A common mistake is to pull from the “main” branch because this is the branch that is visible when one opens the repository.
-1. The maintainer makes the changes they wish to their local copy of the “other” branch. A local preview facility allows the maintainer to preview in a web browser their edits to the specification fully formatted as an OASIS specification.
-When completed they commit their changes and push their changes to GitHub.
+1. The maintainer creates their own personal `other` branch of their own naming, not overlapping with the name used by any other maintainer or editor, and always pulls from the `review` branch into it.
+Pulling from the `review` branch must be done after every time the editor updates the `review` branch.
+1. The maintainer makes the changes they wish to their local copy of the `other` branch. A local preview facility allows the maintainer to preview in a web browser their edits to the specification fully formatted as an OASIS specification.
+When completed they commit their changes and push their changes to GitHub in their private branch.
 1. Every push to GitHub triggers a GitHub Action that forwards a copy of the XML to the https://www.RealtaOnline.com API entry point specific to the desired outputs.
 1. Réalta prepares the HTML and PDF outputs for the OASIS layout and the PDF output for the ISO Directives Part 2 layout.
-1. Réalta returns to GitHub the published results in a ZIP file. The Action’s script unzips the results and packages them in a doubly-zipped ZIP file.
-The outer ZIP is used to wrap the Action’s artifacts results. The inner ZIP wraps the work product results suitable for posting to the OASIS Kavi server for archive purposes. Inside the inner ZIP contains an archive-only directory recording the control files governing the publishing process, the set of work product files to be posted to the OASIS Docs server, and a ZIP of the work product files for the public to download from the OASIS Docs server. These Action results are transient and not placed into the GitHub code repository. Eventually GitHub deletes old Action results. 
-The maintainer downloads the GitHub Action’s artifacts ZIP file for their review and, if desired, local backup. If they wish to make changes, they return to step 2 and repeat the process.
-1. When the maintainer is satisfied with their work to be reviewed by the editor and other team members, they send a pull request to the editor describing their changes that they have committed to their “other” branch.
-1. The editor reviews the pull request and, if satisfied with the contribution, they pull the server’s copy of the “other” branch into their local environment and merge it into the “review” branch.
-The editor can continue to make any changes they wish in their local copy of the “review” branch.
-1. When the editor has incorporated changes from all of the contributing maintainers and is prepared to make the review document available, they push their “review” branch to GitHub.
-This push automatically triggers the GitHub Action running the complete publishing process that returns the work product ready for the editor to download from GitHub to review. The GitHub Action results page is disseminated to the committee to download the published results and review.
-If maintainers wish to make changes they return to step 1 (not step 2) and repeat the process.
-1. When the editor has accommodated all of the feedback from committee members regarding the review and wishes to archive a snapshot for posterity, they merge their local “review” branch into their local “main” branch.
-1. The editor pushes their local “main” branch to GitHub.
-This push automatically triggers the GitHub Action running the complete publishing process that returns the work product ready for the editor to download from GitHub. The artifacts ZIP is manually unpacked revealing the inner ZIP that is then uploaded to the OASIS Kavi server for posterity and to fulfill the obligation to the public that intermediate work products be easily available.
-Following the OASIS TC Process the committee can qualify a snapshot on the OASIS Kavi server to be uploaded by OASIS TC Administration to the OASIS Docs server. When doing so the embedded archive-only directory is not included on the OASIS Docs server, but remains available on the OASIS Kavi server.
+1. Réalta returns to GitHub the published results in a ZIP file. The Action’s script unzips the results and packages them in a doubly-zipped ZIP file. The outer ZIP is used to wrap the Action’s artifacts results. The inner two ZIP files wrap for posting to the OASIS Kavi server, respectively, the work product inputs and intermediate files for archive purposes, and the set of work product files to be posted by TC Administration to the OASIS Docs server. These Action results are transient and not placed into the GitHub code repository. Eventually GitHub deletes old Action results. The maintainer downloads the GitHub Action’s artifacts ZIP file for their review and, if desired, local backup. If they wish to make changes, they return to step 2 and repeat the process.
+1. When the maintainer is satisfied with their work to be reviewed by the editor and other team members, they send a pull request to the editor describing their changes that they have committed to their `other` branch.
+1. The editor reviews the pull request and, if satisfied with the contribution, they pull the server’s copy of the `other` branch into their local environment and merge it into the `review` branch.
+The editor can continue to make any changes they wish in their local copy of the `review` branch.
+1. When the editor has incorporated changes from all of the contributing maintainers and is prepared to make the review document available, they push their `review` branch to GitHub.
+This push automatically triggers the GitHub Action running the complete publishing process that returns the work product ready for the editor to download from GitHub to review. The GitHub Action results are posted to Kavi for the committee and public to download the published results and review. The artifacts ZIP is manually unpacked revealing the two inner ZIPs that are then uploaded to the OASIS Kavi server for posterity and to fulfill the obligation to the public that intermediate work products be easily available. Following the OASIS TC Process the committee can qualify a snapshot on the OASIS Kavi server to be uploaded by OASIS TC Administration to the OASIS Docs server. If maintainers wish to make changes they return to step 1 (not step 2) and repeat the process. 
+1. When the editor has accommodated all of the feedback from committee members regarding the review and wishes to archive a snapshot for public use, they merge their local `review` branch into their local `main` branch.
+1. The editor pushes their local `main` branch to GitHub. While this push will produce a set of artefacts, those artefacts are ignored and deleted by the editor because they may have different timestamps than the files approved by committee and uploaded to Kavi. But anyone wanting a snapshot of the source material (modulo remotely changed files such as spreadsheets) can find the last approved set from the `main` branch.
 
 ## Repository contents
 
@@ -116,13 +110,11 @@ See the [Actions tab](https://github.com/oasis-tcs/codelist-genericode/actions) 
 
 You must be signed in to GitHub in order to download the results from the "Artifacts" section on the action's build result page. If not, you will get a "404 Not Found" error for the build result page.
 
-Each downloaded result is doubly-zipped: the outer zip for GitHub extraction purposes and the inner zip for posting to Kavi and distribution. Moreover, the actual content is copied in the distribution in its own third ZIP file for posting. The `archive-only-not-in-final-distribution/` subdirectory is not meant for inclusion in the final home in the [OASIS document server](https://docs.oasis-open.org/codelist), only for archive purposes in Kavi.
+Each downloaded result is doubly-zipped: the outer zip for GitHub extraction purposes and the inner zips for posting to Kavi and distribution.
 
-At particular milestones (typically when the `main` branch is updated) these files are archived in the [committee Kavi documentation (members only)](https://www.oasis-open.org/apps/org/workgroup/codelist/documents.php) [(Public access)](https://www.oasis-open.org/committees/documents.php?wg_abbrev=codelist&show_descriptions=yes).
+These files are made publicly available in the [committee Kavi documentation (members only)](https://www.oasis-open.org/apps/org/workgroup/codelist/documents.php) [(Public access)](https://www.oasis-open.org/committees/documents.php?wg_abbrev=codelist&show_descriptions=yes) repositories. The results should then be deleted from the Actions tab to save space.
 
-For genericode v1.0 cs02, the chain of package ZIP files begins [here for OASIS members](https://www.oasis-open.org/apps/org/workgroup/codelist/document.php?document_id=68158) and [here for the general public](https://www.oasis-open.org/committees/document.php?document_id=68158), but be careful to note these links are to the _start_ of the chain. See the top of the document revision history below the metadata for the most current package in the chain of uploaded revisions.
-
-The results in the Actions tab eventually are deleted automatically by GitHub, but if you have no need for a particular build result, you can delete it to save space.
+The results in the [Actions tab](https://github.com/oasis-tcs/codelist-genericode/actions) eventually are deleted automatically by GitHub, but if you have no need for a particular build result, you can delete it to save space. Please keep this in mind if you are using the GitHub web interface and creating results for every commit of every file.
 
 ## Contributions
 
