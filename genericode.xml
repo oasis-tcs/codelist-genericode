@@ -23,7 +23,7 @@
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "23 May 2021">
+	<!ENTITY pubdate "27 May 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -236,8 +236,8 @@
       <title>Scope</title>
       <para>ISO/IEC 00000 specifies genericode Version 1.0 defining a generic set of semantics for sets of key values. It includes provision for specifying metadata associated both with the individual values and with the entire set itself. Also included is a serialization of these semantics in XML
         syntax for unambiguous publishing and interchange.</para>
-      <para>The semantics are labeled in particular for expressing values in keyed coded domains comprising a “set of codes representing X”. Expressing metadata associated with key values implements an important use case for documenting the semantics of the codes in the coded domain. The choice of
-        labels is not intended to limit the scope of genericode only to coded domains, as genericode can be used for any opportunity to associate rich value metadata with unique key values.</para>
+      <para>The semantics are labeled in particular for expressing values in keyed coded domains comprising a “set of codes representing X”, colloquially refereed to as “code lists”. Expressing metadata associated with key values implements an important use case for documenting the semantics of the
+        codes in the coded domain. The choice of labels is not intended to limit the scope of genericode only to coded domains, as genericode can be used for any opportunity to associate rich value metadata with unique key values.</para>
     </legalnotice>
   </articleinfo>
   <section id="S-INTRODUCTION" role="intro">
@@ -252,7 +252,7 @@
           set of keys implicitly understand the concept associated with each key value without the need to explicitly reify the concept in any associated information values.</para>
         <para>When moving information between key-value stores, or publishing the information found in a key-value store, an IT-enabled serialization format needs to accommodate the collection of information as a whole, the individual key values however composed, and the optional though potentially
           voluminous information item values associated with each key.</para>
-        <para>Supporting multiple ad hoc or colloquial expressions of key-value associations, whether IT-enabled in a data format or not IT-enabled in arbitrary and opaque publication formats such as PDF and HTML tables, can be a burden for publishers and consumers alike. Promoting a single
+        <para>Supporting multiple ad hoc or colloquial expressions of key-value associations, whether IT-enabled in a data format or not IT-enabled in arbitrary and opaque publication formats such as PDF and HTML tables, can be a burden for publishers and consumers alike. Adopting a single
           standardized IT-enabled key-value serialization will promote easier publishing and easier ingestion of the pertinent aspects of a set of keys and their associated information values.</para>
       </section>
       <section id="S-IT-ENABLED-EXPRESSION-OF-CODED-DOMAINS">
@@ -261,7 +261,7 @@
           the semantic and IT-enabling perspectives of business transactions in, respectively, the Business Operational View (BOV) and the Functional Services View (FSV).</para>
         <para>ISO/IEC 15944-10 <emphasis>IT-enabled coded domains as semantic components in business transactions</emphasis> details important aspects of the BOV of a “set of codes representing X”, where X is a semantic umbrella concept scope and individual codes are distinct and separate semantic
           concepts within that scope. Simple umbrella semantic examples are days of the week, countries of the world, and financial currencies. Individual distinct semantic concepts are “Tuesday” and “Thursday”, “Australia” and “Tanzania”, and “the US dollar” and “the Euro”.</para>
-        <para>Some semantic concepts, such as days of the week, are accepted as given without the need for any governing authority or Open-edi sponsoring authority or Open-edi registration authority. Most other e-business semantic concepts involved in connecting the IT systems for the inter-working
+        <para>Some semantic concepts, such as days of the week, are accepted as given without the need for any governing Source Authority or coded domain Source Authority. Most other e-business semantic concepts involved in connecting the IT systems for the inter-working
           of organizations need such authoritative governance and managed publication of the semantics to be mutually understood by the expression of a code in a coded domain. Such code-level metadata could express linguistic or illustrative explication of the semantics of the given coded value
           unique key.</para>
         <para>Colloquially, such collections of codes of a coded domain are referred to as <emphasis>code lists</emphasis>. The genericode specification satisfies the FSV perspective of code lists by providing an IT-enabled expression of coded domains for the direct interchange or open publishing of
@@ -445,8 +445,8 @@
         <para>Here, the first two columns are each a key column. The last two columns are not individually key columns, but together they form a <emphasis role="italic">compound key</emphasis>, i.e. while the individual columns do not contain unique values, the pair of values is unique within each
           row. This is again similar to what happens in some relational databases, that a key for the rows need not be constructed from a single column, but instead may be constructed by combining two or more columns.</para>
         <para>Finally, there is no reason why a column should only contain simple values like strings or numbers. A column could also contain a complex compound group of data, such as a fragment of XML:</para>
-        <informaltable border="0" width="12cm" class="MsoNormalTable"
-          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;">
+        <informaltable border="0" class="MsoNormalTable"
+          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;" width="12cm">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1" colwidth="2cm"/>
             <colspec colnum="2" colname="col2" colwidth="2cm"/>
@@ -520,7 +520,7 @@
           Policy</ulink>, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights
         section of the Technical Committee web page (<ulink url="https://www.oasis-open.org/committees/codelist/ipr.php">https://www.oasis-open.org/committees/codelist/ipr.php</ulink>).</para>
     </section>
-    <section id="S-TERMINOLOGY" role="terms">
+    <section id="S-TERMINOLOGY" role="terms" conformance="skip">
       <title>Terminology</title>
       <para condition="sts">For the purposes of this document, the following terms and definitions apply.</para>
       <para condition="sts">ISO and IEC maintain terminological databases for use in standardization at the following addresses:</para>
@@ -534,6 +534,31 @@
           </para>
         </listitem>
       </itemizedlist>
+      <section id="S-TERMS-AND-DEFINITIONS">
+        <title>Terms and Definitions</title>
+        <variablelist>
+          <varlistentry>
+            <term>
+              <emphasis role="bold">coded domain Source Authority (cdSA)</emphasis>
+            </term>
+            <term role="partOfSpeech">noun</term>
+            <listitem>
+              <para>Person, usually an organization, as a Source Authority which sets the rules governing a coded domain</para>
+              <para>[ISO/IEC 15944-2:2006, 3.14]</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>
+              <emphasis role="bold">Source Authority (SA)</emphasis>
+            </term>
+            <term role="partOfSpeech">noun</term>
+            <listitem>
+              <para>Person recognized by other Persons as the authoritative source for a set of constraints</para>
+              <para>[ISO/IEC 15944-2:2006, 3.109]</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </section>
     </section>
     <section id="S-NORMATIVE-REFERENCES" role="norm-refs">
       <title>Normative References</title>
@@ -4182,24 +4207,23 @@
         </informaltable>
       </section>
     </section>
-    <section id="S-CONFORMANCE">
-      <title>Conformance</title>
-      <section id="S-AUXILIARY-RULES">
-        <title>Auxiliary Rules</title>
-        <para>An XML instance conforms to the OASIS Code List Representation genericode document model if it does not violate any constraints expressed in the genericode.xsd schema associated with this version of the specification, including auxiliary rules marked as “document” rules. </para>
-        <para>An application conforms to the OASIS Code List Representation genericode processing rules if, in addition, it does not violate any of auxiliary rules marked as “application” rules.</para>
-      </section>
-      <section id="S-CATEGORY-DOCUMENT">
-        <title>Category: document</title>
-        &rule-summary-document;
-      </section>
-      <section id="S-CATEGORY-APPLICATION">
-        <title>Category: application</title>
-        &rule-summary-application;
-      </section>
+  </section>
+  <section id="S-CONFORMANCE">
+    <title>Conformance</title>
+    <section id="S-AUXILIARY-RULES">
+      <title>Auxiliary Rules</title>
+      <para>An XML instance conforms to the OASIS Code List Representation genericode document model if it does not violate any constraints expressed in the genericode.xsd schema associated with this version of the specification, including auxiliary rules marked as “document” rules. </para>
+      <para>An application conforms to the OASIS Code List Representation genericode processing rules if, in addition, it does not violate any of auxiliary rules marked as “application” rules.</para>
+    </section>
+    <section id="S-CATEGORY-DOCUMENT">
+      <title>Category: document</title>
+      &rule-summary-document;
+    </section>
+    <section id="S-CATEGORY-APPLICATION">
+      <title>Category: application</title>
+      &rule-summary-application;
     </section>
   </section>
-  <!--reviewtext-->
   <appendix id="A-RELEASE-NOTES" role="non-normative">
     <title>Release Notes</title>
     <section id="S-AVAILABILITY">
