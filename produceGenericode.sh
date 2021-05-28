@@ -16,6 +16,7 @@ java -Dant.home=utilities/ant -classpath db/spec-0.8/validate/xjparse.jar:utilit
 serverReturn=$?
 
 sleep 2
+if [ ! -d $targetdir/$package-$thisStage-$label-archive-only/ ]; then mkdir $targetdir/$package-$thisStage-$label-archive-only/ ; fi
 mv build.console.$label.txt $targetdir/$package-$thisStage-$label-archive-only/
 echo $serverReturn         >$targetdir/$package-$thisStage-$label-archive-only/build.exitcode.$label.txt
 touch                       $targetdir/$package-$thisStage-$label-archive-only/build.console.$label.txt
