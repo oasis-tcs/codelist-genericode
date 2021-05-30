@@ -3,9 +3,15 @@
 <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
 <target name="make">
+  <tstamp>
+    <format property="localTime" pattern="yyyy-MM-dd HH:mm:ss"/>
+  </tstamp>
   
   <property name="thisdir" value="${user.dir}"/>
   <property name="consoleFile" location="${thisdir}/build.console.${label}.txt"/>
+  <echo message="produceGenericode.xml - ${package} ${stage} ${label} (${platform} - ${localTime})"/>
+  <echo message=""/>
+
   <record name="${consoleFile}" action="start"/>
   <mkdir dir="${dir}"/>
 

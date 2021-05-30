@@ -12,7 +12,7 @@ platform=$2
 label=$3
 
 echo Building package for $package $thisStage...
-java -Dant.home=utilities/ant -classpath db/spec-0.8/validate/xjparse.jar:utilities/ant/lib/ant-launcher.jar:db/spec-0.8/validate/saxon9he.jar:. org.apache.tools.ant.launch.Launcher -buildfile produceGenericode.xml -Ddir=$targetdir -Dstage=$thisStage -DprevStage=$prevStage -Dpackage=$package -Dlabel=$label -Drealtauser=$4 -Drealtapass=$5
+java -Dant.home=utilities/ant -classpath db/spec-0.8/validate/xjparse.jar:utilities/ant/lib/ant-launcher.jar:db/spec-0.8/validate/saxon9he.jar:. org.apache.tools.ant.launch.Launcher -buildfile produceGenericode.xml "-Ddir=$targetdir" "-Dstage=$thisStage" "-DprevStage=$prevStage" "-Dpackage=$package" "-Dlabel=$label" "-Drealtauser=$4" "-Drealtapass=$5"  "-Dplatform=$platform"
 serverReturn=$?
 
 sleep 2
@@ -31,13 +31,14 @@ popd
 
 if [ "$targetdir" = "target" ]
 then
-if [ "$2" = "github" ]
+if [ "$platform" = "github" ]
 then
 if [ "$6" = "DELETE-REPOSITORY-FILES-AS-WELL" ] #secret undocumented failsafe
 then
 # further reduce GitHub storage costs by deleting repository files
 
 find . -not -name target -not -name .github -maxdepth 1 -exec rm -r -f {} \;
+
 mv $targetdir/$package-$thisStage-$label-archive-only.zip .
 mv $targetdir/$package-$thisStage-$label.zip .
 rm -r -f $targetdir
