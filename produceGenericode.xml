@@ -9,10 +9,11 @@
   
   <property name="thisdir" value="${user.dir}"/>
   <property name="consoleFile" location="${thisdir}/build.console.${label}.txt"/>
+  <record name="${consoleFile}" action="start"/>
+
   <echo message="produceGenericode.xml - ${package} ${stage} ${label} (${platform} - ${localTime})"/>
   <echo message=""/>
 
-  <record name="${consoleFile}" action="start"/>
   <mkdir dir="${dir}"/>
 
   <condition property="is-dos">
