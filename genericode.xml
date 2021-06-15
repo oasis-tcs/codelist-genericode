@@ -4380,16 +4380,20 @@
     <simplelist lang="none">
       <member>Todd Albers, Federal Reserve Bank of Minneapolis</member>
       <member>Kenneth Bengtsson, Individual</member>
+      <member>Erlend Klakegg Bergheim, The Norwegian Agency for Public and Financial Management (DFO)</member>
       <member>Jon Bosak, Individual</member>
+      <member>James Cabral, Individual</member>
       <member>Andrea Caccia, Individual</member>
+      <member>Ger Clancy, IBM</member>
       <member>Anthony Coates, Individual</member>
       <member>Ray Denenberg, Library of Congress</member>
       <member>Marc Gratacos, Individual</member>
       <member>Jim Harris, National Center for State Courts</member>
       <member>Philip Helger, Individual</member>
       <member>G. Ken Holman, Crane Softwrights Ltd.</member>
-      <member>Paul Spencer, Individual</member>
       <member>Natalie Muric, Publications Office of the European Union</member>
+      <member>Levine Naidoo, IBM</member>
+      <member>Paul Spencer, Individual</member>
       <member>Dennis Weddig, Federal Reserve Bank of Minneapolis</member>
     </simplelist>
   </appendix>
@@ -4423,9 +4427,17 @@
           </row>
         </thead>
         <tbody>
+          <!--
+          <row>
+            <entry></entry>
+            <entry>&pubdate;</entry>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          -->
           <row>
             <entry>csd04wd03</entry>
-            <entry>&pubdate;</entry>
+            <entry>15 June 2021</entry>
             <entry>GKH</entry>
             <entry>Add missing application rules 52, 53, and 54. Change rule identifiers to match schema. Add rule integrity checking.</entry>
           </row>
