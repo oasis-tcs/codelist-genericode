@@ -23,7 +23,7 @@
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "27 May 2021">
+	<!ENTITY pubdate "13 June 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -1051,7 +1051,7 @@
         <title>CodeListDocument (Complex Type)</title>
         <para>Document type for genericode code list definitions.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-1" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R1" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -1155,7 +1155,7 @@
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-2" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R2" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1179,7 +1179,7 @@
         <title>CodeListRef (Complex Type)</title>
         <para>Reference to a code list, possibly defined in an external document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-3" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R3" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -1224,7 +1224,7 @@
                   <para>Canonical URI which uniquely identifies all versions (collectively) of the referenced code list.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-4" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R4" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1239,7 +1239,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-5" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R5" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1262,7 +1262,7 @@
                   <para>Canonical URI which uniquely identifies a specific version of the referenced code list.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-6" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R6" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1277,7 +1277,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-7" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R7" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1300,7 +1300,7 @@
                   <para>Suggested retrieval location for this code list, in genericode format.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-8" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R8" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1317,7 +1317,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-9" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R9" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1360,7 +1360,7 @@
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-10" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R10" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1511,7 +1511,7 @@
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-11" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R11" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1535,7 +1535,7 @@
         <title>CodeListSetRef (Complex Type)</title>
         <para>Reference to a code list set, possibly defined in an external document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-47" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R47" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -1580,7 +1580,7 @@
                   <para>Canonical URI which uniquely identifies all versions (collectively) of the referenced code list set.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-48" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R48" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1595,7 +1595,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-49" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R49" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1618,7 +1618,7 @@
                   <para>Canonical URI which uniquely identifies a specific version of the referenced code list set.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-50" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R50" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1633,7 +1633,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-51" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R51" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1655,10 +1655,38 @@
                 <entry>
                   <para>Suggested retrieval location for this code list set, in genericode format.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
+                  <para>
+                    <informaltable role="rule" id="R52" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 52 [application] :</emphasis></para>
                   <para>If the CanonicalVersionUri has been defined, the LocationUri must reference a genericode CodeListSet document.</para>
                   <para>If the CanonicalVersionUri is undefined, the LocationUri must reference a genericode CodeListSet Metadata document.</para>
                   <para>An application must signal an error to the user if a LocationUri does not reference the appropriate type of genericode document.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
+                  <para>
+                    <informaltable role="rule" id="R53" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 53 [application] :</emphasis></para>
                   <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -1687,7 +1715,21 @@
                 <entry>
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
+                  <para>
+                    <informaltable role="rule" id="R54" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                      <tgroup cols="1">
+                        <colspec colnum="1" colname="col1"/>
+                        <tbody>
+                          <row>
+                            <entry>
+                              <para><emphasis role="bold">Rule 54 [application] :</emphasis></para>
                   <para>xml:base does not apply to canonical URIs.</para>
+                            </entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable>
+                  </para>
                 </entry>
               </row>
             </tbody>
@@ -1845,7 +1887,7 @@
         <title>ColumnRef (Complex Type)</title>
         <para>Reference to a column defined in an external column set or code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-12" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R12" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -1961,7 +2003,7 @@
                   <para>Whether the column is required or optional.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-13" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R13" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -1985,7 +2027,7 @@
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-14" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R14" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2140,7 +2182,7 @@
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-15" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R15" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2368,7 +2410,7 @@
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-16" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R16" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2392,7 +2434,7 @@
         <title>ColumnSetRef (Complex Type)</title>
         <para>Reference to a column set defined in an external column set or code list document.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-17" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R17" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -2479,7 +2521,7 @@
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-18" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R18" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2555,7 +2597,7 @@
                   <para>Unique ID for the datatype within its datatype library.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-19" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R19" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2571,7 +2613,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-20" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R20" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2595,7 +2637,7 @@
                   <para>URI which uniquely identifies the datatype library.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-21" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R21" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2610,7 +2652,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-22" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R22" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2645,7 +2687,7 @@
         <title>DataRestrictions (Complex Type)</title>
         <para>Restrictions to a data type.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-23" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R23" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -2837,7 +2879,7 @@
                   <para>Unique ID within the external document.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-24" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R24" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2940,7 +2982,7 @@
                   <para>Canonical URI which uniquely identifies all versions (collectively).</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-25" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R25" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -2955,7 +2997,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-26" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R26" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3038,7 +3080,7 @@
                   <para>Canonical URI which serves as a unique identifier for this version.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-27" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R27" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3053,7 +3095,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-28" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R28" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3076,7 +3118,7 @@
                   <para>Suggested retrieval location for this version, in genericode format.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-29" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R29" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3121,7 +3163,7 @@
                   <para>Canonical URI which uniquely identifies all versions collectively.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-30" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R30" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3136,7 +3178,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-31" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R31" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3159,7 +3201,7 @@
                   <para>Canonical URI which uniquely identifies this version.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-32" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R32" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3174,7 +3216,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-33" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R33" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3199,7 +3241,7 @@
         <para>Definition of a key.</para>
         <para>A key is a set of one or more columns whose values together provide a unique identification of each item in a code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-34" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R34" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3402,7 +3444,7 @@
         <title>KeyRef (Complex Type)</title>
         <para>Reference to a key defined in an external column set or code list.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-35" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R35" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3511,7 +3553,7 @@
                   <para>Base URL which applies to relative location URIs.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-36" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R36" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3750,7 +3792,7 @@
                   <para>Column value for the row.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-37" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R37" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3766,7 +3808,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-38" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R38" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -3790,7 +3832,7 @@
         <title>ShortName (Complex Type)</title>
         <para>A short name without whitespace that is suitable for use in generating names for software artifacts.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-39" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R39" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -3834,7 +3876,7 @@
         <title>SimpleCodeList (Complex Type)</title>
         <para>Simple (explicit) code list definition.</para>
         <para><emphasis role="bold">Rules:</emphasis></para>
-        <informaltable role="rule" id="RULE-40" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+        <informaltable role="rule" id="R40" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
           <tgroup cols="1">
             <colspec colnum="1" colname="col1"/>
             <tbody>
@@ -4022,7 +4064,7 @@
                   <para>Simple textual value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-41" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R41" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -4045,7 +4087,7 @@
                   <para>Complex (structured) XML value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-42" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R42" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -4060,7 +4102,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-43" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R43" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -4140,7 +4182,7 @@
                   <para>Canonical URI which uniquely identifies this version.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-44" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R44" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -4155,7 +4197,7 @@
                     </informaltable>
                   </para>
                   <para>
-                    <informaltable role="rule" id="RULE-45" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R45" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -4178,7 +4220,7 @@
                   <para>Suggested retrieval location for this version, in genericode format.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="RULE-46" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R46" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -4381,6 +4423,12 @@
           </row>
         </thead>
         <tbody>
+          <row>
+            <entry>csd04wd03</entry>
+            <entry>&pubdate;</entry>
+            <entry>GKH</entry>
+            <entry>Add missing application rules 52, 53, and 54. Change rule identifiers to match schema.</entry>
+          </row>
           <row>
             <entry>csd04wd02</entry>
             <entry>&pubdate;</entry>
