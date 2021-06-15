@@ -16,6 +16,11 @@
   </para>
 </xs:doc>
 
+<xs:output>
+  <para>The result is a text file</para>
+</xs:output>
+<xsl:output method="text"/>
+
 <!--========================================================================-->
 <xs:doc>
   <xs:title>Invocation parameters and input file</xs:title>
@@ -30,6 +35,13 @@
   </para>
 </xs:param>
 <xsl:param name="xsd" as="document-node()?" required="yes"/>
+
+<xs:variable>
+  <para>
+    The documentation file put into a variable for use in key()
+  </para>
+</xs:variable>
+<xsl:variable name="doc" as="document-node()" select="/"/>
 
 <!--========================================================================-->
 <xs:doc>
@@ -50,9 +62,72 @@
   </para>
 </xs:template>
 <xsl:template match="/">
-  <xsl:variable name="problems">
-    
+  <xsl:variable name="problems" as="text()*">
+    <!--check all in doc against all in schema-->
+    <xsl:call-template name="g:compare-a-b">
+      <xsl:with-param name="a" select="/"/>
+      <xsl:with-param name="b" select="$xsd"/>
+    </xsl:call-template>
+    <xsl:call-template name="g:compare-a-b">
+      <xsl:with-param name="a" select="$xsd"/>
+      <xsl:with-param name="b" select="/"/>
+    </xsl:call-template>
   </xsl:variable>
+  <xsl:variable name="problemReport" as="xsd:string">
+    <xsl:value-of>
+      <xsl:for-each select="$problems">
+        <xsl:sort select="."/>
+        <xsl:sequence select="."/>
+      </xsl:for-each>
+    </xsl:value-of>
+  </xsl:variable>
+  <xsl:if test="normalize-space($problemReport)">
+    <xsl:value-of select="$problemReport"/>
+    <xsl:message terminate="yes" select="$problemReport"/>
+  </xsl:if>
+</xsl:template>
+
+<xs:template>
+  <para>
+    Compare the existence of rules to each other, then compare the ones
+    that are the same.
+  </para>
+  <xs:param name="a">
+    <para>The A document to compare</para>
+  </xs:param>
+  <xs:param name="b">
+    <para>The B document to compare</para>
+  </xs:param>
+</xs:template>
+<xsl:template name="g:compare-a-b">
+  <xsl:param name="a" as="document-node()"/>
+  <xsl:param name="b" as="document-node()"/>
+  <!--check all in doc against all in schema-->
+  <xsl:for-each select="$a//*[starts-with(@id,'R')]">
+    <xsl:variable name="arule" select="key('g:id',@id,$a)"/>
+    <xsl:variable name="brule" select="key('g:id',@id,$b)"/>
+    <xsl:choose>
+      <xsl:when test="empty($brule)">
+        <xsl:value-of select="concat('Rule ',$arule/@id,' in ',
+            if( $a is $xsd ) then 'schema' else 'documentation',
+            ' is not found in ',
+            if( $b is $xsd ) then 'schema' else 'documentation', '&#xa;' )"/>
+      </xsl:when>
+      <xsl:when test="$a is $xsd">
+        <!--the comparison already was done when $a was documentation-->
+      </xsl:when>
+      <xsl:when test="normalize-space( if( exists( $arule//para ) ) then
+                string-join( $arule//para[not(emphasis)], ' ') else $arule ) !=
+                      normalize-space( if( exists( $brule//para ) ) then
+                string-join( $brule//para[not(emphasis)], ' ') else $brule )">
+        <xsl:value-of select="concat('Rule ',$arule/@id,
+                                     ' text does not match &#xa;')"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- nothing wrong to report-->
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>

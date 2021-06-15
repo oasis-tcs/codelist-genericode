@@ -1058,7 +1058,7 @@
               <row>
                 <entry>
                   <para><emphasis role="bold">Rule 1 [document] :</emphasis></para>
-                  <para>A code list must have at least one key, unless it is a metadata-only definition without a ‘SimpleCodeList’ element.</para>
+                  <para conformance="skip">A code list must have at least one key, unless it is a metadata-only definition without a 'SimpleCodeList' element.</para>
                 </entry>
               </row>
             </tbody>
@@ -2605,7 +2605,7 @@
                             <entry>
                               <para><emphasis role="bold">Rule 19 [document] :</emphasis></para>
                               <para>The datatype ID must not include a namespace prefix.</para>
-                              <para>For the W3C XML Schema datatypes, possible datatype IDs are ‘string’, ‘token’, ‘boolean’, ‘decimal’, etc.</para>
+                              <para conformance="skip">For the W3C XML Schema datatypes, possible datatype IDs are 'string', 'token', 'boolean', 'decimal', etc.</para>
                             </entry>
                           </row>
                         </tbody>
@@ -2620,7 +2620,7 @@
                           <row>
                             <entry>
                               <para><emphasis role="bold">Rule 20 [document] :</emphasis></para>
-                              <para>If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or ‘*’ if the root element name is not restricted.</para>
+                              <para conformance="skip">If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or '*' if the root element name is not restricted.</para>
                             </entry>
                           </row>
                         </tbody>
@@ -2659,7 +2659,7 @@
                           <row>
                             <entry>
                               <para><emphasis role="bold">Rule 22 [document] :</emphasis></para>
-                              <para>If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or ‘*’ if the namespace URI is not restricted.</para>
+                              <para conformance="skip">If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or '*' if the namespace URI is not restricted.</para>
                             </entry>
                           </row>
                         </tbody>
@@ -2694,7 +2694,7 @@
               <row>
                 <entry>
                   <para><emphasis role="bold">Rule 23 [document] :</emphasis></para>
-                  <para>The ‘gc:lang’ attribute may be specified only if no language is already set for the data type that is being restricted.</para>
+                  <para conformance="skip">The 'gc:lang' attribute may be specified only if no language is already set for the data type that is being restricted.</para>
                 </entry>
               </row>
             </tbody>
@@ -2886,7 +2886,7 @@
                           <row>
                             <entry>
                               <para><emphasis role="bold">Rule 24 [document] :</emphasis></para>
-                              <para>The external reference must not be prefixed with a ‘#’ symbol.</para>
+                              <para conformance="skip">The external reference must not be prefixed with a '#' symbol.</para>
                             </entry>
                           </row>
                         </tbody>
@@ -4094,7 +4094,7 @@
                           <row>
                             <entry>
                               <para><emphasis role="bold">Rule 42 [document] :</emphasis></para>
-                              <para>The names of all direct child elements of the ‘ComplexValue’ element must match the datatype ID for the matching column, unless that ID is set to ‘*’.</para>
+                              <para conformance="skip">The names of all direct child elements of the 'ComplexValue' element must match the datatype ID for the matching column, unless that ID is set to '*'.</para>
                             </entry>
                           </row>
                         </tbody>
@@ -4109,7 +4109,7 @@
                           <row>
                             <entry>
                               <para><emphasis role="bold">Rule 43 [document] :</emphasis></para>
-                              <para>The namespace URIs of all direct child elements of the ‘ComplexValue’ element must match the datatype library URI for the matching column, unless that URI is set to ‘*’.</para>
+                              <para conformance="skip">The namespace URIs of all direct child elements of the 'ComplexValue' element must match the datatype library URI for the matching column, unless that URI is set to '*'.</para>
                             </entry>
                           </row>
                         </tbody>
