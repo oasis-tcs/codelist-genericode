@@ -4064,7 +4064,7 @@
                   <para>Simple textual value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="R411" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R41" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
