@@ -23,7 +23,7 @@
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "13 June 2021">
+	<!ENTITY pubdate "15 June 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -4064,7 +4064,7 @@
                   <para>Simple textual value.</para>
                   <para><emphasis role="bold">Rules:</emphasis></para>
                   <para>
-                    <informaltable role="rule" id="R41" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
+                    <informaltable role="rule" id="R411" border="0" style="margin-left: 2.75pt; border-collapse: collapse;" width="100%">
                       <tgroup cols="1">
                         <colspec colnum="1" colname="col1"/>
                         <tbody>
@@ -4427,11 +4427,11 @@
             <entry>csd04wd03</entry>
             <entry>&pubdate;</entry>
             <entry>GKH</entry>
-            <entry>Add missing application rules 52, 53, and 54. Change rule identifiers to match schema.</entry>
+            <entry>Add missing application rules 52, 53, and 54. Change rule identifiers to match schema. Add rule integrity checking.</entry>
           </row>
           <row>
             <entry>csd04wd02</entry>
-            <entry>&pubdate;</entry>
+            <entry>27 May 2021</entry>
             <entry>GKH</entry>
             <entry>Restore UML diagrams; use entities for conformance tables; general clean-up; add introductory text</entry>
           </row>

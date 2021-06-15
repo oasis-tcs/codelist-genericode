@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<para>
+   <emphasis role="bold">Rule 1 [<link linkend="R1">document:: complexType CodeListDocument</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                  
+                  <para conformance="skip">A code list must have at least one key, unless it is a metadata-only definition without a 'SimpleCodeList' element.</para>
+                </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 4 [<link linkend="R4">document:: element CanonicalUri in complexType CodeListRef</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 6 [<link linkend="R6">document:: element CanonicalVersionUri in complexType CodeListRef</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 19 [<link linkend="R19">document:: attribute Type in complexType Data</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>The datatype ID must not include a namespace prefix.</para>
+                              <para conformance="skip">For the W3C XML Schema datatypes, possible datatype IDs are 'string', 'token', 'boolean', 'decimal', etc.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 20 [<link linkend="R20">document:: attribute Type in complexType Data</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para conformance="skip">If the data is complex (i.e. XML), this value is set to the root element name for the XML value, or '*' if the root element name is not restricted.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 22 [<link linkend="R22">document:: attribute DatatypeLibrary in complexType Data</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para conformance="skip">If the data is complex (i.e. XML), this value is set to the namespace URI for the XML, or '*' if the namespace URI is not restricted.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 23 [<link linkend="R23">document:: complexType DataRestrictions</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                  
+                  <para conformance="skip">The 'gc:lang' attribute may be specified only if no language is already set for the data type that is being restricted.</para>
+                </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 24 [<link linkend="R24">document:: attribute ExternalRef in attributeGroup ExternalReference</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para conformance="skip">The external reference must not be prefixed with a '#' symbol.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 25 [<link linkend="R25">document:: element CanonicalUri in complexType Identification</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 27 [<link linkend="R27">document:: element CanonicalVersionUri in modelGroup IdentificationRefUriSet</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 30 [<link linkend="R30">document:: element CanonicalUri in modelGroup IdentificationVersionUriSet</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 32 [<link linkend="R32">document:: element CanonicalVersionUri in modelGroup IdentificationVersionUriSet</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 34 [<link linkend="R34">document:: complexType Key</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                  
+                  <para>Only required columns can be used for keys.</para>
+                </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 37 [<link linkend="R37">document:: element Value in complexType Row</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>A value must be provided for each required column.</para>
+                              <para>A value does not need to be provided for a column if the column is optional.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 38 [<link linkend="R38">document:: element Value in complexType Row</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>If a value does not have an explicit column reference, the column is taken to be the column following the column of the preceding value in the row, or the first column if the value is the first value of the row.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 39 [<link linkend="R39">document:: complexType ShortName</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                  
+                  <para>Must not contain whitespace characters.</para>
+                </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 41 [<link linkend="R411">document:: element SimpleValue in modelGroup ValueChoice</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>The value must be valid with respect to the datatype and restrictions of the matching column.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 42 [<link linkend="R42">document:: element ComplexValue in modelGroup ValueChoice</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para conformance="skip">The names of all direct child elements of the 'ComplexValue' element must match the datatype ID for the matching column, unless that ID is set to '*'.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 43 [<link linkend="R43">document:: element ComplexValue in modelGroup ValueChoice</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para conformance="skip">The namespace URIs of all direct child elements of the 'ComplexValue' element must match the datatype library URI for the matching column, unless that URI is set to '*'.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 44 [<link linkend="R44">document:: element CanonicalVersionUri in modelGroup VersionLocationUriSet</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 48 [<link linkend="R48">document:: element CanonicalUri in complexType CodeListSetRef</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
+<para>
+   <emphasis role="bold">Rule 50 [<link linkend="R50">document:: element CanonicalVersionUri in complexType CodeListSetRef</link>]</emphasis>
+</para>
+<informaltable border="0"
+               style="margin-left: 2.75pt; border-collapse: collapse;"
+               width="100%">
+   <tgroup cols="1">
+      <colspec colnum="1" colname="col1"/>
+      <tbody>
+         <row>
+            <entry>
+                              
+                              <para>Must be an absolute URI, must not be relative.</para>
+                            </entry>
+         </row>
+      </tbody>
+   </tgroup>
+</informaltable>
