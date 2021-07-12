@@ -9,11 +9,11 @@
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd03">
 	<!ENTITY PSTAGE "CSD03">
-	<!ENTITY stage "csd04wd03">
-	<!ENTITY STAGE "CSD04WD03">
+	<!ENTITY stage "csd04wd04">
+	<!ENTITY STAGE "CSD04WD04">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 03">
-	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 03">
+	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 04">
+	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 04">
 	<!ENTITY standard  "Committee Specification Draft 04">
 	<!ENTITY stagetext "Committee Specification Draft 04">
 	<!ENTITY dirname  "genericode/v&version;/&stage;">
@@ -23,7 +23,7 @@
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "15 June 2021">
+	<!ENTITY pubdate "12 July 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -771,7 +771,7 @@
       <para>Many of these elements and types have appeared already in <xref linkend="S-COLUMN-SETS--COLUMNS-AND-KEYS"/>, so the explanations will not be repeated here. A code list set document contains a series of zero or more CodeListRef, CodeListSet, or CodeListSetRef elements.</para>
       <para>A CodeListRef is a reference to a code list or to a version of a code list. If the CanonicalVersionUri is defined, then the LocationUri elements (if any) contain retrieval URIs for genericode CodeList documents. If the CanonicalVersionUri is not defined, then the LocationUri elements (if
         any) contain retrieval URIs for genericode CodeList Metadata documents. Note that canonical URIs and canonical version URIs must not be used as <emphasis role="italic">de facto</emphasis> location URIs for retrieving code list instances (nor anything else).</para>
-      <para>A CodeListSet element is used to define an embedded code list set within a larger code list set document. It allows a single <emphasis role="italic">CodeList Set</emphasis> documnent to carry information on multiple code list sets. Each embedded <code>CodeListSet</code> element has the
+      <para>A CodeListSet element is used to define an embedded code list set within a larger code list set document. It allows a single <emphasis role="italic">CodeList Set</emphasis> document to carry information on multiple code list sets. Each embedded <code>CodeListSet</code> element has the
         same structure as a <code>CodeListSet</code> document.</para>
       <para>A CodeListSetRef is a reference to a code list set or to a version of a code list set. If the CanonicalVersionUri is defined, then the LocationUri elements (if any) contain retrieval URIs for genericode CodeList Set documents. If the CanonicalVersionUri is not defined, then the
         LocationUri elements (if any) contain retrieval URIs for genericode CodeList Set Metadata documents. Just as for code list references, canonical URIs and canonical version URIs must not be used as <emphasis role="italic">de facto</emphasis> location URIs for retrieving code list instances
