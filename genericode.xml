@@ -9,11 +9,11 @@
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd03">
 	<!ENTITY PSTAGE "CSD03">
-	<!ENTITY stage "csd04wd04">
-	<!ENTITY STAGE "CSD04WD04">
+	<!ENTITY stage "csd04wd05">
+	<!ENTITY STAGE "CSD04WD05">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 04">
-	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 04">
+	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 05">
+	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 05">
 	<!ENTITY standard  "Committee Specification Draft 04">
 	<!ENTITY stagetext "Committee Specification Draft 04">
 	<!ENTITY dirname  "genericode/v&version;/&stage;">

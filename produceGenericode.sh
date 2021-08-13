@@ -5,7 +5,7 @@ if [ -f build.console.$3.txt ]; then rm build.console.$3.txt ; fi
 if [ "$3" = "" ] || ( [ "$4" != "" ] && [ "$5" = "" ] ); then echo Missing results directory, platform, label, user, and password arguments ; exit 1 ; fi
 
 package=genericode-v1.0
-thisStage=csd04wd03
+thisStage=csd04wd05
 prevStage=cs
 targetdir=$1
 platform=$2
