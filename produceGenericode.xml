@@ -45,6 +45,12 @@
       <include name="**"/>
     </fileset>
   </copy>
+  <delete dir="${dir}/xslt"/>
+  <copy todir="${dir}/xslt">
+    <fileset dir="xslt">
+      <include name="**"/>
+    </fileset>
+  </copy>
   <delete dir="${dir}/sch"/>
   <copy todir="${dir}/sch">
     <fileset dir="sch">
@@ -268,6 +274,7 @@
   <copy preservelastmodified="true"
         todir="${dir}/${package}-${stage}-${label}">
     <fileset dir="${dir}">
+      <include name="xslt/**"/>
       <include name="xsd/**"/>
       <include name="sch/**"/>
       <include name="db/**"/>

@@ -1,6 +1,0 @@
-Rule R41 in schema is not found in documentation
-Rule R411 in documentation is not found in schema
-
-Error on line 86 column 59 of integrityRuleCheck.xsl:
-  XTMM9000: Processing terminated by xsl:message at line 86 in integrityRuleCheck.xsl
-Processing terminated by xsl:message at line 86 in integrityRuleCheck.xsl

@@ -23,7 +23,7 @@
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "12 July 2021">
+	<!ENTITY pubdate "13 August 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -261,9 +261,8 @@
           the semantic and IT-enabling perspectives of business transactions in, respectively, the Business Operational View (BOV) and the Functional Services View (FSV).</para>
         <para>ISO/IEC 15944-10 <emphasis>IT-enabled coded domains as semantic components in business transactions</emphasis> details important aspects of the BOV of a “set of codes representing X”, where X is a semantic umbrella concept scope and individual codes are distinct and separate semantic
           concepts within that scope. Simple umbrella semantic examples are days of the week, countries of the world, and financial currencies. Individual distinct semantic concepts are “Tuesday” and “Thursday”, “Australia” and “Tanzania”, and “the US dollar” and “the Euro”.</para>
-        <para>Some semantic concepts, such as days of the week, are accepted as given without the need for any governing Source Authority or coded domain Source Authority. Most other e-business semantic concepts involved in connecting the IT systems for the inter-working
-          of organizations need such authoritative governance and managed publication of the semantics to be mutually understood by the expression of a code in a coded domain. Such code-level metadata could express linguistic or illustrative explication of the semantics of the given coded value
-          unique key.</para>
+        <para>Some semantic concepts, such as days of the week, are accepted as given without the need for any governing Source Authority or coded domain Source Authority. Most other e-business semantic concepts involved in connecting the IT systems for the inter-working of organizations need such
+          authoritative governance and managed publication of the semantics to be mutually understood by the expression of a code in a coded domain. Such code-level metadata could express linguistic or illustrative explication of the semantics of the given coded value unique key.</para>
         <para>Colloquially, such collections of codes of a coded domain are referred to as <emphasis>code lists</emphasis>. The genericode specification satisfies the FSV perspective of code lists by providing an IT-enabled expression of coded domains for the direct interchange or open publishing of
           their content and semantics in a machine-readable syntax.</para>
       </section>
@@ -446,7 +445,8 @@
           row. This is again similar to what happens in some relational databases, that a key for the rows need not be constructed from a single column, but instead may be constructed by combining two or more columns.</para>
         <para>Finally, there is no reason why a column should only contain simple values like strings or numbers. A column could also contain a complex compound group of data, such as a fragment of XML:</para>
         <informaltable border="0" class="MsoNormalTable"
-          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;" width="12cm">
+          style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-left: 1.5pt; border-collapse: collapse;"
+          width="12cm">
           <tgroup cols="3">
             <colspec colnum="1" colname="col1" colwidth="2cm"/>
             <colspec colnum="2" colname="col2" colwidth="2cm"/>
@@ -1663,9 +1663,9 @@
                           <row>
                             <entry>
                               <para><emphasis role="bold">Rule 52 [application] :</emphasis></para>
-                  <para>If the CanonicalVersionUri has been defined, the LocationUri must reference a genericode CodeListSet document.</para>
-                  <para>If the CanonicalVersionUri is undefined, the LocationUri must reference a genericode CodeListSet Metadata document.</para>
-                  <para>An application must signal an error to the user if a LocationUri does not reference the appropriate type of genericode document.</para>
+                              <para>If the CanonicalVersionUri has been defined, the LocationUri must reference a genericode CodeListSet document.</para>
+                              <para>If the CanonicalVersionUri is undefined, the LocationUri must reference a genericode CodeListSet Metadata document.</para>
+                              <para>An application must signal an error to the user if a LocationUri does not reference the appropriate type of genericode document.</para>
                             </entry>
                           </row>
                         </tbody>
@@ -1680,7 +1680,7 @@
                           <row>
                             <entry>
                               <para><emphasis role="bold">Rule 53 [application] :</emphasis></para>
-                  <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
+                              <para>An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.</para>
                             </entry>
                           </row>
                         </tbody>
@@ -1723,7 +1723,7 @@
                           <row>
                             <entry>
                               <para><emphasis role="bold">Rule 54 [application] :</emphasis></para>
-                  <para>xml:base does not apply to canonical URIs.</para>
+                              <para>xml:base does not apply to canonical URIs.</para>
                             </entry>
                           </row>
                         </tbody>
@@ -4341,8 +4341,23 @@
         <blockquote>
           <para>XML structural constraints</para>
         </blockquote>
+        <para>
+          <emphasis role="bold">
+            <literal>xslt/</literal>
+          </emphasis>
+        </para>
+        <blockquote>
+          <para>Sample XSLT transformation (see <xref linkend="A-SAMPLE-TRANSFORMATION-TO-JSON"/>)</para>
+        </blockquote>
       </blockquote>
     </section>
+  </appendix>
+  <appendix id="A-SAMPLE-TRANSFORMATION-TO-JSON">
+    <title>Sample transformation to JSON</title>
+    <para>Recognizing the custom use of JSON in a tight binding between user-defined processes, the committee sees no purpose served by standardizing a JSON syntax for the genericode vocabulary. Genericode is for the interchange of code list information.</para>
+    <para>Nevertheless, having the information transformed into JSON may be a convenience to users. Included in the distribution is a non-normative XSLT 2.0 transformation of genericode XML into a colloquial JSON syntax. No JSON schema is provided for validating the colloquial syntax, as it is
+      anticipated users will have the need for their own custom JSON. This transformation may be useful as inspiration for creating one’s own transformation.</para>
+    <para>The sample <literal>xslt/gc2gcj.xsl</literal> stylesheet reads genericode XML and produces well-formed JSON syntax as its output. The stylesheet imports the <literal>xslt/jsonsupport.xsl</literal> fragment which is not run standalone.</para>
   </appendix>
   <appendix id="A-THE-OPEN-EDI-REFERENCE-MODEL-PERSPECTIVE-OF-CODE-LISTS" role="non-normative">
     <title>The Open-edi reference model perspective of code lists</title>
@@ -4435,6 +4450,12 @@
             <entry></entry>
           </row>
           -->
+          <row>
+            <entry>csd04wd04</entry>
+            <entry>13 August 2021</entry>
+            <entry>GKH</entry>
+            <entry>Add annex regarding transformation. Add first development version of transformation as a placebo until the stylesheet is completed.</entry>
+          </row>
           <row>
             <entry>csd04wd03</entry>
             <entry>15 June 2021</entry>
