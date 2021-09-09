@@ -23,7 +23,7 @@
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "13 August 2021">
+	<!ENTITY pubdate "09 September 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -90,7 +90,22 @@
           <itemizedlist>
             <listitem>
               <para>
+                <ulink url="&this-loc;/art/">&this-loc;/art/</ulink>
+              </para>
+            </listitem>
+            <listitem>
+              <para>
                 <ulink url="&this-loc;/db/">&this-loc;/db/</ulink>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>JSON sample instances:</para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <ulink url="&this-loc;/json-example/">&this-loc;/json-example/</ulink>
               </para>
             </listitem>
           </itemizedlist>
@@ -106,11 +121,31 @@
           </itemizedlist>
         </listitem>
         <listitem>
+          <para>XML sample instances: </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <ulink url="&this-loc;/xml/">&this-loc;/xml/</ulink>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
           <para>XML structural constraints: </para>
           <itemizedlist>
             <listitem>
               <para>
                 <ulink url="&this-loc;/xsd/">&this-loc;/xsd/</ulink>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>Sample JSON translation in XSLT: </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <ulink url="&this-loc;/xslt/">&this-loc;/xslt/</ulink>
               </para>
             </listitem>
           </itemizedlist>
@@ -4327,11 +4362,27 @@
         </blockquote>
         <para>
           <emphasis role="bold">
+            <literal>json-example/</literal>
+          </emphasis>
+        </para>
+        <blockquote>
+          <para>Sample genericode JSON files</para>
+        </blockquote>
+        <para>
+          <emphasis role="bold">
             <literal>sch/</literal>
           </emphasis>
         </para>
         <blockquote>
           <para>Schematron value constraints</para>
+        </blockquote>
+        <para>
+          <emphasis role="bold">
+            <literal>xml/</literal>
+          </emphasis>
+        </para>
+        <blockquote>
+          <para>Sample genericode XML files</para>
         </blockquote>
         <para>
           <emphasis role="bold">
@@ -4358,6 +4409,56 @@
     <para>Nevertheless, having the information transformed into JSON may be a convenience to users. Included in the distribution is a non-normative XSLT 2.0 transformation of genericode XML into a colloquial JSON syntax. No JSON schema is provided for validating the colloquial syntax, as it is
       anticipated users will have the need for their own custom JSON. This transformation may be useful as inspiration for creating one’s own transformation.</para>
     <para>The sample <literal>xslt/gc2gcj.xsl</literal> stylesheet reads genericode XML and produces well-formed JSON syntax as its output. The stylesheet imports the <literal>xslt/jsonsupport.xsl</literal> fragment which is not run standalone.</para>
+  </appendix>
+  <appendix id="A-SAMPLE-INSTANCES-OF-GENERICODE">
+    <title>Sample instances of genericode</title>
+    <para>The distribution directory <literal>xml/</literal> includes the following sample instances copied from the indicated publicly-available sources:</para>
+    <itemizedlist>
+      <listitem>
+        <para>from <literal><ulink url="https://docs.oasis-open.org/legalxml-courtfiling/ecf/v5.0/cs01/schema/">https://docs.oasis-open.org/legalxml-courtfiling/ecf/v5.0/cs01/schema/</ulink></literal></para>
+        <itemizedlist>
+          <listitem>
+            <para><literal>CaseTypeCode.gc</literal></para>
+            <itemizedlist>
+              <listitem>
+                <para>a short list of only codes representing types of cases</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>from <literal><ulink url="https://docs.oasis-open.org/ubl/os-UBL-2.3/cl/gc/default/"/></literal></para>
+        <itemizedlist>
+          <listitem>
+            <para><literal>ChannelCode-2.3.gc</literal></para>
+            <itemizedlist>
+              <listitem>
+                <para>a typical list of code, name, and description values representing type available channels for communication</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para><literal>CurrencyCode-2.3.gc</literal></para>
+            <itemizedlist>
+              <listitem>
+                <para>a code list with five columns representing currencies of the world</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para><literal>UnitOfMeasureCode-2.3.gc</literal></para>
+            <itemizedlist>
+              <listitem>
+                <para>a sparsely populated list with seven columns representing units of measure for values</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </itemizedlist>
+    <para>The distribution directory <literal>json-example/</literal> includes the JSON transformations of the examples found in the <literal>xml/</literal> directory. These are created using the <literal>make-sample.sh</literal> script that invokes the transformation described in <xref
+        linkend="A-SAMPLE-INSTANCES-OF-GENERICODE"/>.  </para>
   </appendix>
   <appendix id="A-THE-OPEN-EDI-REFERENCE-MODEL-PERSPECTIVE-OF-CODE-LISTS" role="non-normative">
     <title>The Open-edi reference model perspective of code lists</title>
@@ -4450,6 +4551,12 @@
             <entry></entry>
           </row>
           -->
+          <row>
+            <entry>csd04wd05</entry>
+            <entry>09 September 2021</entry>
+            <entry>GKH</entry>
+            <entry>Add examples</entry>
+          </row>
           <row>
             <entry>csd04wd04</entry>
             <entry>13 August 2021</entry>

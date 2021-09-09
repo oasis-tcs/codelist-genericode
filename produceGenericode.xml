@@ -39,6 +39,18 @@
       <include name="realta-user-parameters.xml"/>
     </fileset>
   </copy>
+  <delete dir="${dir}/json-example"/>
+  <copy todir="${dir}/json-example">
+    <fileset dir="json-example">
+      <include name="**"/>
+    </fileset>
+  </copy>
+  <delete dir="${dir}/xml"/>
+  <copy todir="${dir}/xml">
+    <fileset dir="xml">
+      <include name="**"/>
+    </fileset>
+  </copy>
   <delete dir="${dir}/xsd"/>
   <copy todir="${dir}/xsd">
     <fileset dir="xsd">
@@ -224,7 +236,7 @@
 </target>
 
 <target name="-integrity">
-  <echo message="Checking integrity of documentation compared to schema"/>
+  <echo message="Checking the integrity of rules found in the documentation"/>
   <touch file="${dir}/INTEGRITY-PROBLEMS.txt"/>
   <java classname="net.sf.saxon.Transform"
         classpath="db/spec-0.8/validate/saxon9he.jar"
@@ -274,16 +286,15 @@
   <copy preservelastmodified="true"
         todir="${dir}/${package}-${stage}-${label}">
     <fileset dir="${dir}">
-      <include name="xslt/**"/>
+<!--      <include name="xslt/**"/>
+      <include name="xml/**"/>
+      <include name="jsan-example/**"/>
       <include name="xsd/**"/>
       <include name="sch/**"/>
-      <include name="db/**"/>
+      <include name="db/**"/>-->
       <include name="${package}-${stage}.*"/>
       <include name="iso*"/>
       <exclude name="*.txt"/>
-    </fileset>
-    <fileset dir="${dir}">
-      <include name="INTEGRITY-PROBLEMS.txt"/>
     </fileset>
   </copy>
   <copy preservelastmodified="true"
@@ -298,9 +309,30 @@
       <include name="**"/>
     </fileset>
   </copy>
+  <antcall target="-package-dir">
+    <param name="dirname" value="db"/>
+  </antcall>
+  <antcall target="-package-dir">
+    <param name="dirname" value="json-example"/>
+  </antcall>
+  <antcall target="-package-dir">
+    <param name="dirname" value="sch"/>
+  </antcall>
+  <antcall target="-package-dir">
+    <param name="dirname" value="xml"/>
+  </antcall>
+  <antcall target="-package-dir">
+    <param name="dirname" value="xsd"/>
+  </antcall>
+  <antcall target="-package-dir">
+    <param name="dirname" value="xslt"/>
+  </antcall>
+</target>
+
+<target name="-package-dir">
   <copy preservelastmodified="true"
-        todir="${dir}/${package}-${stage}-${label}/db">
-    <fileset dir="${dir}/db">
+        todir="${dir}/${package}-${stage}-${label}/${dirname}">
+    <fileset dir="${dir}/${dirname}">
       <include name="**"/>
     </fileset>
   </copy>
