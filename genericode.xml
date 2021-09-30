@@ -4295,7 +4295,7 @@
     <section id="S-CATEGORY-DOCUMENT">
       <title>Category: document</title>
       <note>
-        <para>Some of these document-related rules can be tested using Schematron as described in </para>
+        <para>Some of these document-related auxiliary rules can be programmatically tested using ISO/IEC 19757-3 Schematron as described in <xref linkend="A-TESTING-SELECT-DOCUMENT-CONFORMANCE-RULES"/>.</para>
       </note>
       &rule-summary-document;
     </section>
