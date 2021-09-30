@@ -14,8 +14,8 @@
 	<!ENTITY isostage "WD">
 	<!ENTITY standard  "Committee Specification Draft 04">
 	<!ENTITY stagetext "Committee Specification Draft 04">
-	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 05">
-	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 05">
+	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 06">
+	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 06">
 	<!ENTITY dirname  "genericode/v&version;/&stage;">
 	<!ENTITY filename "genericode-v&version;-&stage;">
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
@@ -111,7 +111,7 @@
           </itemizedlist>
         </listitem>
         <listitem>
-          <para>Schematron value constraints: </para>
+          <para>Schematron auxiliary rule constraints: </para>
           <itemizedlist>
             <listitem>
               <para>
@@ -4296,6 +4296,9 @@
     </section>
     <section id="S-CATEGORY-DOCUMENT">
       <title>Category: document</title>
+      <note>
+        <para>Some of these document-related auxiliary rules can be programmatically tested using ISO/IEC 19757-3 Schematron as described in <xref linkend="A-TESTING-SELECT-DOCUMENT-CONFORMANCE-RULES"/>.</para>
+      </note>
       &rule-summary-document;
     </section>
     <section id="S-CATEGORY-APPLICATION">
@@ -4376,7 +4379,7 @@
           </emphasis>
         </para>
         <blockquote>
-          <para>Schematron value constraints</para>
+          <para>Schematron auxiliary rule constraints</para>
         </blockquote>
         <para>
           <emphasis role="bold">
@@ -4460,7 +4463,12 @@
       </listitem>
     </itemizedlist>
     <para>The distribution directory <literal>json-example/</literal> includes the JSON transformations of the examples found in the <literal>xml/</literal> directory. These are created using the <literal>make-sample.sh</literal> script that invokes the transformation described in <xref
-        linkend="A-SAMPLE-INSTANCES-OF-GENERICODE"/>.  </para>
+        linkend="A-SAMPLE-INSTANCES-OF-GENERICODE"/>. </para>
+  </appendix>
+  <appendix id="A-TESTING-SELECT-DOCUMENT-CONFORMANCE-RULES">
+    <title>Testing select document conformance rules</title>
+    <para>Some of the document conformance auxiliary rules prescribed in <xref linkend="S-CATEGORY-DOCUMENT"/> can be tested using ISO/IEC 19757-3 Schematron.</para>
+    <para>The sample <literal>sch/genericode.sch</literal> Schematron assertion schema is provided as a sample set of assertions to be converted into testable code. </para>
   </appendix>
   <appendix id="A-THE-OPEN-EDI-REFERENCE-MODEL-PERSPECTIVE-OF-CODE-LISTS" role="non-normative">
     <title>The Open-edi reference model perspective of code lists</title>
@@ -4553,6 +4561,12 @@
             <entry></entry>
           </row>
           -\->
+          <row>
+            <entry>csd04wd06</entry>
+            <entry>30 September 2021</entry>
+            <entry>GKH</entry>
+            <entry>Add annex describing Schematron</entry>
+          </row>
           <row>
             <entry>csd04wd05</entry>
             <entry>09 September 2021</entry>
