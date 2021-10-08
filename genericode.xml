@@ -599,6 +599,8 @@
     </section>
     <section id="S-NORMATIVE-REFERENCES" role="norm-refs">
       <title>Normative References</title>
+      <para>There are no normative references.</para>
+      <!--
       <bibliolist id="normbibl">
         <bibliomixed id="xml">
           <abbrev condition="oasis">XML</abbrev>
@@ -619,48 +621,22 @@
           </citetitle>
         </bibliomixed>
       </bibliolist>
+      -->
     </section>
     <section id="S-NON-NORMATIVE-REFERENCES" role="non-norm-refs">
       <title>
         <phrase condition="oasis">Non-normative References</phrase>
         <phrase condition="sts">Bibliography</phrase>
       </title>
-      <para>FILLER PLACEBO REFERENCES TO BE REMOVED: <xref linkend="ccts"/>, <xref linkend="b_uml"/>, <xref linkend="xml2004"/>, <xref linkend="b_xslt20"/>, <xref linkend="xml"/>, <xref linkend="xsd1"/>, <xref linkend="xsd2"/></para>
       <bibliolist id="infobibl">
-        <bibliomixed id="xml2004">
-          <abbrev condition="oasis">XML2004</abbrev>
-          <citetitle>
-            <ulink conformance="skip" url="http://www.idealliance.org/proceedings/xml04/abstracts/paper86.html">Why are simple code lists so complex?</ulink>, Anthony B. Coates. </citetitle>
-        </bibliomixed>
-        <!--<bibliomixed id="b_asn.1"><abbrev condition="oasis">ASN.1</abbrev><citetitle> <ulink url="http://www.itu.int/ITU-T/studygroups/com17/languages/X.680-X.693-0207w.zip" conformance="skip">ITU-T X.680-X.683: Abstract Syntax Notation One (ASN.1)</ulink></citetitle>, <citetitle><ulink conformance="skip" url="http://www.oasis-open.org/committees/download.php/6320/X.680-X.693-0207w.zip">ITU-T X.690-X.693: ASN.1 encoding rules</ulink></citetitle></bibliomixed>-->
-        <!--<bibliomixed id="b_bovfsv"> <abbrev condition="oasis">BOV-FSV</abbrev> <citetitle>ISO/IEC 15944-20 Information technology - Business operational view - Linking business operational view to functional service view</citetitle> </bibliomixed>-->
-        <bibliomixed id="ccts">
-          <abbrev condition="oasis">CCTS</abbrev>
-          <citetitle>
-            <ulink conformance="skip" url="http://www.unece.org/cefact/codesfortrade/ccts_index.html">UN/CEFACT Core Component Technical Specification, Version 2.01</ulink>
-          </citetitle>
-        </bibliomixed>
+
         <bibliomixed id="b_openedi">
           <abbrev condition="oasis">Open-edi</abbrev>
           <citetitle>
             <ulink conformance="skip" url="http://standards.iso.org/ittf/PubliclyAvailableStandards/c055290_ISO_IEC_14662_2010%28E%29.zip">ISO/IEC 14662:2010 Information technology - Open-edi reference model</ulink>
           </citetitle>
         </bibliomixed>
-        <bibliomixed id="b_uml">
-          <abbrev condition="oasis">UML</abbrev>
-          <citetitle>
-            <ulink conformance="skip" url="https://www.oasis-open.org/committees/download.php/6240/03-03-01.zip">Unified Modeling Language Version 1.5 (formal/03-03-01)</ulink>
-          </citetitle>
-        </bibliomixed>
-        <!--<bibliomixed id="b_rec37"><abbrev condition="oasis">UN/CEFACT Rec.
-          37</abbrev><citetitle><ulink conformance="skip"
-          url="http://www.unece.org/cefact/cf_plenary/plenary10/ECE_TRADE_C_CEFACT_2010_14E.pdf"
-          >Signed Digital Evidence Interoperability Recommendation, 27
-          September 2010</ulink>.</citetitle></bibliomixed>-->
-        <bibliomixed id="b_xslt20">
-          <abbrev condition="oasis">XSLT 2.0</abbrev>Michael Kay, <citetitle>
-            <ulink url="http://www.w3.org/TR/xslt20/" conformance="skip">XSL Transformations (XSLT) Version 2.0, 2007-01-23</ulink>. </citetitle>
-        </bibliomixed>
+
       </bibliolist>
     </section>
   </section>
