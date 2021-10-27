@@ -20,10 +20,10 @@
 	<!ENTITY filename "genericode-v&version;-&stage;">
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode">
-	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/doc/oasis-code-list-representation-genericode">
+	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/v1.0/genericode-v1.0">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "08 October 2021">
+	<!ENTITY pubdate "16 October 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -550,12 +550,6 @@
         <para>One last piece of experience from databases is that support for undefined values will be required. Sometimes users will have values that need to be associated with some of the codes in a code list, but won’t have values to associate with every code. In that case, the concept of a
           undefined (nil or null) value is needed.</para>
       </section>
-    </section>
-    <section id="S-IPR-POLICY" condition="oasis">
-      <title>IPR Policy</title>
-      <para>This specification is provided under the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-Limited-Mode" conformance="skip">RF on Limited Terms Mode</ulink> of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">OASIS IPR
-          Policy</ulink>, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights
-        section of the Technical Committee web page (<ulink url="https://www.oasis-open.org/committees/codelist/ipr.php">https://www.oasis-open.org/committees/codelist/ipr.php</ulink>).</para>
     </section>
     <section id="S-TERMINOLOGY" role="terms" conformance="skip">
       <title>Terminology</title>
@@ -4506,7 +4500,7 @@
     </note>
     <para>During the review process of genericode 1.0, the distribution includes the parallel production of the specification PDF for publishing as a future ISO/IEC 00000 using the page layout prescribed by “ISO/IEC Directives, Part 2”.</para>
     <para>This rendering is found at <literal>
-        <ulink url="iso-iec-00000-draft.pdf">iso-iec-00000-draft.pdf</ulink>
+        <ulink url="iso-iec-00000-genericode-v1.0-draft.pdf">iso-iec-00000-genericode-v1.0-draft.pdf</ulink>
       </literal>. This rendering is not included in the final distribution but its content is submitted directly to ITTF for publishing.</para>
   </appendix>
   <!--<appendix id="A-TEMPORARY-ANNEX-\-\-CHANGE-LOG" role="non-normative">
