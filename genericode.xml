@@ -4,7 +4,7 @@
 <?oasis-spec-base-uri db/spec-0.8/?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "db/spec-0.8/docbook/docbookx.dtd" [
-	<!ENTITY name "genericode">
+	<!ENTITY name "genericode-v&version;">
 	<!ENTITY pversion "NONE">
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd03">
@@ -32,18 +32,18 @@
 <article status="&standard;" conformance="ids quotes ebuzzwords">
   <articleinfo>
     <productname>&name;</productname>
-    <productnumber>&version;</productnumber>
+    <productnumber>&stage;</productnumber>
     <releaseinfo role="track">Standards Track Work Product</releaseinfo>
     <releaseinfo role="OASIS-specification-this">&this-loc;/&filename;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-this" lang="none">&this-loc;/&filename;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-this-authoritative" lang="none">&this-loc;/&filename;.xml</releaseinfo>
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-previous"
-         >&previous-loc;/&name;-&version;.html</releaseinfo>
+         >&previous-loc;/&name;-&stage;.html</releaseinfo>
       <releaseinfo role="OASIS-specification-previous"
-         >&previous-loc;/&name;-&version;.pdf</releaseinfo>
+         >&previous-loc;/&name;-&stage;.pdf</releaseinfo>
       <releaseinfo role="OASIS-specification-previous-authoritative"
-         >&previous-loc;/&name;-&version;.xml</releaseinfo> -->
+         >&previous-loc;/&name;-&stage;.xml</releaseinfo> -->
     <releaseinfo role="OASIS-specification-previous">&previous-loc;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-previous">&previous-loc;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;.odt</releaseinfo>
@@ -51,11 +51,11 @@
     <releaseinfo role="OASIS-specification-latest">&latest-loc;.pdf</releaseinfo>
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-latest"
-         >&latest-loc;/&name;-&version;.html</releaseinfo>
+         >&latest-loc;/&name;-&stage;.html</releaseinfo>
       <releaseinfo role="OASIS-specification-latest"
-         >&latest-loc;/&name;-&version;.pdf</releaseinfo>
+         >&latest-loc;/&name;-&stage;.pdf</releaseinfo>
       <releaseinfo role="OASIS-specification-latest-authoritative"
-         >&latest-loc;/&name;-&version;.xml</releaseinfo> -->
+         >&latest-loc;/&name;-&stage;.xml</releaseinfo> -->
     <title>Code List Representation (genericode) Version&#xa0;1.0</title>
     <releaseinfo role="committee">
 			<ulink url="https://www.oasis-open.org/committees/codelist/" conformance="skip">OASIS Code List Representation TC</ulink>
@@ -201,7 +201,7 @@
           <date>&pubdate;. </date>
           <releaseinfo>&standard;. </releaseinfo>
           <bibliomisc>
-            <ulink url="&this-loc;/&filename;.html">&this-loc;/&filename;.html</ulink>. Latest stage: <ulink url="https://docs.oasis-open.org/codelist/genericode/doc/genericode.html">https://docs.oasis-open.org/codelist/genericode/doc/genericode.html</ulink>. </bibliomisc>
+            <ulink url="&this-loc;/&filename;.html">&this-loc;/&filename;.html</ulink>. Latest stage: <ulink url="&latest-loc;.html">&latest-loc;.html</ulink>. </bibliomisc>
         </bibliomixed>
       </bibliolist>
     </legalnotice>
