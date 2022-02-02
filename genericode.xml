@@ -9,6 +9,8 @@
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd04">
 	<!ENTITY PSTAGE "CSD04">
+	<!ENTITY stage "csd05wd01">
+	<!ENTITY STAGE "CSD05wd01">
 	<!ENTITY stage "csd05">
 	<!ENTITY STAGE "CSD05">
 	<!ENTITY isostage "WD">
