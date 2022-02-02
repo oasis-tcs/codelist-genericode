@@ -7,15 +7,15 @@
 	<!ENTITY name "genericode-v&version;">
 	<!ENTITY pversion "NONE">
 	<!ENTITY version "1.0">
-	<!ENTITY pstage "csd03">
-	<!ENTITY PSTAGE "CSD03">
-	<!ENTITY stage "csd04">
-	<!ENTITY STAGE "CSD04">
+	<!ENTITY pstage "csd04">
+	<!ENTITY PSTAGE "CSD04">
+	<!ENTITY stage "csd05">
+	<!ENTITY STAGE "CSD05">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard  "Committee Specification Draft 04">
-	<!ENTITY stagetext "Committee Specification Draft 04">
-	<!ENTITY standard  "Committee Specification Draft 04 / Working Draft 06">
-	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 06">
+	<!ENTITY standard  "Committee Specification Draft 05 / Working Draft 01">
+	<!ENTITY stagetext "Committee Specification Draft 05 Working Draft 01">
+	<!ENTITY standard  "Committee Specification Draft 05">
+	<!ENTITY stagetext "Committee Specification Draft 05">
 	<!ENTITY dirname  "genericode/v&version;/&stage;">
 	<!ENTITY filename "genericode-v&version;-&stage;">
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
@@ -23,9 +23,9 @@
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/v1.0/genericode-v1.0">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "16 October 2021">
+	<!ENTITY pubdate "02 February 2022">
 	<!--remove time from pub date-->
-	<!ENTITY pubyear "2021">
+	<!ENTITY pubyear "2022">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
 	<!ENTITY reldate-iso "ccyy-mm">
 ]>
@@ -173,15 +173,15 @@
     <legalnotice role="status" id="STATUS">
       <title>Status</title>
       <!--only one of the two following paragraphs applies; comment out the other one-->
-      <!--
+      
       <para>This <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#dWorkingDraft">Working Draft</ulink> (WD) has been produced by one or more Code List Representation TC Members; it has not yet been voted on by the TC or <ulink conformance="skip"
           url="https://www.oasis-open.org/policies-guidelines/tc-process#committeeDraft">approved</ulink> as a Committee Specification Draft. The OASIS document <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess">Approval Process</ulink>
         begins officially with a TC vote to approve a WD as a Committee Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Draft.</para>
-      -->
       
-      <para>This document was last revised or approved by the OASIS Code List Representation Technical Committee <!--OASIS Members--> on the above date. The level of approval is also listed above. Check the &#x201c;Latest stage&#x201d; location noted above for possible later revisions of this document. Any
+      <!--
+      <para>This document was last revised or approved by the OASIS Code List Representation Technical Committee <!-\-OASIS Members-\-> on the above date. The level of approval is also listed above. Check the &#x201c;Latest stage&#x201d; location noted above for possible later revisions of this document. Any
         other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <ulink url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical</ulink>. </para> 
-      
+      -->
       <para>TC members should send comments on this document to the TC’s email list. Others should send comments to the TC’s public comment list, after subscribing to it by following the instructions at the “<ulink conformance="skip"
           url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=codelist">Send A Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink url="https://www.oasis-open.org/committees/codelist/">https://www.oasis-open.org/committees/codelist/</ulink>.</para>
       <para>This specification is provided under the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-Limited-Mode" conformance="skip">RF on Limited Terms Mode</ulink> of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">OASIS IPR
@@ -4440,6 +4440,23 @@
     <para>Some of the document conformance auxiliary rules prescribed in <xref linkend="S-CATEGORY-DOCUMENT"/> can be tested using ISO/IEC 19757-3 Schematron.</para>
     <para>The sample <literal>sch/genericode.sch</literal> Schematron assertion schema is provided as a sample set of assertions to be converted into testable code. </para>
   </appendix>
+  <appendix id="A-CONSIDERATIONS-OF-LIFE-CYCLE-METADATA" role="non-normative">
+    <title>Considerations of life cycle metadata</title>
+    <para>Data life cycle management relies on having useful life cycle metadata with which to record properties of data and histories of changes in that data. Such life-cycle concepts readily apply to code list values. A few example concepts include but are not limited to dates and times indicating
+      when a value in a coded domain is accepted to be used by users or is considered a valid value, a signal of deprecation indicating when a value may still be valid but is recommended not to be used, and jurisdictional constraints within which a value may be used to the exclusion of other
+      jurisdictional boundaries. </para>
+    <para>Custodians of code lists should consider all such metadata issues from the beginning of planning and creating a new list of values in a coded domain. </para>
+    <para>The flexibility of genericode to declare columns of value-level metadata supports describing life-cycle metadata in addition to any other kind of metadata or other information that may be associated with values in a coded domain. </para>
+    <para>Per the semantics of genericode, all of the information associated with an individual coded value or part thereof is captured in the &lt;Row> element. Human-oriented information about the coded value or part in general that is not intended to be processed by a computer is put into the
+      &lt;Annotation> child of &lt;Row>. Computer-processable information is put into a set of &lt;Value> elements as metadata. Human-oriented information about a particular metadata value is put into the &lt;Annotation> child of &lt;Value>. Computer-processable information is put into either a
+      &lt;SimpleValue> child of &lt;Value> for a monolithic string value, or into a &lt;ComplexValue> child of &lt;Value> for a value that, itself, is allowed to be described richly using markup. </para>
+    <para>The semantics and constraints of each metadata &lt;Value> are described to an arbitrary extent in the &lt;ColumnKey> element identified with the &lt;Value> element’s columnRef= attribute. Custodians of code lists should consider how richly described each of the metadata columns serves the
+      reader or user of the code list when they inspect the content of &lt;ColumnKey>. It is entirely up to the list’s custodian to establish and to document the semantics and constraints of code-level metadata values in &lt;ColumnKey>. </para>
+    <para>Accordingly, it is not part of genericode to standardize any semantics beyond the semantics of the genericode specification itself of how genericode markup is used to represent values in a coded domain. There are no standardized value-level metadata semantics, and so, there are no
+      standardized life-cycle metadata semantics to be leveraged by genericode users. </para>
+    <para>While some life-cycle metadata semantics are considered somewhat universal, each custodian may have a different perspective of such semantics that impacts on their decisions regarding how each semantic is to be expressed, constrained, and documented. Therefore, the OASIS genericode
+      technical committee does not attempt to define any standardized code-level metadata of any kind, including data life cycle management metadata.</para>
+  </appendix>
   <appendix id="A-THE-OPEN-EDI-REFERENCE-MODEL-PERSPECTIVE-OF-CODE-LISTS" role="non-normative">
     <title>The Open-edi reference model perspective of code lists</title>
     <para>ISO/IEC 14662:2010 Information technology - Open-edi reference model <xref linkend="b_openedi"/> has been developed primarily in order to provide standards required for the inter-working of organizations through interconnected information technology systems. Open-edi lowers barriers to
@@ -4503,7 +4520,7 @@
         <ulink url="iso-iec-00000-genericode-v1.0-draft.pdf">iso-iec-00000-genericode-v1.0-draft.pdf</ulink>
       </literal>. This rendering is not included in the final distribution but its content is submitted directly to ITTF for publishing.</para>
   </appendix>
-  <!--<appendix id="A-TEMPORARY-ANNEX-\-\-CHANGE-LOG" role="non-normative">
+  <appendix id="A-TEMPORARY-ANNEX---CHANGE-LOG" role="non-normative">
     <title>Temporary Annex - Change Log</title>
     <note>
       <para>This temporary appendix will be removed in the final version of the committee specification.</para>
@@ -4523,14 +4540,20 @@
           </row>
         </thead>
         <tbody>
-          <!-\-
+          <!--
           <row>
             <entry></entry>
             <entry>&pubdate;</entry>
             <entry></entry>
             <entry></entry>
           </row>
-          -\->
+          -->
+          <row>
+            <entry>csd05wd01</entry>
+            <entry>02 February 2022</entry>
+            <entry>GKH</entry>
+            <entry>Add annex regarding life cycle metadata</entry>
+          </row>
           <row>
             <entry>csd04wd06</entry>
             <entry>30 September 2021</entry>
@@ -4570,5 +4593,5 @@
         </tbody>
       </tgroup>
     </informaltable>
-  </appendix>-->
+  </appendix>
 </article>
