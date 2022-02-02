@@ -4297,7 +4297,7 @@
         </listitem>
       </itemizedlist>
     </section>
-    <section id="S-PACKAGE-STRUCTURE">
+    <section id="S-PACKAGE-STRUCTURE" role="non-normative">
       <title>Package Structure</title>
       <para>The genericode specification is published as a zip archive in the release directory. Unzipping this archive creates a directory named &dirname; containing a “<literal>doc/</literal>” directory with documentation. The authoritative source of the documentation is a master DocBook XML file
         (&filename;.xml), a generated hypertext version of this file (&filename;.html), and a generated PDF version of this file (&filename;.pdf). The files in other subdirectories, linked to from &filename;.xml, &filename;.html, and &filename;.pdf, contain the various normative and informational
@@ -4378,14 +4378,14 @@
       </blockquote>
     </section>
   </appendix>
-  <appendix id="A-SAMPLE-TRANSFORMATION-TO-JSON">
+  <appendix id="A-SAMPLE-TRANSFORMATION-TO-JSON" role="non-normative">
     <title>Sample transformation to JSON</title>
     <para>Recognizing the custom use of JSON in a tight binding between user-defined processes, the committee sees no purpose served by standardizing a JSON syntax for the genericode vocabulary. Genericode is for the interchange of code list information.</para>
     <para>Nevertheless, having the information transformed into JSON may be a convenience to users. Included in the distribution is a non-normative XSLT 2.0 transformation of genericode XML into a colloquial JSON syntax. No JSON schema is provided for validating the colloquial syntax, as it is
       anticipated users will have the need for their own custom JSON. This transformation may be useful as inspiration for creating one’s own transformation.</para>
     <para>The sample <literal>xslt/gc2gcj.xsl</literal> stylesheet reads genericode XML and produces well-formed JSON syntax as its output. The stylesheet imports the <literal>xslt/jsonsupport.xsl</literal> fragment which is not run standalone.</para>
   </appendix>
-  <appendix id="A-SAMPLE-INSTANCES-OF-GENERICODE">
+  <appendix id="A-SAMPLE-INSTANCES-OF-GENERICODE" role="non-normative">
     <title>Sample instances of genericode</title>
     <para>The distribution directory <literal>xml/</literal> includes the following sample instances copied from the indicated publicly-available sources:</para>
     <itemizedlist>
@@ -4435,7 +4435,7 @@
     <para>The distribution directory <literal>json-example/</literal> includes the JSON transformations of the examples found in the <literal>xml/</literal> directory. These are created using the <literal>make-sample.sh</literal> script that invokes the transformation described in <xref
         linkend="A-SAMPLE-INSTANCES-OF-GENERICODE"/>. </para>
   </appendix>
-  <appendix id="A-TESTING-SELECT-DOCUMENT-CONFORMANCE-RULES">
+  <appendix id="A-TESTING-SELECT-DOCUMENT-CONFORMANCE-RULES" role="non-normative">
     <title>Testing select document conformance rules</title>
     <para>Some of the document conformance auxiliary rules prescribed in <xref linkend="S-CATEGORY-DOCUMENT"/> can be tested using ISO/IEC 19757-3 Schematron.</para>
     <para>The sample <literal>sch/genericode.sch</literal> Schematron assertion schema is provided as a sample set of assertions to be converted into testable code. </para>
