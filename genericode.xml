@@ -9,23 +9,27 @@
 	<!ENTITY version "1.0">
 	<!ENTITY pstage "csd04">
 	<!ENTITY PSTAGE "CSD04">
-	<!ENTITY stage "csd05">
-	<!ENTITY STAGE "CSD05">
+	<!ENTITY stage "cs02">
+	<!ENTITY STAGE "CS02">
 	<!ENTITY stage "csd05wd01">
 	<!ENTITY STAGE "CSD05wd01">
 	<!ENTITY isostage "WD">
+	<!ENTITY standard  "Committee Specification 02">
+	<!ENTITY stagetext "Committee Specification 02">
 	<!ENTITY standard  "Committee Specification Draft 05">
 	<!ENTITY stagetext "Committee Specification Draft 05">
 	<!ENTITY standard  "Committee Specification Draft 05 / Working Draft 01">
 	<!ENTITY stagetext "Committee Specification Draft 05 Working Draft 01">
 	<!ENTITY dirname  "genericode/v&version;/&stage;">
 	<!ENTITY filename "genericode-v&version;-&stage;">
+	<!ENTITY pdirname "genericode/v&version;/&pstage;">
 	<!ENTITY this-loc "https://docs.oasis-open.org/codelist/&dirname;">
+	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/&pdirname;">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/v1.0/genericode-v1.0">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "11 March 2022">
+	<!ENTITY pubdate "06 April 2022">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2022">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -39,18 +43,20 @@
     <releaseinfo role="OASIS-specification-this">&this-loc;/&filename;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-this" lang="none">&this-loc;/&filename;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-this-authoritative" lang="none">&this-loc;/&filename;.xml</releaseinfo>
-    <!-- generic form of above
+
       <releaseinfo role="OASIS-specification-previous"
-         >&previous-loc;/&name;-&stage;.html</releaseinfo>
+         >&previous-loc;/&name;-&pstage;.html</releaseinfo>
       <releaseinfo role="OASIS-specification-previous"
-         >&previous-loc;/&name;-&stage;.pdf</releaseinfo>
+         >&previous-loc;/&name;-&pstage;.pdf</releaseinfo>
       <releaseinfo role="OASIS-specification-previous-authoritative"
-         >&previous-loc;/&name;-&stage;.xml</releaseinfo> -->
+         >&previous-loc;/&name;-&pstage;.xml</releaseinfo> 
+    <!--
     <releaseinfo role="OASIS-specification-previous">&previous-loc;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-previous">&previous-loc;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;.odt</releaseinfo>
     <releaseinfo role="OASIS-specification-latest">&latest-loc;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-latest">&latest-loc;.pdf</releaseinfo>
+    -->
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-latest"
          >&latest-loc;/&name;-&stage;.html</releaseinfo>
@@ -175,13 +181,15 @@
     <legalnotice role="status" id="STATUS">
       <title>Status</title>
       <!--only one of the two following paragraphs applies; comment out the other one-->
+      <!--
       <para>This <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#dWorkingDraft">Working Draft</ulink> (WD) has been produced by one or more Code List Representation TC Members; it has not yet been voted on by the TC or <ulink conformance="skip"
           url="https://www.oasis-open.org/policies-guidelines/tc-process#committeeDraft">approved</ulink> as a Committee Specification Draft. The OASIS document <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess">Approval Process</ulink>
         begins officially with a TC vote to approve a WD as a Committee Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Draft.</para>
-      <!--
-      <para>This document was last revised or approved by the OASIS Code List Representation Technical Committee <!-\-OASIS Members-\-> on the above date. The level of approval is also listed above. Check the &#x201c;Latest stage&#x201d; location noted above for possible later revisions of this document. Any
-        other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <ulink url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical</ulink>. </para> 
       -->
+      
+      <para>This document was last revised or approved by the OASIS Code List Representation Technical Committee <!--OASIS Members--> on the above date. The level of approval is also listed above. Check the &#x201c;Latest stage&#x201d; location noted above for possible later revisions of this document. Any
+        other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <ulink url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical</ulink>. </para> 
+      
       <para>TC members should send comments on this document to the TC’s email list. Others should send comments to the TC’s public comment list, after subscribing to it by following the instructions at the “<ulink conformance="skip"
           url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=codelist">Send A Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink url="https://www.oasis-open.org/committees/codelist/">https://www.oasis-open.org/committees/codelist/</ulink>.</para>
       <para>This specification is provided under the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-Limited-Mode" conformance="skip">RF on Limited Terms Mode</ulink> of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">OASIS IPR
@@ -4509,7 +4517,8 @@
       <member>Dennis Weddig, Federal Reserve Bank of Minneapolis</member>
     </simplelist>
   </appendix>
-  <appendix id="A-TEMPORARY-ANNEX---RENDERING-PER-ISO-IEC-DIRECTIVES-PART-2" role="non-normative">
+  <!--
+  <appendix id="A-TEMPORARY-ANNEX-\-\-RENDERING-PER-ISO-IEC-DIRECTIVES-PART-2" role="non-normative">
     <title>Temporary Annex - Rendering per ISO/IEC Directives, Part 2</title>
     <note>
       <para>This temporary appendix will be removed in the final version of the committee specification.</para>
@@ -4519,6 +4528,7 @@
         <ulink url="iso-iec-00000-genericode-v1.0-draft.pdf">iso-iec-00000-genericode-v1.0-draft.pdf</ulink>
       </literal>. This rendering is not included in the final distribution but its content is submitted directly to ITTF for publishing.</para>
   </appendix>
+  -->
   <!--<appendix id="A-TEMPORARY-ANNEX-\-\-CHANGE-LOG" role="non-normative">
     <title>Temporary Annex - Change Log</title>
     <note>
