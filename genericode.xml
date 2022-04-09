@@ -54,9 +54,9 @@
     <releaseinfo role="OASIS-specification-previous">&previous-loc;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-previous">&previous-loc;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;.odt</releaseinfo>
+    -->
     <releaseinfo role="OASIS-specification-latest">&latest-loc;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-latest">&latest-loc;.pdf</releaseinfo>
-    -->
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-latest"
          >&latest-loc;/&name;-&stage;.html</releaseinfo>
@@ -207,7 +207,7 @@
           <citetitle>Code List Representation (genericode) Version 1.0.</citetitle>
           <bibliomisc>Edited by G. Ken Holman.</bibliomisc>
           <date>&pubdate;. </date>
-          <releaseinfo>&standard;. </releaseinfo>
+          <releaseinfo>OASIS &standard;. </releaseinfo>
           <bibliomisc>
             <ulink url="&this-loc;/&filename;.html">&this-loc;/&filename;.html</ulink>. Latest stage: <ulink url="&latest-loc;.html">&latest-loc;.html</ulink>. </bibliomisc>
         </bibliomixed>

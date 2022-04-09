@@ -1,0 +1,138 @@
+
+Realta:
+     [echo] Realta publishing environment - http://RealtaOnline.com
+     [echo] 2022-04-09 00:22:38 UTC
+     [echo] 
+     [echo] Invoking of OASIS-spec2pdfhtml-ISO-pdf on C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.xml
+     [echo] properties=C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.xml.properties.txt
+     [echo] dirRender=C:\Pub2\render
+     [echo] entryPoint=OASIS-spec2pdfhtml-ISO-pdf
+     [echo] dirXML=C:\Pub2\realta-publishing-orchestrator\jobs\1981653
+     [echo] nameInputXML=genericode-v1.0-cs02
+     [echo] dirNameInputXMLdot=C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.
+     [echo] extInputXML=xml
+     [echo] inputXML=C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.xml
+     [echo] fetchLabel=OASIS
+     [echo] open=
+     [echo] pause=
+     [echo] RealtaSetIndirect=no
+
+enumerate-result-files:
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.xml.console.txt
+[stopwatch] [enumerate-result-files: 1.276 sec]
+
+OASIS-spec2pdfhtml-ISO-pdf:
+     [echo] Create OASIS specification PDF and HTML, and ISO PDF
+
+process:
+
+delete-with-retry:
+
+process-skip-delete:
+     [echo] First produce the OASIS PDF and HTML
+
+Realta-validate-OASIS:
+
+Realta-validate-DocBook:
+     [echo] Validating with the DTD referenced in the DocBook document
+     [java] Attempting validating, namespace-aware parse
+     [java] Parse succeeded (0.360) with no errors and no warnings.
+     [echo] Return: 0
+
+Realta-validate-OASIS-constraints:
+     [echo] Validating with the OASIS value validation constraints
+     [echo] Return: 0
+[stopwatch] [Realta-validate-OASIS: 2.517 sec]
+
+Realta-publish-DocBook:
+
+DocBook-publish-PDF:
+     [echo] Applying PDF stylesheet...
+     [java] Making portrait pages on A4 paper (210mmx297mm)
+     [echo] Return: 0
+
+Realta-render-AHF:
+     [echo] Rendering 'C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.xml.fo' to 'C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.oasis.pdf'
+     [echo] AHFCmd : AH XSL Formatter V7.2 MR4 for Windows (x64) : 7.2.5.55968 (2022-03-22T13:56+09)
+     [echo]          Copyright (c) 1999-2022 Antenna House, Inc.
+     [echo] 
+     [echo] AHFCmd :Formatting finished normally :total 68 pages
+     [echo] Return: 0
+[stopwatch] [Realta-render-AHF: 7.800 sec]
+[stopwatch] [DocBook-publish-PDF: 13.007 sec]
+
+DocBook-publish-HTML:
+     [echo] Applying HTML stylesheet...
+     [echo] Return: 0
+[stopwatch] [DocBook-publish-HTML: 4.985 sec]
+
+transform-docbook-to-sts:
+     [echo] Return: 0
+
+copy-and-rename-sts-files:
+    [mkdir] Created dir: C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics
+     [copy] Copying 1 file to C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics
+     [copy] Copying C:\Pub2\realta-publishing-orchestrator\jobs\1981653\art\uml-column-set-key.png to C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics\fig_1.png
+     [copy] Copying 1 file to C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics
+     [copy] Copying C:\Pub2\realta-publishing-orchestrator\jobs\1981653\art\uml-code-list.png to C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics\fig_2.png
+     [copy] Copying 1 file to C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics
+     [copy] Copying C:\Pub2\realta-publishing-orchestrator\jobs\1981653\art\uml-simple-code-list.png to C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics\fig_3.png
+     [copy] Copying 1 file to C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics
+     [copy] Copying C:\Pub2\realta-publishing-orchestrator\jobs\1981653\art\genericode-Open-edi-Overview.png to C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics\fig_F.1.png
+[stopwatch] [transform-docbook-to-sts: 2.085 sec]
+
+process-skip-delete:
+     [echo] Next produce the ISO PDF
+
+Realta-validate-Realta:
+     [echo] Validating with the Realta value validation constraints
+     [echo] Return: 0
+[stopwatch] [Realta-validate-Realta: 1.370 sec]
+
+Realta-publish-STS:
+
+delete-with-retry:
+
+STS-publish-PDF:
+     [echo] Skipping difference markup processing
+     [echo] Skipping massage processing
+     [echo] Merge processing...
+     [echo] Conditionally transforming 'C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.xml' to 'C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.xml.merge.xml'...
+     [java] No merge XML directives found.
+     [java] No merge PDF directives found.
+     [java] No merged XML created.
+     [echo] Return: 0
+     [echo] XSL-FO creation...
+     [echo] Transforming 'C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.xml' to 'C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.xml.fo' with parameters '!db/Realta-docbook2sts-environment-params.xml'...
+     [echo] 
+     [echo] Return: 0
+
+Realta-render-AHF:
+     [echo] Rendering 'C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.xml.fo' to 'C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.iso.pdf'
+     [echo] AHFCmd : AH XSL Formatter V7.2 MR4 for Windows (x64) : 7.2.5.55968 (2022-03-22T13:56+09)
+     [echo]          Copyright (c) 1999-2022 Antenna House, Inc.
+     [echo] 
+     [echo] AHFCmd :Formatting finished normally :total 64 pages
+     [echo] Return: 0
+[stopwatch] [Realta-render-AHF: 10.900 sec]
+[stopwatch] [STS-publish-PDF: 15.529 sec]
+
+result-handling:
+
+prepare-results:
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.oasis.pdf
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.iso.pdf
+
+enumerate-result-files:
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.oasis.pdf
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.iso.pdf
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.oasis.html
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.xml
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.xml.console.txt
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\1981653\genericode-v1.0-cs02.sts.graphics
+[stopwatch] [enumerate-result-files: 1.186 sec]
+     [echo] 
+[stopwatch] [Overall process: 42.755 sec]
+     [echo] 2022-04-09 00:23:19 UTC
+
+BUILD SUCCESSFUL

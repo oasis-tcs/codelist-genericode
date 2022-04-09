@@ -1,0 +1,2011 @@
+{
+  "Identification": {
+    "ShortName": "CurrencyCode",
+    "LongName": [
+      {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
+          },
+        "_": "Currency Code"
+        },
+      {
+        "Identifier": "listID",
+        "_": "ISO 4217 Alpha"
+        }
+      ],
+    "Version": "2018-08-29",
+    "CanonicalUri": "urn:iso:std:iso:4217",
+    "CanonicalVersionUri": "urn:iso:std:iso:4217:2018-08-29",
+    "LocationUri": "http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/default/CurrencyCode-2.1.gc",
+    "AlternateFormatLocationUri": {
+      "MimeType": "text/xml",
+      "_": "http://www.currency-iso.org/dam/downloads/lists/list_one.xml"
+      },
+    "Agency": {
+      "LongName": {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
+          },
+        "_": "International Organization for Standardization"
+        },
+      "Identifier": {
+        "Identifier": "http://www.unece.org/trade/untdid/d18a/tred/tred3055.htm",
+        "_": "5"
+        }
+      }
+    },
+  "Columns": [
+    {
+      "Required": "true",
+      "Id": "code",
+      "ShortName": "Code",
+      "DataType": "normalizedString",
+      "DataLanguage": "en"
+      },
+    {
+      "Required": "true",
+      "Id": "name",
+      "ShortName": "Name",
+      "DataType": "string",
+      "DataLanguage": "en"
+      },
+    {
+      "Required": "true",
+      "Id": "numericcode",
+      "ShortName": "NumericCode",
+      "DataType": "integer"
+      },
+    {
+      "Id": "fractionaldigits",
+      "ShortName": "FractionalDigits",
+      "DataType": "integer"
+      },
+    {
+      "Id": "country",
+      "ShortName": "Country",
+      "DataType": "string",
+      "DataLanguage": "en"
+      }
+    ],
+  "Keys": [
+    {
+      "Id": "codeKey",
+      "ShortName": "CodeKey",
+      "ColumnRef": "code"
+      }
+    ],
+  "Codes": [
+    {
+      "code": "AED",
+      "name": "UAE Dirham",
+      "numericcode": "784",
+      "fractionaldigits": "2",
+      "country": "UNITED ARAB EMIRATES (THE)"
+      },
+    {
+      "code": "AFN",
+      "name": "Afghani",
+      "numericcode": "971",
+      "fractionaldigits": "2",
+      "country": "AFGHANISTAN"
+      },
+    {
+      "code": "ALL",
+      "name": "Lek",
+      "numericcode": "008",
+      "fractionaldigits": "2",
+      "country": "ALBANIA"
+      },
+    {
+      "code": "AMD",
+      "name": "Armenian Dram",
+      "numericcode": "051",
+      "fractionaldigits": "2",
+      "country": "ARMENIA"
+      },
+    {
+      "code": "ANG",
+      "name": "Netherlands Antillean Guilder",
+      "numericcode": "532",
+      "fractionaldigits": "2",
+      "country": "CURAÇAO"
+      },
+    {
+      "code": "ANG",
+      "name": "Netherlands Antillean Guilder",
+      "numericcode": "532",
+      "fractionaldigits": "2",
+      "country": "SINT MAARTEN (DUTCH PART)"
+      },
+    {
+      "code": "AOA",
+      "name": "Kwanza",
+      "numericcode": "973",
+      "fractionaldigits": "2",
+      "country": "ANGOLA"
+      },
+    {
+      "code": "ARS",
+      "name": "Argentine Peso",
+      "numericcode": "032",
+      "fractionaldigits": "2",
+      "country": "ARGENTINA"
+      },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "numericcode": "036",
+      "fractionaldigits": "2",
+      "country": "AUSTRALIA"
+      },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "numericcode": "036",
+      "fractionaldigits": "2",
+      "country": "CHRISTMAS ISLAND"
+      },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "numericcode": "036",
+      "fractionaldigits": "2",
+      "country": "COCOS (KEELING) ISLANDS (THE)"
+      },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "numericcode": "036",
+      "fractionaldigits": "2",
+      "country": "HEARD ISLAND AND McDONALD ISLANDS"
+      },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "numericcode": "036",
+      "fractionaldigits": "2",
+      "country": "KIRIBATI"
+      },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "numericcode": "036",
+      "fractionaldigits": "2",
+      "country": "NAURU"
+      },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "numericcode": "036",
+      "fractionaldigits": "2",
+      "country": "NORFOLK ISLAND"
+      },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "numericcode": "036",
+      "fractionaldigits": "2",
+      "country": "TUVALU"
+      },
+    {
+      "code": "AWG",
+      "name": "Aruban Florin",
+      "numericcode": "533",
+      "fractionaldigits": "2",
+      "country": "ARUBA"
+      },
+    {
+      "code": "AZN",
+      "name": "Azerbaijan Manat",
+      "numericcode": "944",
+      "fractionaldigits": "2",
+      "country": "AZERBAIJAN"
+      },
+    {
+      "code": "BAM",
+      "name": "Convertible Mark",
+      "numericcode": "977",
+      "fractionaldigits": "2",
+      "country": "BOSNIA AND HERZEGOVINA"
+      },
+    {
+      "code": "BBD",
+      "name": "Barbados Dollar",
+      "numericcode": "052",
+      "fractionaldigits": "2",
+      "country": "BARBADOS"
+      },
+    {
+      "code": "BDT",
+      "name": "Taka",
+      "numericcode": "050",
+      "fractionaldigits": "2",
+      "country": "BANGLADESH"
+      },
+    {
+      "code": "BGN",
+      "name": "Bulgarian Lev",
+      "numericcode": "975",
+      "fractionaldigits": "2",
+      "country": "BULGARIA"
+      },
+    {
+      "code": "BHD",
+      "name": "Bahraini Dinar",
+      "numericcode": "048",
+      "fractionaldigits": "3",
+      "country": "BAHRAIN"
+      },
+    {
+      "code": "BIF",
+      "name": "Burundi Franc",
+      "numericcode": "108",
+      "fractionaldigits": "0",
+      "country": "BURUNDI"
+      },
+    {
+      "code": "BMD",
+      "name": "Bermudian Dollar",
+      "numericcode": "060",
+      "fractionaldigits": "2",
+      "country": "BERMUDA"
+      },
+    {
+      "code": "BND",
+      "name": "Brunei Dollar",
+      "numericcode": "096",
+      "fractionaldigits": "2",
+      "country": "BRUNEI DARUSSALAM"
+      },
+    {
+      "code": "BOB",
+      "name": "Boliviano",
+      "numericcode": "068",
+      "fractionaldigits": "2",
+      "country": "BOLIVIA (PLURINATIONAL STATE OF)"
+      },
+    {
+      "code": "BOV",
+      "name": "Mvdol",
+      "numericcode": "984",
+      "fractionaldigits": "2",
+      "country": "BOLIVIA (PLURINATIONAL STATE OF)"
+      },
+    {
+      "code": "BRL",
+      "name": "Brazilian Real",
+      "numericcode": "986",
+      "fractionaldigits": "2",
+      "country": "BRAZIL"
+      },
+    {
+      "code": "BSD",
+      "name": "Bahamian Dollar",
+      "numericcode": "044",
+      "fractionaldigits": "2",
+      "country": "BAHAMAS (THE)"
+      },
+    {
+      "code": "BTN",
+      "name": "Ngultrum",
+      "numericcode": "064",
+      "fractionaldigits": "2",
+      "country": "BHUTAN"
+      },
+    {
+      "code": "BWP",
+      "name": "Pula",
+      "numericcode": "072",
+      "fractionaldigits": "2",
+      "country": "BOTSWANA"
+      },
+    {
+      "code": "BYN",
+      "name": "Belarusian Ruble",
+      "numericcode": "933",
+      "fractionaldigits": "2",
+      "country": "BELARUS"
+      },
+    {
+      "code": "BZD",
+      "name": "Belize Dollar",
+      "numericcode": "084",
+      "fractionaldigits": "2",
+      "country": "BELIZE"
+      },
+    {
+      "code": "CAD",
+      "name": "Canadian Dollar",
+      "numericcode": "124",
+      "fractionaldigits": "2",
+      "country": "CANADA"
+      },
+    {
+      "code": "CDF",
+      "name": "Congolese Franc",
+      "numericcode": "976",
+      "fractionaldigits": "2",
+      "country": "CONGO (THE DEMOCRATIC REPUBLIC OF THE)"
+      },
+    {
+      "code": "CHE",
+      "name": "WIR Euro",
+      "numericcode": "947",
+      "fractionaldigits": "2",
+      "country": "SWITZERLAND"
+      },
+    {
+      "code": "CHF",
+      "name": "Swiss Franc",
+      "numericcode": "756",
+      "fractionaldigits": "2",
+      "country": "LIECHTENSTEIN"
+      },
+    {
+      "code": "CHF",
+      "name": "Swiss Franc",
+      "numericcode": "756",
+      "fractionaldigits": "2",
+      "country": "SWITZERLAND"
+      },
+    {
+      "code": "CHW",
+      "name": "WIR Franc",
+      "numericcode": "948",
+      "fractionaldigits": "2",
+      "country": "SWITZERLAND"
+      },
+    {
+      "code": "CLF",
+      "name": "Unidad de Fomento",
+      "numericcode": "990",
+      "fractionaldigits": "4",
+      "country": "CHILE"
+      },
+    {
+      "code": "CLP",
+      "name": "Chilean Peso",
+      "numericcode": "152",
+      "fractionaldigits": "0",
+      "country": "CHILE"
+      },
+    {
+      "code": "CNY",
+      "name": "Yuan Renminbi",
+      "numericcode": "156",
+      "fractionaldigits": "2",
+      "country": "CHINA"
+      },
+    {
+      "code": "COP",
+      "name": "Colombian Peso",
+      "numericcode": "170",
+      "fractionaldigits": "2",
+      "country": "COLOMBIA"
+      },
+    {
+      "code": "COU",
+      "name": "Unidad de Valor Real",
+      "numericcode": "970",
+      "fractionaldigits": "2",
+      "country": "COLOMBIA"
+      },
+    {
+      "code": "CRC",
+      "name": "Costa Rican Colon",
+      "numericcode": "188",
+      "fractionaldigits": "2",
+      "country": "COSTA RICA"
+      },
+    {
+      "code": "CUC",
+      "name": "Peso Convertible",
+      "numericcode": "931",
+      "fractionaldigits": "2",
+      "country": "CUBA"
+      },
+    {
+      "code": "CUP",
+      "name": "Cuban Peso",
+      "numericcode": "192",
+      "fractionaldigits": "2",
+      "country": "CUBA"
+      },
+    {
+      "code": "CVE",
+      "name": "Cabo Verde Escudo",
+      "numericcode": "132",
+      "fractionaldigits": "2",
+      "country": "CABO VERDE"
+      },
+    {
+      "code": "CZK",
+      "name": "Czech Koruna",
+      "numericcode": "203",
+      "fractionaldigits": "2",
+      "country": "CZECHIA"
+      },
+    {
+      "code": "DJF",
+      "name": "Djibouti Franc",
+      "numericcode": "262",
+      "fractionaldigits": "0",
+      "country": "DJIBOUTI"
+      },
+    {
+      "code": "DKK",
+      "name": "Danish Krone",
+      "numericcode": "208",
+      "fractionaldigits": "2",
+      "country": "DENMARK"
+      },
+    {
+      "code": "DKK",
+      "name": "Danish Krone",
+      "numericcode": "208",
+      "fractionaldigits": "2",
+      "country": "FAROE ISLANDS (THE)"
+      },
+    {
+      "code": "DKK",
+      "name": "Danish Krone",
+      "numericcode": "208",
+      "fractionaldigits": "2",
+      "country": "GREENLAND"
+      },
+    {
+      "code": "DOP",
+      "name": "Dominican Peso",
+      "numericcode": "214",
+      "fractionaldigits": "2",
+      "country": "DOMINICAN REPUBLIC (THE)"
+      },
+    {
+      "code": "DZD",
+      "name": "Algerian Dinar",
+      "numericcode": "012",
+      "fractionaldigits": "2",
+      "country": "ALGERIA"
+      },
+    {
+      "code": "EGP",
+      "name": "Egyptian Pound",
+      "numericcode": "818",
+      "fractionaldigits": "2",
+      "country": "EGYPT"
+      },
+    {
+      "code": "ERN",
+      "name": "Nakfa",
+      "numericcode": "232",
+      "fractionaldigits": "2",
+      "country": "ERITREA"
+      },
+    {
+      "code": "ETB",
+      "name": "Ethiopian Birr",
+      "numericcode": "230",
+      "fractionaldigits": "2",
+      "country": "ETHIOPIA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "ÅLAND ISLANDS"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "ANDORRA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "AUSTRIA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "BELGIUM"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "CYPRUS"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "ESTONIA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "EUROPEAN UNION"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "FINLAND"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "FRANCE"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "FRENCH GUIANA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "FRENCH SOUTHERN TERRITORIES (THE)"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "GERMANY"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "GREECE"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "GUADELOUPE"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "HOLY SEE (THE)"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "IRELAND"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "ITALY"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "LATVIA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "LITHUANIA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "LUXEMBOURG"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "MALTA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "MARTINIQUE"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "MAYOTTE"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "MONACO"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "MONTENEGRO"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "NETHERLANDS (THE)"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "PORTUGAL"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "RÉUNION"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "SAINT BARTHÉLEMY"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "SAINT MARTIN (FRENCH PART)"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "SAINT PIERRE AND MIQUELON"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "SAN MARINO"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "SLOVAKIA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "SLOVENIA"
+      },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "numericcode": "978",
+      "fractionaldigits": "2",
+      "country": "SPAIN"
+      },
+    {
+      "code": "FJD",
+      "name": "Fiji Dollar",
+      "numericcode": "242",
+      "fractionaldigits": "2",
+      "country": "FIJI"
+      },
+    {
+      "code": "FKP",
+      "name": "Falkland Islands Pound",
+      "numericcode": "238",
+      "fractionaldigits": "2",
+      "country": "FALKLAND ISLANDS (THE) [MALVINAS]"
+      },
+    {
+      "code": "GBP",
+      "name": "Pound Sterling",
+      "numericcode": "826",
+      "fractionaldigits": "2",
+      "country": "GUERNSEY"
+      },
+    {
+      "code": "GBP",
+      "name": "Pound Sterling",
+      "numericcode": "826",
+      "fractionaldigits": "2",
+      "country": "ISLE OF MAN"
+      },
+    {
+      "code": "GBP",
+      "name": "Pound Sterling",
+      "numericcode": "826",
+      "fractionaldigits": "2",
+      "country": "JERSEY"
+      },
+    {
+      "code": "GBP",
+      "name": "Pound Sterling",
+      "numericcode": "826",
+      "fractionaldigits": "2",
+      "country": "UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND (THE)"
+      },
+    {
+      "code": "GEL",
+      "name": "Lari",
+      "numericcode": "981",
+      "fractionaldigits": "2",
+      "country": "GEORGIA"
+      },
+    {
+      "code": "GHS",
+      "name": "Ghana Cedi",
+      "numericcode": "936",
+      "fractionaldigits": "2",
+      "country": "GHANA"
+      },
+    {
+      "code": "GIP",
+      "name": "Gibraltar Pound",
+      "numericcode": "292",
+      "fractionaldigits": "2",
+      "country": "GIBRALTAR"
+      },
+    {
+      "code": "GMD",
+      "name": "Dalasi",
+      "numericcode": "270",
+      "fractionaldigits": "2",
+      "country": "GAMBIA (THE)"
+      },
+    {
+      "code": "GNF",
+      "name": "Guinean Franc",
+      "numericcode": "324",
+      "fractionaldigits": "0",
+      "country": "GUINEA"
+      },
+    {
+      "code": "GTQ",
+      "name": "Quetzal",
+      "numericcode": "320",
+      "fractionaldigits": "2",
+      "country": "GUATEMALA"
+      },
+    {
+      "code": "GYD",
+      "name": "Guyana Dollar",
+      "numericcode": "328",
+      "fractionaldigits": "2",
+      "country": "GUYANA"
+      },
+    {
+      "code": "HKD",
+      "name": "Hong Kong Dollar",
+      "numericcode": "344",
+      "fractionaldigits": "2",
+      "country": "HONG KONG"
+      },
+    {
+      "code": "HNL",
+      "name": "Lempira",
+      "numericcode": "340",
+      "fractionaldigits": "2",
+      "country": "HONDURAS"
+      },
+    {
+      "code": "HRK",
+      "name": "Kuna",
+      "numericcode": "191",
+      "fractionaldigits": "2",
+      "country": "CROATIA"
+      },
+    {
+      "code": "HTG",
+      "name": "Gourde",
+      "numericcode": "332",
+      "fractionaldigits": "2",
+      "country": "HAITI"
+      },
+    {
+      "code": "HUF",
+      "name": "Forint",
+      "numericcode": "348",
+      "fractionaldigits": "2",
+      "country": "HUNGARY"
+      },
+    {
+      "code": "IDR",
+      "name": "Rupiah",
+      "numericcode": "360",
+      "fractionaldigits": "2",
+      "country": "INDONESIA"
+      },
+    {
+      "code": "ILS",
+      "name": "New Israeli Sheqel",
+      "numericcode": "376",
+      "fractionaldigits": "2",
+      "country": "ISRAEL"
+      },
+    {
+      "code": "INR",
+      "name": "Indian Rupee",
+      "numericcode": "356",
+      "fractionaldigits": "2",
+      "country": "BHUTAN"
+      },
+    {
+      "code": "INR",
+      "name": "Indian Rupee",
+      "numericcode": "356",
+      "fractionaldigits": "2",
+      "country": "INDIA"
+      },
+    {
+      "code": "IQD",
+      "name": "Iraqi Dinar",
+      "numericcode": "368",
+      "fractionaldigits": "3",
+      "country": "IRAQ"
+      },
+    {
+      "code": "IRR",
+      "name": "Iranian Rial",
+      "numericcode": "364",
+      "fractionaldigits": "2",
+      "country": "IRAN (ISLAMIC REPUBLIC OF)"
+      },
+    {
+      "code": "ISK",
+      "name": "Iceland Krona",
+      "numericcode": "352",
+      "fractionaldigits": "0",
+      "country": "ICELAND"
+      },
+    {
+      "code": "JMD",
+      "name": "Jamaican Dollar",
+      "numericcode": "388",
+      "fractionaldigits": "2",
+      "country": "JAMAICA"
+      },
+    {
+      "code": "JOD",
+      "name": "Jordanian Dinar",
+      "numericcode": "400",
+      "fractionaldigits": "3",
+      "country": "JORDAN"
+      },
+    {
+      "code": "JPY",
+      "name": "Yen",
+      "numericcode": "392",
+      "fractionaldigits": "0",
+      "country": "JAPAN"
+      },
+    {
+      "code": "KES",
+      "name": "Kenyan Shilling",
+      "numericcode": "404",
+      "fractionaldigits": "2",
+      "country": "KENYA"
+      },
+    {
+      "code": "KGS",
+      "name": "Som",
+      "numericcode": "417",
+      "fractionaldigits": "2",
+      "country": "KYRGYZSTAN"
+      },
+    {
+      "code": "KHR",
+      "name": "Riel",
+      "numericcode": "116",
+      "fractionaldigits": "2",
+      "country": "CAMBODIA"
+      },
+    {
+      "code": "KMF",
+      "name": "Comorian Franc",
+      "numericcode": "174",
+      "fractionaldigits": "0",
+      "country": "COMOROS (THE)"
+      },
+    {
+      "code": "KPW",
+      "name": "North Korean Won",
+      "numericcode": "408",
+      "fractionaldigits": "2",
+      "country": "KOREA (THE DEMOCRATIC PEOPLE’S REPUBLIC OF)"
+      },
+    {
+      "code": "KRW",
+      "name": "Won",
+      "numericcode": "410",
+      "fractionaldigits": "0",
+      "country": "KOREA (THE REPUBLIC OF)"
+      },
+    {
+      "code": "KWD",
+      "name": "Kuwaiti Dinar",
+      "numericcode": "414",
+      "fractionaldigits": "3",
+      "country": "KUWAIT"
+      },
+    {
+      "code": "KYD",
+      "name": "Cayman Islands Dollar",
+      "numericcode": "136",
+      "fractionaldigits": "2",
+      "country": "CAYMAN ISLANDS (THE)"
+      },
+    {
+      "code": "KZT",
+      "name": "Tenge",
+      "numericcode": "398",
+      "fractionaldigits": "2",
+      "country": "KAZAKHSTAN"
+      },
+    {
+      "code": "LAK",
+      "name": "Lao Kip",
+      "numericcode": "418",
+      "fractionaldigits": "2",
+      "country": "LAO PEOPLE’S DEMOCRATIC REPUBLIC (THE)"
+      },
+    {
+      "code": "LBP",
+      "name": "Lebanese Pound",
+      "numericcode": "422",
+      "fractionaldigits": "2",
+      "country": "LEBANON"
+      },
+    {
+      "code": "LKR",
+      "name": "Sri Lanka Rupee",
+      "numericcode": "144",
+      "fractionaldigits": "2",
+      "country": "SRI LANKA"
+      },
+    {
+      "code": "LRD",
+      "name": "Liberian Dollar",
+      "numericcode": "430",
+      "fractionaldigits": "2",
+      "country": "LIBERIA"
+      },
+    {
+      "code": "LSL",
+      "name": "Loti",
+      "numericcode": "426",
+      "fractionaldigits": "2",
+      "country": "LESOTHO"
+      },
+    {
+      "code": "LYD",
+      "name": "Libyan Dinar",
+      "numericcode": "434",
+      "fractionaldigits": "3",
+      "country": "LIBYA"
+      },
+    {
+      "code": "MAD",
+      "name": "Moroccan Dirham",
+      "numericcode": "504",
+      "fractionaldigits": "2",
+      "country": "MOROCCO"
+      },
+    {
+      "code": "MAD",
+      "name": "Moroccan Dirham",
+      "numericcode": "504",
+      "fractionaldigits": "2",
+      "country": "WESTERN SAHARA"
+      },
+    {
+      "code": "MDL",
+      "name": "Moldovan Leu",
+      "numericcode": "498",
+      "fractionaldigits": "2",
+      "country": "MOLDOVA (THE REPUBLIC OF)"
+      },
+    {
+      "code": "MGA",
+      "name": "Malagasy Ariary",
+      "numericcode": "969",
+      "fractionaldigits": "2",
+      "country": "MADAGASCAR"
+      },
+    {
+      "code": "MKD",
+      "name": "Denar",
+      "numericcode": "807",
+      "fractionaldigits": "2",
+      "country": "MACEDONIA (THE FORMER YUGOSLAV REPUBLIC OF)"
+      },
+    {
+      "code": "MMK",
+      "name": "Kyat",
+      "numericcode": "104",
+      "fractionaldigits": "2",
+      "country": "MYANMAR"
+      },
+    {
+      "code": "MNT",
+      "name": "Tugrik",
+      "numericcode": "496",
+      "fractionaldigits": "2",
+      "country": "MONGOLIA"
+      },
+    {
+      "code": "MOP",
+      "name": "Pataca",
+      "numericcode": "446",
+      "fractionaldigits": "2",
+      "country": "MACAO"
+      },
+    {
+      "code": "MRU",
+      "name": "Ouguiya",
+      "numericcode": "929",
+      "fractionaldigits": "2",
+      "country": "MAURITANIA"
+      },
+    {
+      "code": "MUR",
+      "name": "Mauritius Rupee",
+      "numericcode": "480",
+      "fractionaldigits": "2",
+      "country": "MAURITIUS"
+      },
+    {
+      "code": "MVR",
+      "name": "Rufiyaa",
+      "numericcode": "462",
+      "fractionaldigits": "2",
+      "country": "MALDIVES"
+      },
+    {
+      "code": "MWK",
+      "name": "Malawi Kwacha",
+      "numericcode": "454",
+      "fractionaldigits": "2",
+      "country": "MALAWI"
+      },
+    {
+      "code": "MXN",
+      "name": "Mexican Peso",
+      "numericcode": "484",
+      "fractionaldigits": "2",
+      "country": "MEXICO"
+      },
+    {
+      "code": "MXV",
+      "name": "Mexican Unidad de Inversion (UDI)",
+      "numericcode": "979",
+      "fractionaldigits": "2",
+      "country": "MEXICO"
+      },
+    {
+      "code": "MYR",
+      "name": "Malaysian Ringgit",
+      "numericcode": "458",
+      "fractionaldigits": "2",
+      "country": "MALAYSIA"
+      },
+    {
+      "code": "MZN",
+      "name": "Mozambique Metical",
+      "numericcode": "943",
+      "fractionaldigits": "2",
+      "country": "MOZAMBIQUE"
+      },
+    {
+      "code": "NAD",
+      "name": "Namibia Dollar",
+      "numericcode": "516",
+      "fractionaldigits": "2",
+      "country": "NAMIBIA"
+      },
+    {
+      "code": "NGN",
+      "name": "Naira",
+      "numericcode": "566",
+      "fractionaldigits": "2",
+      "country": "NIGERIA"
+      },
+    {
+      "code": "NIO",
+      "name": "Cordoba Oro",
+      "numericcode": "558",
+      "fractionaldigits": "2",
+      "country": "NICARAGUA"
+      },
+    {
+      "code": "NOK",
+      "name": "Norwegian Krone",
+      "numericcode": "578",
+      "fractionaldigits": "2",
+      "country": "BOUVET ISLAND"
+      },
+    {
+      "code": "NOK",
+      "name": "Norwegian Krone",
+      "numericcode": "578",
+      "fractionaldigits": "2",
+      "country": "NORWAY"
+      },
+    {
+      "code": "NOK",
+      "name": "Norwegian Krone",
+      "numericcode": "578",
+      "fractionaldigits": "2",
+      "country": "SVALBARD AND JAN MAYEN"
+      },
+    {
+      "code": "NPR",
+      "name": "Nepalese Rupee",
+      "numericcode": "524",
+      "fractionaldigits": "2",
+      "country": "NEPAL"
+      },
+    {
+      "code": "NZD",
+      "name": "New Zealand Dollar",
+      "numericcode": "554",
+      "fractionaldigits": "2",
+      "country": "COOK ISLANDS (THE)"
+      },
+    {
+      "code": "NZD",
+      "name": "New Zealand Dollar",
+      "numericcode": "554",
+      "fractionaldigits": "2",
+      "country": "NEW ZEALAND"
+      },
+    {
+      "code": "NZD",
+      "name": "New Zealand Dollar",
+      "numericcode": "554",
+      "fractionaldigits": "2",
+      "country": "NIUE"
+      },
+    {
+      "code": "NZD",
+      "name": "New Zealand Dollar",
+      "numericcode": "554",
+      "fractionaldigits": "2",
+      "country": "PITCAIRN"
+      },
+    {
+      "code": "NZD",
+      "name": "New Zealand Dollar",
+      "numericcode": "554",
+      "fractionaldigits": "2",
+      "country": "TOKELAU"
+      },
+    {
+      "code": "OMR",
+      "name": "Rial Omani",
+      "numericcode": "512",
+      "fractionaldigits": "3",
+      "country": "OMAN"
+      },
+    {
+      "code": "PAB",
+      "name": "Balboa",
+      "numericcode": "590",
+      "fractionaldigits": "2",
+      "country": "PANAMA"
+      },
+    {
+      "code": "PEN",
+      "name": "Sol",
+      "numericcode": "604",
+      "fractionaldigits": "2",
+      "country": "PERU"
+      },
+    {
+      "code": "PGK",
+      "name": "Kina",
+      "numericcode": "598",
+      "fractionaldigits": "2",
+      "country": "PAPUA NEW GUINEA"
+      },
+    {
+      "code": "PHP",
+      "name": "Philippine Peso",
+      "numericcode": "608",
+      "fractionaldigits": "2",
+      "country": "PHILIPPINES (THE)"
+      },
+    {
+      "code": "PKR",
+      "name": "Pakistan Rupee",
+      "numericcode": "586",
+      "fractionaldigits": "2",
+      "country": "PAKISTAN"
+      },
+    {
+      "code": "PLN",
+      "name": "Zloty",
+      "numericcode": "985",
+      "fractionaldigits": "2",
+      "country": "POLAND"
+      },
+    {
+      "code": "PYG",
+      "name": "Guarani",
+      "numericcode": "600",
+      "fractionaldigits": "0",
+      "country": "PARAGUAY"
+      },
+    {
+      "code": "QAR",
+      "name": "Qatari Rial",
+      "numericcode": "634",
+      "fractionaldigits": "2",
+      "country": "QATAR"
+      },
+    {
+      "code": "RON",
+      "name": "Romanian Leu",
+      "numericcode": "946",
+      "fractionaldigits": "2",
+      "country": "ROMANIA"
+      },
+    {
+      "code": "RSD",
+      "name": "Serbian Dinar",
+      "numericcode": "941",
+      "fractionaldigits": "2",
+      "country": "SERBIA"
+      },
+    {
+      "code": "RUB",
+      "name": "Russian Ruble",
+      "numericcode": "643",
+      "fractionaldigits": "2",
+      "country": "RUSSIAN FEDERATION (THE)"
+      },
+    {
+      "code": "RWF",
+      "name": "Rwanda Franc",
+      "numericcode": "646",
+      "fractionaldigits": "0",
+      "country": "RWANDA"
+      },
+    {
+      "code": "SAR",
+      "name": "Saudi Riyal",
+      "numericcode": "682",
+      "fractionaldigits": "2",
+      "country": "SAUDI ARABIA"
+      },
+    {
+      "code": "SBD",
+      "name": "Solomon Islands Dollar",
+      "numericcode": "090",
+      "fractionaldigits": "2",
+      "country": "SOLOMON ISLANDS"
+      },
+    {
+      "code": "SCR",
+      "name": "Seychelles Rupee",
+      "numericcode": "690",
+      "fractionaldigits": "2",
+      "country": "SEYCHELLES"
+      },
+    {
+      "code": "SDG",
+      "name": "Sudanese Pound",
+      "numericcode": "938",
+      "fractionaldigits": "2",
+      "country": "SUDAN (THE)"
+      },
+    {
+      "code": "SEK",
+      "name": "Swedish Krona",
+      "numericcode": "752",
+      "fractionaldigits": "2",
+      "country": "SWEDEN"
+      },
+    {
+      "code": "SGD",
+      "name": "Singapore Dollar",
+      "numericcode": "702",
+      "fractionaldigits": "2",
+      "country": "SINGAPORE"
+      },
+    {
+      "code": "SHP",
+      "name": "Saint Helena Pound",
+      "numericcode": "654",
+      "fractionaldigits": "2",
+      "country": "SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA"
+      },
+    {
+      "code": "SLL",
+      "name": "Leone",
+      "numericcode": "694",
+      "fractionaldigits": "2",
+      "country": "SIERRA LEONE"
+      },
+    {
+      "code": "SOS",
+      "name": "Somali Shilling",
+      "numericcode": "706",
+      "fractionaldigits": "2",
+      "country": "SOMALIA"
+      },
+    {
+      "code": "SRD",
+      "name": "Surinam Dollar",
+      "numericcode": "968",
+      "fractionaldigits": "2",
+      "country": "SURINAME"
+      },
+    {
+      "code": "SSP",
+      "name": "South Sudanese Pound",
+      "numericcode": "728",
+      "fractionaldigits": "2",
+      "country": "SOUTH SUDAN"
+      },
+    {
+      "code": "STN",
+      "name": "Dobra",
+      "numericcode": "930",
+      "fractionaldigits": "2",
+      "country": "SAO TOME AND PRINCIPE"
+      },
+    {
+      "code": "SVC",
+      "name": "El Salvador Colon",
+      "numericcode": "222",
+      "fractionaldigits": "2",
+      "country": "EL SALVADOR"
+      },
+    {
+      "code": "SYP",
+      "name": "Syrian Pound",
+      "numericcode": "760",
+      "fractionaldigits": "2",
+      "country": "SYRIAN ARAB REPUBLIC"
+      },
+    {
+      "code": "SZL",
+      "name": "Lilangeni",
+      "numericcode": "748",
+      "fractionaldigits": "2",
+      "country": "ESWATINI"
+      },
+    {
+      "code": "THB",
+      "name": "Baht",
+      "numericcode": "764",
+      "fractionaldigits": "2",
+      "country": "THAILAND"
+      },
+    {
+      "code": "TJS",
+      "name": "Somoni",
+      "numericcode": "972",
+      "fractionaldigits": "2",
+      "country": "TAJIKISTAN"
+      },
+    {
+      "code": "TMT",
+      "name": "Turkmenistan New Manat",
+      "numericcode": "934",
+      "fractionaldigits": "2",
+      "country": "TURKMENISTAN"
+      },
+    {
+      "code": "TND",
+      "name": "Tunisian Dinar",
+      "numericcode": "788",
+      "fractionaldigits": "3",
+      "country": "TUNISIA"
+      },
+    {
+      "code": "TOP",
+      "name": "Pa’anga",
+      "numericcode": "776",
+      "fractionaldigits": "2",
+      "country": "TONGA"
+      },
+    {
+      "code": "TRY",
+      "name": "Turkish Lira",
+      "numericcode": "949",
+      "fractionaldigits": "2",
+      "country": "TURKEY"
+      },
+    {
+      "code": "TTD",
+      "name": "Trinidad and Tobago Dollar",
+      "numericcode": "780",
+      "fractionaldigits": "2",
+      "country": "TRINIDAD AND TOBAGO"
+      },
+    {
+      "code": "TWD",
+      "name": "New Taiwan Dollar",
+      "numericcode": "901",
+      "fractionaldigits": "2",
+      "country": "TAIWAN (PROVINCE OF CHINA)"
+      },
+    {
+      "code": "TZS",
+      "name": "Tanzanian Shilling",
+      "numericcode": "834",
+      "fractionaldigits": "2",
+      "country": "TANZANIA, UNITED REPUBLIC OF"
+      },
+    {
+      "code": "UAH",
+      "name": "Hryvnia",
+      "numericcode": "980",
+      "fractionaldigits": "2",
+      "country": "UKRAINE"
+      },
+    {
+      "code": "UGX",
+      "name": "Uganda Shilling",
+      "numericcode": "800",
+      "fractionaldigits": "0",
+      "country": "UGANDA"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "AMERICAN SAMOA"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "BONAIRE, SINT EUSTATIUS AND SABA"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "BRITISH INDIAN OCEAN TERRITORY (THE)"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "ECUADOR"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "EL SALVADOR"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "GUAM"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "HAITI"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "MARSHALL ISLANDS (THE)"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "MICRONESIA (FEDERATED STATES OF)"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "NORTHERN MARIANA ISLANDS (THE)"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "PALAU"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "PANAMA"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "PUERTO RICO"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "TIMOR-LESTE"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "TURKS AND CAICOS ISLANDS (THE)"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "UNITED STATES MINOR OUTLYING ISLANDS (THE)"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "UNITED STATES OF AMERICA (THE)"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "VIRGIN ISLANDS (BRITISH)"
+      },
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "numericcode": "840",
+      "fractionaldigits": "2",
+      "country": "VIRGIN ISLANDS (U.S.)"
+      },
+    {
+      "code": "USN",
+      "name": "US Dollar (Next day)",
+      "numericcode": "997",
+      "fractionaldigits": "2",
+      "country": "UNITED STATES OF AMERICA (THE)"
+      },
+    {
+      "code": "UYI",
+      "name": "Uruguay Peso en Unidades Indexadas (UI)",
+      "numericcode": "940",
+      "fractionaldigits": "0",
+      "country": "URUGUAY"
+      },
+    {
+      "code": "UYU",
+      "name": "Peso Uruguayo",
+      "numericcode": "858",
+      "fractionaldigits": "2",
+      "country": "URUGUAY"
+      },
+    {
+      "code": "UYW",
+      "name": "Unidad Previsional",
+      "numericcode": "927",
+      "fractionaldigits": "4",
+      "country": "URUGUAY"
+      },
+    {
+      "code": "UZS",
+      "name": "Uzbekistan Sum",
+      "numericcode": "860",
+      "fractionaldigits": "2",
+      "country": "UZBEKISTAN"
+      },
+    {
+      "code": "VES",
+      "name": "Bolívar Soberano",
+      "numericcode": "928",
+      "fractionaldigits": "2",
+      "country": "VENEZUELA (BOLIVARIAN REPUBLIC OF)"
+      },
+    {
+      "code": "VND",
+      "name": "Dong",
+      "numericcode": "704",
+      "fractionaldigits": "0",
+      "country": "VIET NAM"
+      },
+    {
+      "code": "VUV",
+      "name": "Vatu",
+      "numericcode": "548",
+      "fractionaldigits": "0",
+      "country": "VANUATU"
+      },
+    {
+      "code": "WST",
+      "name": "Tala",
+      "numericcode": "882",
+      "fractionaldigits": "2",
+      "country": "SAMOA"
+      },
+    {
+      "code": "XAF",
+      "name": "CFA Franc BEAC",
+      "numericcode": "950",
+      "fractionaldigits": "0",
+      "country": "CAMEROON"
+      },
+    {
+      "code": "XAF",
+      "name": "CFA Franc BEAC",
+      "numericcode": "950",
+      "fractionaldigits": "0",
+      "country": "CENTRAL AFRICAN REPUBLIC (THE)"
+      },
+    {
+      "code": "XAF",
+      "name": "CFA Franc BEAC",
+      "numericcode": "950",
+      "fractionaldigits": "0",
+      "country": "CHAD"
+      },
+    {
+      "code": "XAF",
+      "name": "CFA Franc BEAC",
+      "numericcode": "950",
+      "fractionaldigits": "0",
+      "country": "CONGO (THE)"
+      },
+    {
+      "code": "XAF",
+      "name": "CFA Franc BEAC",
+      "numericcode": "950",
+      "fractionaldigits": "0",
+      "country": "EQUATORIAL GUINEA"
+      },
+    {
+      "code": "XAF",
+      "name": "CFA Franc BEAC",
+      "numericcode": "950",
+      "fractionaldigits": "0",
+      "country": "GABON"
+      },
+    {
+      "code": "XAG",
+      "name": "Silver",
+      "numericcode": "961",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ11_Silver"
+      },
+    {
+      "code": "XAU",
+      "name": "Gold",
+      "numericcode": "959",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ08_Gold"
+      },
+    {
+      "code": "XBA",
+      "name": "Bond Markets Unit European Composite Unit (EURCO)",
+      "numericcode": "955",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ01_Bond Markets Unit European_EURCO"
+      },
+    {
+      "code": "XBB",
+      "name": "Bond Markets Unit European Monetary Unit (E.M.U.-6)",
+      "numericcode": "956",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ02_Bond Markets Unit European_EMU-6"
+      },
+    {
+      "code": "XBC",
+      "name": "Bond Markets Unit European Unit of Account 9 (E.U.A.-9)",
+      "numericcode": "957",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ03_Bond Markets Unit European_EUA-9"
+      },
+    {
+      "code": "XBD",
+      "name": "Bond Markets Unit European Unit of Account 17 (E.U.A.-17)",
+      "numericcode": "958",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ04_Bond Markets Unit European_EUA-17"
+      },
+    {
+      "code": "XCD",
+      "name": "East Caribbean Dollar",
+      "numericcode": "951",
+      "fractionaldigits": "2",
+      "country": "ANGUILLA"
+      },
+    {
+      "code": "XCD",
+      "name": "East Caribbean Dollar",
+      "numericcode": "951",
+      "fractionaldigits": "2",
+      "country": "ANTIGUA AND BARBUDA"
+      },
+    {
+      "code": "XCD",
+      "name": "East Caribbean Dollar",
+      "numericcode": "951",
+      "fractionaldigits": "2",
+      "country": "DOMINICA"
+      },
+    {
+      "code": "XCD",
+      "name": "East Caribbean Dollar",
+      "numericcode": "951",
+      "fractionaldigits": "2",
+      "country": "GRENADA"
+      },
+    {
+      "code": "XCD",
+      "name": "East Caribbean Dollar",
+      "numericcode": "951",
+      "fractionaldigits": "2",
+      "country": "MONTSERRAT"
+      },
+    {
+      "code": "XCD",
+      "name": "East Caribbean Dollar",
+      "numericcode": "951",
+      "fractionaldigits": "2",
+      "country": "SAINT KITTS AND NEVIS"
+      },
+    {
+      "code": "XCD",
+      "name": "East Caribbean Dollar",
+      "numericcode": "951",
+      "fractionaldigits": "2",
+      "country": "SAINT LUCIA"
+      },
+    {
+      "code": "XCD",
+      "name": "East Caribbean Dollar",
+      "numericcode": "951",
+      "fractionaldigits": "2",
+      "country": "SAINT VINCENT AND THE GRENADINES"
+      },
+    {
+      "code": "XDR",
+      "name": "SDR (Special Drawing Right)",
+      "numericcode": "960",
+      "fractionaldigits": "N.A.",
+      "country": "INTERNATIONAL MONETARY FUND (IMF) "
+      },
+    {
+      "code": "XOF",
+      "name": "CFA Franc BCEAO",
+      "numericcode": "952",
+      "fractionaldigits": "0",
+      "country": "BENIN"
+      },
+    {
+      "code": "XOF",
+      "name": "CFA Franc BCEAO",
+      "numericcode": "952",
+      "fractionaldigits": "0",
+      "country": "BURKINA FASO"
+      },
+    {
+      "code": "XOF",
+      "name": "CFA Franc BCEAO",
+      "numericcode": "952",
+      "fractionaldigits": "0",
+      "country": "CÔTE D'IVOIRE"
+      },
+    {
+      "code": "XOF",
+      "name": "CFA Franc BCEAO",
+      "numericcode": "952",
+      "fractionaldigits": "0",
+      "country": "GUINEA-BISSAU"
+      },
+    {
+      "code": "XOF",
+      "name": "CFA Franc BCEAO",
+      "numericcode": "952",
+      "fractionaldigits": "0",
+      "country": "MALI"
+      },
+    {
+      "code": "XOF",
+      "name": "CFA Franc BCEAO",
+      "numericcode": "952",
+      "fractionaldigits": "0",
+      "country": "NIGER (THE)"
+      },
+    {
+      "code": "XOF",
+      "name": "CFA Franc BCEAO",
+      "numericcode": "952",
+      "fractionaldigits": "0",
+      "country": "SENEGAL"
+      },
+    {
+      "code": "XOF",
+      "name": "CFA Franc BCEAO",
+      "numericcode": "952",
+      "fractionaldigits": "0",
+      "country": "TOGO"
+      },
+    {
+      "code": "XPD",
+      "name": "Palladium",
+      "numericcode": "964",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ09_Palladium"
+      },
+    {
+      "code": "XPF",
+      "name": "CFP Franc",
+      "numericcode": "953",
+      "fractionaldigits": "0",
+      "country": "FRENCH POLYNESIA"
+      },
+    {
+      "code": "XPF",
+      "name": "CFP Franc",
+      "numericcode": "953",
+      "fractionaldigits": "0",
+      "country": "NEW CALEDONIA"
+      },
+    {
+      "code": "XPF",
+      "name": "CFP Franc",
+      "numericcode": "953",
+      "fractionaldigits": "0",
+      "country": "WALLIS AND FUTUNA"
+      },
+    {
+      "code": "XPT",
+      "name": "Platinum",
+      "numericcode": "962",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ10_Platinum"
+      },
+    {
+      "code": "XSU",
+      "name": "Sucre",
+      "numericcode": "994",
+      "fractionaldigits": "N.A.",
+      "country": "SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\""
+      },
+    {
+      "code": "XTS",
+      "name": "Codes specifically reserved for testing purposes",
+      "numericcode": "963",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ06_Testing_Code"
+      },
+    {
+      "code": "XUA",
+      "name": "ADB Unit of Account",
+      "numericcode": "965",
+      "fractionaldigits": "N.A.",
+      "country": "MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP"
+      },
+    {
+      "code": "XXX",
+      "name": "The codes assigned for transactions where no currency is involved",
+      "numericcode": "999",
+      "fractionaldigits": "N.A.",
+      "country": "ZZ07_No_Currency"
+      },
+    {
+      "code": "YER",
+      "name": "Yemeni Rial",
+      "numericcode": "886",
+      "fractionaldigits": "2",
+      "country": "YEMEN"
+      },
+    {
+      "code": "ZAR",
+      "name": "Rand",
+      "numericcode": "710",
+      "fractionaldigits": "2",
+      "country": "LESOTHO"
+      },
+    {
+      "code": "ZAR",
+      "name": "Rand",
+      "numericcode": "710",
+      "fractionaldigits": "2",
+      "country": "NAMIBIA"
+      },
+    {
+      "code": "ZAR",
+      "name": "Rand",
+      "numericcode": "710",
+      "fractionaldigits": "2",
+      "country": "SOUTH AFRICA"
+      },
+    {
+      "code": "ZMW",
+      "name": "Zambian Kwacha",
+      "numericcode": "967",
+      "fractionaldigits": "2",
+      "country": "ZAMBIA"
+      },
+    {
+      "code": "ZWL",
+      "name": "Zimbabwe Dollar",
+      "numericcode": "932",
+      "fractionaldigits": "2",
+      "country": "ZIMBABWE"
+      }
+    ]
+  }
