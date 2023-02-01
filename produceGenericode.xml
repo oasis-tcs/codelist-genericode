@@ -205,7 +205,8 @@
   <echo message="Submitting print job..."/>
   <property name="serverScript" location="RealtaServerAnt.xml"/> 
   <ant antfile="${serverScript}" dir="${dir}">
-    <property name="entrypoint" value="OASIS-spec2pdfhtml-ISO-pdf"/>
+    <!--<property name="entrypoint" value="OASIS-spec2pdfhtml-ISO-pdf"/>-->
+    <property name="entrypoint" value="OASIS-2020-spec2pdfhtml-ISO-pdfdocx"/>
     <property name="fileupload"
               value="${package}-${stage}-pub.zip"/>
     <property name="dateprefix" value="genericode 1.0"/>
@@ -229,8 +230,6 @@
         tofile="${dir}/${package}-${stage}.pdf"/>
   <move preservelastmodified="true" file="${dir}/${package}-${stage}.oasis.html"
         tofile="${dir}/${package}-${stage}.html"/>
-  <move preservelastmodified="true" file="${dir}/${package}-${stage}.iso.pdf"
-        tofile="${dir}/iso-iec-00000-${package}-draft.pdf"/>
   <!--intermediate file no longer needed-->
   <delete file="${dir}/${package}-${stage}-pub.zip"/>
 </target>
@@ -295,6 +294,7 @@
       <include name="${package}-${stage}.*"/>
       <include name="iso*"/>
       <exclude name="*.txt"/>
+      <exclude name="*.iso.pdf"/>
     </fileset>
   </copy>
   <copy preservelastmodified="true"
@@ -352,6 +352,8 @@
     </fileset>
     <fileset dir="${dir}">
       <include name="realta-user-parameters.xml"/>
+      <include name="iso-iec-00000-${package}-draft.pdf"/>
+      <include name="${package}-${stage}.iso.pdf"/>
     </fileset>
   </copy>
   <copy todir="${dir}/${package}-${stage}-${label}-archive-only/old-entities">

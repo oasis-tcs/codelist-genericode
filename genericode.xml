@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" 
-  href="db/spec-0.8/stylesheets/oasis-specification-html-offline.xsl"?>
+  href="db/spec-0.8/stylesheets/oasis-2020-specification-html-offline.xsl"?>
 <?oasis-spec-base-uri db/spec-0.8/?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "db/spec-0.8/docbook/docbookx.dtd" [
 	<!ENTITY name "genericode-v&version;">
 	<!ENTITY pversion "NONE">
 	<!ENTITY version "1.0">
-	<!ENTITY pstage "csd04">
-	<!ENTITY PSTAGE "CSD04">
+	<!ENTITY pstage "cs02">
+	<!ENTITY PSTAGE "CS02">
+	<!ENTITY stage "os">
+	<!ENTITY STAGE "OS">
 	<!ENTITY stage "cs02">
 	<!ENTITY STAGE "CS02">
 	<!ENTITY stage "csd05wd01">
 	<!ENTITY STAGE "CSD05wd01">
 	<!ENTITY isostage "WD">
+	<!ENTITY standard  "OASIS Standard">
+	<!ENTITY stagetext "OASIS Standard">
 	<!ENTITY standard  "Committee Specification 02">
 	<!ENTITY stagetext "Committee Specification 02">
 	<!ENTITY standard  "Committee Specification Draft 05">
@@ -29,9 +33,9 @@
 	<!ENTITY latest-loc "https://docs.oasis-open.org/codelist/genericode/v1.0/genericode-v1.0">
 	<!ENTITY rule-summary-document SYSTEM "rule-summary-document.ent.xml">
 	<!ENTITY rule-summary-application SYSTEM "rule-summary-application.ent.xml">
-	<!ENTITY pubdate "06 April 2022">
+	<!ENTITY pubdate "31 January 2023">
 	<!--remove time from pub date-->
-	<!ENTITY pubyear "2022">
+	<!ENTITY pubyear "2023">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
 	<!ENTITY reldate-iso "ccyy-mm">
 ]>
@@ -170,10 +174,12 @@
     </legalnotice>
     <legalnotice role="namespaces">
       <title>Declared XML Namespaces</title>
-      <simplelist lang="none">
-        <member><ulink conformance="skip" url="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">http://docs.oasis-open.org/codelist/ns/genericode/1.0/</ulink></member>
-        <member><ulink conformance="skip" url="http://docs.oasis-open.org/codelist/ns/rule/1.0/">http://docs.oasis-open.org/codelist/ns/rule/1.0/</ulink></member>
-      </simplelist>
+      <para>
+        <simplelist lang="none">
+          <member><ulink conformance="skip" url="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">http://docs.oasis-open.org/codelist/ns/genericode/1.0/</ulink></member>
+          <member><ulink conformance="skip" url="http://docs.oasis-open.org/codelist/ns/rule/1.0/">http://docs.oasis-open.org/codelist/ns/rule/1.0/</ulink></member>
+        </simplelist>
+      </para>
     </legalnotice>
     <abstract>
       <para>This specification defines the genericode v1.0 vocabulary, rules, and serialization.</para>
@@ -187,12 +193,12 @@
         begins officially with a TC vote to approve a WD as a Committee Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Draft.</para>
       -->
       
-      <para>This document was last revised or approved by the OASIS Code List Representation Technical Committee <!--OASIS Members--> on the above date. The level of approval is also listed above. Check the &#x201c;Latest stage&#x201d; location noted above for possible later revisions of this document. Any
+      <para>This document was last revised or approved by the <!--OASIS Code List Representation Technical Committee--> OASIS Members on the above date. The level of approval is also listed above. Check the &#x201c;Latest stage&#x201d; location noted above for possible later revisions of this document. Any
         other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <ulink url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist#technical</ulink>. </para> 
       
       <para>TC members should send comments on this document to the TC’s email list. Others should send comments to the TC’s public comment list, after subscribing to it by following the instructions at the “<ulink conformance="skip"
           url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=codelist">Send A Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink url="https://www.oasis-open.org/committees/codelist/">https://www.oasis-open.org/committees/codelist/</ulink>.</para>
-      <para>This specification is provided under the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-Limited-Mode" conformance="skip">RF on Limited Terms Mode</ulink> of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">OASIS IPR
+      <para>This specification is provided under the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-Limited-Mode" conformance="skip">RF on Limited Terms Mode</ulink> of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/" conformance="skip">OASIS IPR
           Policy</ulink>, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights
         section of the Technical Committee web page (<ulink url="https://www.oasis-open.org/committees/codelist/ipr.php">https://www.oasis-open.org/committees/codelist/ipr.php</ulink>).</para>
       <para>Note that any machine-readable content (<ulink url="https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26#wpComponentsCompLang" conformance="skip">Computer Language Definitions</ulink>) declared Normative for this Work Product is provided in separate plain text files. In
@@ -216,24 +222,8 @@
     <legalnotice role="notices">
       <title>Notices</title>
       <para>Copyright &#169; OASIS Open 2001-&pubyear;. All Rights Reserved. </para>
-      <para>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the &#8220;OASIS IPR Policy&#8221;). The full <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">Policy</ulink> may be found at
-        the OASIS website.</para>
-      <para>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided
-        that the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document
-        or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.</para>
-      <para>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.</para>
-      <para>This document and the information contained herein is provided on an &#8220;AS IS&#8221; basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS AND ANY IMPLIED
-        WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</para>
-      <para>OASIS requests that any OASIS Party or any other party that believes it has patent claims that would necessarily be infringed by implementations of this OASIS Committee Specification or OASIS Standard notify OASIS TC Administrator and provide an indication of its willingness to grant
-        patent licenses to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification.</para>
-      <para>OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this specification by a patent holder that is not willing to provide a license to such patent claims in a
-        manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification. OASIS may include such claims on its website, but disclaims any obligation to do so.</para>
-      <para>OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be
-        available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS&#8217; procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights
-        made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Committee Specification or OASIS Standard, can be
-        obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.</para>
-      <para>The name &#8220;OASIS&#8221; is a trademark of <ulink conformance="skip" url="https://www.oasis-open.org">OASIS</ulink>, the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and
-        implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see <ulink url="https://www.oasis-open.org/policies-guidelines/trademark">https://www.oasis-open.org/policies-guidelines/trademark</ulink> for guidance.</para>
+      <para>Distributed under the terms of the OASIS IPR Policy, [<ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</ulink>]. For complete copyright information please see the full Notices section in <xref linkend="A-NOTICES"
+        />.</para>
     </legalnotice>
     <!--metadata for ISO/IEC 00000-->
     <othername role="intro">Information Technology</othername>
@@ -4294,6 +4284,7 @@
           </para>
         </listitem>
       </itemizedlist>
+      <!--
       <para>Online and downloadable versions of the latest ISO/IEC release of this package are available from:</para>
       <itemizedlist>
         <listitem>
@@ -4302,6 +4293,7 @@
           </para>
         </listitem>
       </itemizedlist>
+      -->
     </section>
     <section id="S-PACKAGE-STRUCTURE" role="non-normative">
       <title>Package Structure</title>
@@ -4516,6 +4508,29 @@
       <member>Pim van der Eijk, Sonnenglanz Consulting</member>
       <member>Dennis Weddig, Federal Reserve Bank of Minneapolis</member>
     </simplelist>
+  </appendix>
+  <appendix id="A-NOTICES" condition="oasis">
+    <title>Notices</title>
+    <para>Copyright &#169; OASIS Open 2001-&pubyear;. All Rights Reserved. </para>
+    <para>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the “OASIS IPR Policy”). The full <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/" conformance="skip">Policy</ulink> may be found at the OASIS
+      website: [<ulink url="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</ulink>].</para>
+    <para>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that
+      the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or
+      deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.</para>
+    <para>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.</para>
+    <para>This document and the information contained herein is provided on an “AS IS” basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF
+      MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. OASIS AND ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.</para>
+    <para>As stated in the OASIS IPR Policy, the following three paragraphs in brackets apply to OASIS Standards Final Deliverable documents (Committee Specifications, OASIS Standards, or Approved Errata).</para>
+    <para>[OASIS requests that any OASIS Party or any other party that believes it has patent claims that would necessarily be infringed by implementations of this OASIS Standards Final Deliverable, to notify OASIS TC Administrator and provide an indication of its willingness to grant patent
+      licenses to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this deliverable.]</para>
+    <para>[OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this OASIS Standards Final Deliverable by a patent holder that is not willing to provide a license to such
+      patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this OASIS Standards Final Deliverable. OASIS may include such claims on its website, but disclaims any obligation to do so.]</para>
+    <para>[OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this OASIS Standards Final Deliverable or the extent to which any license under such rights
+      might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS’ procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of
+      claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Standards Final Deliverable, can be
+      obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.]</para>
+    <para>The name “OASIS” is a trademark of <ulink url="https://www.oasis-open.org" conformance="skip">OASIS</ulink>, the owner and developer of this document, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of,
+      documents, while reserving the right to enforce its marks against misleading uses. Please see <ulink url="https://www.oasis-open.org/policies-guidelines/trademark/">https://www.oasis-open.org/policies-guidelines/trademark/</ulink> for above guidance.</para>
   </appendix>
   <!--
   <appendix id="A-TEMPORARY-ANNEX-\-\-RENDERING-PER-ISO-IEC-DIRECTIVES-PART-2" role="non-normative">
