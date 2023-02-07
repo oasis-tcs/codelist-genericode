@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Code List Representation (genericode) Version 1.0
+     OASIS Standard
+     31 January 2023
+     Copyright (c) OASIS Open 2023. All Rights Reserved.
+     Source: https://docs.oasis-open.org/codelist/genericode/v1.0/os/
+     Latest stage of narrative specification: https://docs.oasis-open.org/codelist/genericode/v1.0/genericode-v1.0.html
+     TC IPR Statement: https://www.oasis-open.org/committees/codelist/ipr.php 
+-->
 <gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
    <Identification>
       <ShortName>UnitOfMeasureCode</ShortName>

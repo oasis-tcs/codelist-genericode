@@ -33,6 +33,7 @@
   <copy todir="${dir}">
     <fileset dir=".">
       <include name="genericode.xml"/>
+      <include name="${package}-namespace.html"/>
       <include name="*.ent.xml"/>
       <include name="art/**"/>
       <include name="htmlart/**"/>
@@ -285,14 +286,9 @@
   <copy preservelastmodified="true"
         todir="${dir}/${package}-${stage}-${label}">
     <fileset dir="${dir}">
-<!--      <include name="xslt/**"/>
-      <include name="xml/**"/>
-      <include name="jsan-example/**"/>
-      <include name="xsd/**"/>
-      <include name="sch/**"/>
-      <include name="db/**"/>-->
       <include name="${package}-${stage}.*"/>
       <include name="iso*"/>
+      <include name="${package}-namespace.html"/>
       <exclude name="*.txt"/>
       <exclude name="*.iso.pdf"/>
     </fileset>
