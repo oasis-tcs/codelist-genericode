@@ -1,6 +1,6 @@
 name: Build
 
-on: [push]
+on: [push ,workflow_dispatch]
 
 jobs:
   build:
@@ -16,6 +16,11 @@ jobs:
         distribution: 'zulu'
         java-version: 8
         java-package: jdk
+
+
+
+
+
 
     - name: Build
       env:

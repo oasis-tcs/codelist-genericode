@@ -150,7 +150,9 @@
         if="not-attempting-to-produce-necessary-results">
   <delete file="${dir}/${package}-${stage}.html"/>
   <delete file="${dir}/${package}-${stage}.pdf"/>
+  <delete file="${dir}/iso-iec-00000-genericode-draft.docx"/>
   <delete file="${dir}/iso-iec-00000-genericode-draft.pdf"/>
+  <delete file="${dir}/iso-iec-00000-genericode-draft.niso.xml"/>
   <delete file="${dir}/${package}-${stage}-pub.zip"/>
 </target>
 
@@ -167,8 +169,20 @@
       <include name="${package}-${stage}.xml"/>
     </srcfiles>
   </uptodate>
+  <uptodate targetfile="${dir}/iso-iec-00000-genericode-draft.docx"
+            property=  "docs-gc-iso-xml-okay">
+    <srcfiles dir="${dir}">
+      <include name="${package}-${stage}.xml"/>
+    </srcfiles>
+  </uptodate>
   <uptodate targetfile="${dir}/iso-iec-00000-genericode-draft.pdf"
-            property=  "docs-gc-iso-okay">
+            property=  "docs-gc-iso-pdf-okay">
+    <srcfiles dir="${dir}">
+      <include name="${package}-${stage}.xml"/>
+    </srcfiles>
+  </uptodate>
+  <uptodate targetfile="${dir}/iso-iec-00000-genericode-draft.niso.zip"
+            property=  "docs-gc-iso-xml-okay">
     <srcfiles dir="${dir}">
       <include name="${package}-${stage}.xml"/>
     </srcfiles>
@@ -178,7 +192,9 @@
       <istrue value="${docs-gc-xml-okay}"/>
       <istrue value="${docs-gc-html-okay}"/>
       <istrue value="${docs-gc-pdf-okay}"/>
-      <istrue value="${docs-gc-iso-okay}"/>
+      <istrue value="${docs-gc-iso-docx-okay}"/>
+    <istrue value="${docs-gc-iso-pdf-okay}"/>
+      <istrue value="${docs-gc-iso-xml-okay}"/>
     </and>
   </condition>
 </target>
@@ -187,7 +203,9 @@
   <!--remove old results-->
   <delete file="${dir}/${package}-${stage}.html"/>
   <delete file="${dir}/${package}-${stage}.pdf"/>
+  <delete file="${dir}/iso-iec-00000-genericode-draft.docx"/>
   <delete file="${dir}/iso-iec-00000-genericode-draft.pdf"/>
+  <delete file="${dir}/iso-iec-00000-genericode-draft.niso.zip"/>
   <delete file="${dir}/${package}-${stage}-pub.zip"/>
   
   <!--package inputs to the publishing process-->
@@ -216,9 +234,15 @@
   <available property="ready-pdf" file="${dir}/${package}-${stage}.oasis.pdf"/>
   <echo unless:set="ready-pdf" message="PDF not created"/>
   <echo if:set="ready-pdf" message="PDF created"/>
-  <available property="ready-iso" file="${dir}/${package}-${stage}.iso.pdf"/>
-  <echo unless:set="ready-iso" message="ISO PDF not created"/>
-  <echo if:set="ready-iso" message="ISO PDF created"/>
+  <available property="ready-iso-docx" file="${dir}/${package}-${stage}.iso.docx"/>
+  <echo unless:set="ready-iso-docx" message="ISO DOCX not created"/>
+  <echo if:set="ready-iso-docx" message="ISO DOCX created"/>
+  <available property="ready-iso-pdf" file="${dir}/${package}-${stage}.iso.pdf"/>
+  <echo unless:set="ready-iso-pdf" message="ISO PDF not created"/>
+  <echo if:set="ready-iso-pdf" message="ISO PDF created"/>
+  <available property="ready-iso-xml" file="${dir}/${package}-${stage}.niso.zip"/>
+  <echo unless:set="ready-iso-xml" message="ISO NISO XML not created"/>
+  <echo if:set="ready-iso-xml" message="ISO NISO XML created"/>
   <available property="ready-html" file="${dir}/${package}-${stage}.oasis.html"/>
   <echo unless:set="ready-html" message="HTML not created"/>
   <echo if:set="ready-html" message="HTML created"/>
@@ -227,10 +251,23 @@
   <touch file="${dir}/${package}-${stage}.iso.pdf"/>
   <touch file="${dir}/${package}-${stage}.oasis.html"/>-->
   <!--the names needed are not the names created-->
+  <touch if:set="ready-pdf" file="${dir}/${package}-${stage}.oasis.pdf"/>
+  <touch if:set="ready-iso-docx" file="${dir}/${package}-${stage}.iso.docx"/>
+  <touch if:set="ready-iso-pdf" file="${dir}/${package}-${stage}.iso.pdf"/>
+  <touch if:set="ready-iso-xml" file="${dir}/${package}-${stage}.niso.zip"/>
+  <touch if:set="ready-html" file="${dir}/${package}-${stage}.oasis.html"/>
+  <!--the names needed are not the names created-->
   <move preservelastmodified="true" file="${dir}/${package}-${stage}.oasis.pdf"
         tofile="${dir}/${package}-${stage}.pdf"/>
   <move preservelastmodified="true" file="${dir}/${package}-${stage}.oasis.html"
         tofile="${dir}/${package}-${stage}.html"/>
+  <!--intermediate file no longer needed-->
+  <move preservelastmodified="true" file="${dir}/${package}-${stage}.iso.docx"
+        tofile="${dir}/iso-iec-00000-genericode-draft.docx"/>
+  <move preservelastmodified="true" file="${dir}/${package}-${stage}.iso.pdf"
+        tofile="${dir}/iso-iec-00000-genericode-draft.pdf"/>
+  <move preservelastmodified="true" file="${dir}/${package}-${stage}.niso.zip"
+        tofile="${dir}/iso-iec-00000-genericode-draft.niso.zip"/>
   <!--intermediate file no longer needed-->
   <delete file="${dir}/${package}-${stage}-pub.zip"/>
 </target>
@@ -258,9 +295,15 @@
   <echo message="Checking existence of results..."/>
   <available property="xml-made" file="${dir}/${package}-${stage}.xml"/>
   <available property="html-made" file="${dir}/${package}-${stage}.html"/>
-  <available property="pdf-made" file="${dir}/${package}-${stage}.pdf"/>
-  <available property="iso-made"
-             file="${dir}/iso-iec-00000-${package}-draft.pdf"/>
+  <available property="iso-docx-made" file="${dir}/${package}-${stage}.docx"/>
+  <available property="iso-pdf-made" file="${dir}/${package}-${stage}.pdf"/>
+  <available property="iso-xml-made" file="${dir}/${package}-${stage}.pdf"/>
+  <available property="iso-docx-made"
+             file="${dir}/iso-iec-00000-genericode-draft.docx"/>
+  <available property="iso-pdf-made"
+             file="${dir}/iso-iec-00000-genericode-draft.pdf"/>
+  <available property="iso-xml-made"
+             file="${dir}/iso-iec-00000-genericode-draft.niso.zip"/>
   <condition property="docs-not-made">
     <not>
       <and>
@@ -270,7 +313,9 @@
           <and>
             <istrue value="${html-made}"/>
             <istrue value="${pdf-made}"/>
-            <istrue value="${iso-made}"/>
+            <istrue value="${iso-docx-made}"/>
+          <istrue value="${iso-pdf-made}"/>
+            <istrue value="${iso-xml-made}"/>
           </and>
         </or>
       </and>
@@ -287,10 +332,8 @@
         todir="${dir}/${package}-${stage}-${label}">
     <fileset dir="${dir}">
       <include name="${package}-${stage}.*"/>
-      <include name="iso*"/>
       <include name="${package}-namespace.html"/>
       <exclude name="*.txt"/>
-      <exclude name="*.iso.pdf"/>
     </fileset>
   </copy>
   <copy preservelastmodified="true"
@@ -348,10 +391,15 @@
     </fileset>
     <fileset dir="${dir}">
       <include name="realta-user-parameters.xml"/>
-      <include name="iso-iec-00000-${package}-draft.pdf"/>
-      <include name="${package}-${stage}.iso.pdf"/>
-    </fileset>
+      </fileset>
   </copy>
+  <move todir="${dir}/${package}-${stage}-${label}-archive-only/iso-iec-00000-genericode-draft">
+    <fileset dir="${dir}">
+      <include name="iso-iec-00000-genericode-draft.docx"/>
+      <include name="iso-iec-00000-genericode-draft.pdf"/>
+      <include name="iso-iec-00000-genericode-draft.niso.zip"/>
+    </fileset>
+  </move>
   <copy todir="${dir}/${package}-${stage}-${label}-archive-only/old-entities">
     <fileset dir=".">
       <include name="*.ent.xml"/>
